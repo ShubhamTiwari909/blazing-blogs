@@ -12,6 +12,19 @@ const nextConfig = {
 
     return webpackConfig
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '570pc5yjce.ufs.sh',
+        port: '',
+        pathname: '/f/**',
+      },
+    ],
+    formats: ['image/webp', 'image/avif'],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })

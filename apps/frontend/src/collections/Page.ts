@@ -5,6 +5,10 @@ import { generatePreviewPath } from './utils/generatePreviewPath'
 
 export const Page: CollectionConfig = {
   slug: 'pages',
+  folders: true,
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'title',
     livePreview: {
@@ -30,6 +34,7 @@ export const Page: CollectionConfig = {
       name: 'slug',
       type: 'text',
       required: true,
+      unique: true,
       admin: {
         position: 'sidebar',
       },
@@ -37,54 +42,83 @@ export const Page: CollectionConfig = {
     {
       name: 'title',
       type: 'text',
+      required: true,
     },
     {
-      name:'blocks',
-      type:'blocks',
-      blocks:[
-       {
-        slug:'content',
-        fields: [
-          {
-            name: 'content',
-            type: 'richText',
-            editor: lexicalEditor({
-              features: ({ defaultFeatures }) => [
-                ...defaultFeatures,
-                LinkFeature({
-                  // Example showing how to customize the built-in fields
-                  // of the Link feature
-                  fields: ({ defaultFields }) => [
-                    ...defaultFields,
-                    {
-                      name: 'rel',
-                      label: 'Rel Attribute',
-                      type: 'select',
-                      hasMany: true,
-                      options: ['noopener', 'noreferrer', 'nofollow'],
-                      admin: {
-                        description:
-                          'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.',
-                      },
-                    },
-                  ],
-                }),
-              ],
-            }),
-          },
-        ]
-       },
+      name: 'shortDescription',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'author',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'tags',
+      type: 'array',
+      fields: [
         {
-          slug:'codeBlock',
-          fields:[
+          name: 'tag',
+          type: 'text',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      label: 'Cover Image',
+      relationTo: 'media',
+      required: true,
+    },
+    {
+      name: 'blocks',
+      type: 'blocks',
+      required: true,
+      blocks: [
+        {
+          slug: 'content',
+          fields: [
             {
-              name: "codeBlock",
-              type:'code'
-            }
-          ]
-        }
-      ]
-    }
-   
+              name: 'content',
+              type: 'richText',
+              editor: lexicalEditor({
+                features: ({ defaultFeatures }) => [
+                  ...defaultFeatures,
+                  LinkFeature({
+                    // Example showing how to customize the built-in fields
+                    // of the Link feature
+                    fields: ({ defaultFields }) => [
+                      ...defaultFields,
+                      {
+                        name: 'rel',
+                        label: 'Rel Attribute',
+                        type: 'select',
+                        hasMany: true,
+                        options: ['noopener', 'noreferrer', 'nofollow'],
+                        admin: {
+                          description:
+                            'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.',
+                        },
+                      },
+                    ],
+                  }),
+                ],
+              }),
+            },
+          ],
+        },
+        {
+          slug: 'codeBlock',
+          fields: [
+            {
+              name: 'codeBlock',
+              type: 'code',
+            },
+          ],
+        },
+      ],
+    },
   ],
 }
