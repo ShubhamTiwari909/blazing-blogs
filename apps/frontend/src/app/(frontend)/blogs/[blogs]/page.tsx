@@ -15,7 +15,7 @@ const page = async ({ params }: Props) => {
   const { isEnabled: draft } = await draftMode()
   const page = await pageData(params)
   const blogData = page.docs
-  
+
   return (
     <div className="min-h-screen bg-gray-50">
       <BlogRenderer blogData={blogData} draft={draft} />

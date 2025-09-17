@@ -15,10 +15,10 @@
     "lint-format": "pnpm run lint && pnpm run format",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
-    "test": "pnpm run test:int",
-    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
+    "test": "pnpm run test:api",
+    "test:api": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "prepare": "husky",
-    "validate:lint": "pnpm run format && pnpm run lint && pnpm run test && pnpm run build"
+    "validate": "pnpm run format && pnpm run lint && pnpm run test && pnpm run build"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.55.1",

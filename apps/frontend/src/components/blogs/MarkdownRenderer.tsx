@@ -12,7 +12,8 @@ const proseStyles = {
   code: 'prose-code:text-pink-600 prose-code:bg-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto',
   blockquotes:
     'prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-slate-600 prose-blockquote:lg:text-base prose-blockquote:text-sm',
-  lists: 'prose-ul:my-4 prose-ol:my-4 prose-li:my-1 prose-li:last:mb-0 prose-li:lg:text-base prose-li:text-sm',
+  lists:
+    'prose-ul:my-4 prose-ol:my-4 prose-li:my-1 prose-li:last:mb-0 prose-li:lg:text-base prose-li:text-sm',
   images: 'prose-img:rounded-lg prose-img:shadow-md',
   tables:
     'prose-table:border-collapse prose-th:border prose-th:border-slate-300 prose-th:bg-slate-50 prose-th:p-3 prose-th:text-left prose-td:border prose-td:border-slate-300 prose-td:p-3',
