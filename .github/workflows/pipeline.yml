@@ -28,12 +28,20 @@ jobs:
 
       - name: Run lint
         run: pnpm lint
+        env:
+          NODE_ENV: test
 
       - name: Run format
         run: pnpm format
         
       - name: Build the project
         run: pnpm build
+        env:
+          NODE_ENV: production
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          PREVIEW_SECRET: ${{ secrets.PREVIEW_SECRET }}
+          UPLOADTHING_TOKEN: ${{ secrets.UPLOADTHING_TOKEN }}
 
       - name: Run tests
         run: pnpm test
