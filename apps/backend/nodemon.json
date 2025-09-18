@@ -1,0 +1,5 @@
+{
+  "watch": ["api", "controller", "middlewares", "schemas", "routes", "utils"],
+  "ext": "ts",
+  "exec": "npx concurrently \"npx tsc\" \"node dist/api/index.js\""
+}
