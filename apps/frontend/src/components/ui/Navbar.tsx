@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { Button } from './button'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import Image from 'next/image'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -13,6 +15,7 @@ const navItems = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { data: session } = useSession()
 
   return (
     <nav className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
@@ -40,9 +43,18 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
-            <Button className="cursor-pointer bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
-              Login
-            </Button>
+            {session ? (
+              <div className="flex items-center space-x-3">
+                <Button onClick={() => signOut()} className="cursor-pointer bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                  Logout
+                </Button>
+                <Image className='rounded-full' src={session.user?.image || ''} alt={session.user?.name || ''} width={32} height={32} />
+              </div>
+            ) : (
+              <Button onClick={() => signIn('google')} className="cursor-pointer bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -88,9 +100,18 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button className="cursor-pointer w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md">
-                  Login
-                </Button>
+                {session ? (
+                  <div className="space-y-2">
+                    <div className="text-slate-600 text-center font-medium">Welcome, {session.user?.name}</div>
+                    <Button onClick={() => signOut()} className="cursor-pointer w-full bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-all duration-300 shadow-md">
+                      Logout
+                    </Button>
+                  </div>
+                ) : (
+                  <Button onClick={() => signIn('google')} className="cursor-pointer w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md">
+                    Login
+                  </Button>
+                )}
               </div>
             </div>
           </div>

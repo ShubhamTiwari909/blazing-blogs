@@ -7,6 +7,7 @@ import { MarkdownRenderer } from '@/components/blogs/MarkdownRenderer'
 import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
 import { contructImageUrl } from '@/lib/utils'
 import { Page } from '@/payload-types'
+import Comments from './Comments'
 
 const BlogRenderer = ({ blogData, draft }: { blogData: Page; draft: boolean }) => {
   const docs = blogData.blocks
@@ -112,6 +113,7 @@ const BlogRenderer = ({ blogData, draft }: { blogData: Page; draft: boolean }) =
           })}
         </div>
       </div>
+      <Comments blogId={blogData.id} />
     </div>
   )
 }

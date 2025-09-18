@@ -17,6 +17,11 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "env": ["NODE_ENV", "DATABASE_URI", "PAYLOAD_SECRET", "UPLOADTHING_SECRET", "UPLOADTHING_APP_ID"]
     }
   }
 }

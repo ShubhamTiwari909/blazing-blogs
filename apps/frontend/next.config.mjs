@@ -20,6 +20,12 @@ const nextConfig = {
         port: '',
         pathname: '/f/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
     dangerouslyAllowSVG: true,
