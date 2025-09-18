@@ -18,7 +18,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     signIn: async ({ user }) => {
-      await fetch("http://localhost:5000/users/add", {
+      await fetch(`${process.env.BACKEND_URL}/users/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return true; // Allow sign-in to proceed
     },
     session: async ({ session }) => {
-      const response = await fetch(`http://localhost:5000/users/search?email=${session?.user?.email}`, {
+      const response = await fetch(`${process.env.BACKEND_URL}/users/search?email=${session?.user?.email}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
