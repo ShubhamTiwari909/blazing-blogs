@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeAll } from 'vitest'
 import { getPayload, Payload } from 'payload'
 import config from '@/payload.config'
+import 'dotenv/config'
 
 describe('API Tests', () => {
   let payload: Payload
