@@ -203,6 +203,15 @@ export interface FolderInterface {
 export interface Page {
   id: string;
   slug: string;
+  likes?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   title: string;
   shortDescription: string;
   author: string;
@@ -358,6 +367,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   slug?: T;
+  likes?: T;
   title?: T;
   shortDescription?: T;
   author?: T;

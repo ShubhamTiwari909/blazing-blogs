@@ -19,19 +19,17 @@ export const updateViews = async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'Blog not found' });
     }
 
-    const blogsCount = await Blogs.countDocuments();
-
     // Check if this IP has already viewed in the last 24h
     const alreadyViewed = await Blogs.findOne({ _id: id, 'views.ip': ip });
     if (alreadyViewed) {
-      return res.status(200).json({ blogsCount }); // don't increment again
+      return res.status(200).json({ blogsCount: blog.views.length }); // don't increment again
     }
 
     // Otherwise add a new view
     await Blogs.updateOne({ _id: id }, { $push: { views: { blogId: blog._id, ip } } });
     await blog.save();
 
-    return res.status(200).json({ blogsCount });
+    return res.status(200).json({ blogsCount: blog.views.length });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Internal Server Error' });

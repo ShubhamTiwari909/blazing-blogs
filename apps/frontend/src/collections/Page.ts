@@ -40,6 +40,11 @@ export const Page: CollectionConfig = {
       },
     },
     {
+      name: 'likes',
+      type: 'json',
+      admin: { hidden: true },
+    },
+    {
       name: 'title',
       type: 'text',
       required: true,
@@ -121,4 +126,16 @@ export const Page: CollectionConfig = {
       ],
     },
   ],
+  hooks: {
+    beforeValidate: [
+      ({ data }) => {
+        if(data){
+          delete data.likes
+          console.log(data)
+          return data
+        }
+        return data
+      }
+    ]
+  }
 }

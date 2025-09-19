@@ -7,7 +7,6 @@ const UserSchema = {
   },
   email: {
     type: String,
-    unique: true,
     required: true,
   },
   image: {
@@ -47,13 +46,18 @@ const blogSchema = new mongoose.Schema({
     default: [],
   },
   likes: {
-    count: {
-      type: Number,
-      default: 0,
+    type: {
+      count: {
+        type: Number,
+        default: 0,
+      },
+      users: [UserSchema],
     },
-    users: [UserSchema],
+    required: false,
   },
-  comments: [CommentSchema],
+  comments: {
+    type: [CommentSchema],
+  },
 });
 
 export const Blogs = mongoose.model('pages', blogSchema);
