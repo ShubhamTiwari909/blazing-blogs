@@ -7,7 +7,7 @@ const router: Router = express.Router();
 
 router.post(
   '/update/views',
-  dynamicLimiter(1),
+  dynamicLimiter(120),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       await updateViews(req, res);
@@ -19,7 +19,7 @@ router.post(
 
 router.post(
   '/update/likes',
-  dynamicLimiter(1),
+  dynamicLimiter(120),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       await updateLikes(req, res);
@@ -31,7 +31,7 @@ router.post(
 
 router.get(
   '/get/likes',
-  dynamicLimiter(1),
+  dynamicLimiter(120),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       await getLikes(req, res);
