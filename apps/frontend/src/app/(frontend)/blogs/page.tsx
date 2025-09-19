@@ -1,7 +1,6 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import React, { cache } from 'react'
-import BlogsList from '@/components/blogs/BlogsList'
+import React from 'react'
+import BlogsList from '@/components/blogs/blogs-list/BlogsList'
+import { queryPages } from '@/lib/fetch-utils'
 
 const page = async () => {
   const pages = await queryPages()
@@ -13,27 +12,5 @@ const page = async () => {
     </div>
   )
 }
-
-const queryPages = cache(async () => {
-  const payload = await getPayload({ config: config })
-
-  const result = await payload.find({
-    collection: 'pages',
-    depth: 2,
-    pagination: false,
-    where: {
-      slug: {
-        contains: `blogs`,
-      },
-    },
-  })
-
-  if (result.docs?.[0]) {
-    return {
-      type: 'page',
-      docs: result.docs,
-    }
-  }
-})
 
 export default page
