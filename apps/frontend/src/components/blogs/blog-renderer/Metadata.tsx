@@ -3,22 +3,22 @@ import React from 'react'
 import Views from '../Views'
 import Likes from '../Likes'
 import Tags from './Tags'
+import { auth } from '@/lib/auth'
 
-const Metadata = ({
+const Metadata = async ({
   id,
   author,
   createdAt,
   tags,
   blogViews,
-  blogLikes,
 }: {
   id: string
   author: string
   createdAt: string
   tags: { tag: string; id?: string | null | undefined }[] | null | undefined
   blogViews: { blogsCount: number }
-  blogLikes: { likes: number; hasLiked: boolean }
 }) => {
+  const session = await auth()
   return (
     <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-gray-200">
       <div className="flex flex-wrap items-center gap-6">
@@ -47,7 +47,7 @@ const Metadata = ({
       </div>
       <div className="flex items-center gap-4">
         <Views blogViews={blogViews.blogsCount} />
-        <Likes id={id} blogLikes={blogLikes} />
+        {session?.user?.email ? <Likes id={id} /> : null}
       </div>
     </div>
   )

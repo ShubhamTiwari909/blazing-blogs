@@ -13,12 +13,10 @@ const BlogRenderer = async ({
   blogData,
   draft,
   blogViews,
-  blogLikes,
 }: {
   blogData: Page
   draft: boolean
   blogViews: { blogsCount: number }
-  blogLikes: { likes: number; hasLiked: boolean }
 }) => {
   const docs = blogData.blocks
   return (
@@ -50,7 +48,6 @@ const BlogRenderer = async ({
             createdAt={blogData.createdAt}
             tags={blogData.tags}
             blogViews={blogViews}
-            blogLikes={blogLikes}
           />
         </div>
       </div>
