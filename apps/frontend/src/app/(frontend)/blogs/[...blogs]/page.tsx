@@ -5,32 +5,7 @@ import { fetchBlogView, pageData } from '@/lib/fetch-utils'
 import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
 import { Metadata } from 'next'
-import { getPayload } from 'payload'
-import config from '@payload-config'
 
-
-export const generateStaticParams = async () => {
-  const payload = await getPayload({ config: config })
-
-  const result = await payload.find({
-    collection: 'pages',
-    depth: 2,
-    pagination: false,
-    where: {
-      slug: {
-        contains: `blogs`,
-      },
-    },
-    select: {
-      slug: true,
-    },
-  })
-  console.log(result.docs)
-  const params = result?.docs.map((page) => ({
-    blogs: [page.slug],
-  }))
-  return params
-}
 
 export async function generateMetadata({ params }: Props) {
   const page = await pageData(params)
