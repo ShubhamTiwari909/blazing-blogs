@@ -7,19 +7,19 @@ export const updateLikes = async (req: Request, res: Response) => {
     if (!id || !userName || !userEmail || !userImage) {
       return res.status(400).json({ message: 'Bad Request - id and user are required' });
     }
-    const blog = await Blogs.findOne({ _id: id, "likes.users.email": userEmail });
-    
+    const blog = await Blogs.findOne({ _id: id, 'likes.users.email': userEmail });
+
     if (!blog || blog?.likes?.users?.length === 0) {
       const updatedPost = await Blogs.findOneAndUpdate(
         { _id: id },
-        { $push: { "likes.users": { email: userEmail, name: userName, image: userImage } } },
+        { $push: { 'likes.users': { email: userEmail, name: userName, image: userImage } } },
         { new: true } // or `returnDocument: 'after'` if using native MongoDB
       );
       res.json({ likes: updatedPost?.likes?.users.length || 0, hasLiked: true });
     } else {
       const updatedPost = await Blogs.findOneAndUpdate(
         { _id: id },
-        { $pull: { "likes.users": { email: userEmail, name: userName, image: userImage } } },
+        { $pull: { 'likes.users': { email: userEmail, name: userName, image: userImage } } },
         { new: true }
       );
       res.json({ likes: updatedPost?.likes?.users.length || 0, hasLiked: false });
@@ -30,7 +30,6 @@ export const updateLikes = async (req: Request, res: Response) => {
   }
 };
 
-
 export const getLikes = async (req: Request, res: Response) => {
   try {
     const { id, userEmail } = req.query;
@@ -38,7 +37,7 @@ export const getLikes = async (req: Request, res: Response) => {
       return res.status(400).json({ message: 'Bad Request - id is required' });
     }
     const blog = await Blogs.findOne({ _id: id });
-    const hasLiked = await Blogs.findOne({ _id: id, "likes.users.email": userEmail });
+    const hasLiked = await Blogs.findOne({ _id: id, 'likes.users.email': userEmail });
     if (!blog) {
       return res.status(404).json({ message: 'Blog not found' });
     }

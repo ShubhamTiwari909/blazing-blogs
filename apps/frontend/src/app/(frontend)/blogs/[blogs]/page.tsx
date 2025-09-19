@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import React, { cache } from 'react'
 import BlogRenderer from '@/components/blogs/BlogRenderer'
+import { auth } from '@/lib/auth'
 
 type Props = {
   params: Promise<{
@@ -11,14 +12,61 @@ type Props = {
   }>
 }
 
+const fetchBlogView = async (id: string) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/views?id=${id}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id }),
+    },
+  )
+  const data = await response.json()
+  return data
+}
+
+const fetchBlogLikes = async ({
+  id,
+  userEmail,
+}: {
+  id: string
+  userName: string
+  userEmail: string
+  userImage: string
+}) => {
+  if (!id || !userEmail) return null
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/likes?id=${id}&userEmail=${userEmail}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  )
+  const data = await response.json()
+  return data
+}
+
 const page = async ({ params }: Props) => {
   const { isEnabled: draft } = await draftMode()
+  const session = await auth()
   const page = await pageData(params)
+  const blogViews = await fetchBlogView(page.docs.id)
+  const blogLikes = await fetchBlogLikes({
+    id: page.docs.id,
+    userName: page.docs.author,
+    userEmail: session?.user?.email || '',
+    userImage: session?.user?.image || '',
+  })
+  console.log(blogLikes)
   const blogData = page.docs
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <BlogRenderer blogData={blogData} draft={draft} />
+      <BlogRenderer blogData={blogData} draft={draft} blogViews={blogViews} blogLikes={blogLikes} />
     </div>
   )
 }

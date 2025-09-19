@@ -1,29 +1,20 @@
 'use client'
 import { Heart } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { Button } from '../ui/button'
 
-const Likes = ({ id, userEmail }: { id: string, userEmail: string }) => {
+const Likes = ({
+  id,
+  blogLikes,
+}: {
+  id: string
+  blogLikes: { likes: number; hasLiked: boolean }
+}) => {
   const { data: session } = useSession()
-  const [likes, setLikes] = useState(0)
-  const [hasLiked, setHasLiked] = useState(false)
+  const [likes, setLikes] = useState(blogLikes.likes)
+  const [hasLiked, setHasLiked] = useState(blogLikes.hasLiked)
   const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    const fetchLikes = async () => {
-      const likes = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/likes?id=${id}&userEmail=${userEmail}`,
-      )
-      const data = await likes.json()
-      console.log(data)
-      setLikes(data.likes)
-      setHasLiked(data.hasLiked)
-    }
-    if (id) {
-      fetchLikes()
-    }
-  }, [id, userEmail]);
 
   const handleLike = () => {
     if (!session?.user?.email || isLoading) return

@@ -22,13 +22,13 @@ export const updateViews = async (req: Request, res: Response) => {
     const blogsCount = await Blogs.countDocuments();
 
     // Check if this IP has already viewed in the last 24h
-    const alreadyViewed = await Blogs.findOne({ _id: id, "views.ip": ip });
+    const alreadyViewed = await Blogs.findOne({ _id: id, 'views.ip': ip });
     if (alreadyViewed) {
       return res.status(200).json({ blogsCount }); // don't increment again
     }
 
     // Otherwise add a new view
-    await Blogs.updateOne({ _id: id }, { $push: { "views": { blogId: blog._id, ip } } });
+    await Blogs.updateOne({ _id: id }, { $push: { views: { blogId: blog._id, ip } } });
     await blog.save();
 
     return res.status(200).json({ blogsCount });

@@ -10,12 +10,19 @@ import { Page } from '@/payload-types'
 import Comments from './Comments'
 import Views from './Views'
 import Likes from './Likes'
-import { auth } from '@/lib/auth'
 
-const BlogRenderer = async ({ blogData, draft }: { blogData: Page; draft: boolean }) => {
+const BlogRenderer = async ({
+  blogData,
+  draft,
+  blogViews,
+  blogLikes,
+}: {
+  blogData: Page
+  draft: boolean
+  blogViews: { blogsCount: number }
+  blogLikes: { likes: number; hasLiked: boolean }
+}) => {
   const docs = blogData.blocks
-  const session = await auth()
-  const userEmail = session?.user?.email || ''
   return (
     <div>
       {/* Back Button */}
@@ -99,8 +106,8 @@ const BlogRenderer = async ({ blogData, draft }: { blogData: Page; draft: boolea
               )}
             </div>
             <div className="flex items-center gap-4">
-              <Views id={blogData.id} />
-              <Likes id={blogData.id} userEmail={userEmail} />
+              <Views blogViews={blogViews.blogsCount} />
+              <Likes id={blogData.id} blogLikes={blogLikes} />
             </div>
           </div>
         </div>

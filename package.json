@@ -8,7 +8,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "validate": "pnpm run format && pnpm run lint && pnpm run test && pnpm run build"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
