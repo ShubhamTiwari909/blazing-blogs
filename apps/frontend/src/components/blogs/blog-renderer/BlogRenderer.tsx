@@ -11,10 +11,14 @@ import Metadata from './Metadata'
 
 const BlogRenderer = async ({
   blogData,
+  blogId,
+  createdAt,
   draft,
   blogViews,
 }: {
-  blogData: Page
+  blogData: Page["content"]
+  blogId: Page["id"]
+  createdAt: Page["createdAt"]
   draft: boolean
   blogViews: { blogsCount: number }
 }) => {
@@ -43,9 +47,9 @@ const BlogRenderer = async ({
           </p>
 
           <Metadata
-            id={blogData.id}
+            id={blogId}
             author={blogData.author}
-            createdAt={blogData.createdAt}
+            createdAt={createdAt}
             tags={blogData.tags}
             blogViews={blogViews}
           />
@@ -70,7 +74,7 @@ const BlogRenderer = async ({
           })}
         </div>
       </div>
-      <Comments blogId={blogData.id} />
+      <Comments blogId={blogId} />
     </div>
   )
 }

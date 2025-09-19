@@ -202,57 +202,65 @@ export interface FolderInterface {
  */
 export interface Page {
   id: string;
+  pageTitle: string;
   slug: string;
-  likes?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  title: string;
-  shortDescription: string;
-  author: string;
-  tags?:
-    | {
-        tag: string;
-        id?: string | null;
-      }[]
-    | null;
-  image: string | Media;
-  blocks: (
-    | {
-        content?: {
-          root: {
-            type: string;
-            children: {
+  content: {
+    title: string;
+    shortDescription: string;
+    author: string;
+    tags?:
+      | {
+          tag: string;
+          id?: string | null;
+        }[]
+      | null;
+    image: string | Media;
+    blocks: (
+      | {
+          content?: {
+            root: {
               type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
               version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'content';
-      }
-    | {
-        codeBlock?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'codeBlock';
-      }
-  )[];
+            };
+            [k: string]: unknown;
+          } | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'content';
+        }
+      | {
+          codeBlock?: string | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'codeBlock';
+        }
+    )[];
+  };
+  seo: Seo;
   folder?: (string | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Seo".
+ */
+export interface Seo {
+  title: string;
+  /**
+   * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+   */
+  image: string | Media;
+  description: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -366,39 +374,54 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  pageTitle?: T;
   slug?: T;
-  likes?: T;
-  title?: T;
-  shortDescription?: T;
-  author?: T;
-  tags?:
+  content?:
     | T
     | {
-        tag?: T;
-        id?: T;
-      };
-  image?: T;
-  blocks?:
-    | T
-    | {
-        content?:
+        title?: T;
+        shortDescription?: T;
+        author?: T;
+        tags?:
           | T
           | {
-              content?: T;
+              tag?: T;
               id?: T;
-              blockName?: T;
             };
-        codeBlock?:
+        image?: T;
+        blocks?:
           | T
           | {
-              codeBlock?: T;
-              id?: T;
-              blockName?: T;
+              content?:
+                | T
+                | {
+                    content?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              codeBlock?:
+                | T
+                | {
+                    codeBlock?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
             };
       };
+  seo?: T | SeoSelect<T>;
   folder?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Seo_select".
+ */
+export interface SeoSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  description?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

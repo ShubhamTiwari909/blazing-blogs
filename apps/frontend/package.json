@@ -25,6 +25,7 @@
     "@payloadcms/live-preview-react": "^3.55.1",
     "@payloadcms/next": "3.55.1",
     "@payloadcms/payload-cloud": "3.55.1",
+    "@payloadcms/plugin-seo": "3.55.1",
     "@payloadcms/richtext-lexical": "3.55.1",
     "@payloadcms/storage-uploadthing": "^3.55.1",
     "@payloadcms/ui": "3.55.1",

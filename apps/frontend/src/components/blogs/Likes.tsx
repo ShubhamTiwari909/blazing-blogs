@@ -4,11 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { Button } from '../ui/button'
 
-const Likes = ({
-  id,
-}: {
-  id: string
-}) => {
+const Likes = ({ id }: { id: string }) => {
   const { data: session } = useSession()
   const [likes, setLikes] = useState(0)
   const [hasLiked, setHasLiked] = useState(false)
@@ -24,16 +20,18 @@ const Likes = ({
           'Content-Type': 'application/json',
         },
       },
-    ).then((response) => response.json())
-    .then((data) => {
-      console.log(data)
-      setLikes(data.likes)
-      setHasLiked(data.hasLiked)
-    }).catch((error) => {
-      console.error('Error updating likes:', error)
-    }).finally(() => {
-      setIsLoading(false)
-    })
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setLikes(data.likes)
+        setHasLiked(data.hasLiked)
+      })
+      .catch((error) => {
+        console.error('Error updating likes:', error)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }, [id, session?.user?.email, session?.user?.name, session?.user?.image])
 
   const handleLike = () => {

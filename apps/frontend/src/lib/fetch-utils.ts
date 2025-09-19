@@ -105,3 +105,28 @@ export const queryPages = cache(async () => {
     }
   }
 })
+
+export const queryPagesSlugs = cache(async () => {
+  const payload = await getPayload({ config: config })
+
+  const result = await payload.find({
+    collection: 'pages',
+    depth: 2,
+    pagination: false,
+    where: {
+      slug: {
+        contains: `blogs`,
+      },
+    },
+    select: {
+      slug: true,
+    },
+  })
+
+  if (result.docs) {
+    return {
+      type: 'page',
+      docs: result.docs,
+    }
+  }
+})

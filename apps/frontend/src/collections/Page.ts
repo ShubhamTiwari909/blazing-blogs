@@ -1,7 +1,8 @@
-import { lexicalEditor, LinkFeature } from '@payloadcms/richtext-lexical'
 import { CollectionConfig } from 'payload'
 import { slugFilter } from './utils/slugFilter'
 import { generatePreviewPath } from './utils/generatePreviewPath'
+import { Content } from './blocks/content'
+import { SeoTab } from './blocks/seo'
 
 export const Page: CollectionConfig = {
   slug: 'pages',
@@ -10,7 +11,7 @@ export const Page: CollectionConfig = {
     read: () => true,
   },
   admin: {
-    useAsTitle: 'title',
+    useAsTitle: 'pageTitle',
     livePreview: {
       url: ({ data, req }) => {
         const path = generatePreviewPath({
@@ -31,6 +32,11 @@ export const Page: CollectionConfig = {
   },
   fields: [
     {
+      name: 'pageTitle',
+      type: 'text',
+      required: true,
+    },
+    {
       name: 'slug',
       type: 'text',
       required: true,
@@ -40,102 +46,9 @@ export const Page: CollectionConfig = {
       },
     },
     {
-      name: 'likes',
-      type: 'json',
-      admin: { hidden: true },
-    },
-    {
-      name: 'title',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'shortDescription',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'author',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'tags',
-      type: 'array',
-      fields: [
-        {
-          name: 'tag',
-          type: 'text',
-          required: true,
-        },
-      ],
-    },
-    {
-      name: 'image',
-      type: 'upload',
-      label: 'Cover Image',
-      relationTo: 'media',
-      required: true,
-    },
-    {
-      name: 'blocks',
-      type: 'blocks',
-      required: true,
-      blocks: [
-        {
-          slug: 'content',
-          fields: [
-            {
-              name: 'content',
-              type: 'richText',
-              editor: lexicalEditor({
-                features: ({ defaultFeatures }) => [
-                  ...defaultFeatures,
-                  LinkFeature({
-                    // Example showing how to customize the built-in fields
-                    // of the Link feature
-                    fields: ({ defaultFields }) => [
-                      ...defaultFields,
-                      {
-                        name: 'rel',
-                        label: 'Rel Attribute',
-                        type: 'select',
-                        hasMany: true,
-                        options: ['noopener', 'noreferrer', 'nofollow'],
-                        admin: {
-                          description:
-                            'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.',
-                        },
-                      },
-                    ],
-                  }),
-                ],
-              }),
-            },
-          ],
-        },
-        {
-          slug: 'codeBlock',
-          fields: [
-            {
-              name: 'codeBlock',
-              type: 'code',
-            },
-          ],
-        },
-      ],
+      type: 'tabs',
+      tabs: [Content, SeoTab],
     },
   ],
-  hooks: {
-    beforeValidate: [
-      ({ data }) => {
-        if(data){
-          delete data.likes
-          console.log(data)
-          return data
-        }
-        return data
-      }
-    ]
-  }
+  trash: true,
 }

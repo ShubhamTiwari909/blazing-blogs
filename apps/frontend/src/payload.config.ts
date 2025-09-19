@@ -6,6 +6,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -32,6 +33,11 @@ export default buildConfig({
   }),
   plugins: [
     payloadCloudPlugin(),
+    seoPlugin({
+      generateTitle: () => `Personal Blog by Shubham`,
+      generateDescription: () => `Personal Blog by Shubham`,
+      generateURL: ({ doc }) => `https://blazing-blogs-frontend.vercel.app/${doc.slug}`,
+    }),
     uploadthingStorage({
       collections: {
         media: true,
