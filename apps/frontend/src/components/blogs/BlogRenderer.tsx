@@ -8,9 +8,14 @@ import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
 import { contructImageUrl } from '@/lib/utils'
 import { Page } from '@/payload-types'
 import Comments from './Comments'
+import Views from './Views'
+import Likes from './Likes'
+import { auth } from '@/lib/auth'
 
-const BlogRenderer = ({ blogData, draft }: { blogData: Page; draft: boolean }) => {
+const BlogRenderer = async ({ blogData, draft }: { blogData: Page; draft: boolean }) => {
   const docs = blogData.blocks
+  const session = await auth()
+  const userEmail = session?.user?.email || ''
   return (
     <div>
       {/* Back Button */}
@@ -54,43 +59,49 @@ const BlogRenderer = ({ blogData, draft }: { blogData: Page; draft: boolean }) =
           </p>
 
           {/* Blog Metadata */}
-          <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-gray-200">
-            {/* Author */}
-            {blogData.author && (
-              <div className="flex items-center text-gray-600">
-                <User className="w-5 h-5 mr-2" />
-                <span className="font-medium">{blogData.author}</span>
-              </div>
-            )}
-
-            {/* Date */}
-            <div className="flex items-center text-gray-600">
-              <CalendarDays className="w-5 h-5 mr-2" />
-              <time dateTime={blogData.createdAt}>
-                {new Date(blogData.createdAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-            </div>
-
-            {/* Tags */}
-            {blogData.tags && blogData.tags.length > 0 && (
-              <div className="flex items-center gap-2">
-                <Tag className="w-5 h-5 text-gray-600" />
-                <div className="flex flex-wrap gap-2">
-                  {blogData.tags.map((tag) => (
-                    <span
-                      key={tag.id}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors duration-200"
-                    >
-                      {tag.tag}
-                    </span>
-                  ))}
+          <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-gray-200">
+            <div className="flex flex-wrap items-center gap-6">
+              {/* Author */}
+              {blogData.author && (
+                <div className="flex items-center text-gray-600">
+                  <User className="w-5 h-5 mr-2" />
+                  <span className="font-medium">{blogData.author}</span>
                 </div>
+              )}
+
+              {/* Date */}
+              <div className="flex items-center text-gray-600">
+                <CalendarDays className="w-5 h-5 mr-2" />
+                <time dateTime={blogData.createdAt}>
+                  {new Date(blogData.createdAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
               </div>
-            )}
+
+              {/* Tags */}
+              {blogData.tags && blogData.tags.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <Tag className="w-5 h-5 text-gray-600" />
+                  <div className="flex flex-wrap gap-2">
+                    {blogData.tags.map((tag) => (
+                      <span
+                        key={tag.id}
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors duration-200"
+                      >
+                        {tag.tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="flex items-center gap-4">
+              <Views id={blogData.id} />
+              <Likes id={blogData.id} userEmail={userEmail} />
+            </div>
           </div>
         </div>
       </div>

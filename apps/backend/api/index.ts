@@ -5,6 +5,7 @@ import 'dotenv/config';
 import { connectionWrapper } from '../middlewares/db-connection.js';
 import compression from 'compression';
 import userRoutes from '../routes/users.js';
+import blogRoutes from '../routes/blogs.js';
 
 const app: Express = express();
 
@@ -44,6 +45,7 @@ app.get('/', async (_: Request, res: Response) => {
 });
 
 app.use('/users', userRoutes);
+app.use('/blogs', blogRoutes);
 
 // Start the server
 const PORT = Number(process.env.PORT) || 5000;

@@ -1,7 +1,7 @@
 // customAuthMiddleware.ts
-import { checkIfUserExists } from "../utils/checkIfUserExist.js";
-import { Request, Response, NextFunction } from "express";
-import redis from "../utils/redisClient.js";
+import { checkIfUserExists } from '../utils/checkIfUserExist.js';
+import { Request, Response, NextFunction } from 'express';
+import redis from '../utils/redisClient.js';
 
 export async function customAuthMiddleware(
   req: Request,
@@ -9,12 +9,12 @@ export async function customAuthMiddleware(
   next: NextFunction
 ): Promise<void> {
   try {
-    const authHeader = req.headers["authorization"];
-    const passkey = authHeader && authHeader.split(" ")[1];
-    const email = authHeader && authHeader.split(" ")[2];
+    const authHeader = req.headers['authorization'];
+    const passkey = authHeader && authHeader.split(' ')[1];
+    const email = authHeader && authHeader.split(' ')[2];
 
     if (!passkey || !email) {
-      res.status(401).json({ message: "Unauthorized: Missing token" });
+      res.status(401).json({ message: 'Unauthorized: Missing token' });
       return;
     }
 
@@ -34,17 +34,13 @@ export async function customAuthMiddleware(
 
     // 🔹 3. Validate
     if (!cachedPasskey || cachedPasskey !== passkey) {
-      res
-        .status(403)
-        .json({ message: "Forbidden: Invalid or corrupted token" });
+      res.status(403).json({ message: 'Forbidden: Invalid or corrupted token' });
       return;
     }
 
     // 🔹 4. Auth success
     next();
   } catch (error) {
-    res
-      .status(403)
-      .json({ message: `Forbidden: Invalid or corrupted token ${error}` });
+    res.status(403).json({ message: `Forbidden: Invalid or corrupted token ${error}` });
   }
 }

@@ -14,7 +14,7 @@ export const UserSchema = {
     type: String,
     required: true,
   },
-  passkey:{
+  passkey: {
     type: String,
     required: true,
   },

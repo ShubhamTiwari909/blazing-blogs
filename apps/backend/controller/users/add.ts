@@ -6,12 +6,16 @@ export const addUser = async (req: Request, res: Response) => {
   const { name, email, image, passkey } = req.body;
 
   if (!name || !email || !image || !passkey)
-    return res.status(400).json({ message: 'Bad Request - name, email, image and passkey are required' });
+    return res
+      .status(400)
+      .json({ message: 'Bad Request - name, email, image and passkey are required' });
 
   const userExist = await checkIfUserExists(email);
 
   if (userExist) {
-    return res.status(200).json({ message: 'User already exists', email, passkey: userExist.passkey });
+    return res
+      .status(200)
+      .json({ message: 'User already exists', email, passkey: userExist.passkey });
   }
 
   try {
