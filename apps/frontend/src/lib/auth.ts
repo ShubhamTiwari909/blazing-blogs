@@ -35,6 +35,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       )
       const data = await response.json()
       const decryptPasskey = await decrypt(data.passkey, process.env.ENCRYPTION_SECRET!)
+      console.log(decryptPasskey)
+      console.log(data)
       session.user.passkey = decryptPasskey // Add passkey to session user object
       return session
     },
