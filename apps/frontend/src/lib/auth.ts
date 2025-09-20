@@ -35,7 +35,9 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         
         if (data.passkey) {
           const decryptPasskey = await decrypt(data.passkey, process.env.ENCRYPTION_SECRET!)
-          session.user.passkey = decryptPasskey.toString() // Ensure it's a string
+          if(!session.user.passkey) {
+            session.user.passkey = decryptPasskey.toString() // Ensure it's a string
+          }
         } 
       } catch (err) {
         console.error("Session decryption failed:", err)
