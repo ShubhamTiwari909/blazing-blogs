@@ -3,8 +3,7 @@
   "builds": [
     {
       "src": "apps/backend/package.json",
-      "use": "@vercel/node",
-      "config": { "outputDirectory": "apps/backend/dist" }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
