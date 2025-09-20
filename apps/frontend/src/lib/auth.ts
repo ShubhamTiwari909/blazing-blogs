@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth'
 import Google from 'next-auth/providers/google'
-import { decrypt } from './encryption'
 /**
  * Configuration for NextAuth authentication.
  * Sets up providers and handles user sign-in with additional user registration.
@@ -33,12 +32,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         )
         const data = await response.json()
         
-        if (data.passkey) {
-          const decryptPasskey = await decrypt(data.passkey, process.env.ENCRYPTION_SECRET!)
-          if(!session.user.passkey) {
-            session.user.passkey = decryptPasskey.toString() // Ensure it's a string
-          }
-        } 
+        session.user.passkey = data.passkey
       } catch (err) {
         console.error("Session decryption failed:", err)
       }

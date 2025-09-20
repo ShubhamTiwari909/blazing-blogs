@@ -2,7 +2,6 @@ import { Users } from '../../schemas/Users.js';
 import { Request, Response } from 'express';
 import { checkIfUserExists } from '../../utils/checkIfUserExist.js';
 import { generatePasskey } from '../../utils/passkeyGenerator.js';
-import { encrypt } from '@repo/encryption/encrypt-decrypt';
 
 export const addUser = async (req: Request, res: Response) => {
   const { name, email, image } = req.body;
@@ -20,8 +19,7 @@ export const addUser = async (req: Request, res: Response) => {
 
   try {
     const passkey = generatePasskey();
-    const encryptedPasskey = await encrypt(passkey, process.env.ENCRYPTION_SECRET!);
-    const newUser = new Users({ name, email, image, passkey: encryptedPasskey });
+    const newUser = new Users({ name, email, image, passkey });
     const result = await newUser.save();
     res.status(201).json(`User saved - ${result}`);
   } catch (err) {

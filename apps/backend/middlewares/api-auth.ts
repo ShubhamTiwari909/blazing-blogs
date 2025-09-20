@@ -2,7 +2,6 @@
 import { checkIfUserExists } from '../utils/checkIfUserExist.js';
 import { Request, Response, NextFunction } from 'express';
 import redis from '../utils/redisClient.js';
-import { encrypt } from '@repo/encryption/encrypt-decrypt';
 
 export async function customAuthMiddleware(
   req: Request,
@@ -18,8 +17,6 @@ export async function customAuthMiddleware(
       res.status(401).json({ message: 'Unauthorized: Missing token' });
       return;
     }
-    const encryptedPasskey = await encrypt(passkey, process.env.ENCRYPTION_SECRET!);
-
     // 🔹 1. Try cache first
     let cachedPasskey = await redis.get(email);
 
@@ -36,7 +33,7 @@ export async function customAuthMiddleware(
     }
 
     // 🔹 3. Validate
-    if (!cachedPasskey || cachedPasskey !== encryptedPasskey) {
+    if (!cachedPasskey || cachedPasskey !== passkey) {
       res.status(403).json({ message: 'Forbidden: Invalid or corrupted token' });
       return;
     }
