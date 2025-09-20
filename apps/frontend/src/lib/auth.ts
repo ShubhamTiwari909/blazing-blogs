@@ -32,11 +32,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         `${process.env.BACKEND_URL}/users/search?email=${encryptedEmail}`,
       )
       const data = await response.json()
-      console.log(data)
-
       session.user.passkey = data.passkey
-      console.log(session)
-
       return session
     },
   },

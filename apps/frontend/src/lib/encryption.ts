@@ -67,8 +67,6 @@ async function example() {
   const originalText = 'Hello, World!'
 
   const encrypted = await encrypt(originalText, secretKey)
-  console.log('Encrypted:', encrypted)
 
   const decrypted = await decrypt(encrypted, secretKey)
-  console.log('Decrypted:', decrypted)
 }
