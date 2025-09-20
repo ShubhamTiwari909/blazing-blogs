@@ -18,7 +18,7 @@ const Likes = ({ id }: { id: string }) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.user.passkey} ${session.user.email}`,
+          Authorization: `Bearer ${session.user.passkey} ${session.user.email}`,
         },
       },
     )
@@ -45,7 +45,7 @@ const Likes = ({ id }: { id: string }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${session.user.passkey} ${session.user.email}`,
+          Authorization: `Bearer ${session.user.passkey} ${session.user.email}`,
         },
       },
     )

@@ -20,7 +20,6 @@ export const fetchBlogView = async (id: string) => {
   return data
 }
 
-
 export const pageData = async (paramsPromise: Props['params']) => {
   const { blogs = 'home' } = await paramsPromise
 

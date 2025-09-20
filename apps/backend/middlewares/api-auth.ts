@@ -20,7 +20,6 @@ export async function customAuthMiddleware(
     // 🔹 1. Try cache first
     let cachedPasskey = await redis.get(email);
 
-
     if (!cachedPasskey) {
       // 🔹 2. Fallback to DB if not in cache
       const user = await checkIfUserExists(email);

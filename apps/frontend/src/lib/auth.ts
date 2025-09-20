@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth'
 import Google from 'next-auth/providers/google'
+import { encrypt } from './encryption'
 /**
  * Configuration for NextAuth authentication.
  * Sets up providers and handles user sign-in with additional user registration.
@@ -26,19 +27,18 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return true // Allow sign-in to proceed
     },
     session: async ({ session }) => {
-      try {
-        const response = await fetch(
-          `${process.env.BACKEND_URL}/users/search?email=${session?.user?.email}`
-        )
-        const data = await response.json()
-        
-        session.user.passkey = data.passkey
-      } catch (err) {
-        console.error("Session decryption failed:", err)
-      }
-      
+      const encryptedEmail = await encrypt(session?.user?.email, process.env.ENCRYPTION_SECRET!)
+      const response = await fetch(
+        `${process.env.BACKEND_URL}/users/search?email=${encryptedEmail}`,
+      )
+      const data = await response.json()
+      console.log(data)
+
+      session.user.passkey = data.passkey
+      console.log(session)
+
       return session
-    }
+    },
   },
 
   trustHost: true,
