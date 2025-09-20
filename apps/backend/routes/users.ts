@@ -15,7 +15,7 @@ router.post('/add', dynamicLimiter(1), async (req: Request, res: Response, next:
 
 router.get(
   '/search',
-  dynamicLimiter(1),
+  dynamicLimiter(80),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       await searchUserPasskey(req, res);
