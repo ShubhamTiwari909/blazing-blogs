@@ -27,19 +27,22 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return true // Allow sign-in to proceed
     },
     session: async ({ session }) => {
-      const response = await fetch(
-        `${process.env.BACKEND_URL}/users/search?email=${session?.user?.email}`,
-        {
-          method: 'GET',
-        },
-      )
-      const data = await response.json()
-      const decryptPasskey = await decrypt(data.passkey, process.env.ENCRYPTION_SECRET!)
-      console.log(decryptPasskey)
-      console.log(data)
-      session.user.passkey = decryptPasskey // Add passkey to session user object
+      try {
+        const response = await fetch(
+          `${process.env.BACKEND_URL}/users/search?email=${session?.user?.email}`
+        )
+        const data = await response.json()
+        
+        if (data.passkey) {
+          const decryptPasskey = await decrypt(data.passkey, process.env.ENCRYPTION_SECRET!)
+          session.user.passkey = decryptPasskey.toString() // Ensure it's a string
+        } 
+      } catch (err) {
+        console.error("Session decryption failed:", err)
+      }
+      
       return session
-    },
+    }
   },
 
   trustHost: true,
