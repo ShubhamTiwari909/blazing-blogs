@@ -19,6 +19,7 @@ const Metadata = async ({
   blogViews: { blogsCount: number }
 }) => {
   const session = await auth()
+  console.log(session)
   return (
     <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-gray-200">
       <div className="flex flex-wrap items-center gap-6">

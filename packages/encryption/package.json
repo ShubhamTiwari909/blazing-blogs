@@ -1,0 +1,21 @@
+{
+  "name": "@repo/encryption",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./encrypt-decrypt": {
+      "types": "./src/encryption.ts",
+      "default": "./dist/encryption.js"
+    }
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
+  }
+}

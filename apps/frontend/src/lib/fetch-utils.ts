@@ -20,28 +20,6 @@ export const fetchBlogView = async (id: string) => {
   return data
 }
 
-export const fetchBlogLikes = async ({
-  id,
-  userEmail,
-}: {
-  id: string
-  userName: string
-  userEmail: string
-  userImage: string
-}) => {
-  if (!id || !userEmail) return null
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/likes?id=${id}&userEmail=${userEmail}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  )
-  const data = await response.json()
-  return data
-}
 
 export const pageData = async (paramsPromise: Props['params']) => {
   const { blogs = 'home' } = await paramsPromise

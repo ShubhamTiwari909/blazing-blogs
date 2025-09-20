@@ -18,6 +18,7 @@ const Likes = ({ id }: { id: string }) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.user.passkey} ${session.user.email}`,
         },
       },
     )
@@ -32,7 +33,7 @@ const Likes = ({ id }: { id: string }) => {
       .finally(() => {
         setIsLoading(false)
       })
-  }, [id, session?.user?.email, session?.user?.name, session?.user?.image])
+  }, [id, session?.user?.email, session?.user?.name, session?.user?.image, session?.user?.passkey])
 
   const handleLike = () => {
     if (!session?.user?.email || isLoading) return
@@ -44,6 +45,7 @@ const Likes = ({ id }: { id: string }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.user.passkey} ${session.user.email}`,
         },
       },
     )

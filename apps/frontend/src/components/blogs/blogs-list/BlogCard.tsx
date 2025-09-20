@@ -23,7 +23,9 @@ const BlogCard = ({ page }: { page: Page }) => {
           </Link>
         </h2>
 
-        <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">{page.content.shortDescription}</p>
+        <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+          {page.content.shortDescription}
+        </p>
 
         {page.content.tags && page.content.tags.length > 0 && <Tags tags={page.content.tags} />}
 

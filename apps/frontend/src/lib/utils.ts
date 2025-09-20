@@ -12,8 +12,8 @@ export const contructImageUrl = (imageKey: string) => {
 }
 
 const getPropValue = <T>(prop: T | undefined | number | null) => {
-	if (!prop || typeof prop === 'number') return undefined;
-	return prop;
-};
+  if (!prop || typeof prop === 'number') return undefined
+  return prop
+}
 
-export const getMedia = getPropValue<Media>;
+export const getMedia = getPropValue<Media>

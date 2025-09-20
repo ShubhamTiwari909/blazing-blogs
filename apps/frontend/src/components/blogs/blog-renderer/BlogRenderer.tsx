@@ -16,9 +16,9 @@ const BlogRenderer = async ({
   draft,
   blogViews,
 }: {
-  blogData: Page["content"]
-  blogId: Page["id"]
-  createdAt: Page["createdAt"]
+  blogData: Page['content']
+  blogId: Page['id']
+  createdAt: Page['createdAt']
   draft: boolean
   blogViews: { blogsCount: number }
 }) => {
