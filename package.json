@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "build:frontend": "turbo run build --filter=blazing-blogs",
+    "build:backend": "turbo run build --filter=server",
     "dev": "turbo run dev",
     "start": "turbo run start",
     "dev:frontend": "turbo run dev --filter=blazing-blogs",
