@@ -61,7 +61,7 @@ export const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   }
 })
 
-export const queryPages = cache(async () => {
+export const queryPages = async () => {
   const payload = await getPayload({ config: config })
 
   const result = await payload.find({
@@ -73,6 +73,12 @@ export const queryPages = cache(async () => {
         contains: `blogs`,
       },
     },
+    select: {
+      id: true,
+      slug: true,
+      content: true,
+      createdAt: true,
+    },
   })
 
   if (result.docs?.[0]) {
@@ -81,4 +87,4 @@ export const queryPages = cache(async () => {
       docs: result.docs,
     }
   }
-})
+}
