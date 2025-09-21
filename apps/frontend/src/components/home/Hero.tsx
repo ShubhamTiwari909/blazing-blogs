@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
+import Confetti from './Confetti'
+import TextAnimation from './TextAnimation'
 
 const Hero = () => {
   return (
@@ -27,10 +29,10 @@ const Hero = () => {
 
         {/* Main heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-          <span className="block">Hello, I&apos;m</span>
-          <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          <TextAnimation tag='span' className="block">Hello, I&apos;m</TextAnimation>
+          <TextAnimation tag='span' className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
             Shubham
-          </span>
+          </TextAnimation>
         </h1>
 
         {/* Subtitle */}
@@ -93,6 +95,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <Confetti />
 
       {/* Decorative elements */}
       <div className="absolute top-10 right-10 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>

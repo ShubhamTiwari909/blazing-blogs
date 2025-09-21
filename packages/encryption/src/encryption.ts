@@ -88,15 +88,3 @@ export async function decrypt(
 
   return new TextDecoder().decode(decrypted)
 }
-
-// Example usage
-async function example() {
-  const secretKey = 'my_super_secret_key_123!'
-  const originalText = 'Hello, World!'
-
-  const encrypted = await encrypt(originalText, secretKey)
-  console.log('Encrypted:', encrypted)
-
-  const decrypted = await decrypt(encrypted, secretKey)
-  console.log('Decrypted:', decrypted)
-}
