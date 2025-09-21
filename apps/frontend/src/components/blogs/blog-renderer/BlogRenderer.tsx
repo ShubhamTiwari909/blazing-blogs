@@ -8,6 +8,7 @@ import Comments from '../Comments'
 import BackButton from './BackButton'
 import { BlogImage } from './Image'
 import Metadata from './Metadata'
+import EstimateReading from '../blogs-list/EstimateReading'
 
 const BlogRenderer = async ({
   blogData,
@@ -37,9 +38,12 @@ const BlogRenderer = async ({
           )}
 
           {/* Blog Title */}
-          <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+         <div className='flex items-center justify-between gap-2'>
+         <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             {blogData.title}
           </h1>
+          <EstimateReading data={blogData} />
+         </div>
 
           {/* Blog Description */}
           <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">

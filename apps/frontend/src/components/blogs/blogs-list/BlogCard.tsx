@@ -5,6 +5,7 @@ import { Page } from '@/payload-types'
 import Tags from '../blog-renderer/Tags'
 import MetaData from './MetaData'
 import ReadMore from './ReadMore'
+import EstimateReading from './EstimateReading'
 
 const BlogCard = ({ page }: { page: Page }) => {
   return (
@@ -32,7 +33,10 @@ const BlogCard = ({ page }: { page: Page }) => {
         <MetaData author={page.content.author} createdAt={page.createdAt} />
 
         {/* Read More Button */}
-        <ReadMore slug={page.slug} />
+       <div className='flex items-center justify-between gap-2 mt-6'>
+       <ReadMore slug={page.slug} />
+       <EstimateReading data={page.content} />
+       </div>
       </div>
     </article>
   )
