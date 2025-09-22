@@ -29,8 +29,13 @@ const Hero = () => {
 
         {/* Main heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-          <TextAnimation tag='span' className="block">Hello, I&apos;m</TextAnimation>
-          <TextAnimation tag='span' className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          <TextAnimation tag="span" className="block">
+            Hello, I&apos;m
+          </TextAnimation>
+          <TextAnimation
+            tag="span"
+            className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
+          >
             Shubham
           </TextAnimation>
         </h1>

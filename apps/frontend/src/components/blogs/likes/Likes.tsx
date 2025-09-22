@@ -4,7 +4,13 @@ import React, { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { Button } from '../../ui/button'
 
-const Likes = ({ id, likesCount }: { id: string, likesCount: { likes: number, hasLiked: boolean } }) => {
+const Likes = ({
+  id,
+  likesCount,
+}: {
+  id: string
+  likesCount: { likes: number; hasLiked: boolean }
+}) => {
   const { data: session } = useSession()
   const [likes, setLikes] = useState(likesCount.likes)
   const [hasLiked, setHasLiked] = useState(likesCount.hasLiked)

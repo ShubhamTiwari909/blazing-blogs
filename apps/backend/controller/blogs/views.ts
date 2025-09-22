@@ -35,3 +35,22 @@ export const updateViews = async (req: Request, res: Response) => {
     return res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+export const getViews = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.query;
+    if (!id) {
+      return res.status(400).json({ message: 'Bad Request - id is required' });
+    }
+    // Find the blog
+    const blog = await Blogs.findOne({ _id: id });
+    if (!blog) {
+      return res.status(404).json({ message: 'Blog not found' });
+    }
+
+    return res.status(200).json({ blogsCount: blog.views.length });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};

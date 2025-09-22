@@ -3,6 +3,7 @@ import { slugFilter } from './utils/slugFilter'
 import { generatePreviewPath } from './utils/generatePreviewPath'
 import { Content } from './blocks/content'
 import { SeoTab } from './blocks/seo'
+import { Analytics } from './blocks/analytics'
 
 export const Page: CollectionConfig = {
   slug: 'pages',
@@ -47,7 +48,7 @@ export const Page: CollectionConfig = {
     },
     {
       type: 'tabs',
-      tabs: [Content, SeoTab],
+      tabs: [Content, SeoTab, Analytics],
     },
   ],
   trash: true,

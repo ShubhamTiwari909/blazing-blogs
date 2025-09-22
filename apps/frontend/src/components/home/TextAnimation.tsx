@@ -22,7 +22,7 @@ const TextAnimation = ({
   useGSAP(() => {
     const splitText = new SplitText('.text-animation', { type: 'chars, words' })
     splitText.words.forEach((word) => {
-        word.classList.add("text-slate-800")
+      word.classList.add('text-slate-800')
     })
     gsap.from(splitText.chars, {
       opacity: 0,

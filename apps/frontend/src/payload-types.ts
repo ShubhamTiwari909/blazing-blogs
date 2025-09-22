@@ -245,6 +245,10 @@ export interface Page {
     )[];
   };
   seo: Seo;
+  analytics: {
+    views: number;
+    likes: number;
+  };
   folder?: (string | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
@@ -409,6 +413,12 @@ export interface PagesSelect<T extends boolean = true> {
             };
       };
   seo?: T | SeoSelect<T>;
+  analytics?:
+    | T
+    | {
+        views?: T;
+        likes?: T;
+      };
   folder?: T;
   updatedAt?: T;
   createdAt?: T;

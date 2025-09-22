@@ -30,7 +30,7 @@ export const updateLikes = async (req: Request, res: Response) => {
   }
 };
 
-export const getLikes = async (req: Request, res: Response) => {
+export const hasLiked = async (req: Request, res: Response) => {
   try {
     const { id, userEmail } = req.query;
     if (!id || !userEmail) {

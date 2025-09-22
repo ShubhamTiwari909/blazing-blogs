@@ -19,15 +19,15 @@ const getPropValue = <T>(prop: T | undefined | number | null) => {
 export const getMedia = getPropValue<Media>
 
 export function calculateReadingTime(text: string): string {
-  const wordsPerMinute = 200; // average case
-  const wordsPerSecond = wordsPerMinute / 60;
-  const words = text.trim().split(/\s+/).length; // split by whitespace
-  const seconds = Math.ceil(words / wordsPerSecond);
-  if(seconds <= 60){
-    return `${seconds} sec read`;
+  const wordsPerMinute = 200 // average case
+  const wordsPerSecond = wordsPerMinute / 60
+  const words = text.trim().split(/\s+/).length // split by whitespace
+  const seconds = Math.ceil(words / wordsPerSecond)
+  if (seconds <= 60) {
+    return `${seconds} sec read`
   }
-  const convertToMinutes = Math.ceil(seconds / 60);
-  const minutes = Math.round(convertToMinutes);
+  const convertToMinutes = Math.ceil(seconds / 60)
+  const minutes = Math.round(convertToMinutes)
 
-  return `${minutes} min read`;
+  return `${minutes} min read`
 }

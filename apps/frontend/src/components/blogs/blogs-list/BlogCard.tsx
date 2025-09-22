@@ -33,10 +33,10 @@ const BlogCard = ({ page }: { page: Page }) => {
         <MetaData author={page.content.author} createdAt={page.createdAt} />
 
         {/* Read More Button */}
-       <div className='flex items-center justify-between gap-2 mt-6'>
-       <ReadMore slug={page.slug} />
-       <EstimateReading data={page.content} />
-       </div>
+        <div className="flex items-center justify-between gap-2 mt-6">
+          <ReadMore slug={page.slug} />
+          <EstimateReading data={page.content} />
+        </div>
       </div>
     </article>
   )

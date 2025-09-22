@@ -62,4 +62,4 @@ const page = async ({ params }: Props) => {
 
 export default page
 
-export const revalidate = 60; // fallback interval, in seconds
+export const revalidate = 60 // fallback interval, in seconds
