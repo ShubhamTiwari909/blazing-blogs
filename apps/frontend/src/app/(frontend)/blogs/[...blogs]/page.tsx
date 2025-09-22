@@ -6,6 +6,10 @@ import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
 import { Metadata } from 'next'
 
+// Enable dynamic rendering and set revalidation
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function generateMetadata({ params }: Props) {
   const page = await pageData(params)
   const seo = page.docs.seo

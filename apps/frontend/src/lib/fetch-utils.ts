@@ -80,7 +80,6 @@ export const queryPages = async () => {
       createdAt: true,
     },
   })
-  console.log("Result", result)
 
   if (result.docs?.[0]) {
     return {
