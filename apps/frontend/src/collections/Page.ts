@@ -50,46 +50,5 @@ export const Page: CollectionConfig = {
       tabs: [Content, SeoTab],
     },
   ],
-  hooks: {
-    afterChange: [
-      async ({ doc }) => {
-        const path = `/blog/${doc.slug}`;
-
-        // Call Next.js revalidate API
-        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/revalidate`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            path,
-            secret: process.env.REVALIDATE_SECRET,
-          }),
-        });
-      },
-    ],
-    afterDelete: [
-      async ({ doc }) => {
-        const path = `/blog/${doc.slug}`;
-
-        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/revalidate`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            path,
-            secret: process.env.REVALIDATE_SECRET,
-          }),
-        });
-
-        // Also revalidate blog listing page
-        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/revalidate`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            path: "/blog",
-            secret: process.env.REVALIDATE_SECRET,
-          }),
-        });
-      },
-    ],
-  },
   trash: true,
 }

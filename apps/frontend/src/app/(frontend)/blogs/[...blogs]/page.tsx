@@ -1,7 +1,7 @@
 import { draftMode } from 'next/headers'
 import React from 'react'
 import BlogRenderer from '@/components/blogs/blog-renderer/BlogRenderer'
-import { fetchBlogView, pageData, queryPagesSlug } from '@/lib/fetch-utils'
+import { fetchBlogView, pageData } from '@/lib/fetch-utils'
 import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
 import { Metadata } from 'next'
@@ -39,12 +39,6 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return metadata
-}
-
-export async function generateStaticParams() {
- const pages = await queryPagesSlug()
- const slugs = pages?.docs.map((page) => ({ slug: page.slug })) || []
- return slugs
 }
 
 const page = async ({ params }: Props) => {

@@ -88,28 +88,3 @@ export const queryPages = async () => {
     }
   }
 }
-
-export const queryPagesSlug = async () => {
-  const payload = await getPayload({ config: config })
-
-  const result = await payload.find({
-    collection: 'pages',
-    depth: 2,
-    pagination: false,
-    where: {
-      slug: {
-        contains: `blogs`,
-      },
-    },
-    select: {
-      slug: true,
-    },
-  })
-
-  if (result.docs?.[0]) {
-    return {
-      type: 'page',
-      docs: result.docs,
-    }
-  }
-}
