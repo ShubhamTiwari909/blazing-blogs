@@ -14,7 +14,6 @@ export const fetchBlogView = async (id: string) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id }),
-      next: { revalidate: 60 }
     },
   )
   const data = await response.json()
