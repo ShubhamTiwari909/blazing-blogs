@@ -6,7 +6,6 @@ export const Analytics: Tab = {
     {
       name: 'views',
       type: 'number',
-      required: true,
       admin: {
         readOnly: true,
       },
@@ -34,7 +33,6 @@ export const Analytics: Tab = {
     {
       name: 'likes',
       type: 'number',
-      required: true,
       admin: {
         readOnly: true,
       },

@@ -40,7 +40,6 @@ const AiAnalysis = ({
       }
     }
     const cachedSummary = cookies.aiSummary
-    console.log(cachedSummary)
     if (cachedSummary) {
       setAiDescription(cachedSummary)
       return
