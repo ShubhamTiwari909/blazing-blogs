@@ -245,9 +245,9 @@ export interface Page {
     )[];
   };
   seo: Seo;
-  analytics: {
-    views: number;
-    likes: number;
+  analytics?: {
+    views?: number | null;
+    likes?: number | null;
   };
   folder?: (string | null) | FolderInterface;
   updatedAt: string;

@@ -9,6 +9,7 @@ import BackButtonWithCopyLink from './BackButtonWithCopyLink'
 import { BlogImage } from './Image'
 import Metadata from './Metadata'
 import EstimateReading from '../blogs-list/EstimateReading'
+import ShareToLinkedIn from '@/components/share/linkedin'
 
 const BlogRenderer = async ({
   blogData,
@@ -58,6 +59,9 @@ const BlogRenderer = async ({
             blogViews={blogViews}
             blocks={blogData.blocks}
           />
+          <div className='flex justify-end mt-2'>
+            <ShareToLinkedIn />
+          </div>
         </div>
       </div>
 

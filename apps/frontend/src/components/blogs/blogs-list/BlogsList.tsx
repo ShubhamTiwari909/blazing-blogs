@@ -10,7 +10,7 @@ type Props =
   | undefined
 
 const BlogsList = ({ pages }: { pages: Props }) => {
-  if (!pages?.docs?.length) {
+  if (!pages) {
     return (
       <div className="text-center py-12">
         <div className="text-gray-500 text-lg">No blogs found</div>
@@ -30,7 +30,7 @@ const BlogsList = ({ pages }: { pages: Props }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {pages.docs.map((page) => (
+        {pages?.docs.map((page) => (
           <BlogCard key={page.id} page={page} />
         ))}
       </div>
