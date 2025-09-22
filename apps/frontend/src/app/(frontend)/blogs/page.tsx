@@ -2,6 +2,10 @@ import React from 'react'
 import BlogsList from '@/components/blogs/blogs-list/BlogsList'
 import { queryPages } from '@/lib/fetch-utils'
 
+// Force dynamic rendering to prevent static generation
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 const page = async () => {
   const pages = await queryPages()
   return (
