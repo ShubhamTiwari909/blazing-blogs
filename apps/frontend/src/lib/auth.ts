@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth'
 import Google from 'next-auth/providers/google'
-import { encrypt } from './encryption'
+import { encrypt } from '@repo/encryption/encrypt-decrypt'
 /**
  * Configuration for NextAuth authentication.
  * Sets up providers and handles user sign-in with additional user registration.
