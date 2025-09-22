@@ -1,39 +1,14 @@
 'use client'
 import { Heart } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSession } from 'next-auth/react'
-import { Button } from '../ui/button'
+import { Button } from '../../ui/button'
 
-const Likes = ({ id }: { id: string }) => {
+const Likes = ({ id, likesCount }: { id: string, likesCount: { likes: number, hasLiked: boolean } }) => {
   const { data: session } = useSession()
-  const [likes, setLikes] = useState(0)
-  const [hasLiked, setHasLiked] = useState(false)
+  const [likes, setLikes] = useState(likesCount.likes)
+  const [hasLiked, setHasLiked] = useState(likesCount.hasLiked)
   const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    if (!session?.user?.email || !session?.user?.name || !session?.user?.image) return
-    fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/likes?id=${id}&userEmail=${session.user.email}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.user.passkey} ${session.user.email}`,
-        },
-      },
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setLikes(data.likes)
-        setHasLiked(data.hasLiked)
-      })
-      .catch((error) => {
-        console.error('Error updating likes:', error)
-      })
-      .finally(() => {
-        setIsLoading(false)
-      })
-  }, [id, session?.user?.email, session?.user?.name, session?.user?.image, session?.user?.passkey])
 
   const handleLike = () => {
     if (!session?.user?.email || isLoading) return
