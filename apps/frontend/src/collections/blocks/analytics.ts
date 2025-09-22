@@ -52,7 +52,6 @@ export const Analytics: Tab = {
                 },
               )
               const blogLikes = await response.json()
-              console.log(blogLikes)
               value = blogLikes.likesCount
             }
             return value

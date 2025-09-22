@@ -5,7 +5,7 @@ import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
 import { contructImageUrl } from '@/lib/utils'
 import { Page } from '@/payload-types'
 import Comments from '../Comments'
-import BackButton from './BackButton'
+import BackButtonWithCopyLink from './BackButtonWithCopyLink'
 import { BlogImage } from './Image'
 import Metadata from './Metadata'
 import EstimateReading from '../blogs-list/EstimateReading'
@@ -27,7 +27,7 @@ const BlogRenderer = async ({
   return (
     <div>
       {/* Back Button */}
-      <BackButton />
+      <BackButtonWithCopyLink />
 
       {/* Blog Header */}
       <div className="bg-white">
@@ -38,8 +38,8 @@ const BlogRenderer = async ({
           )}
 
           {/* Blog Title */}
-          <div className="flex items-center justify-between gap-2">
-            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <div className="flex items-center justify-between gap-2 mb-5">
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight">
               {blogData.title}
             </h1>
             <EstimateReading data={blogData} />
@@ -56,6 +56,7 @@ const BlogRenderer = async ({
             createdAt={createdAt}
             tags={blogData.tags}
             blogViews={blogViews}
+            blocks={blogData.blocks}
           />
         </div>
       </div>

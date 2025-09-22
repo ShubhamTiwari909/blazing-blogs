@@ -1,4 +1,5 @@
-import { Media } from '@/payload-types'
+import { Media, Page } from '@/payload-types'
+import { convertLexicalToPlaintext } from '@payloadcms/richtext-lexical/plaintext'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -30,4 +31,18 @@ export function calculateReadingTime(text: string): string {
   const minutes = Math.round(convertToMinutes)
 
   return `${minutes} min read`
+}
+
+export const convertToPlaintext = ({ dataBlocks }: { dataBlocks: Page['content']['blocks'] }) => {
+  const blocks = dataBlocks
+  const text = blocks
+    .map((block) => {
+      if (block.blockType === 'content' && block.content) {
+        return convertLexicalToPlaintext({ data: block.content })
+      } else if (block.blockType === 'codeBlock' && block.codeBlock) {
+        return block.codeBlock
+      }
+    })
+    .join(' ')
+  return text
 }

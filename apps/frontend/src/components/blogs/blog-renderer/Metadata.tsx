@@ -3,6 +3,8 @@ import React from 'react'
 import Views from '../Views'
 import Tags from './Tags'
 import LikesWrapper from '../likes/LikesWrapper'
+import { Page } from '@/payload-types'
+import AiAnalysisWrapper from '../AiAnalysis/AiAnalysisWrapper'
 
 const Metadata = async ({
   id,
@@ -10,12 +12,14 @@ const Metadata = async ({
   createdAt,
   tags,
   blogViews,
+  blocks,
 }: {
   id: string
   author: string
   createdAt: string
   tags: { tag: string; id?: string | null | undefined }[] | null | undefined
   blogViews: { blogsCount: number }
+  blocks: Page['content']['blocks']
 }) => {
   return (
     <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-gray-200">
@@ -46,6 +50,7 @@ const Metadata = async ({
       <div className="flex items-center gap-4">
         <Views blogViews={blogViews.blogsCount} />
         <LikesWrapper id={id} />
+        <AiAnalysisWrapper blocks={blocks} />
       </div>
     </div>
   )
