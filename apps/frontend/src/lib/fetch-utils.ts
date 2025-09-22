@@ -14,6 +14,7 @@ export const fetchBlogView = async (id: string) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id }),
+      next: { revalidate: 60 }
     },
   )
   const data = await response.json()
@@ -78,6 +79,31 @@ export const queryPages = async () => {
       slug: true,
       content: true,
       createdAt: true,
+    },
+  })
+
+  if (result.docs?.[0]) {
+    return {
+      type: 'page',
+      docs: result.docs,
+    }
+  }
+}
+
+export const queryPagesSlug = async () => {
+  const payload = await getPayload({ config: config })
+
+  const result = await payload.find({
+    collection: 'pages',
+    depth: 2,
+    pagination: false,
+    where: {
+      slug: {
+        contains: `blogs`,
+      },
+    },
+    select: {
+      slug: true,
     },
   })
 
