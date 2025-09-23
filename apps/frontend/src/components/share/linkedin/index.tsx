@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { SITE_URL } from "@/lib/constants";
-import { CornerUpRight} from "lucide-react";
-import { usePathname } from "next/navigation";
+import { SITE_URL } from '@/lib/constants'
+import { CornerUpRight } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 export default function ShareToLinkedIn() {
-  const pathname = usePathname();
-  const siteUrl = SITE_URL;
-  const shareUrl = `${siteUrl}${pathname}`;
-  const linkedinUrl = `https://www.linkedin.com/shareArticle/?url=${encodeURIComponent(shareUrl)}`;
+  const pathname = usePathname()
+  const siteUrl = SITE_URL
+  const shareUrl = `${siteUrl}${pathname}`
+  const linkedinUrl = `https://www.linkedin.com/shareArticle/?url=${encodeURIComponent(shareUrl)}`
 
   return (
     <a
@@ -19,5 +19,5 @@ export default function ShareToLinkedIn() {
     >
       LinkedIn <CornerUpRight size={20} />
     </a>
-  );
+  )
 }

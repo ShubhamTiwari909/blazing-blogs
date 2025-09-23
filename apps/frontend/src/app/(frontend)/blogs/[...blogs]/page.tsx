@@ -1,7 +1,7 @@
 import { draftMode } from 'next/headers'
 import React from 'react'
 import BlogRenderer from '@/components/blogs/blog-renderer/BlogRenderer'
-import { fetchBlogView, pageData } from '@/lib/fetch-utils'
+import { fetchBlogView, pageData } from '@/lib/fetch-utils/fetch-utils'
 import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
 import { Metadata } from 'next'

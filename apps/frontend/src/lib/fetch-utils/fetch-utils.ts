@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import { cache } from 'react'
 import config from '@payload-config'
-import { Props } from './types'
+import { Props } from '../types'
 
 export const fetchBlogView = async (id: string) => {
   const response = await fetch(
@@ -60,31 +60,3 @@ export const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     }
   }
 })
-
-export const queryPages = async () => {
-  const payload = await getPayload({ config: config })
-
-  const result = await payload.find({
-    collection: 'pages',
-    depth: 2,
-    pagination: false,
-    where: {
-      slug: {
-        contains: `blogs`,
-      },
-    },
-    select: {
-      id: true,
-      slug: true,
-      content: true,
-      createdAt: true,
-    },
-  })
-
-  if (result.docs?.[0]) {
-    return {
-      type: 'page',
-      docs: result.docs,
-    }
-  }
-}

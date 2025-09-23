@@ -59,7 +59,7 @@ const BlogRenderer = async ({
             blogViews={blogViews}
             blocks={blogData.blocks}
           />
-          <div className='flex justify-end mt-2'>
+          <div className="flex justify-end mt-2">
             <ShareToLinkedIn />
           </div>
         </div>

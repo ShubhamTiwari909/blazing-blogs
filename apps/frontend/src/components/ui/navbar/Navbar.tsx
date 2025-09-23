@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { Button } from './button'
+import { Button } from '../button'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import Image from 'next/image'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -13,7 +12,7 @@ const navItems = [
   { name: 'Contact', href: '/contact' },
 ]
 
-const Navbar = () => {
+const Navbar = ({ children }: { children: React.ReactNode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { data: session } = useSession()
 
@@ -43,30 +42,7 @@ const Navbar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
-            {session ? (
-              <div className="flex items-center space-x-3">
-                <Button
-                  onClick={() => signOut()}
-                  className="cursor-pointer bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  Logout
-                </Button>
-                <Image
-                  className="rounded-full"
-                  src={session.user?.image || ''}
-                  alt={session.user?.name || ''}
-                  width={32}
-                  height={32}
-                />
-              </div>
-            ) : (
-              <Button
-                onClick={() => signIn('google')}
-                className="cursor-pointer bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-              >
-                Login
-              </Button>
-            )}
+            {children}
           </div>
 
           {/* Mobile menu button */}
