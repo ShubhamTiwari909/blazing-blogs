@@ -248,6 +248,7 @@ export interface Page {
   analytics?: {
     views?: number | null;
     likes?: number | null;
+    pagespeed?: number | null;
   };
   folder?: (string | null) | FolderInterface;
   updatedAt: string;
@@ -418,6 +419,7 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         views?: T;
         likes?: T;
+        pagespeed?: T;
       };
   folder?: T;
   updatedAt?: T;

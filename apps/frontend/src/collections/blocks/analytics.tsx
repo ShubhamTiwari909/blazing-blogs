@@ -60,6 +60,7 @@ export const Analytics: Tab = {
     {
       name: 'pagespeed',
       type: 'number',
+      label: 'Pagespeed performance score',
       admin: {
         readOnly: true,
         components: {

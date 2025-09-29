@@ -51,6 +51,9 @@ export const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
         equals: `blogs/${slug}`,
       },
     },
+    select:{
+      analytics: false
+    }
   })
 
   if (result.docs?.[0]) {

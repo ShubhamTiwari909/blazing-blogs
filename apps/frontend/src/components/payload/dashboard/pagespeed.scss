@@ -1,0 +1,202 @@
+.pagespeed-container {
+  margin-top: 20px;
+  padding: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  .fetch-button {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+  }
+
+  .loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #ffffff;
+    font-weight: 500;
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top: 2px solid #ffffff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+  }
+
+  .metrics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    .metric-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid #4facfe;
+      transition: all 0.3s ease;
+      color: #ffffff;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(4px);
+      }
+
+      .metric-label {
+        font-weight: 500;
+        font-size: 14px;
+        opacity: 0.9;
+      }
+
+      .metric-value {
+        font-weight: 600;
+        font-size: 14px;
+        color: #ffffff;
+      }
+
+      &.performance-score {
+        border-left-color: #00f2fe;
+        background: rgba(0, 242, 254, 0.1);
+
+        .metric-value {
+          font-size: 16px;
+          font-weight: 700;
+        }
+
+        &.excellent {
+          border-left-color: #00ff88;
+          background: rgba(0, 255, 136, 0.1);
+          color: #00ff88;
+        }
+
+        &.good {
+          border-left-color: #ffd700;
+          background: rgba(255, 215, 0, 0.1);
+          color: #ffd700;
+        }
+
+        &.poor {
+          border-left-color: #ff4757;
+          background: rgba(255, 71, 87, 0.1);
+          color: #ff4757;
+        }
+      }
+    }
+  }
+
+  .no-data {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .pagespeed-container {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 12px;
+
+    .fetch-button {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 16px;
+    }
+
+    .metrics-container {
+      margin-top: 16px;
+      padding: 16px;
+      gap: 12px;
+
+      .metric-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 10px 12px;
+
+        .metric-label {
+          font-size: 13px;
+        }
+
+        .metric-value {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+// Dark theme support
+@media (prefers-color-scheme: dark) {
+  .pagespeed-container {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    
+    .metrics-container {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+}
