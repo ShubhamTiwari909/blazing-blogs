@@ -57,5 +57,15 @@ export const Analytics: Tab = {
         ],
       },
     },
+    {
+      name: 'pagespeed',
+      type: 'number',
+      admin: {
+        readOnly: true,
+        components: {
+          afterInput: ['@/components/payload/dashboard/pagespeed'],
+        },
+      },
+    },
   ],
 }
