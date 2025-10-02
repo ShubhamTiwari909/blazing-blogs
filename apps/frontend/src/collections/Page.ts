@@ -47,6 +47,18 @@ export const Page: CollectionConfig = {
       },
     },
     {
+      name: 'revalidate',
+      type: 'text',
+      label: 'Revalidate',
+      defaultValue: 'blogs',
+      admin: {
+        readOnly: true,
+        components: {
+          afterInput: ['@/components/payload/dashboard/revalidation'],
+        },
+      },
+    },
+    {
       type: 'tabs',
       tabs: [Content, SeoTab, Analytics],
     },

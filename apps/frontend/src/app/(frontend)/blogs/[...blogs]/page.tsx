@@ -1,4 +1,5 @@
 import { draftMode } from 'next/headers'
+import { unstable_cache } from 'next/cache'
 import React from 'react'
 import BlogRenderer from '@/components/blogs/blog-renderer/BlogRenderer'
 import { fetchBlogView, pageData } from '@/lib/fetch-utils/fetch-utils'
@@ -6,12 +7,23 @@ import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
 import { Metadata } from 'next'
 
-// Enable dynamic rendering and set revalidation
+// Enable dynamic rendering
 export const dynamic = 'force-dynamic'
-export const revalidate = 0
+
+// Create cached versions of data fetching functions
+const getCachedPageData = unstable_cache(
+  async (params: Props['params']) => {
+    return await pageData(params)
+  },
+  ['page-data'],
+  {
+    revalidate: 86400, // 24 hours
+    tags: ['page-data']
+  }
+)
 
 export async function generateMetadata({ params }: Props) {
-  const page = await pageData(params)
+  const page = await getCachedPageData(params)
   const seo = page.docs.seo
   const title = seo.title
   const description = seo.description
@@ -47,7 +59,7 @@ export async function generateMetadata({ params }: Props) {
 
 const page = async ({ params }: Props) => {
   const { isEnabled: draft } = await draftMode()
-  const page = await pageData(params)
+  const page = await getCachedPageData(params)
   const blogViews = await fetchBlogView(page.docs.id)
   const blogData = page.docs.content
 

@@ -204,6 +204,7 @@ export interface Page {
   id: string;
   pageTitle: string;
   slug: string;
+  revalidate?: string | null;
   content: {
     title: string;
     shortDescription: string;
@@ -381,6 +382,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   pageTitle?: T;
   slug?: T;
+  revalidate?: T;
   content?:
     | T
     | {

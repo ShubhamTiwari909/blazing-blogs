@@ -5,7 +5,6 @@ import { TextFieldClientComponent } from 'payload'
 import './pagespeed.scss'
 
 async function fetchPagespeed(slug: string) {
-  console.log(process.env.NEXT_PUBLIC_PAGESPEED_API_KEY)
   const apiEndpoint =
     `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?key=${process.env.NEXT_PUBLIC_PAGESPEED_API_KEY}`  
   const targetUrl = `https://blazing-blogs-frontend.vercel.app/${slug}`
