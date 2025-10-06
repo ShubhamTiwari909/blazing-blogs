@@ -8,13 +8,15 @@ import { useCookies } from 'react-cookie'
 const AiAnalysis = ({
   disabled,
   blocks,
+  blogId,
 }: {
   disabled?: boolean
-  blocks: Page['content']['blocks']
+  blocks: Page['content']['blocks'],
+  blogId: string
 }) => {
   const [loading, setLoading] = useState(false)
   const [aiDescription, setAiDescription] = useState('')
-  const [cookies, setCookies] = useCookies(['aiSummary'])
+  const [cookies, setCookies] = useCookies([`aiSummary-${blogId}`])
 
   useEffect(() => {
     const handleAiAnalysis = async () => {
@@ -30,7 +32,7 @@ const AiAnalysis = ({
         })
         const result = await handleAiSummary.json()
         setAiDescription(result.summary || 'No AI analysis available')
-        setCookies('aiSummary', result.summary || 'No AI analysis available', { maxAge: 3600 })
+        setCookies(`aiSummary-${blogId}`, result.summary || 'No AI analysis available', { maxAge: 3600, path: `/` })
         setLoading(false)
       } catch (error) {
         console.error('Error fetching AI analysis:', error)
@@ -39,13 +41,14 @@ const AiAnalysis = ({
         setLoading(false)
       }
     }
-    const cachedSummary = cookies.aiSummary
+    const cachedSummary = cookies[`aiSummary-${blogId}`]
+    console.log(cachedSummary)
     if (cachedSummary) {
       setAiDescription(cachedSummary)
       return
     }
     handleAiAnalysis()
-  }, [blocks, cookies, setCookies])
+  }, [blocks, cookies, setCookies, blogId])
   if (loading) return <div className="flex items-center gap-1">AI Summary Loading...</div>
 
   return (

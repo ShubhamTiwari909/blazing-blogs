@@ -30,7 +30,11 @@ export function calculateReadingTime(text: string): string {
   const convertToMinutes = Math.ceil(seconds / 60)
   const minutes = Math.round(convertToMinutes)
 
-  return `${minutes} min read`
+  if(minutes <= 60) {
+    return `${minutes} min read`
+  }
+  const hours = Math.ceil(minutes / 60)
+  return `${hours} hours read`
 }
 
 export const convertToPlaintext = ({ dataBlocks }: { dataBlocks: Page['content']['blocks'] }) => {

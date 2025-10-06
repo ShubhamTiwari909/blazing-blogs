@@ -4,10 +4,10 @@ import { CookiesProvider } from 'react-cookie'
 import AiAnalysis from './AiAnalysis'
 import { Page } from '@/payload-types'
 
-const AiAnalysisWrapper = ({ blocks }: { blocks: Page['content']['blocks'] }) => {
+const AiAnalysisWrapper = ({ blocks, blogId }: { blocks: Page['content']['blocks'], blogId: string }) => {
   return (
     <CookiesProvider>
-      <AiAnalysis blocks={blocks} />
+      <AiAnalysis blocks={blocks} blogId={blogId} />
     </CookiesProvider>
   )
 }

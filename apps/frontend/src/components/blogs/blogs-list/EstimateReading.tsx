@@ -6,7 +6,7 @@ const EstimateReading = ({ data }: { data: Page['content'] }) => {
   const blocks = data.blocks
   const text = convertToPlaintext({ dataBlocks: blocks })
   const readingTime = calculateReadingTime(text)
-  return <p className="text-base text-gray-500">{readingTime}</p>
+  return <p className="text-base text-gray-500 min-w-20">{readingTime}</p>
 }
 
 export default EstimateReading

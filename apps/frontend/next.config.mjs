@@ -49,6 +49,7 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+  reactStrictMode: false,
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })

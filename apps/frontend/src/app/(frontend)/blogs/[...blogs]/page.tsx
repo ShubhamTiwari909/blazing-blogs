@@ -2,7 +2,7 @@ import { draftMode } from 'next/headers'
 import { unstable_cache } from 'next/cache'
 import React from 'react'
 import BlogRenderer from '@/components/blogs/blog-renderer/BlogRenderer'
-import { fetchBlogView, pageData } from '@/lib/fetch-utils/fetch-utils'
+import { pageData } from '@/lib/fetch-utils/fetch-utils'
 import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
 import { Metadata } from 'next'
@@ -10,9 +10,13 @@ import { Metadata } from 'next'
 // Enable dynamic rendering
 export const dynamic = 'force-dynamic'
 
+type Params = {
+  blogs: string
+};
+
 // Create cached versions of data fetching functions
 const getCachedPageData = unstable_cache(
-  async (params: Props['params']) => {
+  async (params: Params) => {
     return await pageData(params)
   },
   ['page-data'],
@@ -23,7 +27,8 @@ const getCachedPageData = unstable_cache(
 )
 
 export async function generateMetadata({ params }: Props) {
-  const page = await getCachedPageData(params)
+  const resolvedParams = await params;
+  const page = await getCachedPageData(resolvedParams)
   const seo = page.docs.seo
   const title = seo.title
   const description = seo.description
@@ -59,8 +64,8 @@ export async function generateMetadata({ params }: Props) {
 
 const page = async ({ params }: Props) => {
   const { isEnabled: draft } = await draftMode()
-  const page = await getCachedPageData(params)
-  const blogViews = await fetchBlogView(page.docs.id)
+  const resolvedParams = await params;
+  const page = await getCachedPageData(resolvedParams)
   const blogData = page.docs.content
 
   return (
@@ -68,7 +73,6 @@ const page = async ({ params }: Props) => {
       <BlogRenderer
         blogData={blogData}
         draft={draft}
-        blogViews={blogViews}
         blogId={page.docs.id}
         createdAt={page.docs.createdAt}
       />

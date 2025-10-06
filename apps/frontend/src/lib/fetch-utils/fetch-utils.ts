@@ -3,25 +3,12 @@ import { notFound } from 'next/navigation'
 import { getPayload } from 'payload'
 import { cache } from 'react'
 import config from '@payload-config'
-import { Props } from '../types'
 
-export const fetchBlogView = async (id: string) => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/views?id=${id}`,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id }),
-    },
-  )
-  const data = await response.json()
-  return data
-}
-
-export const pageData = async (paramsPromise: Props['params']) => {
-  const { blogs = 'home' } = await paramsPromise
+type Params = {
+  blogs: string
+};
+export const pageData = async (paramsPromise: Params) => {
+  const { blogs = 'home' } = paramsPromise
 
   const parsedSlug = Array.isArray(blogs) ? blogs.join('/') : blogs
 

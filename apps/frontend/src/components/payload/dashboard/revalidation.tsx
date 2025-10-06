@@ -9,14 +9,22 @@ export default function Revalidation() {
         e.stopPropagation()
         
         try {
-            await fetch('/api/revalidate', {
+            const response = await fetch('/api/revalidate', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ slug: fields.slug.value }),
+                body: JSON.stringify({ slug: fields.slug.value, blogId: fields.id.value }),
             })
-            toast.success('Revalidated successfully')
+            
+            const data = await response.json()
+            
+            if (data.revalidated) {
+                // Clear aiSummary cookie if revalidation was successful
+                toast.success('Revalidated successfully')
+            }
+            
         } catch (_error) {
             toast.error('Failed to revalidate')
         }

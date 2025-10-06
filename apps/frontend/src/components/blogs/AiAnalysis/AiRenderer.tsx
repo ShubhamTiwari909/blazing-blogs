@@ -29,7 +29,7 @@ const AiRenderer = ({
       </AlertDialogTrigger>
       <AlertDialogContent className="max-h-120 lg:max-h-150 lg:min-w-3xl overflow-auto mt-14 lg:mt-2">
         <AlertDialogHeader className="prose prose-p:my-2 prose-ul:my-1 prose:li:my-1 prose-ol:my-1 text-left w-full">
-          <AlertDialogTitle>AI Summar</AlertDialogTitle>
+          <AlertDialogTitle>AI Summary</AlertDialogTitle>
           <AlertDialogDescription asChild>
             <div>
               <Markdown remarkPlugins={[remarkGfm]}>{aiDescription}</Markdown>
