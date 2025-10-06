@@ -42,7 +42,6 @@ const AiAnalysis = ({
       }
     }
     const cachedSummary = cookies[`aiSummary-${blogId}`]
-    console.log(cachedSummary)
     if (cachedSummary) {
       setAiDescription(cachedSummary)
       return

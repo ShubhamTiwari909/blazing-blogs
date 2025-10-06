@@ -1,9 +1,9 @@
 "use client"
 
-import { toast, useFormFields } from "@payloadcms/ui"
+import { toast, useDocumentInfo } from "@payloadcms/ui"
 
 export default function Revalidation() {
-    const fields = useFormFields(([fields]) => fields)
+    const documentInfo = useDocumentInfo()
     const handleRevalidate = async (e: React.MouseEvent) => {
         e.preventDefault()
         e.stopPropagation()
@@ -15,7 +15,7 @@ export default function Revalidation() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ slug: fields.slug.value, blogId: fields.id.value }),
+                body: JSON.stringify({ slug: documentInfo.data?.slug, blogId: documentInfo.id }),
             })
             
             const data = await response.json()
@@ -27,6 +27,7 @@ export default function Revalidation() {
             
         } catch (_error) {
             toast.error('Failed to revalidate')
+            console.log(_error)
         }
     }
 
