@@ -22,8 +22,9 @@ export default function GeminiFieldSummary({ path }: PagespeedProps) {
         text: convertToPlaintext({ dataBlocks: documentInfo.data?.content.blocks }),
       })
       setValue(summary)
+      toast.success('AI summary generated successfully')
     } catch (_error) {
-      toast.error('Failed to revalidate')
+      toast.error('Failed to generate AI summary')
       console.log(_error)
     } finally {
       setLoading(false)
