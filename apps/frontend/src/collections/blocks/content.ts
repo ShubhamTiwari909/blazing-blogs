@@ -38,6 +38,17 @@ export const Content: Tab = {
       required: true,
     },
     {
+      name: 'aiSummary',
+      type: 'text',
+      label: 'AI Summary',
+      admin: {
+        readOnly: true,
+        components: {
+          afterInput: ['@/components/payload/dashboard/ai-summary/GeminiFieldSummary'],
+        },
+      },
+    },
+    {
       name: 'blocks',
       type: 'blocks',
       required: true,

@@ -216,6 +216,7 @@ export interface Page {
         }[]
       | null;
     image: string | Media;
+    aiSummary?: string | null;
     blocks: (
       | {
           content?: {
@@ -396,6 +397,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
             };
         image?: T;
+        aiSummary?: T;
         blocks?:
           | T
           | {

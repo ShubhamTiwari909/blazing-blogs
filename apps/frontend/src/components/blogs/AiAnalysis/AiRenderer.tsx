@@ -12,18 +12,17 @@ import {
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Button } from '@/components/ui/button'
+import { Page } from '@/payload-types'
 
 const AiRenderer = ({
-  isDisabled,
-  aiDescription,
+  aiSummary,
 }: {
-  isDisabled?: boolean
-  aiDescription: string
+  aiSummary: Page["content"]["aiSummary"]
 }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="default" disabled={isDisabled} className="cursor-pointer border-blue-500">
+        <Button variant="default" className="cursor-pointer border-blue-500">
           AI Summary
         </Button>
       </AlertDialogTrigger>
@@ -32,7 +31,7 @@ const AiRenderer = ({
           <AlertDialogTitle>AI Summary</AlertDialogTitle>
           <AlertDialogDescription asChild>
             <div>
-              <Markdown remarkPlugins={[remarkGfm]}>{aiDescription}</Markdown>
+              <Markdown remarkPlugins={[remarkGfm]}>{aiSummary}</Markdown>
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>

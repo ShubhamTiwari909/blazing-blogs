@@ -2,22 +2,22 @@ import { CalendarDays, User } from 'lucide-react'
 import React from 'react'
 import Tags from './Tags'
 import LikesWrapper from '../likes/LikesWrapper'
-import { Page } from '@/payload-types'
-import AiAnalysisWrapper from '../AiAnalysis/AiAnalysisWrapper'
 import ViewsWrapper from '../views/ViewsWrapper'
+import AiAnalysis from '../AiAnalysis/AiAnalysis'
+import { Page } from '@/payload-types'
 
 const Metadata = async ({
   id,
   author,
   createdAt,
   tags,
-  blocks,
+  aiSummary,
 }: {
   id: string
   author: string
   createdAt: string
   tags: { tag: string; id?: string | null | undefined }[] | null | undefined
-  blocks: Page['content']['blocks']
+  aiSummary: Page["content"]["aiSummary"]
 }) => {
   return (
     <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-gray-200">
@@ -48,7 +48,7 @@ const Metadata = async ({
       <div className="flex items-center gap-4">
         <ViewsWrapper id={id} />
         <LikesWrapper id={id} />
-        <AiAnalysisWrapper blocks={blocks} blogId={id} />
+        <AiAnalysis aiSummary={aiSummary} />
       </div>
     </div>
   )

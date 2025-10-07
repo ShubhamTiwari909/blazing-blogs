@@ -15,13 +15,12 @@ export default function Revalidation() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ slug: documentInfo.data?.slug, blogId: documentInfo.id }),
+                body: JSON.stringify({ slug: documentInfo.data?.slug }),
             })
             
             const data = await response.json()
             
             if (data.revalidated) {
-                // Clear aiSummary cookie if revalidation was successful
                 toast.success('Revalidated successfully')
             }
             
@@ -38,7 +37,7 @@ export default function Revalidation() {
                 onClick={handleRevalidate}
                 style={{ 
                     padding: '8px 16px',
-                    backgroundColor: '#10b981',
+                    backgroundColor: 'rebeccapurple',
                     color: 'white',
                     border: 'none',
                     borderRadius: '4px',

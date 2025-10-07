@@ -54,7 +54,7 @@ const BlogRenderer = async ({
             author={blogData.author}
             createdAt={createdAt}
             tags={blogData.tags}
-            blocks={blogData.blocks}
+            aiSummary={blogData.aiSummary}
           />
           <div className="flex justify-end mt-2">
             <ShareToLinkedIn />

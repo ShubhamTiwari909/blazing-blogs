@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useField, useFormFields } from '@payloadcms/ui'
 import { TextFieldClientComponent } from 'payload'
-import './pagespeed.scss'
+import './styles.scss'
 
 async function fetchPagespeed(slug: string) {
   const apiEndpoint =
@@ -24,7 +24,7 @@ async function fetchPagespeed(slug: string) {
   }
 }
 
-interface PagespeedProps {
+type PagespeedProps = {
   path: string
 }
 
