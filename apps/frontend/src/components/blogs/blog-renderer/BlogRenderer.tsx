@@ -10,6 +10,7 @@ import { BlogImage } from './Image'
 import Metadata from './Metadata'
 import EstimateReading from '../blogs-list/EstimateReading'
 import ShareToLinkedIn from '@/components/share/linkedin'
+import LinkPreviewCard, { Meta } from './LinkPreview'
 
 const BlogRenderer = async ({
   blogData,
@@ -75,6 +76,11 @@ const BlogRenderer = async ({
                 {block.blockType === 'codeBlock' && block.codeBlock && (
                   <CodeRenderer code={block.codeBlock} />
                 )}
+                {
+                  block.blockType === 'linkPreview' && block.link && (
+                    <LinkPreviewCard meta={block.preview as Meta} link={block.link} />
+                  )
+                }
               </div>
             )
           })}

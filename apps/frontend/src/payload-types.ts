@@ -244,6 +244,21 @@ export interface Page {
           blockName?: string | null;
           blockType: 'codeBlock';
         }
+      | {
+          link: string;
+          preview?:
+            | {
+                [k: string]: unknown;
+              }
+            | unknown[]
+            | string
+            | number
+            | boolean
+            | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'linkPreview';
+        }
     )[];
   };
   seo: Seo;
@@ -412,6 +427,14 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     codeBlock?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              linkPreview?:
+                | T
+                | {
+                    link?: T;
+                    preview?: T;
                     id?: T;
                     blockName?: T;
                   };

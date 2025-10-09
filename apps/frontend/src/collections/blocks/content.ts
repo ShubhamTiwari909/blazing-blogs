@@ -94,6 +94,38 @@ export const Content: Tab = {
             },
           ],
         },
+        {
+          slug:'linkPreview',
+          fields: [
+            {
+              name: 'link',
+              type: 'text',
+              label:'Link',
+              required: true,
+            },
+            {
+              name:'preview',
+              type: 'json',
+              label:'Preview',
+              admin:{
+                readOnly: true,
+              },
+              hooks:{
+                beforeValidate:[
+                  async ({ data, siblingData, value }) => {
+                    if (siblingData?.link && data) {
+                      const response = await fetch(`http://localhost:3000/api/url-preview?url=${encodeURIComponent(siblingData?.link)}`);
+                      const responseData = await response.json();
+                      value = responseData;
+                      return value;
+                    }
+                    return null;
+                  },
+                ],
+              },
+            },
+          ],
+        },
       ],
     },
   ],
