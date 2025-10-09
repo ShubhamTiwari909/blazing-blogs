@@ -114,7 +114,7 @@ export const Content: Tab = {
                 beforeValidate:[
                   async ({ data, siblingData, value }) => {
                     if (siblingData?.link && data) {
-                      const response = await fetch(`http://localhost:3000/api/url-preview?url=${encodeURIComponent(siblingData?.link)}`);
+                      const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/url-preview?url=${encodeURIComponent(siblingData?.link)}`);
                       const responseData = await response.json();
                       value = responseData;
                       return value;
