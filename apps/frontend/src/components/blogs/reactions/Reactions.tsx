@@ -22,13 +22,20 @@ const Reactions = ({
 
     setIsLoading(true)
     fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/reactions?id=${id}&userName=${session.user.name}&userEmail=${session.user.email}&userImage=${session.user.image}&reaction=${reaction}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/reactions`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${session.user.passkey} ${session.user.email}`,
         },
+        body: JSON.stringify({
+          id,
+          userName: session.user.name,
+          userEmail: session.user.email,
+          userImage: session.user.image,
+          reaction,
+        }),
       },
     )
       .then((response) => response.json())

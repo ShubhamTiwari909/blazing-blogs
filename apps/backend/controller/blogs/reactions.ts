@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import { Blogs } from '../../schemas/Blogs.js';
-import { REACTION_TYPES, type BlogReactionsParams, type Reaction, type User } from './types.js';
+import { REACTION_TYPES, type Reaction, type User } from './types.js';
 
 export const updateReaction = async (req: Request, res: Response) => {
   try {
-    const { id, userName, userEmail, userImage, reaction } = req.query as BlogReactionsParams;
+    const { id, userName, userEmail, userImage, reaction } = req.body;
     if (!id || !userEmail || !userName || !userImage || !reaction || !REACTION_TYPES.includes(reaction)) {
       return res.status(400).json({ message: 'Bad Request - id, user, and reaction are required' });
     }
@@ -32,15 +32,14 @@ export const updateReaction = async (req: Request, res: Response) => {
       );
     }
 
-    const reactionCounts = REACTION_TYPES.reduce((acc, r) => {
-      acc[r] = updatedPost?.reactions?.[r]?.length || 0;
-      return acc;
-    }, {} as Record<Reaction, number>);
+    const reactionCounts = {} as Record<Reaction, number>;
+    const userReactions = {} as Record<Reaction, boolean>;
 
-    const userReactions = REACTION_TYPES.reduce((acc, r) => {
-      acc[r] = updatedPost?.reactions?.[r]?.some((u: User) => u.email === userEmail) || false;
-      return acc;
-    }, {} as Record<Reaction, boolean>);
+    for (const r of REACTION_TYPES) {
+      const users = updatedPost?.reactions?.[r] || [];
+      reactionCounts[r] = users.length;
+      userReactions[r] = users.some((u: User) => u.email === userEmail);
+    }
 
     res.json({ 
       reactions: reactionCounts,
