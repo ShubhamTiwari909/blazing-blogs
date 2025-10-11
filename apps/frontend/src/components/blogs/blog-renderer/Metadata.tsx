@@ -1,7 +1,7 @@
 import { CalendarDays, User } from 'lucide-react'
 import React from 'react'
 import Tags from './Tags'
-import LikesWrapper from '../likes/LikesWrapper'
+import ReactionsWrapper from '../reactions/ReactionsWrapper'
 import ViewsWrapper from '../views/ViewsWrapper'
 import AiAnalysis from '../AiAnalysis/AiAnalysis'
 import { Page } from '@/payload-types'
@@ -45,9 +45,9 @@ const Metadata = async ({
         {/* Tags */}
         {tags && tags.length > 0 && <Tags tags={tags} />}
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center flex-wrap gap-4">
         <ViewsWrapper id={id} />
-        <LikesWrapper id={id} />
+        <ReactionsWrapper id={id} />
         <AiAnalysis aiSummary={aiSummary} />
       </div>
     </div>

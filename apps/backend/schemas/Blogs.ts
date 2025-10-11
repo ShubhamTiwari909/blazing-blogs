@@ -34,6 +34,14 @@ const CommentSchema = {
   user: UserSchema,
 };
 
+const ReactionSchema = {
+  heart: [UserSchema],
+  unicorn: [UserSchema],
+  confetti: [UserSchema],
+  fireworks: [UserSchema],
+  party: [UserSchema],
+}
+
 const blogSchema = new mongoose.Schema({
   views: {
     count: {
@@ -41,14 +49,8 @@ const blogSchema = new mongoose.Schema({
       default: 0,
     },
   },
-  likes: {
-    type: {
-      count: {
-        type: Number,
-        default: 0,
-      },
-      users: [UserSchema],
-    },
+  reactions: {
+    type: ReactionSchema,
     required: false,
   },
   comments: {

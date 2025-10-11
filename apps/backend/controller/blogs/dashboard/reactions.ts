@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import { Blogs } from '../../../schemas/Blogs.js';
+import { REACTION_TYPES } from '../types.js';
 
-export const getLikesFromBlog = async (req: Request, res: Response) => {
+export const getReactionsFromBlog = async (req: Request, res: Response) => {
   try {
     const { id } = req.query;
     if (!id) {
@@ -11,7 +12,8 @@ export const getLikesFromBlog = async (req: Request, res: Response) => {
     if (!blog) {
       return res.status(404).json({ message: 'Blog not found' });
     }
-    res.json({ likesCount: blog?.likes?.users.length || 0 });
+    const reactionsCount = REACTION_TYPES.reduce((acc, reaction) => acc + (blog?.reactions?.[reaction]?.length || 0), 0);
+    res.json({ reactionsCount });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Internal Server Error' });

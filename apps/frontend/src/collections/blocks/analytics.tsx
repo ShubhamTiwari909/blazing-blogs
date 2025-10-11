@@ -31,7 +31,7 @@ export const Analytics: Tab = {
       },
     },
     {
-      name: 'likes',
+      name: 'reactions',
       type: 'number',
       admin: {
         readOnly: true,
@@ -41,7 +41,7 @@ export const Analytics: Tab = {
           async ({ data, value }) => {
             if (data) {
               const response = await fetch(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/likes-count-from-blog?id=${data.id}`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/reactions-count-from-blog?id=${data.id}`,
                 {
                   method: 'GET',
                   headers: {
@@ -49,8 +49,8 @@ export const Analytics: Tab = {
                   },
                 },
               )
-              const blogLikes = await response.json()
-              value = blogLikes.likesCount
+              const blogReactions = await response.json()
+              value = blogReactions.reactionsCount
             }
             return value
           },

@@ -1,9 +1,9 @@
 import express, { Router, type Request, type Response, type NextFunction } from 'express';
 import { dynamicLimiter } from '../middlewares/rate-limiting.js';
 import { getViews, updateViews } from '../controller/blogs/views.js';
-import { hasLiked, updateLikes } from '../controller/blogs/likes.js';
+import { getReactions, updateReaction } from '../controller/blogs/reactions.js';
 import { customAuthMiddleware } from '../middlewares/api-auth.js';
-import { getLikesFromBlog } from '../controller/blogs/dashboard/likes.js';
+import { getReactionsFromBlog } from '../controller/blogs/dashboard/reactions.js';
 
 const router: Router = express.Router();
 
@@ -32,12 +32,12 @@ router.get(
 );
 
 router.post(
-  '/update/likes',
+  '/update/reactions',
   dynamicLimiter(120),
   customAuthMiddleware,
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await updateLikes(req, res);
+      await updateReaction(req, res);
     } catch (error) {
       next(error);
     }
@@ -45,12 +45,12 @@ router.post(
 );
 
 router.get(
-  '/get/has-liked',
+  '/get/reactions',
   dynamicLimiter(120),
   customAuthMiddleware,
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await hasLiked(req, res);
+      await getReactions(req, res);
     } catch (error) {
       next(error);
     }
@@ -58,11 +58,11 @@ router.get(
 );
 
 router.get(
-  '/get/likes-count-from-blog',
+  '/get/reactions-count-from-blog',
   dynamicLimiter(120),
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      await getLikesFromBlog(req, res);
+      await getReactionsFromBlog(req, res);
     } catch (error) {
       next(error);
     }
