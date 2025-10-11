@@ -264,7 +264,7 @@ export interface Page {
   seo: Seo;
   analytics?: {
     views?: number | null;
-    likes?: number | null;
+    reactions?: number | null;
     pagespeed?: number | null;
   };
   folder?: (string | null) | FolderInterface;
@@ -445,7 +445,7 @@ export interface PagesSelect<T extends boolean = true> {
     | T
     | {
         views?: T;
-        likes?: T;
+        reactions?: T;
         pagespeed?: T;
       };
   folder?: T;

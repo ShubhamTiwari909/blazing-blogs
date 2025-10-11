@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Blogs } from '../../../schemas/Blogs.js';
 
-export const getLikesFromBlog = async (req: Request, res: Response) => {
+export const getReactionsFromBlog = async (req: Request, res: Response) => {
   try {
     const { id } = req.query;
     if (!id) {
@@ -11,7 +11,9 @@ export const getLikesFromBlog = async (req: Request, res: Response) => {
     if (!blog) {
       return res.status(404).json({ message: 'Blog not found' });
     }
-    res.json({ likesCount: blog?.likes?.users.length || 0 });
+    // const reactions = ['heart', 'unicorn', 'confetti', 'fireworks', 'party'];
+    // const reactionsCount = reactions.reduce((acc, reaction) => acc + (blog?.reactions?.[reaction]?.count || 0), 0);
+    res.json({ reactionsCount: blog.reactions });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Internal Server Error' });
