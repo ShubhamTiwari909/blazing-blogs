@@ -50,7 +50,6 @@ export const Analytics: Tab = {
                 },
               )
               const blogReactions = await response.json()
-              console.log(blogReactions)
               value = blogReactions.reactionsCount
             }
             return value

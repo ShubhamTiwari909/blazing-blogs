@@ -6,6 +6,8 @@ export type User = {
 
 export type Reaction = 'heart' | 'unicorn' | 'confetti' | 'fireworks' | 'party';
 
+export const REACTION_TYPES = ['heart', 'unicorn', 'confetti', 'fireworks', 'party'] as const;
+
 export type BlogReactionsParams =  {
   id: string;
   userName: string;

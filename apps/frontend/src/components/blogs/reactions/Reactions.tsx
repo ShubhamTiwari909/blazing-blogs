@@ -3,31 +3,14 @@ import React, { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { Button } from '../../ui/button'
 import Image from 'next/image'
-import { geerateReactionMap } from './data'
-
-type Reactions = {
-  confetti: number
-  fireworks: number
-  heart: number
-  party: number
-  unicorn: number
-}
+import { generateReactionMap } from './data'
+import type { ReactionsProps } from './types'
 
 const Reactions = ({
   id,
   userReactions,
   reactionCounts,
-}: {
-  id: string
-  userReactions: {
-    heart: boolean
-    unicorn: boolean
-    confetti: boolean
-    fireworks: boolean
-    party: boolean
-  }
-  reactionCounts: Reactions
-}) => {
+}: ReactionsProps) => {
   const { data: session } = useSession()
   const [reactions, setReactions] = useState(reactionCounts)
   const [hasReacted, setHasReacted] = useState(userReactions)
@@ -54,7 +37,7 @@ const Reactions = ({
         setHasReacted(data.userReactions)
       })
       .catch((error) => {
-        console.error('Error updating likes:', error)
+        console.error('Error updating reactions:', error)
         setError("Error updating reactions, please try again later")
         setTimeout(() => {
           setError(null)
@@ -67,7 +50,7 @@ const Reactions = ({
 
   if (!session?.user) return null
   
-  const reactionsMap = geerateReactionMap(reactions)
+  const reactionsMap = generateReactionMap(reactions)
 
   return (
     <ul className='flex items-center gap-1 relative'>

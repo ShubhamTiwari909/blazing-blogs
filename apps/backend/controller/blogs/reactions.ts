@@ -1,20 +1,18 @@
 import { Request, Response } from 'express';
 import { Blogs } from '../../schemas/Blogs.js';
-import type { BlogReactionsParams, Reaction, User } from './types.js';
-
-const reactions = ['heart', 'unicorn', 'confetti', 'fireworks', 'party'] as const;
+import { REACTION_TYPES, type BlogReactionsParams, type Reaction, type User } from './types.js';
 
 export const updateReaction = async (req: Request, res: Response) => {
   try {
     const { id, userName, userEmail, userImage, reaction } = req.query as BlogReactionsParams;
-    if (!id || !userEmail || !userName || !userImage || !reaction || !reactions.includes(reaction)) {
+    if (!id || !userEmail || !userName || !userImage || !reaction || !REACTION_TYPES.includes(reaction)) {
       return res.status(400).json({ message: 'Bad Request - id, user, and reaction are required' });
     }
 
     // Check if user already reacted with this emoji
     const existingReaction = await Blogs.findOne({ 
       _id: id, 
-      [`reactions.${reaction}.email`]: userEmail 
+      [`reactions.${reaction}`]: { $elemMatch: { email: userEmail } }
     });
 
     let updatedPost;
@@ -34,14 +32,12 @@ export const updateReaction = async (req: Request, res: Response) => {
       );
     }
 
-    const reactionTypes: Reaction[] = ['heart', 'unicorn', 'confetti', 'fireworks', 'party'];
-
-    const reactionCounts = reactionTypes.reduce((acc, r) => {
+    const reactionCounts = REACTION_TYPES.reduce((acc, r) => {
       acc[r] = updatedPost?.reactions?.[r]?.length || 0;
       return acc;
     }, {} as Record<Reaction, number>);
 
-    const userReactions = reactionTypes.reduce((acc, r) => {
+    const userReactions = REACTION_TYPES.reduce((acc, r) => {
       acc[r] = updatedPost?.reactions?.[r]?.some((u: User) => u.email === userEmail) || false;
       return acc;
     }, {} as Record<Reaction, boolean>);
@@ -69,19 +65,16 @@ export const getReactions = async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'Blog not found' });
     }
 
-    const reactions = blog?.reactions;
-    const reactionTypes: Reaction[] = ['heart', 'unicorn', 'confetti', 'fireworks', 'party'];
-
-    const reactionCounts = reactionTypes.reduce((acc, r) => {
-      acc[r] = reactions?.[r]?.length || 0;
+    const reactionCounts = REACTION_TYPES.reduce((acc, r) => {
+      acc[r] = blog?.reactions?.[r]?.length || 0;
       return acc;
     }, {} as Record<Reaction, number>);
 
     // If userEmail is provided, check which reactions the user has made
     let userReactions = {} as Record<Reaction, boolean>;
     if (userEmail) {
-      userReactions = reactionTypes.reduce((acc, r) => {
-        acc[r] = reactions?.[r]?.some((u: User) => u.email === userEmail) || false;
+      userReactions = REACTION_TYPES.reduce((acc, r) => {
+        acc[r] = blog?.reactions?.[r]?.some((u: User) => u.email === userEmail) || false;
         return acc;
       }, {} as Record<Reaction, boolean>);
     }

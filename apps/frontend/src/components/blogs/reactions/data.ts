@@ -1,6 +1,6 @@
-import Reactions from "./Reactions"
+import type { Reactions } from "./types"
 
-export const geerateReactionMap = (reactions: Reactions): {
+export const generateReactionMap = (reactions: Reactions): {
     name: 'heart' | 'unicorn' | 'confetti' | 'fireworks' | 'party'
     icon: string
     count: number
