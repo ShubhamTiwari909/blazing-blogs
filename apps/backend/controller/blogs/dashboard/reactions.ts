@@ -11,9 +11,9 @@ export const getReactionsFromBlog = async (req: Request, res: Response) => {
     if (!blog) {
       return res.status(404).json({ message: 'Blog not found' });
     }
-    // const reactions = ['heart', 'unicorn', 'confetti', 'fireworks', 'party'];
-    // const reactionsCount = reactions.reduce((acc, reaction) => acc + (blog?.reactions?.[reaction]?.count || 0), 0);
-    res.json({ reactionsCount: blog.reactions });
+    const reactions = ['heart', 'unicorn', 'confetti', 'fireworks', 'party'] as const;
+    const reactionsCount = reactions.reduce((acc, reaction) => acc + (blog?.reactions?.[reaction]?.length || 0), 0);
+    res.json({ reactionsCount });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Internal Server Error' });

@@ -50,9 +50,8 @@ export const Analytics: Tab = {
                 },
               )
               const blogReactions = await response.json()
-              const reactions = ['heart', 'unicorn', 'confetti', 'fireworks', 'party']
-              const reactionsCombinedCount = reactions.reduce((acc, reaction) => acc + (blogReactions.reactionsCount[reaction]?.length || 0), 0)
-              value = reactionsCombinedCount
+              console.log(blogReactions)
+              value = blogReactions.reactionsCount
             }
             return value
           },

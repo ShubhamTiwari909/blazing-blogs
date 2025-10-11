@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { Button } from '../../ui/button'
 import Image from 'next/image'
+import { geerateReactionMap } from './data'
 
 type Reactions = {
   confetti: number
@@ -15,7 +16,7 @@ type Reactions = {
 const Reactions = ({
   id,
   userReactions,
-  uniqueReactions,
+  reactionCounts,
 }: {
   id: string
   userReactions: {
@@ -25,12 +26,13 @@ const Reactions = ({
     fireworks: boolean
     party: boolean
   }
-  uniqueReactions: Reactions
+  reactionCounts: Reactions
 }) => {
   const { data: session } = useSession()
-  const [reactions, setReactions] = useState(uniqueReactions)
+  const [reactions, setReactions] = useState(reactionCounts)
   const [hasReacted, setHasReacted] = useState(userReactions)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleReaction = (reaction: 'heart' | 'unicorn' | 'confetti' | 'fireworks' | 'party') => {
     if (!session?.user?.email || isLoading) return
@@ -53,6 +55,10 @@ const Reactions = ({
       })
       .catch((error) => {
         console.error('Error updating likes:', error)
+        setError("Error updating reactions, please try again later")
+        setTimeout(() => {
+          setError(null)
+        }, 3000)
       })
       .finally(() => {
         setIsLoading(false)
@@ -60,39 +66,8 @@ const Reactions = ({
   }
 
   if (!session?.user) return null
-
-  const reactionsMap: {
-    name: 'heart' | 'unicorn' | 'confetti' | 'fireworks' | 'party'
-    icon: string
-    count: number
-  }[] = [
-    {
-      name: 'heart',
-      icon: '/heart.svg',
-      count: reactions.heart,
-    },
-
-    {
-      name: 'unicorn',
-      icon: '/unicorn.svg',
-      count: reactions.unicorn,
-    },
-    {
-      name: 'confetti',
-      icon: '/confetti.svg',
-      count: reactions.confetti,
-    },
-    {
-      name: 'fireworks',
-      icon: '/fireworks.webp',
-      count: reactions.fireworks,
-    },
-    {
-      name: 'party',
-      icon: '/party.jpg',
-      count: reactions.party,
-    },
-  ]
+  
+  const reactionsMap = geerateReactionMap(reactions)
 
   return (
     <ul className='flex items-center gap-1 relative'>
@@ -115,6 +90,7 @@ const Reactions = ({
           </p>
         </Button>
       ))}
+      {error && <p className='text-red-500 -bottom-4 lg:-bottom-12 right-0 lg:right-5 absolute z-100 text-xs'>{error}</p>}
     </ul>
   )
 }
