@@ -69,7 +69,7 @@ const page = async ({ params }: Props) => {
   const blogData = page.docs.content
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen relative">
       <BlogRenderer
         blogData={blogData}
         draft={draft}

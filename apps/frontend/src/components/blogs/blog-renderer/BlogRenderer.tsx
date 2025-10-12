@@ -2,14 +2,11 @@ import React from 'react'
 import CodeRenderer from '@/components/blogs/CodeRenderer'
 import { MarkdownRenderer } from '@/components/blogs/MarkdownRenderer'
 import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
-import { contructImageUrl } from '@/lib/utils'
 import { Page } from '@/payload-types'
-import BackButtonWithCopyLink from './BackButtonWithCopyLink'
-import { BlogImage } from './Image'
-import Metadata from './Metadata'
-import EstimateReading from '../blogs-list/EstimateReading'
-import ShareToLinkedIn from '@/components/share/linkedin'
 import LinkPreviewCard, { Meta } from './LinkPreview'
+import BlogHeader from './blog-header/BlogHeader'
+import BackgroundImage from './BackgroundImage'
+import BlogHeaderStrip from './blog-header/BlogHeaderStrip'
 
 const BlogRenderer = async ({
   blogData,
@@ -24,68 +21,38 @@ const BlogRenderer = async ({
 }) => {
   const docs = blogData.blocks
   return (
-    <div>
-      {/* Back Button */}
-      <BackButtonWithCopyLink />
+    <>
+      {/* Back Button - Sticky Header */}
+      <BlogHeaderStrip />
 
-      {/* Blog Header */}
-      <div className="bg-white">
+      <div>
+        {/* Blog Header */}
+        <BlogHeader blogData={blogData} blogId={blogId} createdAt={createdAt} />
+
+        {/* Blog Content */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Blog Image */}
-          {blogData.image && typeof blogData.image === 'object' && (
-            <BlogImage src={contructImageUrl(blogData.image._key as string)} alt={blogData.title} />
-          )}
-
-          {/* Blog Title */}
-          <div className="flex items-center justify-between gap-2 mb-5">
-            <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              {blogData.title}
-            </h1>
-            <EstimateReading data={blogData} />
-          </div>
-
-          {/* Blog Description */}
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-            {blogData.shortDescription}
-          </p>
-
-          <Metadata
-            id={blogId}
-            author={blogData.author}
-            createdAt={createdAt}
-            tags={blogData.tags}
-            aiSummary={blogData.aiSummary}
-          />
-          <div className="flex justify-end mt-2">
-            <ShareToLinkedIn />
-          </div>
-        </div>
-      </div>
-
-      {/* Blog Content */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {draft && <RefreshRouteOnSave />}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-5 py-10 lg:p-8">
-          {docs?.map((block) => {
-            return (
-              <div key={block.id} className="mb-8 last:mb-0">
-                {block.blockType === 'content' && block.content && (
-                  <MarkdownRenderer data={block.content} />
-                )}
-                {block.blockType === 'codeBlock' && block.codeBlock && (
-                  <CodeRenderer code={block.codeBlock} />
-                )}
-                {
-                  block.blockType === 'linkPreview' && block.link && (
+          {draft && <RefreshRouteOnSave />}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-5 py-10 lg:p-8">
+            {docs?.map((block) => {
+              return (
+                <div key={block.id} className="mb-8 last:mb-0">
+                  {block.blockType === 'content' && block.content && (
+                    <MarkdownRenderer data={block.content} />
+                  )}
+                  {block.blockType === 'codeBlock' && block.codeBlock && (
+                    <CodeRenderer code={block.codeBlock} />
+                  )}
+                  {block.blockType === 'linkPreview' && block.link && (
                     <LinkPreviewCard meta={block.preview as Meta} link={block.link} />
-                  )
-                }
-              </div>
-            )
-          })}
+                  )}
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
-    </div>
+      <BackgroundImage />
+    </>
   )
 }
 

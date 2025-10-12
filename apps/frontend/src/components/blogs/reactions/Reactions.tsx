@@ -67,7 +67,7 @@ const Reactions = ({
           key={reaction.name}
           disabled={isLoading}
           variant="outline"
-          className={`cursor-pointer flex items-center gap-1 px-2 disabled:opacity-50 hover:bg-transparent hover:border-violet-800 ${hasReacted[reaction.name] ? 'border-violet-500' : 'border-gray-500'}`}
+          className={`cursor-pointer flex items-center gap-1 px-2 disabled:opacity-50 hover:bg-white hover:border-violet-800 ${hasReacted[reaction.name] ? 'border-violet-500' : 'border-gray-500'}`}
         >
           <Image
             src={reaction.icon}

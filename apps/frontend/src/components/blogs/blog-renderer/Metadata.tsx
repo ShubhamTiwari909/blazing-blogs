@@ -24,14 +24,14 @@ const Metadata = async ({
       <div className="flex flex-wrap items-center gap-6">
         {/* Author */}
         {author && (
-          <div className="flex items-center text-gray-600">
+          <div className="flex items-center">
             <User className="w-5 h-5 mr-2" />
             <span className="font-medium">{author}</span>
           </div>
         )}
 
         {/* Date */}
-        <div className="flex items-center text-gray-600">
+        <div className="flex items-center">
           <CalendarDays className="w-5 h-5 mr-2" />
           <time dateTime={createdAt}>
             {new Date(createdAt).toLocaleDateString('en-US', {
