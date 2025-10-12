@@ -38,7 +38,10 @@ export const updateReaction = async (req: Request, res: Response) => {
     for (const r of REACTION_TYPES) {
       const users = updatedPost?.reactions?.[r] || [];
       reactionCounts[r] = users.length;
-      userReactions[r] = users.some((u: User) => u.email === userEmail);
+      
+      // Create a Set of emails for this specific reaction type for O(1) lookup
+      const userEmailSet = new Set(users.map((user: User) => user.email));
+      userReactions[r] = userEmailSet.has(userEmail);
     }
 
     res.json({ 
@@ -71,9 +74,12 @@ export const getReactions = async (req: Request, res: Response) => {
 
     // If userEmail is provided, check which reactions the user has made
     let userReactions = {} as Record<Reaction, boolean>;
-    if (userEmail) {
+    if (userEmail && typeof userEmail === 'string') {
       userReactions = REACTION_TYPES.reduce((acc, r) => {
-        acc[r] = blog?.reactions?.[r]?.some((u: User) => u.email === userEmail) || false;
+        const users = blog?.reactions?.[r] || [];
+        // Create a Set of emails for this specific reaction type for O(1) lookup
+        const userEmailSet = new Set(users.map((user: User) => user.email));
+        acc[r] = userEmailSet.has(userEmail);
         return acc;
       }, {} as Record<Reaction, boolean>);
     }
