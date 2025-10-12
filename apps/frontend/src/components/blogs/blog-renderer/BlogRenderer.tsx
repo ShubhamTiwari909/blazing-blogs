@@ -4,7 +4,6 @@ import { MarkdownRenderer } from '@/components/blogs/MarkdownRenderer'
 import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
 import { contructImageUrl } from '@/lib/utils'
 import { Page } from '@/payload-types'
-// import Comments from '../Comments'
 import BackButtonWithCopyLink from './BackButtonWithCopyLink'
 import { BlogImage } from './Image'
 import Metadata from './Metadata'
@@ -86,7 +85,6 @@ const BlogRenderer = async ({
           })}
         </div>
       </div>
-      {/* <Comments blogId={blogId} /> */}
     </div>
   )
 }

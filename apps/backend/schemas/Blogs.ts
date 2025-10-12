@@ -15,25 +15,6 @@ const UserSchema = {
   },
 };
 
-const ReplySchema = {
-  reply: String,
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  user: UserSchema,
-};
-
-const CommentSchema = {
-  comment: String,
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  replies: [ReplySchema],
-  user: UserSchema,
-};
-
 const ReactionSchema = {
   heart: [UserSchema],
   unicorn: [UserSchema],
@@ -52,9 +33,6 @@ const blogSchema = new mongoose.Schema({
   reactions: {
     type: ReactionSchema,
     required: false,
-  },
-  comments: {
-    type: [CommentSchema],
   },
 });
 
