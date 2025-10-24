@@ -22,6 +22,21 @@ export const Content: Tab = {
     {
       name: 'tags',
       type: 'array',
+      label: 'Tags',
+      labels: {
+        singular: 'Tag',
+        plural: 'Tags',
+      },
+      admin: {
+        components: {
+          RowLabel: {
+            path: '@/components/payload/dashboard/ArrayRowLabel',
+            clientProps: {
+              label: 'tag',
+            },
+          }
+        }
+      },
       fields: [
         {
           name: 'tag',

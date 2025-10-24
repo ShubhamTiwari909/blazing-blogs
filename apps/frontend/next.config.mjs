@@ -56,6 +56,7 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   reactStrictMode: false,
+  reactCompiler: true,
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })
