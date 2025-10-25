@@ -31,6 +31,8 @@ export default function GeminiFieldSummary({ path }: PagespeedProps) {
     }
   }
 
+  const isDisabled = !documentInfo.data?.content.blocks?.length || documentInfo.data?.content.blocks?.length === 0 || loading
+
   return (
     <div style={{ marginTop: '8px' }}>
       <button
@@ -38,12 +40,13 @@ export default function GeminiFieldSummary({ path }: PagespeedProps) {
         onClick={handleSummary}
         style={{
           padding: '8px 16px',
-          backgroundColor: 'green',
+          backgroundColor: isDisabled ? 'gray' : 'green',
           color: 'white',
           border: 'none',
           borderRadius: '4px',
           cursor: 'pointer',
         }}
+        disabled={isDisabled}
       >
         {loading ? 'Generating...' : 'Generate AI Summary'}
       </button>

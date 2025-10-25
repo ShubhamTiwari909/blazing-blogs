@@ -265,12 +265,20 @@ export interface Page {
   analytics?: {
     views?: number | null;
     reactions?: number | null;
+    lcp?: string | null;
+    fcp?: string | null;
+    cls?: string | null;
+    interactive?: string | null;
+    totalBlockingTime?: string | null;
+    speedIndex?: string | null;
+    serverResponseTime?: string | null;
     pagespeed?: number | null;
   };
   folder?: (string | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -446,12 +454,20 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         views?: T;
         reactions?: T;
+        lcp?: T;
+        fcp?: T;
+        cls?: T;
+        interactive?: T;
+        totalBlockingTime?: T;
+        speedIndex?: T;
+        serverResponseTime?: T;
         pagespeed?: T;
       };
   folder?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

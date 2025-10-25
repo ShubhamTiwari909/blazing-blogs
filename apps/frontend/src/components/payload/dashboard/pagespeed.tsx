@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { useField, useFormFields } from '@payloadcms/ui'
+import { useField, useForm, useFormFields } from '@payloadcms/ui'
 import { TextFieldClientComponent } from 'payload'
 import './styles.scss'
 
@@ -24,24 +24,26 @@ async function fetchPagespeed(slug: string) {
   }
 }
 
+type PageSpeedResult = {
+  id: string
+  lighthouseResult: {
+    audits: Record<string, { numericValue?: number; displayValue?: string }>
+    categories: {
+      performance: { score: number }
+    }
+  }
+} | null
+
 type PagespeedProps = {
   path: string
 }
 
 const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
-  const [pagespeed, setPagespeed] = useState<{
-    id: string
-    lighthouseResult: {
-      audits: Record<string, { numericValue?: number; displayValue?: string }>
-      categories: {
-        performance: { score: number }
-      }
-    }
-  } | null>(null)
+  const [pagespeed, setPagespeed] = useState<PageSpeedResult>(null)
   const [loading, setLoading] = useState(false)
   const analyticsFields = useFormFields(([fields]) => fields)
+  const formFields = useForm()
   const { setValue } = useField({ path }) 
-
 
   const getPerformanceClass = (score: number) => {
     if (score >= 90) return 'excellent'
@@ -49,27 +51,36 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
     return 'poor'
   }
 
+  const handleAnalyzePageSpeed = () => {
+    setLoading(true)
+    setPagespeed(null)
+    fetchPagespeed(analyticsFields['slug'].value as string)
+      .then((data) => {
+       if(data) {
+         setPagespeed(data)
+         formFields.dispatchFields({type: 'UPDATE', path: 'analytics.lcp', value: data?.lighthouseResult?.audits?.['largest-contentful-paint']?.displayValue})
+         formFields.dispatchFields({type: 'UPDATE', path: 'analytics.fcp', value: data?.lighthouseResult?.audits?.['first-contentful-paint']?.displayValue})
+         formFields.dispatchFields({type: 'UPDATE', path: 'analytics.cls', value: data?.lighthouseResult?.audits?.['cumulative-layout-shift']?.displayValue})
+         formFields.dispatchFields({type: 'UPDATE', path: 'analytics.interactive', value: data?.lighthouseResult?.audits?.['interactive']?.displayValue})
+         formFields.dispatchFields({type: 'UPDATE', path: 'analytics.totalBlockingTime', value: data?.lighthouseResult?.audits?.['total-blocking-time']?.displayValue})
+         formFields.dispatchFields({type: 'UPDATE', path: 'analytics.speedIndex', value: data?.lighthouseResult?.audits?.['speed-index']?.displayValue})
+         formFields.dispatchFields({type: 'UPDATE', path: 'analytics.serverResponseTime', value: data?.lighthouseResult?.audits?.['server-response-time']?.displayValue})
+         setValue(data?.lighthouseResult?.categories?.performance?.score * 100)
+       }
+      })
+      .catch((error) => {
+        console.error('Fetching PageSpeed Insights failed:', error)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
+
   return (
     <div className="pagespeed-container">
       <button
         className="fetch-button"
-        onClick={() => {
-          setLoading(true)
-          setPagespeed(null)
-          fetchPagespeed(analyticsFields['slug'].value as string)
-            .then((data) => {
-             if(data) {
-               setPagespeed(data)
-               setValue(data?.lighthouseResult?.categories?.performance?.score * 100)
-             }
-            })
-            .catch((error) => {
-              console.error('Fetching PageSpeed Insights failed:', error)
-            })
-            .finally(() => {
-              setLoading(false)
-            })
-        }}
+        onClick={handleAnalyzePageSpeed}
         disabled={loading}
       >
         {loading ? 'Analyzing...' : '🚀 Analyze Page Speed'}
@@ -83,39 +94,39 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
             </div>
             <div className="metric-item">
               <span className="metric-label">📊 DOM Size</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["dom-size"].numericValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["dom-size"]?.numericValue}</span>
             </div>
             <div className="metric-item">
               <span className="metric-label">⚡ First Contentful Paint</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["first-contentful-paint"].displayValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["first-contentful-paint"]?.displayValue}</span>
             </div>
             <div className="metric-item">
               <span className="metric-label">🎯 Largest Contentful Paint</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["largest-contentful-paint"].displayValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["largest-contentful-paint"]?.displayValue}</span>
             </div>
             <div className="metric-item">
               <span className="metric-label">📐 Cumulative Layout Shift</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["cumulative-layout-shift"].displayValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["cumulative-layout-shift"]?.displayValue}</span>
             </div>
             <div className="metric-item">
               <span className="metric-label">🔄 Time to Interactive</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["interactive"].displayValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["interactive"]?.displayValue}</span>
             </div>
             <div className="metric-item">
               <span className="metric-label">⏱️ Total Blocking Time</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["total-blocking-time"].displayValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["total-blocking-time"]?.displayValue}</span>
             </div>
             <div className="metric-item">
               <span className="metric-label">🏃 Speed Index</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["speed-index"].displayValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["speed-index"]?.displayValue}</span>
             </div>
             <div className="metric-item">
               <span className="metric-label">🖥️ Server Response Time</span>
-              <span className="metric-value">{pagespeed.lighthouseResult.audits["server-response-time"].displayValue}</span>
+              <span className="metric-value">{pagespeed.lighthouseResult.audits["server-response-time"]?.displayValue}</span>
             </div>
-            <div className={`metric-item performance-score ${getPerformanceClass(pagespeed.lighthouseResult.categories.performance.score * 100)}`}>
+            <div className={`metric-item performance-score ${getPerformanceClass(pagespeed.lighthouseResult.categories.performance?.score * 100)}`}>
               <span className="metric-label">🏆 Performance Score</span>
-              <span className="metric-value">{Math.round(pagespeed.lighthouseResult.categories.performance.score * 100)}%</span>
+              <span className="metric-value">{Math.round(pagespeed.lighthouseResult.categories.performance?.score * 100)}%</span>
             </div>
           </div>
         ) : (

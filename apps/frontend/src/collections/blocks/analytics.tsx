@@ -58,15 +58,77 @@ export const Analytics: Tab = {
       },
     },
     {
-      name: 'pagespeed',
-      type: 'number',
-      label: 'Pagespeed performance score',
-      admin: {
-        readOnly: true,
-        components: {
-          afterInput: ['@/components/payload/dashboard/pagespeed'],
+      type:'collapsible',
+      label:'Page Speed',
+      fields: [
+        {
+          name: 'lcp',
+          type: 'text',
+          label: 'Largest Contentful Paint (Read Only)',
+          admin: {
+            readOnly: true,
+          },
         },
-      },
-    },
+        {
+          name: 'fcp',
+          type: 'text',
+          label: 'First Contentful Paint (Read Only)',
+          admin: {
+            readOnly: true,
+          },
+        },
+        {
+          name: 'cls',
+          type: 'text',
+          label: 'Cumulative Layout Shift (Read Only)',
+          admin: {
+            readOnly: true,
+          },
+        },
+        {
+          name: 'interactive',
+          type: 'text',
+          label: 'Time to Interactive (Read Only)',
+          admin: {
+            readOnly: true,
+          },
+        },
+        {
+          name: 'totalBlockingTime',
+          type: 'text',
+          label: 'Total Blocking Time (Read Only)',
+          admin: {
+            readOnly: true,
+          },
+        },
+        {
+          name: 'speedIndex',
+          type: 'text',
+          label: 'Speed Index (Read Only)',
+          admin: {
+            readOnly: true,
+          },
+        },
+        {
+          name: 'serverResponseTime',
+          type: 'text',
+          label: 'Server Response Time (Read Only)',
+          admin: {
+            readOnly: true,
+          },
+        },
+        {
+          name: 'pagespeed',
+          type: 'number',
+          label: 'Pagespeed performance score (Read Only)',
+          admin: {
+            readOnly: true,
+            components: {
+              afterInput: ['@/components/payload/dashboard/pagespeed'],
+            },
+          },
+        },
+      ]
+    }
   ],
 }

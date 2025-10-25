@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     
     return NextResponse.json({ 
       revalidated: true, 
-      path: `/blogs/${slug}`,
+      path: `/${slug}`,
       timestamp: new Date().toISOString()
     })
   } catch (err) {
