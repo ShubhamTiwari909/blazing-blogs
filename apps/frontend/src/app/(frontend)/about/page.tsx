@@ -6,6 +6,7 @@ import Achievment from '@/components/about/Achievment'
 import Values from '@/components/about/Values'
 import CallToAction from '@/components/about/CallToAction'
 import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
+import PortfolioIframe from '@/components/about/PortfolioIframe'
 
 export const dynamic = 'force-static'
 
@@ -22,6 +23,7 @@ const AboutPage = () => {
           </div>
           <Achievment />
           <Values />
+          <PortfolioIframe />
           <CallToAction />
         </div>
       </div>

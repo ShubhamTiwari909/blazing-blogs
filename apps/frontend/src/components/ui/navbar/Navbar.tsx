@@ -10,6 +10,7 @@ const navItems = [
   { name: 'Blog', href: '/blogs' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Collaborators', href: '/collaborators' },
 ]
 
 const Navbar = ({ children }: { children: React.ReactNode }) => {

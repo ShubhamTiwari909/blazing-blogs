@@ -32,3 +32,19 @@ export const queryPages = async ({ page, limit }: { page: number; limit: number 
     }
   }
 }
+
+export const queryCollaborators = async () => {
+  const payload = await getPayload({ config: config })
+
+  const result = await payload.find({
+    collection: 'users',
+    depth: 1,
+  })
+
+  if (result.docs?.[0]) {
+    return {
+      type: 'user',
+      docs: result.docs,
+    }
+  }
+}

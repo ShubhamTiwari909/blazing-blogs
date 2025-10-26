@@ -9,5 +9,26 @@ export const Users: CollectionConfig = {
   fields: [
     // Email added by default
     // Add more fields as needed
+    {
+      name:'username',
+      type: 'text',
+      required: true,
+      hooks: {
+        afterRead: [
+          async ({ data, value }) => {
+            if(!value) {
+              return data?.email?.split('@')[0]
+            }
+            return value
+          }
+        ]
+      }
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    }
   ],
 }
