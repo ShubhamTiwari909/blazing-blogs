@@ -9,7 +9,6 @@ import TanstackWrapper from './TanstackWrapper'
 export default function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
-
   return (
     <SessionProvider>
       <Navbar>

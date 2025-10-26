@@ -7,6 +7,8 @@ import Values from '@/components/about/Values'
 import CallToAction from '@/components/about/CallToAction'
 import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
 
+export const dynamic = 'force-static'
+
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">

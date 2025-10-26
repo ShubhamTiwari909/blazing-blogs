@@ -18,10 +18,15 @@
       "cache": false,
       "persistent": true
     },
+    "start": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
     "test": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "env": ["NODE_ENV", "DATABASE_URI", "PAYLOAD_SECRET", "UPLOADTHING_SECRET", "UPLOADTHING_APP_ID"]
+      "env": ["NODE_ENV", "DATABASE_URI", "PAYLOAD_SECRET", "UPLOADTHING_APP_ID", "UPLOADTHING_SECRET"]
     }
   }
 }
