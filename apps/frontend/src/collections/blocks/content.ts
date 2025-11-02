@@ -1,4 +1,4 @@
-import { lexicalEditor, LinkFeature } from '@payloadcms/richtext-lexical'
+import { FixedToolbarFeature, lexicalEditor, } from '@payloadcms/richtext-lexical'
 import { Tab } from 'payload'
 
 export const Content: Tab = {
@@ -77,23 +77,8 @@ export const Content: Tab = {
               editor: lexicalEditor({
                 features: ({ defaultFeatures }) => [
                   ...defaultFeatures,
-                  LinkFeature({
-                    // Example showing how to customize the built-in fields
-                    // of the Link feature
-                    fields: ({ defaultFields }) => [
-                      ...defaultFields,
-                      {
-                        name: 'rel',
-                        label: 'Rel Attribute',
-                        type: 'select',
-                        hasMany: true,
-                        options: ['noopener', 'noreferrer', 'nofollow'],
-                        admin: {
-                          description:
-                            'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.',
-                        },
-                      },
-                    ],
+                  FixedToolbarFeature({
+                    applyToFocusedEditor: true,
                   }),
                 ],
               }),
@@ -141,6 +126,23 @@ export const Content: Tab = {
             },
           ],
         },
+        {
+          slug:'ytIframe',
+          labels: {
+            singular: 'Youtube Iframe',
+            plural: 'Youtube Iframes',
+          },
+          fields: [
+            {
+              name:'ytIframe',
+              type: 'text',
+              label:'YT Iframe',
+              admin: {
+                description: 'Add a Youtube link',
+              },
+            },
+          ],
+        }
       ],
     },
   ],

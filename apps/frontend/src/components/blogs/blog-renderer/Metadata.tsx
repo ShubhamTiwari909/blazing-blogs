@@ -20,7 +20,7 @@ const Metadata = async ({
   aiSummary: Page["content"]["aiSummary"]
 }) => {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-6 pb-8 border-b border-gray-200">
+    <div className="space-y-6 pb-8 border-b border-gray-200">
       <div className="flex flex-wrap items-center gap-6">
         {/* Author */}
         {author && (
@@ -45,9 +45,11 @@ const Metadata = async ({
         {/* Tags */}
         {tags && tags.length > 0 && <Tags tags={tags} />}
       </div>
-      <div className="flex items-center flex-wrap gap-4">
-        <ViewsWrapper id={id} />
-        <ReactionsWrapper id={id} />
+      <div className="flex justify-between items-center flex-wrap gap-4">
+        <div>
+          <ViewsWrapper id={id} />
+          <ReactionsWrapper id={id} />
+        </div>
         <AiAnalysis aiSummary={aiSummary} />
       </div>
     </div>

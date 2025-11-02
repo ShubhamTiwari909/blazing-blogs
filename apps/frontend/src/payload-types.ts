@@ -261,6 +261,15 @@ export interface Page {
           blockName?: string | null;
           blockType: 'linkPreview';
         }
+      | {
+          /**
+           * Add a Youtube link
+           */
+          ytIframe?: string | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'ytIframe';
+        }
     )[];
   };
   seo: Seo;
@@ -447,6 +456,13 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     link?: T;
                     preview?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              ytIframe?:
+                | T
+                | {
+                    ytIframe?: T;
                     id?: T;
                     blockName?: T;
                   };

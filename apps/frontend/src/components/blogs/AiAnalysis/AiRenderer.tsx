@@ -22,7 +22,7 @@ const AiRenderer = ({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="default" className="cursor-pointer border-blue-500">
+        <Button variant="outline" className="cursor-pointer border-blue-500 text-blue-500">
           AI Summary
         </Button>
       </AlertDialogTrigger>
