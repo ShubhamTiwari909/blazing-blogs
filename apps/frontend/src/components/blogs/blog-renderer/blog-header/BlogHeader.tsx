@@ -1,7 +1,6 @@
 import ShareToLinkedIn from '@/components/share/linkedin'
 import React from 'react'
 import Metadata from '../Metadata'
-import EstimateReading from '../../blogs-list/EstimateReading'
 import { BlogImage } from '../Image'
 import { contructImageUrl } from '@/lib/utils'
 import { Page } from '@/payload-types'
@@ -16,12 +15,9 @@ const BlogHeader = ({ blogData, blogId, createdAt }: { blogData: Page['content']
       )}
 
       {/* Blog Title */}
-      <div className="flex items-center justify-between gap-2 mb-5">
-        <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold leading-tight">
-          {blogData.title}
-        </h1>
-        <EstimateReading data={blogData} />
-      </div>
+      <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold leading-tight">
+        {blogData.title}
+      </h1>
 
       {/* Blog Description */}
       <p className="text-lg md:text-xl mb-8 leading-relaxed">{blogData.shortDescription}</p>
@@ -32,6 +28,7 @@ const BlogHeader = ({ blogData, blogId, createdAt }: { blogData: Page['content']
         createdAt={createdAt}
         tags={blogData.tags}
         aiSummary={blogData.aiSummary}
+        blocks={blogData.blocks}
       />
       <div className="flex justify-end mt-2">
         <ShareToLinkedIn />

@@ -19,7 +19,7 @@ const BlogCard = ({ page }: { page: Page }) => {
 
       <div className="p-6">
         <h2 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200 line-clamp-2">
-          <Link href={`/blogs/${page.slug}`} className="hover:underline">
+          <Link href={`/${page.slug}`} className="hover:underline">
             {page.content.title}
           </Link>
         </h2>
@@ -35,7 +35,7 @@ const BlogCard = ({ page }: { page: Page }) => {
         {/* Read More Button */}
         <div className="flex items-center justify-between gap-2 mt-6">
           <ReadMore slug={page.slug} />
-          <EstimateReading data={page.content} />
+          <EstimateReading data={page.content.blocks} />
         </div>
       </div>
     </article>
