@@ -2,7 +2,10 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: true,
+  turbopack: {
+    resolveExtensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.json'],
+    root: "../.."
+  },
   async headers() {
     return [
       {
