@@ -8,7 +8,12 @@ const DarkModeToggle = () => {
   const darkMode = useDarkModeStore((state) => state.darkMode)
   return (
     <div className="flex items-center space-x-2">
-      <Switch id="dark-mode" className='scale-140 cursor-pointer [&_span[data-state=checked]]:bg-[url("/moon.svg")] [&_span[data-state=unchecked]]:bg-[url("/sun.svg")]' checked={darkMode} onCheckedChange={toggleDarkMode} />
+      <Switch
+        id="dark-mode"
+        className='scale-140 cursor-pointer [&_span[data-state=checked]]:bg-[url("/moon.svg")] [&_span[data-state=unchecked]]:bg-[url("/sun.svg")]'
+        checked={darkMode}
+        onCheckedChange={toggleDarkMode}
+      />
     </div>
   )
 }

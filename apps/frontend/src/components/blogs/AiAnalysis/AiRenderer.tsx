@@ -14,11 +14,7 @@ import remarkGfm from 'remark-gfm'
 import { Button } from '@/components/ui/button'
 import { Page } from '@/payload-types'
 
-const AiRenderer = ({
-  aiSummary,
-}: {
-  aiSummary: Page["content"]["aiSummary"]
-}) => {
+const AiRenderer = ({ aiSummary }: { aiSummary: Page['content']['aiSummary'] }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>

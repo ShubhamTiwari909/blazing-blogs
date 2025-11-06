@@ -6,7 +6,15 @@ import { contructImageUrl } from '@/lib/utils'
 import { Page } from '@/payload-types'
 import BlogHeaderWrapper from './BlogHeaderWrapper'
 
-const BlogHeader = ({ blogData, blogId, createdAt }: { blogData: Page['content'], blogId: Page['id'], createdAt: Page['createdAt'] }) => {
+const BlogHeader = ({
+  blogData,
+  blogId,
+  createdAt,
+}: {
+  blogData: Page['content']
+  blogId: Page['id']
+  createdAt: Page['createdAt']
+}) => {
   return (
     <BlogHeaderWrapper>
       {/* Blog Image */}
@@ -15,9 +23,7 @@ const BlogHeader = ({ blogData, blogId, createdAt }: { blogData: Page['content']
       )}
 
       {/* Blog Title */}
-      <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold leading-tight">
-        {blogData.title}
-      </h1>
+      <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold leading-tight">{blogData.title}</h1>
 
       {/* Blog Description */}
       <p className="text-lg md:text-xl mb-8 leading-relaxed">{blogData.shortDescription}</p>

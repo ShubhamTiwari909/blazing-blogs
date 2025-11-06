@@ -6,7 +6,7 @@ import config from '@payload-config'
 
 type Params = {
   blogs: string
-};
+}
 export const pageData = async (paramsPromise: Params) => {
   const { blogs = 'home' } = paramsPromise
 
@@ -38,9 +38,9 @@ export const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
         equals: `blogs/${slug}`,
       },
     },
-    select:{
-      analytics: false
-    }
+    select: {
+      analytics: false,
+    },
   })
 
   if (result.docs?.[0]) {

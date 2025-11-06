@@ -1,16 +1,26 @@
-'use client';
-import Image from 'next/image';
+'use client'
+import Image from 'next/image'
 
 export type Meta = {
-    title: string;
-    description: string | undefined;
-    image: string | undefined;
-    site: string;
-    url: string;
-} | null;
+  title: string
+  description: string | undefined
+  image: string | undefined
+  site: string
+  url: string
+} | null
 
-export default function LinkPreviewCard({ meta, link }: { meta: Meta, link: string }) {
-  if (!meta || !meta.title) return <a className="text-blue-600 dark:text-blue-400" href={link} target="_blank" rel="noopener noreferrer">{link}</a>;
+export default function LinkPreviewCard({ meta, link }: { meta: Meta; link: string }) {
+  if (!meta || !meta.title)
+    return (
+      <a
+        className="text-blue-600 dark:text-blue-400"
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {link}
+      </a>
+    )
 
   return (
     <a
@@ -51,13 +61,18 @@ export default function LinkPreviewCard({ meta, link }: { meta: Meta, link: stri
           </div>
           <div className="flex items-center text-blue-600 dark:text-blue-400 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span>Visit</span>
-            <svg 
-              className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:translate-x-1" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
             </svg>
           </div>
         </div>
@@ -65,5 +80,5 @@ export default function LinkPreviewCard({ meta, link }: { meta: Meta, link: stri
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       </div>
     </a>
-  );
+  )
 }

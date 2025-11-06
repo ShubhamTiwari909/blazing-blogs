@@ -1,4 +1,4 @@
-import { FixedToolbarFeature, lexicalEditor, } from '@payloadcms/richtext-lexical'
+import { FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { Tab } from 'payload'
 
 export const Content: Tab = {
@@ -34,8 +34,8 @@ export const Content: Tab = {
             clientProps: {
               label: 'tag',
             },
-          }
-        }
+          },
+        },
       },
       fields: [
         {
@@ -95,31 +95,33 @@ export const Content: Tab = {
           ],
         },
         {
-          slug:'linkPreview',
+          slug: 'linkPreview',
           fields: [
             {
               name: 'link',
               type: 'text',
-              label:'Link',
+              label: 'Link',
               required: true,
             },
             {
-              name:'preview',
+              name: 'preview',
               type: 'json',
-              label:'Preview',
-              admin:{
+              label: 'Preview',
+              admin: {
                 readOnly: true,
               },
-              hooks:{
-                beforeValidate:[
+              hooks: {
+                beforeValidate: [
                   async ({ data, siblingData, value }) => {
                     if (siblingData?.link && data) {
-                      const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/url-preview?url=${encodeURIComponent(siblingData?.link)}`);
-                      const responseData = await response.json();
-                      value = responseData;
-                      return value;
+                      const response = await fetch(
+                        `${process.env.NEXT_PUBLIC_SITE_URL}/api/url-preview?url=${encodeURIComponent(siblingData?.link)}`,
+                      )
+                      const responseData = await response.json()
+                      value = responseData
+                      return value
                     }
-                    return null;
+                    return null
                   },
                 ],
               },
@@ -127,22 +129,22 @@ export const Content: Tab = {
           ],
         },
         {
-          slug:'ytIframe',
+          slug: 'ytIframe',
           labels: {
             singular: 'Youtube Iframe',
             plural: 'Youtube Iframes',
           },
           fields: [
             {
-              name:'ytIframe',
+              name: 'ytIframe',
               type: 'text',
-              label:'YT Iframe',
+              label: 'YT Iframe',
               admin: {
                 description: 'Add a Youtube link',
               },
             },
           ],
-        }
+        },
       ],
     },
   ],

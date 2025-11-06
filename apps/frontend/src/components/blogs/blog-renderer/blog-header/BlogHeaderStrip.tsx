@@ -15,7 +15,7 @@ const BlogHeaderStrip = () => {
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Blogs
         </Link>
-        <div className='flex items-center flex-wrap gap-5'>
+        <div className="flex items-center flex-wrap gap-5">
           <CopyLink />
           <DarkModeToggle />
         </div>

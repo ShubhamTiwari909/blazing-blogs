@@ -30,7 +30,7 @@ export function calculateReadingTime(text: string): string {
   const convertToMinutes = Math.ceil(seconds / 60)
   const minutes = Math.round(convertToMinutes)
 
-  if(minutes <= 60) {
+  if (minutes <= 60) {
     return `${minutes} min read`
   }
   const hours = Math.ceil(minutes / 60)

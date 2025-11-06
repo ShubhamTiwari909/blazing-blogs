@@ -6,7 +6,7 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "env": ["PREVIEW_SECRET", "PAYLOAD_SECRET", "DATABASE_URI", "NEXTAUTH_SECRET", "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET","BACKEND_URL","ENCRYPTION_SECRET", "REVALIDATE_SECRET", "GOOGLE_GEMINI_API", "CSRF_SECRET"]
+      "env": ["PREVIEW_SECRET", "PAYLOAD_SECRET", "DATABASE_URI", "NEXTAUTH_SECRET", "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET","BACKEND_URL","ENCRYPTION_SECRET", "REVALIDATE_SECRET", "GOOGLE_GEMINI_API", "CSRF_SECRET", "UPLOADTHING_TOKEN"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -26,7 +26,7 @@
     "test": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "env": ["NODE_ENV", "DATABASE_URI", "PAYLOAD_SECRET", "UPLOADTHING_APP_ID", "UPLOADTHING_SECRET"]
+      "env": ["NODE_ENV", "DATABASE_URI", "PAYLOAD_SECRET", "UPLOADTHING_APP_ID", "UPLOADTHING_SECRET", "UPLOADTHING_TOKEN"]
     }
   }
 }

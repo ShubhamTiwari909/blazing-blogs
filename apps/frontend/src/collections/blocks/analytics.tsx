@@ -58,8 +58,8 @@ export const Analytics: Tab = {
       },
     },
     {
-      type:'collapsible',
-      label:'Page Speed',
+      type: 'collapsible',
+      label: 'Page Speed',
       fields: [
         {
           name: 'lcp',
@@ -128,7 +128,7 @@ export const Analytics: Tab = {
             },
           },
         },
-      ]
-    }
+      ],
+    },
   ],
 }

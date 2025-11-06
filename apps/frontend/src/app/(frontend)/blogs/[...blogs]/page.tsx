@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic'
 
 type Params = {
   blogs: string
-};
+}
 
 // Create cached versions of data fetching functions
 const getCachedPageData = unstable_cache(
@@ -22,12 +22,12 @@ const getCachedPageData = unstable_cache(
   ['page-data'],
   {
     revalidate: 86400, // 24 hours
-    tags: ['page-data']
-  }
+    tags: ['page-data'],
+  },
 )
 
 export async function generateMetadata({ params }: Props) {
-  const resolvedParams = await params;
+  const resolvedParams = await params
   const page = await getCachedPageData(resolvedParams)
   const seo = page.docs.seo
   const title = seo.title
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props) {
 
 const page = async ({ params }: Props) => {
   const { isEnabled: draft } = await draftMode()
-  const resolvedParams = await params;
+  const resolvedParams = await params
   const page = await getCachedPageData(resolvedParams)
   const blogData = page.docs.content
 
