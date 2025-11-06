@@ -57,6 +57,10 @@ export async function generateMetadata({ params }: Props) {
       url,
     },
     twitter: sharedMetadata,
+    robots: {
+      index: true,
+      follow: true,
+    },
   }
 
   return metadata

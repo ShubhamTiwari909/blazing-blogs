@@ -12,7 +12,10 @@ export const getReactionsFromBlog = async (req: Request, res: Response) => {
     if (!blog) {
       return res.status(404).json({ message: 'Blog not found' });
     }
-    const reactionsCount = REACTION_TYPES.reduce((acc, reaction) => acc + (blog?.reactions?.[reaction]?.length || 0), 0);
+    const reactionsCount = REACTION_TYPES.reduce(
+      (acc, reaction) => acc + (blog?.reactions?.[reaction]?.length || 0),
+      0
+    );
     res.json({ reactionsCount });
   } catch (error) {
     console.error(error);
