@@ -65,6 +65,6 @@ export const Page: CollectionConfig = {
   ],
   trash: true,
   versions: {
-    drafts: true
+    drafts: true,
   },
 }

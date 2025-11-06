@@ -1,6 +1,28 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
+export const queryPagesSlug = async ({ page, limit }: { page: number; limit: number }) => {
+  const payload = await getPayload({ config: config })
+
+  const result = await payload.find({
+    collection: 'pages',
+    depth: 2,
+    pagination: true,
+    limit,
+    page,
+    where: {
+      slug: {
+        contains: 'blogs',
+      },
+    },
+    select: {
+      slug: true,
+    },
+  })
+
+  return result.docs.map((page) => page.slug)
+}
+
 export const queryPages = async ({ page, limit }: { page: number; limit: number }) => {
   const payload = await getPayload({ config: config })
 

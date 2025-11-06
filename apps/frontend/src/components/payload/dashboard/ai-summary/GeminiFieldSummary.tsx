@@ -11,7 +11,7 @@ type PagespeedProps = {
 
 export default function GeminiFieldSummary({ path }: PagespeedProps) {
   const [loading, setLoading] = useState(false)
-  const { setValue } = useField({ path }) 
+  const { setValue } = useField({ path })
   const documentInfo = useDocumentInfo()
   const handleSummary = async (e: React.MouseEvent) => {
     e.preventDefault()
@@ -31,7 +31,10 @@ export default function GeminiFieldSummary({ path }: PagespeedProps) {
     }
   }
 
-  const isDisabled = !documentInfo.data?.content.blocks?.length || documentInfo.data?.content.blocks?.length === 0 || loading
+  const isDisabled =
+    !documentInfo.data?.content.blocks?.length ||
+    documentInfo.data?.content.blocks?.length === 0 ||
+    loading
 
   return (
     <div style={{ marginTop: '8px' }}>

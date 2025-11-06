@@ -23,23 +23,17 @@ type Props =
 
 const BlogsList = ({ pages }: { pages: Props }) => {
   // Initialize the initial data for the query
-  const initialData = pages ? {
-    docs: pages.docs,
-    totalDocs: pages.totalDocs,
-    hasNextPage: pages.hasNextPage,
-    nextPage: pages.hasNextPage ? 2 : undefined,
-  } : undefined
+  const initialData = pages
+    ? {
+        docs: pages.docs,
+        totalDocs: pages.totalDocs,
+        hasNextPage: pages.hasNextPage,
+        nextPage: pages.hasNextPage ? 2 : undefined,
+      }
+    : undefined
 
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-    isError,
-    error,
-  } = useBlogs(initialData)
-
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError, error } =
+    useBlogs(initialData)
 
   // Flatten all pages into a single array of blogs
   const blogs = useMemo(() => {

@@ -7,9 +7,9 @@ export const updateViews = async (req: Request, res: Response) => {
     if (!id) {
       return res.status(400).json({ message: 'Bad Request - id is required' });
     }
-    
+
     // Find the blog
-    const blog = await Blogs.findByIdAndUpdate({ _id: id }, { $inc: { 'views.count': 1 } });  
+    const blog = await Blogs.findByIdAndUpdate({ _id: id }, { $inc: { 'views.count': 1 } });
 
     return res.status(200).json({ blogsCount: blog?.views?.count });
   } catch (error) {

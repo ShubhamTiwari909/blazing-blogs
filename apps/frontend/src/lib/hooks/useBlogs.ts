@@ -10,7 +10,7 @@ type BlogResponse = {
 
 const fetchBlogs = async (pageParam: number = 1): Promise<BlogResponse> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/pages?limit=50&page=${pageParam}`
+    `${process.env.NEXT_PUBLIC_SITE_URL}/api/pages?limit=50&page=${pageParam}`,
   )
   if (!response.ok) {
     throw new Error('Failed to fetch blogs')
@@ -28,10 +28,12 @@ export const useBlogs = (initialData?: BlogResponse) => {
     queryFn: ({ pageParam }) => fetchBlogs(pageParam as number),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => lastPage.nextPage,
-    initialData: initialData ? {
-      pages: [initialData],
-      pageParams: [1],
-    } : undefined,
+    initialData: initialData
+      ? {
+          pages: [initialData],
+          pageParams: [1],
+        }
+      : undefined,
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
   })

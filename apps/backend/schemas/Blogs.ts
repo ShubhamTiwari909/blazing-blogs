@@ -21,7 +21,7 @@ const ReactionSchema = {
   confetti: [UserSchema],
   fireworks: [UserSchema],
   party: [UserSchema],
-}
+};
 
 const blogSchema = new mongoose.Schema({
   views: {

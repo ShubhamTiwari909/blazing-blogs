@@ -148,13 +148,24 @@
   }
 }
 
-#field-analytics__lcp, #field-analytics__fcp, #field-analytics__cls, #field-analytics__interactive, #field-analytics__totalBlockingTime, #field-analytics__speedIndex, #field-analytics__serverResponseTime, #field-analytics__pagespeed {
-  color:white !important;
+#field-analytics__lcp,
+#field-analytics__fcp,
+#field-analytics__cls,
+#field-analytics__interactive,
+#field-analytics__totalBlockingTime,
+#field-analytics__speedIndex,
+#field-analytics__serverResponseTime,
+#field-analytics__pagespeed {
+  color: white !important;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // Responsive design
@@ -197,7 +208,7 @@
 @media (prefers-color-scheme: dark) {
   .pagespeed-container {
     background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-    
+
     .metrics-container {
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.1);

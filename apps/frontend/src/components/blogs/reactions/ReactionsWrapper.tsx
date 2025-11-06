@@ -24,7 +24,13 @@ const ReactionsWrapper = async ({ id }: { id: string }) => {
 
   const reactionsCount = await fetchReactionsCount({ session, id })
 
-  return <Reactions id={id} reactionCounts={reactionsCount.reactions} userReactions={reactionsCount.userReactions} />
+  return (
+    <Reactions
+      id={id}
+      reactionCounts={reactionsCount.reactions}
+      userReactions={reactionsCount.userReactions}
+    />
+  )
 }
 
 export default ReactionsWrapper
