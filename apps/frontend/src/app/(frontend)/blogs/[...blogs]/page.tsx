@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params
   const page = await getCachedPageData(resolvedParams)
   const seo = page.docs.seo
-  const title = seo.title
+  const title = `${seo.title} | Blazing Blogs`
   const description = seo.description
   const url = `https://blazing-blogs-frontend.vercel.app/${page.docs.slug}`
 

@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import type { Metadata } from 'next'
 import React from 'react'
 
 type StaticPage = {
@@ -12,6 +13,30 @@ type DatabaseItem = {
     status: string
     error?: string
     total?: number
+}
+
+export const metadata: Metadata = {
+    title: 'Health Check | Blazing Blogs',
+    description: 'Monitor the status of our database and static pages',
+    alternates: {
+        canonical: 'https://blazing-blogs-frontend.vercel.app/healthcheck',
+        languages: {
+            'x-default': 'https://blazing-blogs-frontend.vercel.app/healthcheck',
+        },
+    },
+    openGraph: {
+        title: 'Health Check | Blazing Blogs',
+        description: 'Monitor the status of our database and static pages',
+        url: 'https://blazing-blogs-frontend.vercel.app/healthcheck',
+    },
+    twitter: {
+        title: 'Health Check | Blazing Blogs',
+        description: 'Monitor the status of our database and static pages',
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 }
 
 const StatusBadge = ({ status }: { status: string }) => {

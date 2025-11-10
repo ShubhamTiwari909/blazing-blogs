@@ -7,8 +7,33 @@ import Values from '@/components/about/Values'
 import CallToAction from '@/components/about/CallToAction'
 import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
 import PortfolioIframe from '@/components/about/PortfolioIframe'
+import type { Metadata } from 'next'
 
 export const dynamic = 'force-static'
+
+export const metadata: Metadata = {
+  title: 'About Me | Blazing Blogs',
+  description: 'Passionate full-stack developer crafting digital experiences that make a difference. I believe in the power of code to solve real-world problems and create meaningful connections.',
+  alternates: {
+    canonical: 'https://blazing-blogs-frontend.vercel.app/about',
+    languages: {
+      'x-default': 'https://blazing-blogs-frontend.vercel.app/about',
+    },
+  },
+  openGraph: {
+    title: 'About Me | Blazing Blogs',
+    description: 'Passionate full-stack developer crafting digital experiences that make a difference. I believe in the power of code to solve real-world problems and create meaningful connections.',
+    url: 'https://blazing-blogs-frontend.vercel.app/about',
+  },
+  twitter: {
+    title: 'About Me | Blazing Blogs',
+    description: 'Passionate full-stack developer crafting digital experiences that make a difference. I believe in the power of code to solve real-world problems and create meaningful connections.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 const AboutPage = () => {
   return (
