@@ -17,6 +17,12 @@ const staticPages = [{
 }, {
     url: '/sitemap.xml',
     name: 'Sitemap',
+}, {
+    url: '/healthcheck',
+    name: 'Health Check',
+}, {
+    url: '/collaborators',
+    name: 'Collaborators',
 }]
 
 export async function GET(): Promise<NextResponse> {
