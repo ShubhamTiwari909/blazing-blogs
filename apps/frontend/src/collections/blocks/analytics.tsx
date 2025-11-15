@@ -4,117 +4,47 @@ export const Analytics: Tab = {
   name: 'analytics',
   fields: [
     {
-      name: 'views',
-      type: 'number',
-      admin: {
-        readOnly: true,
-      },
-      hooks: {
-        afterRead: [
-          async ({ data, value }) => {
-            if (data) {
-              const response = await fetch(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/views?id=${data.id}`,
-                {
-                  method: 'GET',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                },
-              )
-              const blogViews = await response.json()
-              value = blogViews.blogsCount
-            }
-            return value
+      type: 'collapsible',
+      label: 'Views and Reactions',
+      fields: [
+        {
+          name: 'viewAndReactions',
+          type: 'ui',
+          admin: {
+            components: {
+              Field: '@/components/payload/dashboard/view-and-reactions/ViewsAndReactions',
+            },
           },
-        ],
-      },
-    },
-    {
-      name: 'reactions',
-      type: 'number',
-      admin: {
-        readOnly: true,
-      },
-      hooks: {
-        afterRead: [
-          async ({ data, value }) => {
-            if (data) {
-              const response = await fetch(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/reactions-count-from-blog?id=${data.id}`,
-                {
-                  method: 'GET',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                },
-              )
-              const blogReactions = await response.json()
-              value = blogReactions.reactionsCount
-            }
-            return value
+        },
+        {
+          name: 'views',
+          type: 'text',
+          admin: {
+            readOnly: true,
+            hidden: true,
           },
-        ],
-      },
+        },
+        {
+          name: 'reactions',
+          type: 'text',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+      ]
     },
     {
       type: 'collapsible',
       label: 'Page Speed',
       fields: [
         {
-          name: 'lcp',
-          type: 'text',
-          label: 'Largest Contentful Paint (Read Only)',
+          name: 'pagespeedScore',
+          type: 'ui',
           admin: {
-            readOnly: true,
-          },
-        },
-        {
-          name: 'fcp',
-          type: 'text',
-          label: 'First Contentful Paint (Read Only)',
-          admin: {
-            readOnly: true,
-          },
-        },
-        {
-          name: 'cls',
-          type: 'text',
-          label: 'Cumulative Layout Shift (Read Only)',
-          admin: {
-            readOnly: true,
-          },
-        },
-        {
-          name: 'interactive',
-          type: 'text',
-          label: 'Time to Interactive (Read Only)',
-          admin: {
-            readOnly: true,
-          },
-        },
-        {
-          name: 'totalBlockingTime',
-          type: 'text',
-          label: 'Total Blocking Time (Read Only)',
-          admin: {
-            readOnly: true,
-          },
-        },
-        {
-          name: 'speedIndex',
-          type: 'text',
-          label: 'Speed Index (Read Only)',
-          admin: {
-            readOnly: true,
-          },
-        },
-        {
-          name: 'serverResponseTime',
-          type: 'text',
-          label: 'Server Response Time (Read Only)',
-          admin: {
-            readOnly: true,
+            components: {
+              Field: '@/components/payload/dashboard/pagespeed/pagespeed',
+            },
           },
         },
         {
@@ -123,9 +53,79 @@ export const Analytics: Tab = {
           label: 'Pagespeed performance score (Read Only)',
           admin: {
             readOnly: true,
-            components: {
-              afterInput: ['@/components/payload/dashboard/pagespeed'],
-            },
+            hidden: true,
+          },
+        },
+        {
+          name: 'domSize',
+          type: 'number',
+          label: 'DOM Size (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+        {
+          name: 'lcp',
+          type: 'text',
+          label: 'Largest Contentful Paint (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+        {
+          name: 'fcp',
+          type: 'text',
+          label: 'First Contentful Paint (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+        {
+          name: 'cls',
+          type: 'text',
+          label: 'Cumulative Layout Shift (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+        {
+          name: 'interactive',
+          type: 'text',
+          label: 'Time to Interactive (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+        {
+          name: 'totalBlockingTime',
+          type: 'text',
+          label: 'Total Blocking Time (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+        {
+          name: 'speedIndex',
+          type: 'text',
+          label: 'Speed Index (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
+          },
+        },
+        {
+          name: 'serverResponseTime',
+          type: 'text',
+          label: 'Server Response Time (Read Only)',
+          admin: {
+            readOnly: true,
+            hidden: true,
           },
         },
       ],

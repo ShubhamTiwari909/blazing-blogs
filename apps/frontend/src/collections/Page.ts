@@ -48,14 +48,13 @@ export const Page: CollectionConfig = {
     },
     {
       name: 'revalidate',
-      type: 'text',
+      type: 'ui',
       label: 'Revalidate',
-      defaultValue: 'blogs',
       admin: {
-        readOnly: true,
         components: {
-          afterInput: ['@/components/payload/dashboard/revalidation'],
+          Field: '@/components/payload/dashboard/revalidation',
         },
+        position: 'sidebar',
       },
     },
     {
@@ -65,6 +64,8 @@ export const Page: CollectionConfig = {
   ],
   trash: true,
   versions: {
-    drafts: true,
+    drafts: {
+      autosave: true,
+    },
   },
 }

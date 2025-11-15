@@ -206,7 +206,6 @@ export interface Page {
   id: string;
   pageTitle: string;
   slug: string;
-  revalidate?: string | null;
   content: {
     title: string;
     shortDescription: string;
@@ -274,8 +273,10 @@ export interface Page {
   };
   seo: Seo;
   analytics?: {
-    views?: number | null;
-    reactions?: number | null;
+    views?: string | null;
+    reactions?: string | null;
+    pagespeed?: number | null;
+    domSize?: number | null;
     lcp?: string | null;
     fcp?: string | null;
     cls?: string | null;
@@ -283,7 +284,6 @@ export interface Page {
     totalBlockingTime?: string | null;
     speedIndex?: string | null;
     serverResponseTime?: string | null;
-    pagespeed?: number | null;
   };
   folder?: (string | null) | FolderInterface;
   updatedAt: string;
@@ -419,7 +419,6 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   pageTitle?: T;
   slug?: T;
-  revalidate?: T;
   content?:
     | T
     | {
@@ -474,6 +473,8 @@ export interface PagesSelect<T extends boolean = true> {
     | {
         views?: T;
         reactions?: T;
+        pagespeed?: T;
+        domSize?: T;
         lcp?: T;
         fcp?: T;
         cls?: T;
@@ -481,7 +482,6 @@ export interface PagesSelect<T extends boolean = true> {
         totalBlockingTime?: T;
         speedIndex?: T;
         serverResponseTime?: T;
-        pagespeed?: T;
       };
   folder?: T;
   updatedAt?: T;
