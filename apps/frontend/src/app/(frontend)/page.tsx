@@ -6,7 +6,8 @@ export const dynamic = 'force-static'
 
 export const metadata: Metadata = {
   title: 'Blazing Blogs',
-  description: 'A passionate engineer and storyteller sharing insights on technology, creativity, and the journey of building meaningful digital experiences.',
+  description:
+    'A passionate engineer and storyteller sharing insights on technology, creativity, and the journey of building meaningful digital experiences.',
   alternates: {
     canonical: 'https://blazing-blogs-frontend.vercel.app',
     languages: {
@@ -15,12 +16,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Blazing Blogs',
-    description: 'A passionate engineer and storyteller sharing insights on technology, creativity, and the journey of building meaningful digital experiences.',
+    description:
+      'A passionate engineer and storyteller sharing insights on technology, creativity, and the journey of building meaningful digital experiences.',
     url: 'https://blazing-blogs-frontend.vercel.app',
   },
   twitter: {
     title: 'Blazing Blogs',
-    description: 'A passionate engineer and storyteller sharing insights on technology, creativity, and the journey of building meaningful digital experiences.',
+    description:
+      'A passionate engineer and storyteller sharing insights on technology, creativity, and the journey of building meaningful digital experiences.',
   },
   robots: {
     index: true,

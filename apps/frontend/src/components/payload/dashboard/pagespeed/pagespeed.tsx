@@ -56,7 +56,7 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
     fetchPagespeed(analyticsFields['slug'].value as string)
       .then((data) => {
         if (data) {
-          setValue("UI Render")
+          setValue('UI Render')
           formFields.dispatchFields({
             type: 'UPDATE',
             path: 'analytics.domSize',
@@ -113,62 +113,44 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
         {loading ? 'Analyzing...' : '🚀 Analyze Page Speed'}
       </button>
       <div className="metrics-container">
-          <div className="metric-item">
-            <span className="metric-label">📊 DOM Size</span>
-            <span className="metric-value">
-              {fieldValues?.domSize}
-            </span>
-          </div>
-          <div className="metric-item">
-            <span className="metric-label">⚡ First Contentful Paint</span>
-            <span className="metric-value">
-              {fieldValues?.fcp}
-            </span>
-          </div>
-          <div className="metric-item">
-            <span className="metric-label">🎯 Largest Contentful Paint</span>
-            <span className="metric-value">
-              {fieldValues?.lcp}
-            </span>
-          </div>
-          <div className="metric-item">
-            <span className="metric-label">📐 Cumulative Layout Shift</span>
-            <span className="metric-value">
-              {fieldValues?.cls}
-            </span>
-          </div>
-          <div className="metric-item">
-            <span className="metric-label">🔄 Time to Interactive</span>
-            <span className="metric-value">
-              {fieldValues?.interactive}
-            </span>
-          </div>
-          <div className="metric-item">
-            <span className="metric-label">⏱️ Total Blocking Time</span>
-            <span className="metric-value">
-              {fieldValues?.totalBlockingTime}
-            </span>
-          </div>
-          <div className="metric-item">
-            <span className="metric-label">🏃 Speed Index</span>
-            <span className="metric-value">
-              {fieldValues?.speedIndex}
-            </span>
-          </div>
-          <div className="metric-item">
-            <span className="metric-label">🖥️ Server Response Time</span>
-            <span className="metric-value">
-              {fieldValues?.serverResponseTime}
-            </span>
-          </div>
-          <div
-            className={`metric-item performance-score ${getPerformanceClass(fieldValues?.performanceScore * 100)}`}
-          >
-            <span className="metric-label">🏆 Performance Score</span>
-            <span className="metric-value">
-              {Math.round(fieldValues?.performanceScore)}%
-            </span>
-          </div>
+        <div className="metric-item">
+          <span className="metric-label">📊 DOM Size</span>
+          <span className="metric-value">{fieldValues?.domSize}</span>
+        </div>
+        <div className="metric-item">
+          <span className="metric-label">⚡ First Contentful Paint</span>
+          <span className="metric-value">{fieldValues?.fcp}</span>
+        </div>
+        <div className="metric-item">
+          <span className="metric-label">🎯 Largest Contentful Paint</span>
+          <span className="metric-value">{fieldValues?.lcp}</span>
+        </div>
+        <div className="metric-item">
+          <span className="metric-label">📐 Cumulative Layout Shift</span>
+          <span className="metric-value">{fieldValues?.cls}</span>
+        </div>
+        <div className="metric-item">
+          <span className="metric-label">🔄 Time to Interactive</span>
+          <span className="metric-value">{fieldValues?.interactive}</span>
+        </div>
+        <div className="metric-item">
+          <span className="metric-label">⏱️ Total Blocking Time</span>
+          <span className="metric-value">{fieldValues?.totalBlockingTime}</span>
+        </div>
+        <div className="metric-item">
+          <span className="metric-label">🏃 Speed Index</span>
+          <span className="metric-value">{fieldValues?.speedIndex}</span>
+        </div>
+        <div className="metric-item">
+          <span className="metric-label">🖥️ Server Response Time</span>
+          <span className="metric-value">{fieldValues?.serverResponseTime}</span>
+        </div>
+        <div
+          className={`metric-item performance-score ${getPerformanceClass(fieldValues?.performanceScore * 100)}`}
+        >
+          <span className="metric-label">🏆 Performance Score</span>
+          <span className="metric-value">{Math.round(fieldValues?.performanceScore)}%</span>
+        </div>
       </div>
       {loading && (
         <div className="loading-state">

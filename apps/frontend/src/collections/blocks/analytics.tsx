@@ -32,7 +32,7 @@ export const Analytics: Tab = {
             hidden: true,
           },
         },
-      ]
+      ],
     },
     {
       type: 'collapsible',

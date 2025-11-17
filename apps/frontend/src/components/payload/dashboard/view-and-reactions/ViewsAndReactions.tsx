@@ -46,7 +46,7 @@ export default function ViewsAndReactions({ path }: { path: string }) {
     const documentId = documentInfo?.data?.id
     getViewsAndReactions({ id: documentId as string })
       .then((data) => {
-        setValue("UI Render")
+        setValue('UI Render')
         formFields.dispatchFields({
           type: 'UPDATE',
           path: 'analytics.reactions',

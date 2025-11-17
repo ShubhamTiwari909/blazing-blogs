@@ -8,7 +8,12 @@ import z from 'zod';
 export const addUser = async (req: Request, res: Response) => {
   const parsedBody = addUserSchemaType.safeParse(req.body);
   if (!parsedBody.success) {
-    return res.status(400).json({ message: 'Bad Request - invalid parameters', errors: z.treeifyError(parsedBody.error) });
+    return res
+      .status(400)
+      .json({
+        message: 'Bad Request - invalid parameters',
+        errors: z.treeifyError(parsedBody.error),
+      });
   }
   const { name, email, image } = parsedBody.data;
 
