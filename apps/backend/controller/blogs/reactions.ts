@@ -1,20 +1,17 @@
 import { Request, Response } from 'express';
 import { Blogs } from '../../schemas/Blogs.js';
 import { REACTION_TYPES, type Reaction, type User } from './types.js';
+import { getReactionsSchemaType, updateReactionSchemaType } from '../../types/reactions.js';
+import z from 'zod';
 
 export const updateReaction = async (req: Request, res: Response) => {
   try {
-    const { id, userName, userEmail, userImage, reaction } = req.body;
-    if (
-      !id ||
-      !userEmail ||
-      !userName ||
-      !userImage ||
-      !reaction ||
-      !REACTION_TYPES.includes(reaction)
-    ) {
-      return res.status(400).json({ message: 'Bad Request - id, user, and reaction are required' });
+    const parsedBody = updateReactionSchemaType.safeParse(req.body);
+    if (!parsedBody.success) {
+      return res.status(400).json({ message: 'Bad Request - invalid parameters', errors: z.treeifyError(parsedBody.error) });
     }
+
+    const { id, userEmail, userName, userImage, reaction } = parsedBody.data;
 
     // Check if user already reacted with this emoji
     const existingReaction = await Blogs.findOne({
@@ -66,11 +63,12 @@ export const updateReaction = async (req: Request, res: Response) => {
 };
 
 export const getReactions = async (req: Request, res: Response) => {
+  const parsedQuery = getReactionsSchemaType.safeParse(req.query);
+  if (!parsedQuery.success) {
+    return res.status(400).json({ message: 'Bad Request - invalid parameters', errors: z.treeifyError(parsedQuery.error) });
+  }
   try {
-    const { id, userEmail } = req.query;
-    if (!id) {
-      return res.status(400).json({ message: 'Bad Request - id is required' });
-    }
+    const { id, userEmail } = parsedQuery.data;
 
     const blog = await Blogs.findOne({ _id: id });
     if (!blog) {

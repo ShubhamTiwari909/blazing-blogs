@@ -55,7 +55,7 @@ const Metadata = async ({
         </div>
         <div className="flex items-center gap-4">
           <EstimateReading data={blocks} />
-          <AiAnalysis aiSummary={aiSummary} />
+          {aiSummary && <AiAnalysis aiSummary={aiSummary} />}
         </div>
       </div>
     </div>

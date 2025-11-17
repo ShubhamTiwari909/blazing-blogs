@@ -1,12 +1,15 @@
 import { Request, Response } from 'express';
 import { Blogs } from '../../schemas/Blogs.js';
+import { viewIdSchemaType } from '../../types/views.js';
+import z from 'zod';
 
 export const updateViews = async (req: Request, res: Response) => {
+  const parsedQuery = viewIdSchemaType.safeParse(req.query);
+  if (!parsedQuery.success) {
+    return res.status(400).json({ message: 'Bad Request - invalid parameters', errors: z.treeifyError(parsedQuery.error) });
+  }
   try {
-    const { id } = req.query;
-    if (!id) {
-      return res.status(400).json({ message: 'Bad Request - id is required' });
-    }
+    const { id } = parsedQuery.data;
 
     // Find the blog
     const blog = await Blogs.findByIdAndUpdate({ _id: id }, { $inc: { 'views.count': 1 } });
@@ -19,11 +22,12 @@ export const updateViews = async (req: Request, res: Response) => {
 };
 
 export const getViews = async (req: Request, res: Response) => {
+  const parsedQuery = viewIdSchemaType.safeParse(req.query);
+  if (!parsedQuery.success) {
+    return res.status(400).json({ message: 'Bad Request - invalid parameters', errors: z.treeifyError(parsedQuery.error) });
+  }
   try {
-    const { id } = req.query;
-    if (!id) {
-      return res.status(400).json({ message: 'Bad Request - id is required' });
-    }
+    const { id } = parsedQuery.data;
     // Find the blog
     const blog = await Blogs.findOne({ _id: id });
     if (!blog) {

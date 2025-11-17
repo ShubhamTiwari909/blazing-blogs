@@ -16,6 +16,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@repo/encryption": "workspace:*",
     "compression": "^1.7.5",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
@@ -28,7 +29,7 @@
     "redis": "^5.8.2",
     "sharp": "^0.33.5",
     "vercel": "^39.3.0",
-    "@repo/encryption": "workspace:*"
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.0",
