@@ -6,12 +6,16 @@ export const metadata = {
   title: 'Payload Blank Template',
 }
 
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+
 export default async function Layout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <RootLayout>{children}</RootLayout>
       </body>
     </html>

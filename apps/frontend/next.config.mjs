@@ -53,4 +53,10 @@ const nextConfig = {
   reactCompiler: true,
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+import bundleAnalyzer from '@next/bundle-analyzer'
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+export default withPayload(withBundleAnalyzer(nextConfig), { devBundleServerPackages: false })
