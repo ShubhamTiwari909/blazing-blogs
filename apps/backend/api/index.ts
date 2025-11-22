@@ -6,6 +6,7 @@ import { connectionWrapper } from '../middlewares/db-connection.js';
 import compression from 'compression';
 import userRoutes from '../routes/users.js';
 import blogRoutes from '../routes/blogs.js';
+import logger from '../utils/logger.js';
 
 const app: Express = express();
 
@@ -35,6 +36,8 @@ const corsOptions = {
 
 // Middleware to parse JSON
 app.use(cors(corsOptions)); // for handling CORS
+app.use(logger); // Global logger
+app.disable('x-powered-by'); // Disable x-powered-by header
 app.use(express.json({ limit: '50mb' })); // for parsing application/json body with a limit of 50mb
 app.use(express.urlencoded({ extended: true, limit: '50mb' })); // for parsing application/x-www-form-urlencoded
 app.use(compression()); // for compressing the response body
