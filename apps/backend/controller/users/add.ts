@@ -28,8 +28,8 @@ export const addUser = async (req: Request, res: Response) => {
   try {
     const passkey = generatePasskey();
     const newUser = new Users({ name, email, image, passkey });
-    const result = await newUser.save();
-    res.status(201).json(`User saved - ${result}`);
+    await newUser.save();
+    res.status(201).json({ message: 'User saved' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal Server Error' });

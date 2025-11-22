@@ -2,11 +2,12 @@ import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import 'dotenv/config';
-import { connectionWrapper } from '../middlewares/db-connection.js';
+import connectDB from '../mongodb-connection.js';
 import compression from 'compression';
 import userRoutes from '../routes/users.js';
 import blogRoutes from '../routes/blogs.js';
 import logger from '../utils/logger.js';
+import { dynamicLimiter } from '../middlewares/rate-limiting.js';
 
 const app: Express = express();
 
@@ -14,16 +15,16 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        'default-src': ["'self'"], // Only allow resources from the same origin
-        'script-src': ["'self'", process.env.WHITELISTING_CSP_API || ''], // Allow scripts from self and example.com (adjust as needed)
-        'style-src': ["'self'", "'unsafe-inline'"], // Allow styles from self.  'unsafe-inline' is generally discouraged but sometimes necessary (use sparingly!)
-        'img-src': ["'self'", 'data:'], // Allow images from self and data URLs
-        'connect-src': ["'self'", process.env.WHITELISTING_CSP_API || ''], // Allow connections to self and your API
-        'font-src': ["'self'"], // Allow fonts from self
-        'object-src': ["'none'"], // Disable embedded objects (Flash, etc.)
+        'default-src': ["'self'"],
+        'script-src': ["'self'", process.env.WHITELISTING_CSP_API || ''],
+        'style-src': ["'self'", "'unsafe-inline'"], // Kept unsafe-inline for styles as it's often needed, but removed from scripts
+        'img-src': ["'self'", 'data:', 'https:'], // Added https: for external images
+        'connect-src': ["'self'", process.env.WHITELISTING_CSP_API || ''],
+        'font-src': ["'self'"],
+        'object-src': ["'none'"],
         'base-uri': ["'self'"],
         'form-action': ["'self'"],
-        'frame-ancestors': ["'none'"], // Prevents iframing your site
+        'frame-ancestors': ["'none'"],
         'upgrade-insecure-requests': ["'self'"],
       },
     },
@@ -31,16 +32,23 @@ app.use(
 );
 
 const corsOptions = {
-  origin: [process.env.WHITELISTING_CSP_API || ''],
+  origin: process.env.WHITELISTING_CSP_API ? [process.env.WHITELISTING_CSP_API] : false,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 };
 
-// Middleware to parse JSON
-app.use(cors(corsOptions)); // for handling CORS
-app.use(logger); // Global logger
-app.disable('x-powered-by'); // Disable x-powered-by header
-app.use(express.json({ limit: '50mb' })); // for parsing application/json body with a limit of 50mb
-app.use(express.urlencoded({ extended: true, limit: '50mb' })); // for parsing application/x-www-form-urlencoded
-app.use(compression()); // for compressing the response body
+// Middleware
+app.use(cors(corsOptions));
+app.use(logger);
+app.disable('x-powered-by');
+
+// Global Rate Limiter (100 requests per 15 minutes)
+app.use(dynamicLimiter(100));
+
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '1mb' }));
+app.use(compression());
 
 // Routes
 app.get('/', async (_: Request, res: Response) => {
@@ -55,7 +63,7 @@ const PORT = Number(process.env.PORT) || 5000;
 
 const startServer = async () => {
   try {
-    await connectionWrapper(); // ✅ Connect DB first
+    await connectDB();
     app.listen(PORT, () => {
       console.log(`🚀 Server running on port ${PORT}`);
     });

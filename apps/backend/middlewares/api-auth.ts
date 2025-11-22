@@ -10,13 +10,29 @@ export async function customAuthMiddleware(
 ): Promise<void> {
   try {
     const authHeader = req.headers['authorization'];
-    const passkey = authHeader && authHeader.split(' ')[1];
-    const email = authHeader && authHeader.split(' ')[2];
 
-    if (!passkey || !email) {
+    if (!authHeader) {
       res.status(401).json({ message: 'Unauthorized: Missing token' });
       return;
     }
+
+    // Expected format: "Bearer <passkey> <email>" or just "<passkey> <email>" depending on legacy.
+    // Based on previous code: split(' ')[1] was passkey, [2] was email.
+    // This implies "Scheme passkey email".
+    const parts = authHeader.split(' ');
+    if (parts.length < 3) {
+      res.status(401).json({ message: 'Unauthorized: Invalid token format' });
+      return;
+    }
+
+    const passkey = parts[1];
+    const email = parts[2];
+
+    if (!passkey || !email) {
+      res.status(401).json({ message: 'Unauthorized: Missing credentials' });
+      return;
+    }
+
     // 🔹 1. Try cache first
     let cachedPasskey = await redis.get(email);
 
@@ -40,6 +56,7 @@ export async function customAuthMiddleware(
     // 🔹 4. Auth success
     next();
   } catch (error) {
-    res.status(403).json({ message: `Forbidden: Invalid or corrupted token ${error}` });
+    console.error('Auth Middleware Error:', error);
+    res.status(403).json({ message: 'Forbidden: Invalid or corrupted token' });
   }
 }
