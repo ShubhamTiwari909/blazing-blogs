@@ -4,19 +4,15 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/all'
 import { cn } from '@/lib/utils'
-gsap.registerPlugin(useGSAP) // register the hook to avoid React version discrepancies
+import type { TextAnimationProps } from './types'
 
-type Tags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'
+gsap.registerPlugin(useGSAP) // register the hook to avoid React version discrepancies
 
 const TextAnimation = ({
   tag,
   children,
   className,
-}: {
-  tag: Tags
-  children: React.ReactNode
-  className: string
-}) => {
+}: TextAnimationProps) => {
   const container = useRef(null)
   const Tag = tag
   useGSAP(() => {

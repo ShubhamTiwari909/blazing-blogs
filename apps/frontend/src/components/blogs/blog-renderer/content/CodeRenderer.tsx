@@ -2,14 +2,12 @@
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
 import { useEffect } from 'react'
+import type { CodeRendererProps } from '../types'
 
 export default function CodeRenderer({
   code,
   language = 'javascript',
-}: {
-  code: string
-  language?: string
-}) {
+}: CodeRendererProps) {
   useEffect(() => {
     Prism.highlightAll()
   }, [code])

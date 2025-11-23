@@ -5,8 +5,9 @@ import { SessionProvider } from 'next-auth/react'
 import SigninSignout from '@/components/ui/navbar/SigninSignout'
 import TanstackWrapper from './TanstackWrapper'
 import Footer from '@/components/ui/Footer'
+import type { ChildrenProps } from './types'
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default function RootLayout(props: ChildrenProps) {
   const { children } = props
 
   return (

@@ -1,4 +1,5 @@
 import React from 'react'
+import type { YoutubeIframeProps } from '../types'
 
 const getYoutubeEmbedUrl = (url: string): string => {
   if (!url) return ''
@@ -17,7 +18,7 @@ const getYoutubeEmbedUrl = (url: string): string => {
   return url
 }
 
-const YoutubeIframe = ({ ytIframe }: { ytIframe: string }) => {
+const YoutubeIframe = ({ ytIframe }: YoutubeIframeProps) => {
   const embedUrl = getYoutubeEmbedUrl(ytIframe)
 
   if (!embedUrl) {

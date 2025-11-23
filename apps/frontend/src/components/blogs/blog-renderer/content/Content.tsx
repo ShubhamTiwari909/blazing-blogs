@@ -1,12 +1,12 @@
 import React from 'react'
-import LinkPreviewCard, { Meta } from './LinkPreview'
+import LinkPreviewCard from './LinkPreview'
 import CodeRenderer from './CodeRenderer'
 import { MarkdownRenderer } from './MarkdownRenderer'
 import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
-import type { Page } from '@/payload-types'
 import YoutubeIframe from './YoutubeIframe'
+import type { ContentProps, Meta } from '../types'
 
-const Content = ({ docs, draft }: { docs: Page['content']['blocks']; draft: boolean }) => {
+const Content = ({ docs, draft }: ContentProps) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {draft && <RefreshRouteOnSave />}
@@ -14,18 +14,18 @@ const Content = ({ docs, draft }: { docs: Page['content']['blocks']; draft: bool
         {docs?.map((block) => {
           return (
             <div key={block.id} className="mb-8 last:mb-0">
-              {block.blockType === 'content' && block.content && (
+              {block.blockType === 'content' && block.content ? (
                 <MarkdownRenderer data={block.content} />
-              )}
-              {block.blockType === 'codeBlock' && block.codeBlock && (
+              ) : null}
+              {block.blockType === 'codeBlock' && block.codeBlock ? (
                 <CodeRenderer code={block.codeBlock} />
-              )}
-              {block.blockType === 'linkPreview' && block.link && (
+              ) : null}
+              {block.blockType === 'linkPreview' && block.link ? (
                 <LinkPreviewCard meta={block.preview as Meta} link={block.link} />
-              )}
-              {block.blockType === 'ytIframe' && block.ytIframe && (
+              ) : null}
+              {block.blockType === 'ytIframe' && block.ytIframe ? (
                 <YoutubeIframe ytIframe={block.ytIframe} />
-              )}
+              ) : null}
             </div>
           )
         })}

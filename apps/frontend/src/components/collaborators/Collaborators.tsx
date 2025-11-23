@@ -3,7 +3,7 @@ import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
 import { Calendar, Mail, Users } from 'lucide-react'
 import Image from 'next/image'
 import { contructImageUrl } from '@/lib/utils'
-import { User } from '@/payload-types'
+import type { CollaboratorsProps } from './types'
 
 const getInitials = (username: string) => {
   return username
@@ -30,9 +30,7 @@ const getRandomGradient = (index: number) => {
 
 const Collaborators = ({
   collaborators,
-}: {
-  collaborators: { type: string; docs: User[] } | undefined
-}) => {
+}: CollaboratorsProps) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <BackgroundDecoration />

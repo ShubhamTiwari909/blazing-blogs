@@ -4,8 +4,8 @@ import Tags from './Tags'
 import ReactionsWrapper from '../reactions/ReactionsWrapper'
 import ViewsWrapper from '../views/ViewsWrapper'
 import AiAnalysis from '../AiAnalysis/AiAnalysis'
-import { Page } from '@/payload-types'
 import EstimateReading from '../blogs-list/EstimateReading'
+import type { MetadataProps } from './types'
 
 const Metadata = async ({
   id,
@@ -14,14 +14,7 @@ const Metadata = async ({
   tags,
   aiSummary,
   blocks,
-}: {
-  id: string
-  author: string
-  createdAt: string
-  tags: { tag: string; id?: string | null | undefined }[] | null | undefined
-  aiSummary: Page['content']['aiSummary']
-  blocks: Page['content']['blocks']
-}) => {
+}: MetadataProps) => {
   return (
     <div className="space-y-10 pb-8 border-b border-gray-200">
       <div className="flex flex-wrap items-center gap-6">

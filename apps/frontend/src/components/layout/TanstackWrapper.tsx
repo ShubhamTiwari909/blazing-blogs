@@ -2,8 +2,9 @@
 
 import React from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type { ChildrenProps } from './types'
 
-export default function TanstackWrapper(props: { children: React.ReactNode }) {
+export default function TanstackWrapper(props: ChildrenProps) {
   const { children } = props
 
   // Create a QueryClient instance

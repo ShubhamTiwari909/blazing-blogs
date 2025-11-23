@@ -1,21 +1,16 @@
 import React from 'react'
-import { Page } from '@/payload-types'
 import BlogHeader from './blog-header/BlogHeader'
 import BackgroundImage from './BackgroundImage'
 import BlogHeaderStrip from './blog-header/BlogHeaderStrip'
 import Content from './content/Content'
+import type { BlogRendererProps } from './types'
 
 const BlogRenderer = async ({
   blogData,
   blogId,
   createdAt,
   draft,
-}: {
-  blogData: Page['content']
-  blogId: Page['id']
-  createdAt: Page['createdAt']
-  draft: boolean
-}) => {
+}: BlogRendererProps) => {
   const docs = blogData.blocks
   return (
     <>

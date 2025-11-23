@@ -1,8 +1,9 @@
 'use client'
 
 import { useRowLabel } from '@payloadcms/ui'
+import type { ArrayRowLabelProps } from './types'
 
-export default function ArrayRowLabel({ label }: { label: string }) {
+export default function ArrayRowLabel({ label }: ArrayRowLabelProps) {
   const { data } = useRowLabel<{ [key: string]: string }>()
 
   const customLabel = data[label]

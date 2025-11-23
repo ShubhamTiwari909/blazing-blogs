@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useField, useForm, useFormFields } from '@payloadcms/ui'
 import { TextFieldClientComponent } from 'payload'
 import './styles.scss'
+import type { PagespeedProps } from './types'
 
 async function fetchPagespeed(slug: string) {
   const apiEndpoint = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?key=${process.env.NEXT_PUBLIC_PAGESPEED_API_KEY}`
@@ -21,10 +22,6 @@ async function fetchPagespeed(slug: string) {
   } catch (error) {
     console.error('Fetching PageSpeed Insights failed:', error)
   }
-}
-
-type PagespeedProps = {
-  path: string
 }
 
 const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {

@@ -1,12 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import { Page } from '@/payload-types'
-
-type BlogResponse = {
-  docs: Page[]
-  totalDocs: number
-  hasNextPage: boolean
-  nextPage?: number
-}
+import type { BlogResponse } from './types'
 
 const fetchBlogs = async (pageParam: number = 1): Promise<BlogResponse> => {
   const response = await fetch(

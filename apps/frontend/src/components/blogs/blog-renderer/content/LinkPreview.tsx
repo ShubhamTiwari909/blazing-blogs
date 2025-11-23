@@ -1,15 +1,8 @@
 'use client'
 import Image from 'next/image'
+import type { LinkPreviewCardProps } from '../types';
 
-export type Meta = {
-  title: string
-  description: string | undefined
-  image: string | undefined
-  site: string
-  url: string
-} | null
-
-export default function LinkPreviewCard({ meta, link }: { meta: Meta; link: string }) {
+export default function LinkPreviewCard({ meta, link }: LinkPreviewCardProps) {
   if (!meta || !meta.title)
     return (
       <a

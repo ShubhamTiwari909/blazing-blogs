@@ -4,12 +4,9 @@ import { toast, useDocumentInfo, useField } from '@payloadcms/ui'
 import { geminiSummary } from './gemini-fetch'
 import { convertToPlaintext } from '@/lib/utils'
 import { useState } from 'react'
+import type { GeminiFieldSummaryProps } from './types'
 
-type PagespeedProps = {
-  path: string
-}
-
-export default function GeminiFieldSummary({ path }: PagespeedProps) {
+export default function GeminiFieldSummary({ path }: GeminiFieldSummaryProps) {
   const [loading, setLoading] = useState(false)
   const { setValue } = useField({ path })
   const documentInfo = useDocumentInfo()

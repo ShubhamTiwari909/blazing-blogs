@@ -1,6 +1,8 @@
 import { GoogleGenAI } from '@google/genai'
 
 const genAI = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GOOGLE_GEMINI_API || '' })
+import type { GeminiSummaryProps } from './types'
+
 // Define the grounding tool
 const groundingTool = {
   googleSearch: {},
@@ -14,7 +16,7 @@ const config = {
 /**
  * API route for generating content using Gemini AI model.
  */
-export async function geminiSummary({ text }: { text: string }) {
+export async function geminiSummary({ text }: GeminiSummaryProps) {
   /**
    * Get the prompt from props.
    */

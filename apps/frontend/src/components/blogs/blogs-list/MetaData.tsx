@@ -1,7 +1,8 @@
 import { CalendarDays, User } from 'lucide-react'
 import React from 'react'
+import type { MetaDataProps } from './types'
 
-const MetaData = ({ author, createdAt }: { author: string; createdAt: string }) => {
+const MetaData = ({ author, createdAt }: MetaDataProps) => {
   return (
     <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
       <div className="flex items-center space-x-4">

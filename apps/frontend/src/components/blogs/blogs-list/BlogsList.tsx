@@ -1,29 +1,13 @@
 'use client'
-import { Page } from '@/payload-types'
 import React, { useMemo } from 'react'
 import BlogCard from './BlogCard'
 import { useBlogs } from '@/lib/hooks/useBlogs'
 import BlogsListSkeleton from './BlogsListSkeleton'
+import type { BlogResponse, BlogsListProps } from './types'
 
-type BlogResponse = {
-  docs: Page[]
-  totalDocs: number
-  hasNextPage: boolean
-  nextPage?: number
-}
-
-type Props =
-  | {
-      type: string
-      docs: Page[]
-      totalDocs: number
-      hasNextPage: boolean
-    }
-  | undefined
-
-const BlogsList = ({ pages }: { pages: Props }) => {
+const BlogsList = ({ pages }: BlogsListProps) => {
   // Initialize the initial data for the query
-  const initialData = pages
+   const initialData = pages
     ? {
         docs: pages.docs,
         totalDocs: pages.totalDocs,
@@ -76,7 +60,7 @@ const BlogsList = ({ pages }: { pages: Props }) => {
     <div className="space-y-8">      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs?.map((page) => (
-          <BlogCard key={page.id} page={page} />
+          <BlogCard key={page.id} id={page.id} content={page.content} createdAt={page.createdAt} slug={page.slug} />
         ))}
       </div>
 

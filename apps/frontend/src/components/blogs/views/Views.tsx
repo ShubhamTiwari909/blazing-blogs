@@ -6,19 +6,20 @@ import {
 import { Eye } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
+import type { ViewsProps } from './types'
 
-const Views = ({ id }: { id: string }) => {
+const Views = ({ id }: ViewsProps) => {
   const [cookies, setCookies] = useCookies()
   const [blogViews, setBlogViews] = useState(0)
 
   useEffect(() => {
-    if (checkIfAlreadyViewed(id, cookies)) {
-      getBlogView(id).then((data) => {
+    if (checkIfAlreadyViewed({id, cookies})) {
+      getBlogView({id}).then((data) => {
         setBlogViews(data.blogsCount)
       })
       return
     }
-    fetchBlogView(id).then((data) => {
+    fetchBlogView({id}).then((data) => {
       setBlogViews(data.blogsCount)
       setCookies(`viewed-${id}`, 'true', {
         maxAge: 86400, // 24 hours in seconds

@@ -1,8 +1,9 @@
 import React from 'react'
 import AiRenderer from './AiRenderer'
-import { Page } from '@/payload-types'
+import type { AiSummary } from './types'
 
-const AiAnalysis = ({ aiSummary }: { aiSummary: Page['content']['aiSummary'] }) => {
+const AiAnalysis = ({ aiSummary }: AiSummary) => {
+  if (!aiSummary) return null
   return (
     <div className="flex flex-wrap items-center gap-5">
       <AiRenderer aiSummary={aiSummary} />

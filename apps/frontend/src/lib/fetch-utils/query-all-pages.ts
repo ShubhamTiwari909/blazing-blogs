@@ -1,7 +1,8 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
+import type { QueryPagesSlugProps } from './types'
 
-export const queryPagesSlug = async ({ page, limit }: { page: number; limit: number }) => {
+export const queryPagesSlug = async ({ page, limit }: QueryPagesSlugProps) => {
   const payload = await getPayload({ config: config })
 
   const result = await payload.find({
@@ -23,7 +24,7 @@ export const queryPagesSlug = async ({ page, limit }: { page: number; limit: num
   return result.docs.map((page) => page.slug)
 }
 
-export const queryPages = async ({ page, limit }: { page: number; limit: number }) => {
+export const queryPages = async ({ page, limit }: QueryPagesSlugProps) => {
   const payload = await getPayload({ config: config })
 
   const result = await payload.find({

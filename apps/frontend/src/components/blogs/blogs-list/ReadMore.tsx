@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
+import type { PageSlug } from './types'
 
-const ReadMore = ({ slug }: { slug: string }) => {
+const ReadMore = ({ slug }: PageSlug) => {
   return (
     <Link
       href={`/${slug}`}

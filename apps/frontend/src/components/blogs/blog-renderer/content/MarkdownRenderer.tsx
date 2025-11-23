@@ -1,6 +1,6 @@
 import React from 'react'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
+import type { MarkdownRendererProps } from '../types'
 
 const proseStyles = {
   headings:
@@ -20,7 +20,7 @@ const proseStyles = {
   horizontalRules: 'prose-hr:border-slate-300 prose-hr:my-8',
 }
 
-export const MarkdownRenderer = ({ data }: { data: SerializedEditorState }) => {
+export const MarkdownRenderer = ({ data }: MarkdownRendererProps) => {
   return (
     <RichText
       className={`

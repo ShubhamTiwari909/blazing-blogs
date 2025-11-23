@@ -1,3 +1,5 @@
+import type { Session } from "next-auth"
+
 export type Reactions = {
   confetti: number
   fireworks: number
@@ -16,4 +18,17 @@ export type ReactionsProps = {
     party: boolean
   }
   reactionCounts: Reactions
+}
+
+export type Reaction = 'heart' | 'unicorn' | 'confetti' | 'fireworks' | 'party'
+
+export type ReactionMap = {
+  name: Reaction
+  icon: string
+  count: number
+}[]
+
+export type FetchReactionsCountProps = {
+  session: Session
+  id: string
 }

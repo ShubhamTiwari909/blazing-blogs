@@ -3,18 +3,14 @@ import React from 'react'
 import Metadata from '../Metadata'
 import { BlogImage } from '../Image'
 import { contructImageUrl } from '@/lib/utils'
-import { Page } from '@/payload-types'
 import BlogHeaderWrapper from './BlogHeaderWrapper'
+import type { BlogHeaderProps } from '../types'
 
 const BlogHeader = ({
   blogData,
   blogId,
   createdAt,
-}: {
-  blogData: Page['content']
-  blogId: Page['id']
-  createdAt: Page['createdAt']
-}) => {
+}: BlogHeaderProps) => {
   return (
     <BlogHeaderWrapper>
       {/* Blog Image */}

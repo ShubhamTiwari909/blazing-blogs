@@ -1,9 +1,9 @@
 import React from 'react'
 import { auth } from '@/lib/auth'
-import { Session } from 'next-auth'
 import Reactions from './Reactions'
+import type { FetchReactionsCountProps } from './types'
 
-const fetchReactionsCount = async ({ session, id }: { session: Session; id: string }) => {
+const fetchReactionsCount = async ({ session, id }: FetchReactionsCountProps) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/reactions?id=${id}&userEmail=${session.user.email}`,
     {

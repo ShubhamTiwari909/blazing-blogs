@@ -1,12 +1,8 @@
-import type { Reactions } from './types'
+import type { ReactionMap, Reactions } from './types'
 
 export const generateReactionMap = (
   reactions: Reactions,
-): {
-  name: 'heart' | 'unicorn' | 'confetti' | 'fireworks' | 'party'
-  icon: string
-  count: number
-}[] => {
+): ReactionMap => {
   return [
     {
       name: 'heart',

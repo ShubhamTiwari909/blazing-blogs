@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '../button'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import { ChildrenProps } from '../types'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -13,7 +14,7 @@ const navItems = [
   { name: 'Collaborators', href: '/collaborators' },
 ]
 
-const Navbar = ({ children }: { children: React.ReactNode }) => {
+const Navbar = ({ children }: ChildrenProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { data: session } = useSession()
 

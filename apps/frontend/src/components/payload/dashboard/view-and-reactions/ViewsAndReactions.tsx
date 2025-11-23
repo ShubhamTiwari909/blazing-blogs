@@ -2,8 +2,9 @@
 import { useDocumentInfo, useField, useForm } from '@payloadcms/ui'
 import React, { useState } from 'react'
 import './style.scss'
+import type { GetViewsAndReactionsProps, ViewsAndReactionsProps } from './types'
 
-const getViewsAndReactions = async ({ id }: { id: string }) => {
+const getViewsAndReactions = async ({ id }: GetViewsAndReactionsProps) => {
   const viewsResponse = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/views?id=${id}`,
     {
@@ -31,7 +32,7 @@ const getViewsAndReactions = async ({ id }: { id: string }) => {
   }
 }
 
-export default function ViewsAndReactions({ path }: { path: string }) {
+export default function ViewsAndReactions({ path }: ViewsAndReactionsProps) {
   const [loading, setLoading] = useState(false)
   const formFields = useForm()
   const documentInfo = useDocumentInfo()

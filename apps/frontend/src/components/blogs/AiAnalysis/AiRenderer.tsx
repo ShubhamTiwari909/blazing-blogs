@@ -12,9 +12,9 @@ import {
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Button } from '@/components/ui/button'
-import { Page } from '@/payload-types'
+import type { AiSummary } from './types'
 
-const AiRenderer = ({ aiSummary }: { aiSummary: Page['content']['aiSummary'] }) => {
+const AiRenderer = ({ aiSummary }: AiSummary) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>

@@ -53,7 +53,16 @@ const page = async () => {
             creators
           </p>
         </div>
-        <BlogsList pages={pages} />
+        {
+          pages && pages.docs.length > 0 ? (
+            <BlogsList pages={pages} />
+          ) : (
+            <div className="text-center py-12">
+              <div className="text-gray-500 text-lg">No blogs found</div>
+              <p className="text-gray-400 mt-2">Check back later for new content!</p>
+            </div>
+          )
+        }
       </div>
     </div>
   )

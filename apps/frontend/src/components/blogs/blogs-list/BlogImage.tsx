@@ -1,8 +1,9 @@
 import { contructImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'
+import type { BlogImageProps } from '../blog-renderer/types'
 
-const BlogImage = ({ src, alt }: { src: string; alt: string }) => {
+const BlogImage = ({ src, alt }: BlogImageProps) => {
   return (
     <div className="relative h-48 overflow-hidden">
       <Image

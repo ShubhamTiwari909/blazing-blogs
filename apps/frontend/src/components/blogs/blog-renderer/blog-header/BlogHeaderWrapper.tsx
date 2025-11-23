@@ -1,8 +1,9 @@
 'use client'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
 import React from 'react'
+import type { BlogHeaderWrapperProps } from '../types'
 
-const BlogHeaderWrapper = ({ children }: { children: React.ReactNode }) => {
+const BlogHeaderWrapper = ({ children }: BlogHeaderWrapperProps) => {
   const darkMode = useDarkModeStore((state) => state.darkMode)
   return (
     <div
