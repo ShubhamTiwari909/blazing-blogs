@@ -11,7 +11,7 @@ const Collaborators = ({ collaborators }: CollaboratorsProps) => {
       <BackgroundDecoration />
       <div className="relative z-10 container mx-auto px-4 py-16">
         <div className="max-w-6xl mx-auto">
-         <Header />
+          <Header />
 
           {collaborators?.docs && collaborators.docs.length > 0 ? (
             <CollaboratorsList collaborators={collaborators} />
