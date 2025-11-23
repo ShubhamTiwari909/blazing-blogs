@@ -1,8 +1,8 @@
-import Loading from '@/components/ui/Loading'
+import BlogRendererSkeleton from '@/components/blogs/blog-renderer/BlogRendererSkeleton'
 import React from 'react'
 
 const loading = () => {
-  return <Loading />
+  return <BlogRendererSkeleton />
 }
 
 export default loading

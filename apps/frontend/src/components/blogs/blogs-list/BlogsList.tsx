@@ -2,8 +2,8 @@
 import { Page } from '@/payload-types'
 import React, { useMemo } from 'react'
 import BlogCard from './BlogCard'
-import { DockIcon } from 'lucide-react'
 import { useBlogs } from '@/lib/hooks/useBlogs'
+import BlogsListSkeleton from './BlogsListSkeleton'
 
 type BlogResponse = {
   docs: Page[]
@@ -40,9 +40,6 @@ const BlogsList = ({ pages }: { pages: Props }) => {
     return data?.pages?.flatMap((page) => (page as BlogResponse).docs) || pages?.docs || []
   }, [data?.pages, pages?.docs])
 
-  // Get total docs from the latest page or initial data
-  const totalDocs = data?.pages?.[data.pages.length - 1]?.totalDocs || pages?.totalDocs || 0
-
   const handleLoadMore = () => {
     if (!isFetchingNextPage && hasNextPage) {
       fetchNextPage()
@@ -51,12 +48,7 @@ const BlogsList = ({ pages }: { pages: Props }) => {
 
   // Handle loading state
   if (isLoading && !initialData) {
-    return (
-      <div className="text-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-        <div className="text-gray-500 text-lg mt-4">Loading blogs...</div>
-      </div>
-    )
+    return <BlogsListSkeleton />
   }
 
   // Handle error state
@@ -81,22 +73,7 @@ const BlogsList = ({ pages }: { pages: Props }) => {
   }
 
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-6">
-          <DockIcon className="w-4 h-4" />
-          {totalDocs} Blogs
-        </div>
-        <h1 className="text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent mb-6">
-          Latest Blog Posts
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Discover insights, tutorials, and stories from our community of passionate developers and
-          creators
-        </p>
-      </div>
-
+    <div className="space-y-8">      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs?.map((page) => (
           <BlogCard key={page.id} page={page} />
