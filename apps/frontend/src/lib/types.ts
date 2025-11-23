@@ -1,4 +1,4 @@
-import { Page } from "@/payload-types"
+import { Page } from '@/payload-types'
 
 export type Props = {
   params: Promise<{

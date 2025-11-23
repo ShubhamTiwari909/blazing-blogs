@@ -7,12 +7,10 @@ import z from 'zod';
 export const getReactionsFromBlog = async (req: Request, res: Response) => {
   const parsedParams = reactionIdSchemaType.safeParse(req.query);
   if (!parsedParams.success) {
-    return res
-      .status(400)
-      .json({
-        message: 'Bad Request - invalid parameters',
-        errors: z.treeifyError(parsedParams.error),
-      });
+    return res.status(400).json({
+      message: 'Bad Request - invalid parameters',
+      errors: z.treeifyError(parsedParams.error),
+    });
   }
   try {
     const blog = await Blogs.findOne({ _id: parsedParams.data.id });

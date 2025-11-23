@@ -8,12 +8,10 @@ export const updateReaction = async (req: Request, res: Response) => {
   try {
     const parsedBody = updateReactionSchemaType.safeParse(req.body);
     if (!parsedBody.success) {
-      return res
-        .status(400)
-        .json({
-          message: 'Bad Request - invalid parameters',
-          errors: z.treeifyError(parsedBody.error),
-        });
+      return res.status(400).json({
+        message: 'Bad Request - invalid parameters',
+        errors: z.treeifyError(parsedBody.error),
+      });
     }
 
     const { id, userEmail, userName, userImage, reaction } = parsedBody.data;
@@ -70,12 +68,10 @@ export const updateReaction = async (req: Request, res: Response) => {
 export const getReactions = async (req: Request, res: Response) => {
   const parsedQuery = getReactionsSchemaType.safeParse(req.query);
   if (!parsedQuery.success) {
-    return res
-      .status(400)
-      .json({
-        message: 'Bad Request - invalid parameters',
-        errors: z.treeifyError(parsedQuery.error),
-      });
+    return res.status(400).json({
+      message: 'Bad Request - invalid parameters',
+      errors: z.treeifyError(parsedQuery.error),
+    });
   }
   try {
     const { id, userEmail } = parsedQuery.data;

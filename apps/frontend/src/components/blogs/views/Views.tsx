@@ -13,13 +13,13 @@ const Views = ({ id }: ViewsProps) => {
   const [blogViews, setBlogViews] = useState(0)
 
   useEffect(() => {
-    if (checkIfAlreadyViewed({id, cookies})) {
-      getBlogView({id}).then((data) => {
+    if (checkIfAlreadyViewed({ id, cookies })) {
+      getBlogView({ id }).then((data) => {
         setBlogViews(data.blogsCount)
       })
       return
     }
-    fetchBlogView({id}).then((data) => {
+    fetchBlogView({ id }).then((data) => {
       setBlogViews(data.blogsCount)
       setCookies(`viewed-${id}`, 'true', {
         maxAge: 86400, // 24 hours in seconds

@@ -117,4 +117,3 @@ const BlogRendererSkeleton = () => {
 }
 
 export default BlogRendererSkeleton
-

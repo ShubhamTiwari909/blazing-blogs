@@ -7,7 +7,7 @@ import type { BlogResponse, BlogsListProps } from './types'
 
 const BlogsList = ({ pages }: BlogsListProps) => {
   // Initialize the initial data for the query
-   const initialData = pages
+  const initialData = pages
     ? {
         docs: pages.docs,
         totalDocs: pages.totalDocs,
@@ -57,10 +57,16 @@ const BlogsList = ({ pages }: BlogsListProps) => {
   }
 
   return (
-    <div className="space-y-8">      
+    <div className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs?.map((page) => (
-          <BlogCard key={page.id} id={page.id} content={page.content} createdAt={page.createdAt} slug={page.slug} />
+          <BlogCard
+            key={page.id}
+            id={page.id}
+            content={page.content}
+            createdAt={page.createdAt}
+            slug={page.slug}
+          />
         ))}
       </div>
 

@@ -24,10 +24,6 @@ const staticPages = [
     name: 'Sitemap',
   },
   {
-    url: '/healthcheck',
-    name: 'Health Check',
-  },
-  {
     url: '/collaborators',
     name: 'Collaborators',
   },

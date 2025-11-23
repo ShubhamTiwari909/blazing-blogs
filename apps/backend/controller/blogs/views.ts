@@ -6,12 +6,10 @@ import z from 'zod';
 export const updateViews = async (req: Request, res: Response) => {
   const parsedQuery = viewIdSchemaType.safeParse(req.query);
   if (!parsedQuery.success) {
-    return res
-      .status(400)
-      .json({
-        message: 'Bad Request - invalid parameters',
-        errors: z.treeifyError(parsedQuery.error),
-      });
+    return res.status(400).json({
+      message: 'Bad Request - invalid parameters',
+      errors: z.treeifyError(parsedQuery.error),
+    });
   }
   try {
     const { id } = parsedQuery.data;
@@ -29,12 +27,10 @@ export const updateViews = async (req: Request, res: Response) => {
 export const getViews = async (req: Request, res: Response) => {
   const parsedQuery = viewIdSchemaType.safeParse(req.query);
   if (!parsedQuery.success) {
-    return res
-      .status(400)
-      .json({
-        message: 'Bad Request - invalid parameters',
-        errors: z.treeifyError(parsedQuery.error),
-      });
+    return res.status(400).json({
+      message: 'Bad Request - invalid parameters',
+      errors: z.treeifyError(parsedQuery.error),
+    });
   }
   try {
     const { id } = parsedQuery.data;

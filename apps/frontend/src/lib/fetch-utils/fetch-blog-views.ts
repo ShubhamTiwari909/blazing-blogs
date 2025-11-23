@@ -1,6 +1,6 @@
 import type { BlogIdProps, CheckIfAlreadyViewedProps } from './types'
 
-export const fetchBlogView = async ({id}: BlogIdProps) => {
+export const fetchBlogView = async ({ id }: BlogIdProps) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/views?id=${id}`,
     {
@@ -15,11 +15,11 @@ export const fetchBlogView = async ({id}: BlogIdProps) => {
   return data
 }
 
-export const checkIfAlreadyViewed = ({id, cookies}: CheckIfAlreadyViewedProps) => {
+export const checkIfAlreadyViewed = ({ id, cookies }: CheckIfAlreadyViewedProps) => {
   return !!cookies[`viewed-${id}`]
 }
 
-export const getBlogView = async ({id}: BlogIdProps) => {
+export const getBlogView = async ({ id }: BlogIdProps) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/get/views?id=${id}`, {
     method: 'GET',
     headers: {

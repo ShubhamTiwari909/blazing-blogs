@@ -5,7 +5,6 @@ import { cache } from 'react'
 import config from '@payload-config'
 import type { Params, SlugProps } from './types'
 
-
 export const pageData = async (paramsPromise: Params) => {
   const { blogs = 'home' } = paramsPromise
 

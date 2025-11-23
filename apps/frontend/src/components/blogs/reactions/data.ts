@@ -1,8 +1,6 @@
 import type { ReactionMap, Reactions } from './types'
 
-export const generateReactionMap = (
-  reactions: Reactions,
-): ReactionMap => {
+export const generateReactionMap = (reactions: Reactions): ReactionMap => {
   return [
     {
       name: 'heart',

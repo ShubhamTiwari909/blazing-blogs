@@ -49,20 +49,18 @@ const page = async () => {
             Latest Blog Posts
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover insights, tutorials, and stories from our community of passionate developers and
-            creators
+            Discover insights, tutorials, and stories from our community of passionate developers
+            and creators
           </p>
         </div>
-        {
-          pages && pages.docs.length > 0 ? (
-            <BlogsList pages={pages} />
-          ) : (
-            <div className="text-center py-12">
-              <div className="text-gray-500 text-lg">No blogs found</div>
-              <p className="text-gray-400 mt-2">Check back later for new content!</p>
-            </div>
-          )
-        }
+        {pages && pages.docs.length > 0 ? (
+          <BlogsList pages={pages} />
+        ) : (
+          <div className="text-center py-12">
+            <div className="text-gray-500 text-lg">No blogs found</div>
+            <p className="text-gray-400 mt-2">Check back later for new content!</p>
+          </div>
+        )}
       </div>
     </div>
   )

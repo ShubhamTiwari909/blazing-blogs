@@ -1,4 +1,4 @@
-import type { Session } from "next-auth"
+import type { Session } from 'next-auth'
 
 export type Reactions = {
   confetti: number

@@ -1,3 +1,3 @@
 export type PagespeedProps = {
-    path: string
+  path: string
 }

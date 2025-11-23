@@ -12,7 +12,7 @@ export type CheckIfAlreadyViewedProps = {
 }
 
 export type Params = {
-    blogs: string
+  blogs: string
 }
 
 export type QueryPagesSlugProps = {

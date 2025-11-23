@@ -5,12 +5,7 @@ import BlogHeaderStrip from './blog-header/BlogHeaderStrip'
 import Content from './content/Content'
 import type { BlogRendererProps } from './types'
 
-const BlogRenderer = async ({
-  blogData,
-  blogId,
-  createdAt,
-  draft,
-}: BlogRendererProps) => {
+const BlogRenderer = async ({ blogData, blogId, createdAt, draft }: BlogRendererProps) => {
   const docs = blogData.blocks
   return (
     <>

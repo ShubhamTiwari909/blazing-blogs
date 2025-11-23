@@ -79,4 +79,3 @@ const BlogsListSkeleton = () => {
 }
 
 export default BlogsListSkeleton
-

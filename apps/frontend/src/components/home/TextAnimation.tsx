@@ -8,11 +8,7 @@ import type { TextAnimationProps } from './types'
 
 gsap.registerPlugin(useGSAP) // register the hook to avoid React version discrepancies
 
-const TextAnimation = ({
-  tag,
-  children,
-  className,
-}: TextAnimationProps) => {
+const TextAnimation = ({ tag, children, className }: TextAnimationProps) => {
   const container = useRef(null)
   const Tag = tag
   useGSAP(() => {

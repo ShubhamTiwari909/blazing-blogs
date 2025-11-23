@@ -1,7 +1,7 @@
 export type ViewsAndReactionsProps = {
-    path: string
+  path: string
 }
 
 export type GetViewsAndReactionsProps = {
-    id: string
+  id: string
 }

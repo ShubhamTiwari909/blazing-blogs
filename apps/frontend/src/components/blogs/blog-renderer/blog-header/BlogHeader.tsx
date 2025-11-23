@@ -6,11 +6,7 @@ import { contructImageUrl } from '@/lib/utils'
 import BlogHeaderWrapper from './BlogHeaderWrapper'
 import type { BlogHeaderProps } from '../types'
 
-const BlogHeader = ({
-  blogData,
-  blogId,
-  createdAt,
-}: BlogHeaderProps) => {
+const BlogHeader = ({ blogData, blogId, createdAt }: BlogHeaderProps) => {
   return (
     <BlogHeaderWrapper>
       {/* Blog Image */}
