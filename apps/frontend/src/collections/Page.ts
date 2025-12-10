@@ -7,7 +7,6 @@ import { Analytics } from './blocks/analytics'
 
 export const Page: CollectionConfig = {
   slug: 'pages',
-  folders: true,
   access: {
     read: () => true,
   },

@@ -70,21 +70,17 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
-    'payload-folders': FolderInterface;
+    collaborators: Collaborator;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
-  collectionsJoins: {
-    'payload-folders': {
-      documentsAndFolders: 'payload-folders' | 'media' | 'pages';
-    };
-  };
+  collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
-    'payload-folders': PayloadFoldersSelect<false> | PayloadFoldersSelect<true>;
+    collaborators: CollaboratorsSelect<false> | CollaboratorsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -127,10 +123,9 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: string;
-  username: string;
-  image: string | Media;
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
   email: string;
   resetPasswordToken?: string | null;
   resetPasswordExpiration?: string | null;
@@ -155,9 +150,9 @@ export interface Media {
   id: string;
   alt: string;
   _key?: string | null;
-  folder?: (string | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
+  deletedAt?: string | null;
   url?: string | null;
   thumbnailURL?: string | null;
   filename?: string | null;
@@ -167,36 +162,6 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-folders".
- */
-export interface FolderInterface {
-  id: string;
-  name: string;
-  folder?: (string | null) | FolderInterface;
-  documentsAndFolders?: {
-    docs?: (
-      | {
-          relationTo?: 'payload-folders';
-          value: string | FolderInterface;
-        }
-      | {
-          relationTo?: 'media';
-          value: string | Media;
-        }
-      | {
-          relationTo?: 'pages';
-          value: string | Page;
-        }
-    )[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  folderType?: ('media' | 'pages')[] | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -285,7 +250,6 @@ export interface Page {
     speedIndex?: string | null;
     serverResponseTime?: string | null;
   };
-  folder?: (string | null) | FolderInterface;
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
@@ -302,6 +266,21 @@ export interface Seo {
    */
   image: string | Media;
   description: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "collaborators".
+ */
+export interface Collaborator {
+  id: string;
+  email: string;
+  username: string;
+  image?: (string | null) | Media;
+  profession: string;
+  status?: ('active' | 'inactive') | null;
+  updatedAt: string;
+  createdAt: string;
+  deletedAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -323,8 +302,8 @@ export interface PayloadLockedDocument {
         value: string | Page;
       } | null)
     | ({
-        relationTo: 'payload-folders';
-        value: string | FolderInterface;
+        relationTo: 'collaborators';
+        value: string | Collaborator;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -373,10 +352,9 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-  username?: T;
-  image?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
   email?: T;
   resetPasswordToken?: T;
   resetPasswordExpiration?: T;
@@ -399,9 +377,9 @@ export interface UsersSelect<T extends boolean = true> {
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   _key?: T;
-  folder?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
   url?: T;
   thumbnailURL?: T;
   filename?: T;
@@ -483,7 +461,6 @@ export interface PagesSelect<T extends boolean = true> {
         speedIndex?: T;
         serverResponseTime?: T;
       };
-  folder?: T;
   updatedAt?: T;
   createdAt?: T;
   deletedAt?: T;
@@ -500,15 +477,17 @@ export interface SeoSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-folders_select".
+ * via the `definition` "collaborators_select".
  */
-export interface PayloadFoldersSelect<T extends boolean = true> {
-  name?: T;
-  folder?: T;
-  documentsAndFolders?: T;
-  folderType?: T;
+export interface CollaboratorsSelect<T extends boolean = true> {
+  email?: T;
+  username?: T;
+  image?: T;
+  profession?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
+  deletedAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

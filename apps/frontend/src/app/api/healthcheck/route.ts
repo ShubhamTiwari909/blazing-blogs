@@ -102,7 +102,7 @@ export async function GET(): Promise<NextResponse> {
         collection: 'users',
         pagination: false,
         select: {
-          username: true,
+          email: true,
         },
       })
       response.database.users = {

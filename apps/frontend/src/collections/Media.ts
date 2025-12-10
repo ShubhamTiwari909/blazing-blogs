@@ -2,9 +2,9 @@ import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
-  folders: true,
   access: {
     read: () => true,
+    create: () => true,
   },
   fields: [
     {
@@ -14,4 +14,5 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: true,
+  trash: true,
 }

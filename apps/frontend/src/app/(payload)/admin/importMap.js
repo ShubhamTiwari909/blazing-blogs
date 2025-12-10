@@ -1,5 +1,3 @@
-import { FolderTableCell as FolderTableCell_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
-import { FolderField as FolderField_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
 import { default as default_d86150a9e1be19c6b36cbda2cd68dd31 } from '@/components/payload/dashboard/revalidation'
 import { default as default_d5a885890ed1172f8ed1ecdf3f4ebb6a } from '@/components/payload/dashboard/ArrayRowLabel'
 import { default as default_a84e65d5054455783144789857df1211 } from '@/components/payload/dashboard/ai-summary/GeminiFieldSummary'
@@ -34,12 +32,9 @@ import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { default as default_5e8629dff80dac03d9275dce6ee68383 } from '@/components/payload/dashboard/view-and-reactions/ViewsAndReactions'
 import { default as default_76aa9e21c065ea9b0a4461df1322defb } from '@/components/payload/dashboard/pagespeed/pagespeed'
-import { FolderTypeField as FolderTypeField_3817bf644402e67bfe6577f60ef982de } from '@payloadcms/ui'
 import { UploadthingClientUploadHandler as UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10 } from '@payloadcms/storage-uploadthing/client'
 
 export const importMap = {
-  "@payloadcms/ui/rsc#FolderTableCell": FolderTableCell_ab83ff7e88da8d3530831f296ec4756a,
-  "@payloadcms/ui/rsc#FolderField": FolderField_ab83ff7e88da8d3530831f296ec4756a,
   "@/components/payload/dashboard/revalidation#default": default_d86150a9e1be19c6b36cbda2cd68dd31,
   "@/components/payload/dashboard/ArrayRowLabel#default": default_d5a885890ed1172f8ed1ecdf3f4ebb6a,
   "@/components/payload/dashboard/ai-summary/GeminiFieldSummary#default": default_a84e65d5054455783144789857df1211,
@@ -74,6 +69,5 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@/components/payload/dashboard/view-and-reactions/ViewsAndReactions#default": default_5e8629dff80dac03d9275dce6ee68383,
   "@/components/payload/dashboard/pagespeed/pagespeed#default": default_76aa9e21c065ea9b0a4461df1322defb,
-  "@payloadcms/ui#FolderTypeField": FolderTypeField_3817bf644402e67bfe6577f60ef982de,
   "@payloadcms/storage-uploadthing/client#UploadthingClientUploadHandler": UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10
 }

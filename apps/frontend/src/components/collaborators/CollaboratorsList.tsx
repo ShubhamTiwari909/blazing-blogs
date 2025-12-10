@@ -2,7 +2,7 @@ import React from 'react'
 import type { CollaboratorsListProps } from './types'
 import Image from 'next/image'
 import { contructImageUrl } from '@/lib/utils'
-import { Calendar, Mail } from 'lucide-react'
+import { Briefcase, Calendar, Mail, User } from 'lucide-react'
 
 const getInitials = (username: string) => {
   return username
@@ -61,9 +61,17 @@ const CollaboratorsList = ({ collaborators }: CollaboratorsListProps) => {
           </div>
 
           <div className="space-y-4">
+            <div className='flex items-center gap-3 text-slate-600 dark:text-slate-400'>
+              <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <span className="text-sm break-all">{collaborator.username}</span>
+            </div>
             <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
               <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               <span className="text-sm break-all">{collaborator.email}</span>
+            </div>
+            <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+              <Briefcase className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <span className="text-sm break-all">{collaborator.profession}</span>
             </div>
             <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
               <Calendar className="w-5 h-5 text-purple-600 dark:text-purple-400" />
@@ -80,8 +88,8 @@ const CollaboratorsList = ({ collaborators }: CollaboratorsListProps) => {
 
           <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
             <div className="flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span>Active Collaborator</span>
+              <span className={`w-2 h-2 rounded-full ${collaborator.status === 'active' ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}></span>
+              <span>{collaborator.status === 'active' ? 'Active Collaborator' : 'Inactive Collaborator'}</span>
             </div>
           </div>
         </div>
