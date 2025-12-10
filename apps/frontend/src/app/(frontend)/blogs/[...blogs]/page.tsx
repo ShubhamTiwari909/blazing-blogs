@@ -79,6 +79,7 @@ const page = async ({ params }: Props) => {
         draft={draft}
         blogId={page.docs.id}
         createdAt={page.docs.createdAt}
+        featureFlags={page.docs.featureFlags}
       />
     </div>
   )

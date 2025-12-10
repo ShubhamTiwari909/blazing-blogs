@@ -7,7 +7,7 @@ import AiAnalysis from '../AiAnalysis/AiAnalysis'
 import EstimateReading from '../blogs-list/EstimateReading'
 import type { MetadataProps } from './types'
 
-const Metadata = async ({ id, author, createdAt, tags, aiSummary, blocks }: MetadataProps) => {
+const Metadata = async ({ id, author, createdAt, tags, aiSummary, blocks, featureFlags }: MetadataProps) => {
   return (
     <div className="space-y-10 pb-8 border-b border-gray-200">
       <div className="flex flex-wrap items-center gap-6">
@@ -36,8 +36,8 @@ const Metadata = async ({ id, author, createdAt, tags, aiSummary, blocks }: Meta
       </div>
       <div className="flex justify-between items-center flex-wrap gap-4">
         <div className="flex items-center gap-4">
-          <ViewsWrapper id={id} />
-          <ReactionsWrapper id={id} />
+          {featureFlags?.views === 'enabled' && <ViewsWrapper id={id} />}
+          {featureFlags?.reactions === 'enabled' && <ReactionsWrapper id={id} />}
         </div>
         <div className="flex items-center gap-4">
           <EstimateReading data={blocks} />

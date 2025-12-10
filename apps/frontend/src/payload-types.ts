@@ -250,6 +250,10 @@ export interface Page {
     speedIndex?: string | null;
     serverResponseTime?: string | null;
   };
+  featureFlags?: {
+    reactions?: ('enabled' | 'disabled') | null;
+    views?: ('enabled' | 'disabled') | null;
+  };
   updatedAt: string;
   createdAt: string;
   deletedAt?: string | null;
@@ -460,6 +464,12 @@ export interface PagesSelect<T extends boolean = true> {
         totalBlockingTime?: T;
         speedIndex?: T;
         serverResponseTime?: T;
+      };
+  featureFlags?:
+    | T
+    | {
+        reactions?: T;
+        views?: T;
       };
   updatedAt?: T;
   createdAt?: T;

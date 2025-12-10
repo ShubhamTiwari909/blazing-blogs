@@ -146,7 +146,7 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
           className={`metric-item performance-score ${getPerformanceClass(fieldValues?.performanceScore * 100)}`}
         >
           <span className="metric-label">🏆 Performance Score</span>
-          <span className="metric-value">{Math.round(fieldValues?.performanceScore)}%</span>
+          <span className="metric-value">{typeof fieldValues?.performanceScore === 'number' ? Math.round(fieldValues?.performanceScore) : 0}%</span>
         </div>
       </div>
       {loading && (

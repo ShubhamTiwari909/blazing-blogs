@@ -4,6 +4,7 @@ import { generatePreviewPath } from './utils/generatePreviewPath'
 import { Content } from './blocks/content'
 import { SeoTab } from './blocks/seo'
 import { Analytics } from './blocks/analytics'
+import { FeatureFlags } from './blocks/feature-flags'
 
 export const Page: CollectionConfig = {
   slug: 'pages',
@@ -58,7 +59,7 @@ export const Page: CollectionConfig = {
     },
     {
       type: 'tabs',
-      tabs: [Content, SeoTab, Analytics],
+      tabs: [Content, SeoTab, Analytics, FeatureFlags],
     },
   ],
   trash: true,

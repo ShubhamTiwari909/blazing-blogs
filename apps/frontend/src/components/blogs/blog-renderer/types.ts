@@ -5,6 +5,7 @@ export type BlogHeaderProps = {
   blogData: Page['content']
   blogId: Page['id']
   createdAt: Page['createdAt']
+  featureFlags: Page['featureFlags']
 }
 
 export type BlogHeaderWrapperProps = {
@@ -29,6 +30,7 @@ export type MetadataProps = TagsProps & {
   createdAt: Page['createdAt']
   aiSummary: Page['content']['aiSummary']
   blocks: Page['content']['blocks']
+  featureFlags: Page['featureFlags']
 }
 
 export type CodeRendererProps = {

@@ -6,7 +6,7 @@ import { contructImageUrl } from '@/lib/utils'
 import BlogHeaderWrapper from './BlogHeaderWrapper'
 import type { BlogHeaderProps } from '../types'
 
-const BlogHeader = ({ blogData, blogId, createdAt }: BlogHeaderProps) => {
+const BlogHeader = ({ blogData, blogId, createdAt, featureFlags }: BlogHeaderProps) => {
   return (
     <BlogHeaderWrapper>
       {/* Blog Image */}
@@ -27,6 +27,7 @@ const BlogHeader = ({ blogData, blogId, createdAt }: BlogHeaderProps) => {
         tags={blogData.tags}
         aiSummary={blogData.aiSummary}
         blocks={blogData.blocks}
+        featureFlags={featureFlags}
       />
       <div className="flex justify-end mt-2">
         <ShareToLinkedIn />
