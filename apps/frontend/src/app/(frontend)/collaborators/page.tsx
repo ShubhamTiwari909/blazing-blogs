@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     follow: true,
   },
 }
+// Force dynamic rendering to prevent static generation
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 
 const CollaboratorsPage = async () => {
   const collaborators = await queryCollaborators()
