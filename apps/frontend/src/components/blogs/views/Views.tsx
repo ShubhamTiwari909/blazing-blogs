@@ -1,5 +1,5 @@
 import {
-  fetchBlogView,
+  updateBlogViews,
   checkIfAlreadyViewed,
   getBlogView,
 } from '@/lib/fetch-utils/fetch-blog-views'
@@ -19,7 +19,7 @@ const Views = ({ id }: ViewsProps) => {
       })
       return
     }
-    fetchBlogView({ id }).then((data) => {
+    updateBlogViews({ id }).then((data) => {
       setBlogViews(data.blogsCount)
       setCookies(`viewed-${id}`, 'true', {
         maxAge: 86400, // 24 hours in seconds

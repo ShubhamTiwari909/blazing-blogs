@@ -1,6 +1,6 @@
 import type { BlogIdProps, CheckIfAlreadyViewedProps } from './types'
 
-export const fetchBlogView = async ({ id }: BlogIdProps) => {
+export const updateBlogViews = async ({ id }: BlogIdProps) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/views?id=${id}`,
     {
