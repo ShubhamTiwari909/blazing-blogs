@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import type { QueryPagesSlugProps } from './types'
+import { cache } from 'react'
 
 export const queryPagesSlug = async ({ page, limit }: QueryPagesSlugProps) => {
   const payload = await getPayload({ config: config })
@@ -56,7 +57,7 @@ export const queryPages = async ({ page, limit }: QueryPagesSlugProps) => {
   }
 }
 
-export const queryCollaborators = async () => {
+export const queryCollaborators = cache(async () => {
   const payload = await getPayload({ config: config })
 
   const result = await payload.find({
@@ -70,4 +71,4 @@ export const queryCollaborators = async () => {
       docs: result.docs,
     }
   }
-}
+})

@@ -11,6 +11,14 @@ export const Collaborators: CollectionConfig = {
       type: 'email',
       required: true,
       unique: true,
+      hooks: {
+        beforeDuplicate: [
+          async ({ value }) => {
+            value = `new-${value}`
+            return value
+          },
+        ],
+      }
     },
     {
       name: 'username',
