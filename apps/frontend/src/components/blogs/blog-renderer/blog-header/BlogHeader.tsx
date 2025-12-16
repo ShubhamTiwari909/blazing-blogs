@@ -15,7 +15,7 @@ const BlogHeader = ({ blogData, blogId, createdAt, featureFlags }: BlogHeaderPro
       )}
 
       {/* Blog Title */}
-      <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold leading-tight">{blogData.title}</h1>
+      <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold leading-tight mb-5">{blogData.title}</h1>
 
       {/* Blog Description */}
       <p className="text-lg md:text-xl mb-8 leading-relaxed">{blogData.shortDescription}</p>

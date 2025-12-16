@@ -6,6 +6,7 @@ import { pageData } from '@/lib/fetch-utils/fetch-utils'
 import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
 import { Metadata } from 'next'
+import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
 
 // Enable dynamic rendering
 export const dynamic = 'force-dynamic'
@@ -74,9 +75,9 @@ const page = async ({ params }: Props) => {
 
   return (
     <div className="min-h-screen relative">
+      {draft && <RefreshRouteOnSave />}
       <BlogRenderer
         blogData={blogData}
-        draft={draft}
         blogId={page.docs.id}
         createdAt={page.docs.createdAt}
         featureFlags={page.docs.featureFlags}

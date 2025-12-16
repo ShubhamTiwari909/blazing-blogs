@@ -12,10 +12,7 @@ export type BlogHeaderWrapperProps = {
   children: React.ReactNode
 }
 
-export type BlogRendererProps = BlogHeaderProps & {
-  draft: boolean
-}
-
+export type BlogRendererProps = BlogHeaderProps 
 export type BlogImageProps = {
   src: string
   alt: string
@@ -38,7 +35,7 @@ export type CodeRendererProps = {
   language?: string
 }
 
-export type ContentProps = { docs: Page['content']['blocks']; draft: boolean }
+export type ContentProps = { docs: Page['content']['blocks'] }
 
 export type Meta = {
   title: string

@@ -14,7 +14,7 @@ const CopyLink = () => {
   }
   return (
     <Button variant="outline" className="cursor-pointer text-center" onClick={handleCopyLink}>
-      {isCopied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+      {isCopied ? <Check className="w-4 h-4 text-gray-900" /> : <Copy className="w-4 h-4 text-gray-900" />}
     </Button>
   )
 }

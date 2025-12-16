@@ -2,14 +2,12 @@ import React from 'react'
 import LinkPreviewCard from './LinkPreview'
 import CodeRenderer from './CodeRenderer'
 import { MarkdownRenderer } from './MarkdownRenderer'
-import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
 import YoutubeIframe from './YoutubeIframe'
 import type { ContentProps, Meta } from '../types'
 
-const Content = ({ docs, draft }: ContentProps) => {
+const Content = ({ docs }: ContentProps) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {draft && <RefreshRouteOnSave />}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-5 py-10 lg:p-8">
         {docs?.map((block) => {
           return (

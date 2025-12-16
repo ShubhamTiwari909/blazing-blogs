@@ -1,0 +1,121 @@
+import { Code2, Database, Palette, Zap } from 'lucide-react'
+import React from 'react'
+
+const expertise = [
+  {
+    icon: Code2,
+    title: 'Frontend',
+    skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'SCSS', 'React', 'Next.js'],
+    color: 'text-blue-500',
+    bgColor: 'bg-blue-500/10',
+  },
+  {
+    icon: Database,
+    title: 'Backend',
+    skills: ['Node.js', 'MongoDB', 'Express.js', 'REST APIs'],
+    color: 'text-green-500',
+    bgColor: 'bg-green-500/10',
+  },
+  {
+    icon: Palette,
+    title: 'Design',
+    skills: ['UI/UX', 'Figma', 'Canva'],
+    color: 'text-purple-500',
+    bgColor: 'bg-purple-500/10',
+  },
+  {
+    icon: Zap,
+    title: 'Tools',
+    skills: ['Git', 'Testing', 'Performance', 'Payload CMS', 'UploadThing', 'Vercel', 'Playwright', 'Vitest'],
+    color: 'text-yellow-500',
+    bgColor: 'bg-yellow-500/10',
+  },
+]
+
+const ExpertisePreview = () => {
+  return (
+    <div className="mt-20">
+      <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
+        What I Do
+      </h2>
+      <div className="grid grid-cols-1 gap-4 max-w-6xl mx-auto">
+        {expertise.map((item, index) => {
+          const Icon = item.icon
+          const gradientMap: Record<string, string> = {
+            'text-blue-500': 'group-hover:bg-gradient-to-br group-hover:from-blue-500/10 group-hover:via-blue-400/10 group-hover:to-cyan-500/10',
+            'text-green-500': 'group-hover:bg-gradient-to-br group-hover:from-green-500/10 group-hover:via-emerald-400/10 group-hover:to-teal-500/10',
+            'text-purple-500': 'group-hover:bg-gradient-to-br group-hover:from-purple-500/10 group-hover:via-pink-400/10 group-hover:to-fuchsia-500/10',
+            'text-yellow-500': 'group-hover:bg-gradient-to-br group-hover:from-yellow-500/10 group-hover:via-orange-400/10 group-hover:to-amber-500/10',
+          }
+          const cardGradient = gradientMap[item.color] || 'group-hover:bg-gradient-to-br group-hover:from-primary/10 group-hover:to-primary/5'
+          
+          const iconHoverColor: Record<string, string> = {
+            'text-blue-500': 'group-hover:text-blue-400',
+            'text-green-500': 'group-hover:text-green-400',
+            'text-purple-500': 'group-hover:text-purple-400',
+            'text-yellow-500': 'group-hover:text-yellow-400',
+          }
+          const iconHover = iconHoverColor[item.color] || 'group-hover:text-primary'
+          
+          const titleHoverColor: Record<string, string> = {
+            'text-blue-500': 'group-hover:text-blue-500',
+            'text-green-500': 'group-hover:text-green-500',
+            'text-purple-500': 'group-hover:text-purple-500',
+            'text-yellow-500': 'group-hover:text-yellow-500',
+          }
+          const titleHover = titleHoverColor[item.color] || 'group-hover:text-primary'
+          
+          const iconBgGradient: Record<string, string> = {
+            'text-blue-500': 'group-hover:bg-gradient-to-br group-hover:from-blue-500/30 group-hover:via-blue-400/20 group-hover:to-cyan-500/20',
+            'text-green-500': 'group-hover:bg-gradient-to-br group-hover:from-green-500/30 group-hover:via-emerald-400/20 group-hover:to-teal-500/20',
+            'text-purple-500': 'group-hover:bg-gradient-to-br group-hover:from-purple-500/30 group-hover:via-pink-400/20 group-hover:to-fuchsia-500/20',
+            'text-yellow-500': 'group-hover:bg-gradient-to-br group-hover:from-yellow-500/30 group-hover:via-orange-400/20 group-hover:to-amber-500/20',
+          }
+          const iconBg = iconBgGradient[item.color] || 'group-hover:bg-gradient-to-br group-hover:from-primary/30 group-hover:to-primary/20'
+          
+          return (
+            <div
+              key={index}
+              className={`group relative p-6 bg-card/30 backdrop-blur-md rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden ${cardGradient}`}
+            >
+              <div className={`inline-flex p-3 rounded-xl ${item.bgColor} mb-4 group-hover:scale-110 ${iconBg} transition-all duration-300`}>
+                <Icon className={`w-6 h-6 ${item.color} ${iconHover} transition-colors duration-300`} />
+              </div>
+              <h3 className={`text-lg font-semibold text-foreground mb-4 ${titleHover} transition-colors duration-300`}>
+                {item.title}
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {item.skills.map((skill, skillIndex) => {
+                  const gradientMap: Record<string, string> = {
+                    'text-blue-500': 'from-blue-500/20 via-blue-400/20 to-cyan-500/20 hover:from-blue-500/30 hover:via-blue-400/30 hover:to-cyan-500/30 border-blue-500/30',
+                    'text-green-500': 'from-green-500/20 via-emerald-400/20 to-teal-500/20 hover:from-green-500/30 hover:via-emerald-400/30 hover:to-teal-500/30 border-green-500/30',
+                    'text-purple-500': 'from-purple-500/20 via-pink-400/20 to-fuchsia-500/20 hover:from-purple-500/30 hover:via-pink-400/30 hover:to-fuchsia-500/30 border-purple-500/30',
+                    'text-yellow-500': 'from-yellow-500/20 via-orange-400/20 to-amber-500/20 hover:from-yellow-500/30 hover:via-orange-400/30 hover:to-amber-500/30 border-yellow-500/30',
+                  }
+                  const gradient = gradientMap[item.color] || 'from-primary/20 to-primary/30 border-primary/30'
+                  
+                  return (
+                    <div
+                      key={skillIndex}
+                      className={`group/skill relative px-4 py-2.5 rounded-xl bg-gradient-to-br ${gradient} border backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-current/20 hover:-translate-y-0.5 overflow-hidden`}
+                    >
+                      <span className="relative z-10 text-sm font-semibold text-foreground/90 group-hover/skill:text-foreground transition-colors">
+                        {skill}
+                      </span>
+                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} opacity-0 group-hover/skill:opacity-100 blur-sm transition-opacity duration-300 -z-10`} />
+                      <div className="absolute inset-0 overflow-hidden rounded-xl">
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/skill:translate-x-full transition-transform duration-700 ease-in-out" />
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+export default ExpertisePreview
