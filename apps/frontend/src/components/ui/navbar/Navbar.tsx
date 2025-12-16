@@ -13,6 +13,7 @@ const navItems = [
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
   { name: 'Collaborators', href: '/collaborators' },
+  { name: 'Subscribe', href: '/subscribe' },
 ]
 
 const Navbar = ({ children }: ChildrenProps) => {
