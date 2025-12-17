@@ -1,8 +1,8 @@
 'use client'
+import type { GetViewsAndReactionsProps, ViewsAndReactionsProps } from './types'
 import { useDocumentInfo, useField, useForm } from '@payloadcms/ui'
 import React, { useState } from 'react'
 import './style.scss'
-import type { GetViewsAndReactionsProps, ViewsAndReactionsProps } from './types'
 
 const getViewsAndReactions = async ({ id }: GetViewsAndReactionsProps) => {
   const viewsResponse = await fetch(

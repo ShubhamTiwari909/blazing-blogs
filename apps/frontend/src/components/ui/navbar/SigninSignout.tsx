@@ -1,26 +1,29 @@
 'use client'
 
-import React from 'react'
-import { Button } from '../button'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import React from 'react'
 
-const defaultImageUrl = 'https://570pc5yjce.ufs.sh/f/QUFIlUYDwcG55o5jv8rcMYwvi9PgT6zWx4lsCmZte08HFhU3'
+const defaultImageUrl =
+  'https://570pc5yjce.ufs.sh/f/QUFIlUYDwcG55o5jv8rcMYwvi9PgT6zWx4lsCmZte08HFhU3'
 
 const SigninSignout = () => {
   const { data: session, status } = useSession()
 
   if (status === 'loading') {
-    return <div className="flex items-center space-x-3">
-      <div className="w-20 h-12 bg-gray-200 rounded-full animate-pulse"></div>
-    </div>
+    return (
+      <div className="flex items-center space-x-3">
+        <div className="h-12 w-20 animate-pulse rounded-full bg-gray-200"></div>
+      </div>
+    )
   }
 
   return session ? (
     <div className="flex items-center space-x-3">
       <Button
         onClick={() => signOut()}
-        className="cursor-pointer bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+        className="cursor-pointer rounded-lg bg-red-500 px-4 py-2 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600 hover:shadow-lg"
       >
         Logout
       </Button>
@@ -35,7 +38,7 @@ const SigninSignout = () => {
   ) : (
     <Button
       onClick={() => signIn('google')}
-      className="cursor-pointer bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+      className="cursor-pointer rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-2 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-indigo-600 hover:to-purple-700 hover:shadow-lg"
     >
       Login
     </Button>

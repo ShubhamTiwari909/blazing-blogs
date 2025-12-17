@@ -1,11 +1,11 @@
-import React from 'react'
-import './styles.css'
+import SigninSignout from '@/components/ui/navbar/SigninSignout'
 import Navbar from '@/components/ui/navbar/Navbar'
 import { SessionProvider } from 'next-auth/react'
-import SigninSignout from '@/components/ui/navbar/SigninSignout'
 import TanstackWrapper from './TanstackWrapper'
-import Footer from '@/components/ui/Footer'
 import type { ChildrenProps } from './types'
+import Footer from '@/components/ui/Footer'
+import React from 'react'
+import './styles.css'
 
 export default function RootLayout(props: ChildrenProps) {
   const { children } = props

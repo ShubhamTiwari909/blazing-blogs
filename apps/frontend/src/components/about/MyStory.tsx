@@ -3,12 +3,12 @@ import React from 'react'
 
 const MyStory = () => {
   return (
-    <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 dark:border-slate-700/20">
-      <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center">
-        <Heart className="w-8 h-8 text-red-500 mr-3" />
+    <div className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
+      <h2 className="mb-6 flex items-center text-3xl font-bold text-slate-800 dark:text-slate-200">
+        <Heart className="mr-3 h-8 w-8 text-red-500" />
         My Story
       </h2>
-      <div className="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+      <div className="space-y-6 leading-relaxed text-slate-600 dark:text-slate-300">
         <p>
           Hello! I&apos;m{' '}
           <span className="font-semibold text-slate-800 dark:text-slate-200">Shubham Tiwari</span>,
@@ -26,7 +26,7 @@ const MyStory = () => {
           continuous learning and the power of collaboration.
         </p>
         <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400">
-          <Coffee className="w-5 h-5" />
+          <Coffee className="h-5 w-5" />
           <span className="text-sm">Fueled by coffee and curiosity</span>
         </div>
       </div>

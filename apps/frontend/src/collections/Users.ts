@@ -6,7 +6,6 @@ export const Users: CollectionConfig = {
     useAsTitle: 'email',
   },
   auth: true,
-  fields: [
-  ],
+  fields: [],
   trash: true,
 }

@@ -18,7 +18,7 @@ export const Collaborators: CollectionConfig = {
             return value
           },
         ],
-      }
+      },
     },
     {
       name: 'username',
@@ -32,7 +32,7 @@ export const Collaborators: CollectionConfig = {
       required: false,
     },
     {
-      name:'profession',
+      name: 'profession',
       type: 'text',
       required: true,
     },
@@ -49,7 +49,7 @@ export const Collaborators: CollectionConfig = {
           value: 'inactive',
         },
       ],
-    }
+    },
   ],
   trash: true,
 }

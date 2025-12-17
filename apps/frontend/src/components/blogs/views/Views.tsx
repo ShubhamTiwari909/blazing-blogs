@@ -3,10 +3,10 @@ import {
   checkIfAlreadyViewed,
   getBlogView,
 } from '@/lib/fetch-utils/fetch-blog-views'
-import { Eye } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 import type { ViewsProps } from './types'
+import { Eye } from 'lucide-react'
 
 const Views = ({ id }: ViewsProps) => {
   const [cookies, setCookies] = useCookies()
@@ -30,7 +30,7 @@ const Views = ({ id }: ViewsProps) => {
   }, [id, cookies, setCookies])
   return (
     <div className="flex items-center gap-1">
-      <Eye className="w-4 h-4" />
+      <Eye className="h-4 w-4" />
       <p>{blogViews}</p>
     </div>
   )

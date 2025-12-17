@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 import { Loader2, XCircle } from 'lucide-react'
+import { useState } from 'react'
 
 export default function SubscribeForm({
   email,
@@ -86,7 +86,7 @@ export default function SubscribeForm({
           type="submit"
           onClick={unsubscribe}
           disabled={status === 'loading' || !email}
-          className="w-full min-h-20 text-base font-semibold rounded-xl bg-red-800 text-primary-foreground hover:bg-red-900/90 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300"
+          className="text-primary-foreground hover:shadow-primary/25 min-h-20 w-full rounded-xl bg-red-800 text-base font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900/90 hover:shadow-lg"
           size="lg"
         >
           Unsubscribe
@@ -96,16 +96,16 @@ export default function SubscribeForm({
           type="submit"
           onClick={subscribe}
           disabled={status === 'loading' || !email}
-          className="w-full min-h-20 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all duration-300"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-primary/25 min-h-20 w-full rounded-xl text-base font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
           size="lg"
         >
           {status === 'loading' ? (
             <>
-              <Loader2 className="w-5 h-5 animate-spin" />
+              <Loader2 className="h-5 w-5 animate-spin" />
               Subscribing...
             </>
           ) : (
-            <p className="break-words text-balance">
+            <p className="text-balance break-words">
               {email && !isSubscribed ? `Subscribe Now with ${email}` : 'Loading...'}
             </p>
           )}
@@ -113,8 +113,8 @@ export default function SubscribeForm({
       )}
 
       {status === 'error' && (
-        <div className="flex items-center gap-2 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive animate-in fade-in slide-in-from-top-2">
-          <XCircle className="w-5 h-5 flex-shrink-0" />
+        <div className="bg-destructive/10 border-destructive/20 text-destructive animate-in fade-in slide-in-from-top-2 flex items-center gap-2 rounded-xl border p-4">
+          <XCircle className="h-5 w-5 flex-shrink-0" />
           <p className="text-sm font-medium">
             This email is already subscribed or there was an error. Please try again.
           </p>

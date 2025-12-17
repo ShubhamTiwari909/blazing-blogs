@@ -1,7 +1,7 @@
-import React from 'react'
-import { auth } from '@/lib/auth'
-import Reactions from './Reactions'
 import type { FetchReactionsCountProps } from './types'
+import Reactions from './Reactions'
+import { auth } from '@/lib/auth'
+import React from 'react'
 
 const fetchReactionsCount = async ({ session, id }: FetchReactionsCountProps) => {
   const response = await fetch(

@@ -1,10 +1,10 @@
 'use client'
-import React, { useState } from 'react'
-import { useSession } from 'next-auth/react'
-import { Button } from '../../ui/button'
-import Image from 'next/image'
-import { generateReactionMap } from './data'
+import { Button } from '@/components/ui/button'
 import type { ReactionsProps } from './types'
+import { useSession } from 'next-auth/react'
+import { generateReactionMap } from './data'
+import React, { useState } from 'react'
+import Image from 'next/image'
 
 const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
   const { data: session } = useSession()
@@ -53,14 +53,14 @@ const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
   const reactionsMap = generateReactionMap(reactions)
 
   return (
-    <ul className="flex items-center gap-1 relative">
+    <ul className="relative flex items-center gap-1">
       {reactionsMap?.map((reaction) => (
         <Button
           onClick={() => handleReaction(reaction.name)}
           key={reaction.name}
           disabled={isLoading}
           variant="outline"
-          className={`cursor-pointer flex items-center gap-1 px-2 disabled:opacity-50 hover:bg-white hover:border-violet-800 ${hasReacted[reaction.name] ? 'border-violet-500' : 'border-gray-500'}`}
+          className={`flex cursor-pointer items-center gap-1 px-2 hover:border-violet-800 hover:bg-white disabled:opacity-50 ${hasReacted[reaction.name] ? 'border-violet-500' : 'border-gray-500'}`}
         >
           <Image src={reaction.icon} alt={reaction.name} width={24} height={24} />
           <p className={hasReacted[reaction.name] ? 'text-violet-500' : 'text-gray-600'}>
@@ -69,7 +69,7 @@ const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
         </Button>
       ))}
       {error && (
-        <p className="text-red-500 -bottom-4 lg:-bottom-12 right-0 lg:right-5 absolute z-100 text-xs">
+        <p className="absolute right-0 -bottom-4 z-100 text-xs text-red-500 lg:right-5 lg:-bottom-12">
           {error}
         </p>
       )}

@@ -3,15 +3,15 @@ import React from 'react'
 
 const Cta = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20">
+    <div className="mb-20 flex flex-col items-center justify-center gap-4 sm:flex-row">
       <Link
         href="/blogs"
-        className="group relative px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+        className="group bg-primary text-primary-foreground hover:shadow-primary/25 relative overflow-hidden rounded-full px-8 py-4 font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
       >
         <span className="relative z-10 flex items-center gap-2">
           Read My Stories
           <svg
-            className="w-4 h-4 transition-transform group-hover:translate-x-1"
+            className="h-4 w-4 transition-transform group-hover:translate-x-1"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -28,11 +28,11 @@ const Cta = () => {
 
       <Link
         href="/contact"
-        className="group px-8 py-4 bg-background border border-input text-foreground font-semibold rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-0.5"
+        className="group bg-background border-input text-foreground hover:bg-accent hover:text-accent-foreground rounded-full border px-8 py-4 font-semibold transition-all duration-300 hover:-translate-y-0.5"
       >
         <span className="flex items-center gap-2">Get In Touch</span>
       </Link>
-    </div>  
+    </div>
   )
 }
 

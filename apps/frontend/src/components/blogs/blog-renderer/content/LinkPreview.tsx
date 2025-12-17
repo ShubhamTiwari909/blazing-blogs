@@ -1,6 +1,6 @@
 'use client'
+import type { LinkPreviewCardProps } from '@/components/blogs/blog-renderer/types'
 import Image from 'next/image'
-import type { LinkPreviewCardProps } from '../types'
 
 export default function LinkPreviewCard({ meta, link }: LinkPreviewCardProps) {
   if (!meta || !meta.title)
@@ -20,10 +20,10 @@ export default function LinkPreviewCard({ meta, link }: LinkPreviewCardProps) {
       href={meta.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col sm:flex-row bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10 overflow-hidden transition-all duration-500 ease-out max-w-full hover:scale-[1.02] hover:-translate-y-1"
+      className="group flex max-w-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/10 sm:flex-row dark:border-gray-700 dark:bg-gray-800 dark:hover:shadow-blue-400/10"
     >
       {meta.image && (
-        <div className="sm:w-1/3 relative h-48 sm:h-auto overflow-hidden">
+        <div className="relative h-48 overflow-hidden sm:h-auto sm:w-1/3">
           <Image
             src={meta.image}
             alt={meta.title || 'Preview image'}
@@ -31,31 +31,31 @@ export default function LinkPreviewCard({ meta, link }: LinkPreviewCardProps) {
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
       )}
-      <div className="p-6 flex flex-col justify-between sm:w-2/3 relative">
+      <div className="relative flex flex-col justify-between p-6 sm:w-2/3">
         <div className="space-y-3">
-          <h2 className="font-bold text-xl text-gray-900 dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+          <h2 className="text-xl leading-tight font-bold text-gray-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
             {meta.title}
           </h2>
           {meta.description && (
-            <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-4 leading-relaxed">
+            <p className="line-clamp-4 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
               {meta.description}
             </p>
           )}
         </div>
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+            <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
+            <p className="text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
               {meta.site}
             </p>
           </div>
-          <div className="flex items-center text-blue-600 dark:text-blue-400 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="flex items-center text-xs font-medium text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:text-blue-400">
             <span>Visit</span>
             <svg
-              className="w-3 h-3 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+              className="ml-1 h-3 w-3 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -70,7 +70,7 @@ export default function LinkPreviewCard({ meta, link }: LinkPreviewCardProps) {
           </div>
         </div>
         {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       </div>
     </a>
   )

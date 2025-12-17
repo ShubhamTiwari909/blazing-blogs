@@ -1,6 +1,6 @@
+import type { EstimateReadingProps } from '@/components/blogs/blogs-list/types'
 import { calculateReadingTime, convertToPlaintext } from '@/lib/utils'
 import React from 'react'
-import type { EstimateReadingProps } from './types'
 
 const EstimateReading = ({ data }: EstimateReadingProps) => {
   const blocks = data

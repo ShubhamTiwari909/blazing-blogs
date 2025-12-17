@@ -1,6 +1,6 @@
-import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import type { DarkModeState } from './types'
+import { create } from 'zustand'
 
 export const useDarkModeStore = create<DarkModeState>()(
   devtools(

@@ -24,25 +24,25 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 dark:border-slate-700/20">
-      <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-6 flex items-center">
-        <Target className="w-8 h-8 text-blue-500 mr-3" />
+    <div className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
+      <h2 className="mb-6 flex items-center text-3xl font-bold text-slate-800 dark:text-slate-200">
+        <Target className="mr-3 h-8 w-8 text-blue-500" />
         Skills & Expertise
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-2">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className={`group relative overflow-hidden bg-gradient-to-r ${skill.gradient} rounded-full px-4 py-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-default`}
+            className={`group relative overflow-hidden bg-gradient-to-r ${skill.gradient} cursor-default rounded-full px-4 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
           >
             {/* Content */}
             <div className="relative flex items-center justify-center space-x-2">
               <span className="text-lg">{skill.icon}</span>
-              <span className="text-white font-semibold text-sm tracking-wide">{skill.name}</span>
+              <span className="text-sm font-semibold tracking-wide text-white">{skill.name}</span>
             </div>
 
             {/* Subtle glow effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
           </div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 'use client'
-import { useEffect } from 'react'
 import confetti from 'canvas-confetti'
+import { useEffect } from 'react'
 
 const Confetti = () => {
   useEffect(() => {

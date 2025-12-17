@@ -1,18 +1,18 @@
-import React from 'react'
 import { StaticPage, StaticPagesProps } from './types'
 import { StatusBadge } from './StatusBadge'
+import React from 'react'
 
 const StaticPages = ({ staticPages }: StaticPagesProps) => {
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Static Pages</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <h2 className="mb-6 text-2xl font-semibold text-gray-900 dark:text-gray-100">Static Pages</h2>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {staticPages.map((page: StaticPage) => (
           <div
             key={page.url}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
+            className="rounded-lg border border-gray-200 bg-white p-5 shadow-md transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
           >
-            <div className="flex items-start justify-between mb-3">
+            <div className="mb-3 flex items-start justify-between">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                 {page.name}
               </h3>
@@ -20,15 +20,15 @@ const StaticPages = ({ staticPages }: StaticPagesProps) => {
             </div>
             <div className="space-y-2">
               <div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+                <p className="mb-1 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                   URL
                 </p>
-                <p className="text-sm text-gray-700 dark:text-gray-300 font-mono break-all">
+                <p className="font-mono text-sm break-all text-gray-700 dark:text-gray-300">
                   {page.url}
                 </p>
               </div>
               <div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">
+                <p className="mb-1 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                   Message
                 </p>
                 <p

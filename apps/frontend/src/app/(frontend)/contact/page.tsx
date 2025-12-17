@@ -1,10 +1,10 @@
-import React from 'react'
-import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
-import GetInTouch from '@/components/contact/GetInTouch'
 import ContactInformation from '@/components/contact/ContactInformation'
+import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
 import SocialLinks from '@/components/contact/SocialLinks'
+import GetInTouch from '@/components/contact/GetInTouch'
 import Outro from '@/components/contact/Outro'
 import type { Metadata } from 'next'
+import React from 'react'
 
 export const dynamic = 'force-static'
 
@@ -38,10 +38,10 @@ const ContactPage = () => {
       <BackgroundDecoration />
 
       <div className="relative z-10 container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto max-w-4xl">
           <GetInTouch />
 
-          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
+          <div className="grid items-stretch gap-12 lg:grid-cols-2">
             <ContactInformation />
             <SocialLinks />
           </div>

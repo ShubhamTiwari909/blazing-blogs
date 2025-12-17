@@ -1,10 +1,10 @@
 'use client'
 
 import { toast, useDocumentInfo, useField } from '@payloadcms/ui'
-import { geminiSummary } from './gemini-fetch'
-import { convertToPlaintext } from '@/lib/utils'
-import { useState } from 'react'
 import type { GeminiFieldSummaryProps } from './types'
+import { convertToPlaintext } from '@/lib/utils'
+import { geminiSummary } from './gemini-fetch'
+import { useState } from 'react'
 
 export default function GeminiFieldSummary({ path }: GeminiFieldSummaryProps) {
   const [loading, setLoading] = useState(false)

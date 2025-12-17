@@ -1,27 +1,35 @@
+import EstimateReading from '@/components/blogs/blogs-list/card/EstimateReading'
+import ReactionsWrapper from '@/components/blogs/reactions/ReactionsWrapper'
+import type { MetadataProps } from '@/components/blogs/blog-renderer/types'
+import AiAnalysis from '@/components/blogs/ai-analysis/AiAnalysis'
+import ViewsWrapper from '@/components/blogs/views/ViewsWrapper'
+import Tags from '@/components/blogs/blog-renderer/Tags'
 import { CalendarDays, User } from 'lucide-react'
 import React from 'react'
-import Tags from './Tags'
-import ReactionsWrapper from '../reactions/ReactionsWrapper'
-import ViewsWrapper from '../views/ViewsWrapper'
-import AiAnalysis from '../AiAnalysis/AiAnalysis'
-import EstimateReading from '../blogs-list/EstimateReading'
-import type { MetadataProps } from './types'
 
-const Metadata = async ({ id, author, createdAt, tags, aiSummary, blocks, featureFlags }: MetadataProps) => {
+const Metadata = async ({
+  id,
+  author,
+  createdAt,
+  tags,
+  aiSummary,
+  blocks,
+  featureFlags,
+}: MetadataProps) => {
   return (
-    <div className="space-y-10 pb-8 border-b border-gray-200">
+    <div className="space-y-10 border-b border-gray-200 pb-8">
       <div className="flex flex-wrap items-center gap-6">
         {/* Author */}
         {author && (
           <div className="flex items-center">
-            <User className="w-5 h-5 mr-2" />
+            <User className="mr-2 h-5 w-5" />
             <span className="font-medium">{author}</span>
           </div>
         )}
 
         {/* Date */}
         <div className="flex items-center">
-          <CalendarDays className="w-5 h-5 mr-2" />
+          <CalendarDays className="mr-2 h-5 w-5" />
           <time dateTime={createdAt}>
             {new Date(createdAt).toLocaleDateString('en-US', {
               year: 'numeric',
@@ -34,7 +42,7 @@ const Metadata = async ({ id, author, createdAt, tags, aiSummary, blocks, featur
         {/* Tags */}
         {tags && tags.length > 0 && <Tags tags={tags} />}
       </div>
-      <div className="flex justify-between items-center flex-wrap gap-4">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           {featureFlags?.views === 'enabled' && <ViewsWrapper id={id} />}
           {featureFlags?.reactions === 'enabled' && <ReactionsWrapper id={id} />}

@@ -1,20 +1,21 @@
-import React from 'react'
-import BlogHeader from './blog-header/BlogHeader'
 import BlogHeaderStrip from './blog-header/BlogHeaderStrip'
-import Content from './content/Content'
+import BlogHeader from './blog-header/BlogHeader'
 import type { BlogRendererProps } from './types'
 import BackgroundTheme from './BackgroundTheme'
+import Content from './content/Content'
+import React from 'react'
 
-const BlogRenderer = async ({ blogData, blogId, createdAt, featureFlags }: BlogRendererProps) => {
-  const docs = blogData.blocks
+const BlogRenderer = async ({ blog }: BlogRendererProps) => {
+  const { content } = blog
+  const docs = content.blocks
   return (
     <>
       {/* Back Button - Sticky Header */}
       <BlogHeaderStrip />
 
-      <div className='relative z-10'>
+      <div className="relative z-10">
         {/* Blog Header */}
-        <BlogHeader blogData={blogData} blogId={blogId} createdAt={createdAt} featureFlags={featureFlags} />
+        <BlogHeader blog={blog} />
 
         {/* Blog Content */}
         <Content docs={docs} />

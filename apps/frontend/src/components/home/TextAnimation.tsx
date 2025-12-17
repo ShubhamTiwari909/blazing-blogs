@@ -1,10 +1,10 @@
 'use client'
-import { useRef } from 'react'
-import gsap from 'gsap'
+import type { TextAnimationProps } from './types'
 import { useGSAP } from '@gsap/react'
 import { SplitText } from 'gsap/all'
 import { cn } from '@/lib/utils'
-import type { TextAnimationProps } from './types'
+import { useRef } from 'react'
+import gsap from 'gsap'
 
 gsap.registerPlugin(useGSAP) // register the hook to avoid React version discrepancies
 

@@ -1,18 +1,18 @@
-import type { Page } from '@/payload-types'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
+import type { Page } from '@/payload-types'
 
 export type BlogHeaderProps = {
-  blogData: Page['content']
-  blogId: Page['id']
-  createdAt: Page['createdAt']
-  featureFlags: Page['featureFlags']
+  blog: Page
 }
 
 export type BlogHeaderWrapperProps = {
   children: React.ReactNode
 }
 
-export type BlogRendererProps = BlogHeaderProps 
+export type BlogRendererProps = {
+  blog: Page
+}
+
 export type BlogImageProps = {
   src: string
   alt: string

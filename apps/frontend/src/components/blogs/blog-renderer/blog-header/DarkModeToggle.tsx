@@ -1,6 +1,6 @@
 'use client'
-import { Switch } from '@/components/ui/switch'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
+import { Switch } from '@/components/ui/switch'
 import React from 'react'
 
 const DarkModeToggle = () => {
@@ -15,7 +15,7 @@ const DarkModeToggle = () => {
         onCheckedChange={toggleDarkMode}
       />
     </div>
-  );
-};
+  )
+}
 
-export default DarkModeToggle;
+export default DarkModeToggle

@@ -1,12 +1,13 @@
-import { draftMode } from 'next/headers'
-import { unstable_cache } from 'next/cache'
-import React from 'react'
+import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
 import BlogRenderer from '@/components/blogs/blog-renderer/BlogRenderer'
 import { pageData } from '@/lib/fetch-utils/fetch-utils'
-import { Props } from '@/lib/types'
 import { contructImageUrl } from '@/lib/utils'
+import { unstable_cache } from 'next/cache'
+import { notFound } from 'next/navigation'
+import { draftMode } from 'next/headers'
+import { Props } from '@/lib/types'
 import { Metadata } from 'next'
-import { RefreshRouteOnSave } from '@/components/payload/RefreshRouteOnSave'
+import React from 'react'
 
 // Enable dynamic rendering
 export const dynamic = 'force-dynamic'
@@ -30,6 +31,9 @@ const getCachedPageData = unstable_cache(
 export async function generateMetadata({ params }: Props) {
   const resolvedParams = await params
   const page = await getCachedPageData(resolvedParams)
+  if (!page.docs) {
+    return notFound()
+  }
   const seo = page.docs.seo
   const title = `${seo.title} | Blazing Blogs`
   const description = seo.description
@@ -67,23 +71,19 @@ export async function generateMetadata({ params }: Props) {
   return metadata
 }
 
-const page = async ({ params }: Props) => {
+const BlogPage = async ({ params }: Props) => {
   const { isEnabled: draft } = await draftMode()
   const resolvedParams = await params
   const page = await getCachedPageData(resolvedParams)
-  const blogData = page.docs.content
-
+  if (!page.docs) {
+    return notFound()
+  }
   return (
-    <div className="min-h-screen relative">
+    <div className="relative min-h-screen">
       {draft && <RefreshRouteOnSave />}
-      <BlogRenderer
-        blogData={blogData}
-        blogId={page.docs.id}
-        createdAt={page.docs.createdAt}
-        featureFlags={page.docs.featureFlags}
-      />
+      <BlogRenderer blog={page.docs} />
     </div>
   )
 }
 
-export default page
+export default BlogPage

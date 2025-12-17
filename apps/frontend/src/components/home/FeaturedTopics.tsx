@@ -31,29 +31,29 @@ const topics = [
 const FeaturedTopics = () => {
   return (
     <div className="mt-20">
-      <div className="flex items-center justify-center gap-2 mb-8">
-        <Sparkles className="w-5 h-5 text-primary" />
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Explore Topics</h2>
-        <Sparkles className="w-5 h-5 text-primary" />
+      <div className="mb-8 flex items-center justify-center gap-2">
+        <Sparkles className="text-primary h-5 w-5" />
+        <h2 className="text-foreground text-2xl font-bold md:text-3xl">Explore Topics</h2>
+        <Sparkles className="text-primary h-5 w-5" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {topics.map((topic, index) => {
           const Icon = topic.icon
           return (
             <div
               key={index}
-              className="group relative p-6 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
+              className="group bg-card/50 border-border/50 hover:border-primary/30 hover:shadow-primary/10 relative rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${topic.color} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <Icon className="w-6 h-6 text-white" />
+              <div
+                className={`inline-flex rounded-xl bg-gradient-to-br p-3 ${topic.color} mb-4 transition-transform duration-300 group-hover:scale-110`}
+              >
+                <Icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-foreground group-hover:text-primary mb-2 text-lg font-semibold transition-colors">
                 {topic.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {topic.description}
-              </p>
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-300 pointer-events-none" />
+              <p className="text-muted-foreground text-sm leading-relaxed">{topic.description}</p>
+              <div className="from-primary/0 to-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br transition-all duration-300 group-hover:to-transparent" />
             </div>
           )
         })}

@@ -1,9 +1,9 @@
 'use client'
-import React, { useState } from 'react'
 import { useField, useForm, useFormFields } from '@payloadcms/ui'
 import { TextFieldClientComponent } from 'payload'
-import './styles.scss'
 import type { PagespeedProps } from './types'
+import React, { useState } from 'react'
+import './styles.scss'
 
 async function fetchPagespeed(slug: string) {
   const apiEndpoint = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?key=${process.env.NEXT_PUBLIC_PAGESPEED_API_KEY}`
@@ -146,7 +146,12 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
           className={`metric-item performance-score ${getPerformanceClass(fieldValues?.performanceScore * 100)}`}
         >
           <span className="metric-label">🏆 Performance Score</span>
-          <span className="metric-value">{typeof fieldValues?.performanceScore === 'number' ? Math.round(fieldValues?.performanceScore) : 0}%</span>
+          <span className="metric-value">
+            {typeof fieldValues?.performanceScore === 'number'
+              ? Math.round(fieldValues?.performanceScore)
+              : 0}
+            %
+          </span>
         </div>
       </div>
       {loading && (

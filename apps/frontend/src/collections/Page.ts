@@ -1,10 +1,10 @@
-import { CollectionConfig } from 'payload'
-import { slugFilter } from './utils/slugFilter'
 import { generatePreviewPath } from './utils/generatePreviewPath'
-import { Content } from './blocks/content'
-import { SeoTab } from './blocks/seo'
-import { Analytics } from './blocks/analytics'
 import { FeatureFlags } from './blocks/feature-flags'
+import { slugFilter } from './utils/slugFilter'
+import { Analytics } from './blocks/analytics'
+import { Content } from './blocks/content'
+import { CollectionConfig } from 'payload'
+import { SeoTab } from './blocks/seo'
 
 export const Page: CollectionConfig = {
   slug: 'pages',

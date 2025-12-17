@@ -1,9 +1,9 @@
-import { draftMode } from 'next/headers'
+import type { Params, SlugProps } from './types'
 import { notFound } from 'next/navigation'
+import { draftMode } from 'next/headers'
+import config from '@payload-config'
 import { getPayload } from 'payload'
 import { cache } from 'react'
-import config from '@payload-config'
-import type { Params, SlugProps } from './types'
 
 export const pageData = async (paramsPromise: Params) => {
   const { blogs = 'home' } = paramsPromise
@@ -45,6 +45,11 @@ export const queryPageBySlug = cache(async ({ slug }: SlugProps) => {
     return {
       type: 'page',
       docs: result.docs[0],
+    }
+  } else {
+    return {
+      type: 'page',
+      docs: null,
     }
   }
 })

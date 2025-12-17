@@ -18,7 +18,8 @@ const socialLinks = [
     icon: Instagram,
     label: 'Instagram',
     href: 'https://www.instagram.com/supremacism__shubh/',
-    color: 'hover:bg-gradient-to-r hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 hover:text-white',
+    color:
+      'hover:bg-gradient-to-r hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 hover:text-white',
   },
   {
     icon: ExternalLink,
@@ -31,9 +32,7 @@ const socialLinks = [
 const SocialLinks = () => {
   return (
     <div className="mt-16">
-      <h3 className="text-lg font-semibold text-foreground text-center mb-6">
-        Connect With Me
-      </h3>
+      <h3 className="text-foreground mb-6 text-center text-lg font-semibold">Connect With Me</h3>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {socialLinks.map((social, index) => {
           const Icon = social.icon
@@ -43,9 +42,9 @@ const SocialLinks = () => {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group flex items-center gap-2 px-5 py-2.5 rounded-full border border-border bg-card/50 backdrop-blur-sm text-muted-foreground font-medium transition-all duration-300 hover:scale-110 hover:shadow-md ${social.color}`}
+              className={`group border-border bg-card/50 text-muted-foreground flex items-center gap-2 rounded-full border px-5 py-2.5 font-medium backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-md ${social.color}`}
             >
-              <Icon className="w-4 h-4" />
+              <Icon className="h-4 w-4" />
               <span className="text-sm">{social.label}</span>
             </a>
           )

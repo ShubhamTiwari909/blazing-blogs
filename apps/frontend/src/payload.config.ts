@@ -1,18 +1,18 @@
 // storage-adapter-import-placeholder
-import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import path from 'path'
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-import { uploadthingStorage } from '@payloadcms/storage-uploadthing'
-import { seoPlugin } from '@payloadcms/plugin-seo'
+import path from 'path'
 
+import { Collaborators } from './collections/Collaborators'
+import { Subscribers } from './collections/Subscribers'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Page } from './collections/Page'
-import { Collaborators } from './collections/Collaborators'
-import { Subscribers } from './collections/Subscribers'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

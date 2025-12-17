@@ -34,3 +34,8 @@ export type MetaDataProps = {
   author: Page['content']['author']
   createdAt: Page['createdAt']
 }
+
+export type HasNextProps = {
+  handleLoadMore: () => void
+  isFetchingNextPage: boolean
+}

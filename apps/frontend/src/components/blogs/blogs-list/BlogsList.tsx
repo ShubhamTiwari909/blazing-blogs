@@ -1,9 +1,10 @@
 'use client'
-import React, { useMemo } from 'react'
-import BlogCard from './BlogCard'
-import { useBlogs } from '@/lib/hooks/useBlogs'
-import BlogsListSkeleton from './BlogsListSkeleton'
 import type { BlogResponse, BlogsListProps } from './types'
+import BlogsListSkeleton from './BlogsListSkeleton'
+import { useBlogs } from '@/lib/hooks/useBlogs'
+import BlogCard from './card/BlogCard'
+import React, { useMemo } from 'react'
+import HasNext from './HasNext'
 
 const BlogsList = ({ pages }: BlogsListProps) => {
   // Initialize the initial data for the query
@@ -38,10 +39,10 @@ const BlogsList = ({ pages }: BlogsListProps) => {
   // Handle error state
   if (isError) {
     return (
-      <div className="text-center py-12">
-        <div className="text-red-500 text-lg">Failed to load blogs</div>
-        <p className="text-gray-400 mt-2">Please try again later</p>
-        {error && <p className="text-gray-300 mt-1 text-sm">Error: {error.message}</p>}
+      <div className="py-12 text-center">
+        <div className="text-lg text-red-500">Failed to load blogs</div>
+        <p className="mt-2 text-gray-400">Please try again later</p>
+        {error && <p className="mt-1 text-sm text-gray-300">Error: {error.message}</p>}
       </div>
     )
   }
@@ -49,16 +50,16 @@ const BlogsList = ({ pages }: BlogsListProps) => {
   // Handle no blogs state
   if (!pages && (!data || blogs.length === 0)) {
     return (
-      <div className="text-center py-12">
-        <div className="text-gray-500 text-lg">No blogs found</div>
-        <p className="text-gray-400 mt-2">Check back later for new content!</p>
+      <div className="py-12 text-center">
+        <div className="text-lg text-gray-500">No blogs found</div>
+        <p className="mt-2 text-gray-400">Check back later for new content!</p>
       </div>
     )
   }
 
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogs?.map((page) => (
           <BlogCard
             key={page.id}
@@ -71,37 +72,7 @@ const BlogsList = ({ pages }: BlogsListProps) => {
       </div>
 
       {hasNextPage && (
-        <div className="text-center mt-12">
-          <button
-            className="cursor-pointer group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 ease-out disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-            onClick={() => handleLoadMore()}
-            disabled={isFetchingNextPage}
-          >
-            {isFetchingNextPage ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                <span>Loading...</span>
-              </>
-            ) : (
-              <>
-                <span>Load More Articles</span>
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </>
-            )}
-          </button>
-        </div>
+        <HasNext handleLoadMore={handleLoadMore} isFetchingNextPage={isFetchingNextPage} />
       )}
     </div>
   )

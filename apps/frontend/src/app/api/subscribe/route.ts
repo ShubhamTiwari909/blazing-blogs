@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
-import { getPayload } from 'payload'
 import config from '@payload-config'
-
+import { getPayload } from 'payload'
 
 export async function POST(req: Request) {
   try {
@@ -13,7 +12,10 @@ export async function POST(req: Request) {
 
     const payload = await getPayload({ config })
 
-    const subscribed = await payload.find({ collection: 'subscribers', where: { email: { equals: email } } })
+    const subscribed = await payload.find({
+      collection: 'subscribers',
+      where: { email: { equals: email } },
+    })
 
     if (subscribed.docs.length > 0) {
       await payload.update({
@@ -21,9 +23,7 @@ export async function POST(req: Request) {
         data: { isActive: true },
         where: { email: { equals: email } },
       })
-    }
-
-    else {
+    } else {
       await payload.create({
         collection: 'subscribers',
         data: { email, name },
@@ -45,7 +45,10 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 })
     }
     const payload = await getPayload({ config })
-    const subscribers = await payload.find({ collection: 'subscribers', where: { email: { equals: email } } })
+    const subscribers = await payload.find({
+      collection: 'subscribers',
+      where: { email: { equals: email } },
+    })
     return NextResponse.json(subscribers)
   } catch (err) {
     console.error('Error getting subscribers:', err)

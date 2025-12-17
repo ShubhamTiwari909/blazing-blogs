@@ -1,10 +1,10 @@
+import type { BlogImageProps } from './types'
 import Image from 'next/image'
 import React from 'react'
-import type { BlogImageProps } from './types'
 
 export const BlogImage = ({ src, alt }: BlogImageProps) => {
   return (
-    <div className="relative min-h-64 md:min-h-80 lg:min-h-96 rounded-2xl overflow-hidden mb-8 shadow-lg">
+    <div className="relative mb-8 min-h-64 overflow-hidden rounded-2xl shadow-lg md:min-h-80 lg:min-h-96">
       <Image
         src={src}
         alt={alt}

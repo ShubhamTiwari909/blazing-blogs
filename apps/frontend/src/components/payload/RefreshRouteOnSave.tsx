@@ -1,8 +1,8 @@
 'use client'
-import React from 'react'
-import { getClientSideURL } from './getURL'
 import { RefreshRouteOnSave as PayloadLivePreview } from '@payloadcms/live-preview-react'
 import { useRouter } from 'next/navigation'
+import { getClientSideURL } from './getURL'
+import React from 'react'
 
 export const RefreshRouteOnSave = () => {
   const router = useRouter()

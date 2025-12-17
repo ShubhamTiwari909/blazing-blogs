@@ -1,6 +1,6 @@
-import React from 'react'
+import type { MarkdownRendererProps } from '@/components/blogs/blog-renderer/types'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import type { MarkdownRendererProps } from '../types'
+import React from 'react'
 
 const proseStyles = {
   headings:
@@ -23,18 +23,7 @@ const proseStyles = {
 export const MarkdownRenderer = ({ data }: MarkdownRendererProps) => {
   return (
     <RichText
-      className={`
-        prose prose-lg prose-slate max-w-none wrap-break-word
-        ${proseStyles.headings}
-        ${proseStyles.paragraphs} 
-        ${proseStyles.links}
-        ${proseStyles.code}
-        ${proseStyles.blockquotes}
-        ${proseStyles.lists}
-        ${proseStyles.images}
-        ${proseStyles.tables}
-        ${proseStyles.horizontalRules}
-      `}
+      className={`prose prose-lg prose-slate max-w-none wrap-break-word ${proseStyles.headings} ${proseStyles.paragraphs} ${proseStyles.links} ${proseStyles.code} ${proseStyles.blockquotes} ${proseStyles.lists} ${proseStyles.images} ${proseStyles.tables} ${proseStyles.horizontalRules} `}
       data={data}
     />
   )

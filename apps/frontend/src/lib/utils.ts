@@ -1,8 +1,8 @@
-import type { Media } from '@/payload-types'
 import { convertLexicalToPlaintext } from '@payloadcms/richtext-lexical/plaintext'
+import type { ConvertLexicalToPlaintextProps } from './types'
+import type { Media } from '@/payload-types'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import type { ConvertLexicalToPlaintextProps } from './types'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

@@ -1,8 +1,8 @@
 'use client'
 
-import React from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import type { ChildrenProps } from './types'
+import React from 'react'
 
 export default function TanstackWrapper(props: ChildrenProps) {
   const { children } = props

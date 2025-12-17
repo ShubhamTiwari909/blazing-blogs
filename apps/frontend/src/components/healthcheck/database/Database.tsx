@@ -1,17 +1,17 @@
 import React from 'react'
 
-import { Card } from '../Card'
-import { DatabaseProps } from '../types'
+import { DatabaseProps } from '@/components/healthcheck/types'
 import PagesLists from './PagesLists'
+import { Card } from './Card'
 
 const Database = ({ database }: DatabaseProps) => {
   const { pages, media, users } = database
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
+      <h2 className="mb-6 text-2xl font-semibold text-gray-900 dark:text-gray-100">
         Database Collections
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <div>
           <Card title="Pages" item={pages} icon="📄" />
           {pages.slugs ? <PagesLists pages={pages} /> : null}

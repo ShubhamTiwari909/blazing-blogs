@@ -1,6 +1,6 @@
-import React from 'react'
-import AiRenderer from './AiRenderer'
 import type { AiSummary } from './types'
+import AiRenderer from './AiRenderer'
+import React from 'react'
 
 const AiAnalysis = ({ aiSummary }: AiSummary) => {
   if (!aiSummary) return null

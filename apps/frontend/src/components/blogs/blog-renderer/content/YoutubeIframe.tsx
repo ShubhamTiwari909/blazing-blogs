@@ -1,5 +1,5 @@
+import type { YoutubeIframeProps } from '@/components/blogs/blog-renderer/types'
 import React from 'react'
-import type { YoutubeIframeProps } from '../types'
 
 const getYoutubeEmbedUrl = (url: string): string => {
   if (!url) return ''

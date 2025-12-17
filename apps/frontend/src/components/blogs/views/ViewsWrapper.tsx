@@ -1,8 +1,8 @@
 'use client'
-import React from 'react'
 import { CookiesProvider } from 'react-cookie'
-import Views from './Views'
 import type { ViewsProps } from './types'
+import Views from './Views'
+import React from 'react'
 
 const ViewsWrapper = ({ id }: ViewsProps) => {
   return (
