@@ -1,3 +1,4 @@
+import { DefaultAnimationWrapper } from '../ui/text-animation/AnimationWrappers'
 import { Target } from 'lucide-react'
 import React from 'react'
 
@@ -24,7 +25,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
+    <DefaultAnimationWrapper className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
       <h2 className="mb-6 flex items-center text-3xl font-bold text-slate-800 dark:text-slate-200">
         <Target className="mr-3 h-8 w-8 text-blue-500" />
         Skills & Expertise
@@ -46,7 +47,7 @@ const Skills = () => {
           </div>
         ))}
       </div>
-    </div>
+    </DefaultAnimationWrapper>
   )
 }
 

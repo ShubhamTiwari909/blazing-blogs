@@ -1,3 +1,4 @@
+import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import React from 'react'
 
@@ -15,7 +16,7 @@ const contactInfo = {
 
 const ContactInformation = () => {
   return (
-    <div className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
+    <DefaultAnimationWrapper className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
       <h2 className="mb-6 text-2xl font-bold text-slate-800 dark:text-slate-200">
         Contact Information
       </h2>
@@ -64,7 +65,7 @@ const ContactInformation = () => {
           </div>
         </div>
       </div>
-    </div>
+    </DefaultAnimationWrapper>
   )
 }
 

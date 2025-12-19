@@ -1,3 +1,4 @@
+import AnimationBox from '@/components/ui/text-animation/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import SubscribeForm from '@/components/subscribe/Subscribe'
 import { Mail, Sparkles } from 'lucide-react'
@@ -27,28 +28,30 @@ const page = async () => {
 
       <div className="relative z-10 mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <div className="relative mb-6 inline-flex items-center justify-center">
+          <AnimationBox className="relative mb-6 inline-flex items-center justify-center">
             <div className="bg-primary/20 absolute inset-0 rounded-full blur-2xl" />
             <div className="bg-card/50 border-border/50 relative rounded-2xl border p-4 backdrop-blur-sm">
               <Mail className="text-primary h-8 w-8" />
             </div>
-          </div>
+          </AnimationBox>
 
-          <div className="mb-4 flex items-center justify-center gap-2">
+          <AnimationBox className="mb-4 flex items-center justify-center gap-2">
             <Sparkles className="text-primary h-5 w-5" />
             <h1 className="text-foreground text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
               Stay in the Loop
             </h1>
             <Sparkles className="text-primary h-5 w-5" />
-          </div>
+          </AnimationBox>
 
-          <p className="text-muted-foreground mx-auto mb-2 max-w-xl text-xl leading-relaxed font-light md:text-2xl">
-            Subscribe to get the latest articles, insights, and updates delivered straight to your
-            inbox.
-          </p>
-          <p className="text-muted-foreground/80 text-sm">
-            Join a community of passionate developers and tech enthusiasts
-          </p>
+          <AnimationBox>
+            <p className="text-muted-foreground mx-auto mb-2 max-w-xl text-xl leading-relaxed font-light md:text-2xl">
+              Subscribe to get the latest articles, insights, and updates delivered straight to your
+              inbox.
+            </p>
+            <p className="text-muted-foreground/80 text-sm">
+              Join a community of passionate developers and tech enthusiasts
+            </p>
+          </AnimationBox>
         </div>
 
         <div className="bg-card/30 border-border/50 rounded-2xl border p-8 shadow-xl backdrop-blur-md md:p-12">

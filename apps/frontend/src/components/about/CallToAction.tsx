@@ -1,9 +1,10 @@
+import { DefaultAnimationWrapper } from '../ui/text-animation/AnimationWrappers'
 import Link from 'next/link'
 import React from 'react'
 
 const CallToAction = () => {
   return (
-    <div className="text-center">
+    <DefaultAnimationWrapper className="text-center">
       <div className="rounded-2xl border border-white/20 bg-white/50 p-8 backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/50">
         <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-slate-200">
           Let&apos;s Create Something Amazing Together
@@ -28,7 +29,7 @@ const CallToAction = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </DefaultAnimationWrapper>
   )
 }
 

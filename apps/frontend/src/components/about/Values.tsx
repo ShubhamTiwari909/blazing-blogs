@@ -1,9 +1,10 @@
+import { DefaultAnimationWrapper } from '../ui/text-animation/AnimationWrappers'
 import { Award, Users, Zap } from 'lucide-react'
 import React from 'react'
 
 const Values = () => {
   return (
-    <div className="mb-20 rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
+    <DefaultAnimationWrapper className="mb-20 rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
       <h2 className="mb-8 text-center text-3xl font-bold text-slate-800 dark:text-slate-200">
         My Values & Approach
       </h2>
@@ -36,7 +37,7 @@ const Values = () => {
           </p>
         </div>
       </div>
-    </div>
+    </DefaultAnimationWrapper>
   )
 }
 

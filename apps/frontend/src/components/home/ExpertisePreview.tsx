@@ -1,4 +1,5 @@
 import { Code2, Database, Palette, Zap } from 'lucide-react'
+import { motion, MotionProps, stagger } from 'motion/react'
 import React from 'react'
 
 const expertise = [
@@ -41,11 +42,28 @@ const expertise = [
   },
 ]
 
+const containerVariants: MotionProps['variants'] = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { delayChildren: stagger(0.25) } },
+}
+
+const itemVariants: MotionProps['variants'] = {
+  hidden: { scale: 0 },
+  visible: (index: number) => ({
+    scale: 1,
+    transition: { type: 'spring', mass: 3, damping: 20, stiffness: 100, delay: index * 0.25 },
+  }),
+}
+
 const ExpertisePreview = () => {
   return (
     <div className="mt-20">
       <h2 className="text-foreground mb-8 text-center text-2xl font-bold md:text-3xl">What I Do</h2>
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4">
+      <motion.div
+        variants={containerVariants}
+        viewport={{ once: true }}
+        className="mx-auto grid max-w-6xl grid-cols-1 gap-4"
+      >
         {expertise.map((item, index) => {
           const Icon = item.icon
           const gradientMap: Record<string, string> = {
@@ -93,59 +111,67 @@ const ExpertisePreview = () => {
             'group-hover:bg-gradient-to-br group-hover:from-primary/30 group-hover:to-primary/20'
 
           return (
-            <div
+            <motion.div
               key={index}
-              className={`group bg-card/30 border-border/50 hover:border-primary/30 relative overflow-hidden rounded-2xl border p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${cardGradient}`}
+              variants={itemVariants}
+              initial={'hidden'}
+              whileInView={'visible'}
+              viewport={{ once: true }}
+              custom={index}
             >
               <div
-                className={`inline-flex rounded-xl p-3 ${item.bgColor} mb-4 group-hover:scale-110 ${iconBg} transition-all duration-300`}
+                className={`group bg-card/30 border-border hover:border-primary/30 relative overflow-hidden rounded-2xl border p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg ${cardGradient}`}
               >
-                <Icon
-                  className={`h-6 w-6 ${item.color} ${iconHover} transition-colors duration-300`}
-                />
-              </div>
-              <h3
-                className={`text-foreground mb-4 text-lg font-semibold ${titleHover} transition-colors duration-300`}
-              >
-                {item.title}
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {item.skills.map((skill, skillIndex) => {
-                  const gradientMap: Record<string, string> = {
-                    'text-blue-500':
-                      'from-blue-500/20 via-blue-400/20 to-cyan-500/20 hover:from-blue-500/30 hover:via-blue-400/30 hover:to-cyan-500/30 border-blue-500/30',
-                    'text-green-500':
-                      'from-green-500/20 via-emerald-400/20 to-teal-500/20 hover:from-green-500/30 hover:via-emerald-400/30 hover:to-teal-500/30 border-green-500/30',
-                    'text-purple-500':
-                      'from-purple-500/20 via-pink-400/20 to-fuchsia-500/20 hover:from-purple-500/30 hover:via-pink-400/30 hover:to-fuchsia-500/30 border-purple-500/30',
-                    'text-yellow-500':
-                      'from-yellow-500/20 via-orange-400/20 to-amber-500/20 hover:from-yellow-500/30 hover:via-orange-400/30 hover:to-amber-500/30 border-yellow-500/30',
-                  }
-                  const gradient =
-                    gradientMap[item.color] || 'from-primary/20 to-primary/30 border-primary/30'
+                <div
+                  className={`inline-flex rounded-xl p-3 ${item.bgColor} mb-4 group-hover:scale-110 ${iconBg} transition-all duration-300`}
+                >
+                  <Icon
+                    className={`h-6 w-6 ${item.color} ${iconHover} transition-colors duration-300`}
+                  />
+                </div>
+                <h3
+                  className={`text-foreground mb-4 text-lg font-semibold ${titleHover} transition-colors duration-300`}
+                >
+                  {item.title}
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {item.skills.map((skill, skillIndex) => {
+                    const gradientMap: Record<string, string> = {
+                      'text-blue-500':
+                        'from-blue-500/20 via-blue-400/20 to-cyan-500/20 hover:from-blue-500/30 hover:via-blue-400/30 hover:to-cyan-500/30 border-blue-500/30',
+                      'text-green-500':
+                        'from-green-500/20 via-emerald-400/20 to-teal-500/20 hover:from-green-500/30 hover:via-emerald-400/30 hover:to-teal-500/30 border-green-500/30',
+                      'text-purple-500':
+                        'from-purple-500/20 via-pink-400/20 to-fuchsia-500/20 hover:from-purple-500/30 hover:via-pink-400/30 hover:to-fuchsia-500/30 border-purple-500/30',
+                      'text-yellow-500':
+                        'from-yellow-500/20 via-orange-400/20 to-amber-500/20 hover:from-yellow-500/30 hover:via-orange-400/30 hover:to-amber-500/30 border-yellow-500/30',
+                    }
+                    const gradient =
+                      gradientMap[item.color] || 'from-primary/20 to-primary/30 border-primary/30'
 
-                  return (
-                    <div
-                      key={skillIndex}
-                      className={`group/skill relative rounded-xl bg-gradient-to-br px-4 py-2.5 ${gradient} overflow-hidden border backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:shadow-lg hover:shadow-current/20`}
-                    >
-                      <span className="text-foreground/90 group-hover/skill:text-foreground relative z-10 text-sm font-semibold transition-colors">
-                        {skill}
-                      </span>
+                    return (
                       <div
-                        className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} -z-10 opacity-0 blur-sm transition-opacity duration-300 group-hover/skill:opacity-100`}
-                      />
-                      <div className="absolute inset-0 overflow-hidden rounded-xl">
-                        <div className="absolute top-0 left-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover/skill:translate-x-full" />
+                        key={skillIndex}
+                        className={`group/skill relative rounded-xl bg-gradient-to-br px-4 py-2.5 ${gradient} overflow-hidden border backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:shadow-lg hover:shadow-current/20`}
+                      >
+                        <span className="text-foreground/90 group-hover/skill:text-foreground relative z-10 text-sm font-semibold transition-colors">
+                          {skill}
+                        </span>
+                        <div
+                          className={`absolute inset-0 rounded-xl bg-gradient-to-br ${gradient} -z-10 opacity-0 blur-sm transition-opacity duration-300 group-hover/skill:opacity-100`}
+                        />
+                        <div className="absolute inset-0 overflow-hidden rounded-xl">
+                          <div className="absolute top-0 left-0 h-full w-full -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out group-hover/skill:translate-x-full" />
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
-            </div>
+            </motion.div>
           )
         })}
-      </div>
+      </motion.div>
     </div>
   )
 }

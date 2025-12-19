@@ -1,8 +1,9 @@
+import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import React from 'react'
 
 const Outro = () => {
   return (
-    <div className="mt-16 text-center">
+    <DefaultAnimationWrapper className="mt-16 text-center">
       <div className="rounded-2xl border border-white/20 bg-white/50 p-8 backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/50">
         <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-slate-200">
           Let&apos;s Build Something Amazing Together
@@ -13,7 +14,7 @@ const Outro = () => {
           developers.
         </p>
       </div>
-    </div>
+    </DefaultAnimationWrapper>
   )
 }
 

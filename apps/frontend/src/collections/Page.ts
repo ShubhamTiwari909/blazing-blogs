@@ -45,6 +45,7 @@ export const Page: CollectionConfig = {
       admin: {
         position: 'sidebar',
       },
+      index: true,
     },
     {
       name: 'revalidate',

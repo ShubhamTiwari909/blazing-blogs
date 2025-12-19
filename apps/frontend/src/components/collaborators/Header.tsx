@@ -1,9 +1,10 @@
+import AnimationBox from '@/components/ui/text-animation/AnimationBox'
 import { Users } from 'lucide-react'
 import React from 'react'
 
 const Header = () => {
   return (
-    <div className="mb-16 text-center">
+    <AnimationBox className="mb-16 text-center">
       <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl">
         <Users className="h-10 w-10 text-white" />
       </div>
@@ -11,7 +12,7 @@ const Header = () => {
       <p className="mx-auto max-w-2xl text-xl text-slate-600 dark:text-slate-400">
         Meet the amazing people who make this project possible
       </p>
-    </div>
+    </AnimationBox>
   )
 }
 

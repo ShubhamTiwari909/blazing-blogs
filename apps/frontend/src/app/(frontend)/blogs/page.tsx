@@ -1,3 +1,4 @@
+import AnimationBox from '@/components/ui/text-animation/AnimationBox'
 import BlogsList from '@/components/blogs/blogs-list/BlogsList'
 import { queryPages } from '@/lib/fetch-utils/query-all-pages'
 import { unstable_cache } from 'next/cache'
@@ -53,17 +54,21 @@ const page = async () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
+          <AnimationBox className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
             <DockIcon className="h-4 w-4" />
             {pages?.totalDocs} Blogs
-          </div>
-          <h1 className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-5xl font-bold text-transparent">
-            Latest Blog Posts
-          </h1>
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-600">
-            Discover insights, tutorials, and stories from our community of passionate developers
-            and creators
-          </p>
+          </AnimationBox>
+          <AnimationBox>
+            <h1 className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-5xl font-bold text-transparent">
+              Latest Blog Posts
+            </h1>
+          </AnimationBox>
+          <AnimationBox>
+            <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-600">
+              Discover insights, tutorials, and stories from our community of passionate developers
+              and creators
+            </p>
+          </AnimationBox>
         </div>
         {pages && pages.docs.length > 0 ? (
           <BlogsList pages={pages} />

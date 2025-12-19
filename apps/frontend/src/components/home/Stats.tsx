@@ -1,3 +1,4 @@
+import { motion, MotionProps } from 'motion/react'
 import React from 'react'
 
 const stats = [
@@ -6,13 +7,22 @@ const stats = [
   { value: '3+', label: 'Years Writing', color: 'text-indigo-500' },
 ]
 
+const variants: MotionProps['variants'] = {
+  hidden: { scale: 0 },
+  visible: { scale: 1, transition: { type: 'spring', mass: 3, damping: 20, stiffness: 100 } },
+}
+
 const Stats = () => {
   return (
     <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-3">
       {stats.map((stat, index) => (
-        <div
+        <motion.div
+          variants={variants}
+          initial={'hidden'}
+          whileInView={'visible'}
+          viewport={{ once: true }}
           key={index}
-          className="group bg-card/30 border-border/50 hover:border-primary/20 hover:bg-card/50 rounded-2xl border p-6 text-center backdrop-blur-md transition-all duration-300"
+          className="group bg-card/30 border-border hover:border-primary/20 hover:bg-card/50 rounded-2xl border p-6 text-center"
         >
           <div
             className={`text-4xl font-bold ${stat.color} mb-1 transition-transform duration-300 group-hover:scale-110`}
@@ -22,7 +32,7 @@ const Stats = () => {
           <div className="text-muted-foreground text-sm font-medium tracking-wider uppercase">
             {stat.label}
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   )
