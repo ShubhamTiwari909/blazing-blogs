@@ -1,7 +1,7 @@
 import { Typography } from '@/components/atoms/typography'
 import type { TagsProps } from './types'
-import React from 'react'
 import { LuTag } from 'react-icons/lu'
+import React from 'react'
 
 const Tags = ({ tags }: TagsProps) => {
   return (

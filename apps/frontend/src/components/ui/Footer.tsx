@@ -1,4 +1,12 @@
-import { LuMail, LuMapPin, LuPhone, LuGithub, LuInstagram, LuLinkedin, LuExternalLink } from 'react-icons/lu'
+import {
+  LuMail,
+  LuMapPin,
+  LuPhone,
+  LuGithub,
+  LuInstagram,
+  LuLinkedin,
+  LuExternalLink,
+} from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
 import Link from 'next/link'
 import React from 'react'

@@ -1,8 +1,8 @@
+import { LuDatabase, LuFileCode2, LuPalette, LuZap } from 'react-icons/lu'
 import { motion, MotionProps, stagger } from 'motion/react'
 import { Typography } from '@/components/atoms/typography'
 import { cn } from '@/lib/utils'
 import React from 'react'
-import { LuDatabase, LuFileCode2, LuPalette, LuZap } from 'react-icons/lu'
 
 const expertise = [
   {

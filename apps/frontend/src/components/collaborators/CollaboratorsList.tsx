@@ -2,12 +2,12 @@ import {
   CardAnimationWrapper,
   CardContainerAnimationWrapper,
 } from '@/components/ui/text-animation/AnimationWrappers'
+import { LuBriefcase, LuCalendar, LuMail, LuUser } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
 import type { CollaboratorsListProps } from './types'
 import { contructImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'
-import { LuBriefcase, LuCalendar, LuMail, LuUser } from 'react-icons/lu'
 
 const getInitials = (username: string) => {
   return username

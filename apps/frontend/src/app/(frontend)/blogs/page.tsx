@@ -3,7 +3,7 @@ import BlogsList from '@/components/blogs/blogs-list/BlogsList'
 import { queryPages } from '@/lib/fetch-utils/query-all-pages'
 import { Typography } from '@/components/atoms/typography'
 import { unstable_cache } from 'next/cache'
-import { LuDock } from "react-icons/lu";
+import { LuDock } from 'react-icons/lu'
 import type { Metadata } from 'next'
 import React from 'react'
 

@@ -1,8 +1,7 @@
-
+import { LuCode, LuRocket, LuLightbulb, LuBookOpen } from 'react-icons/lu'
 import { motion, MotionProps, stagger } from 'motion/react'
 import { Typography } from '@/components/atoms/typography'
 import React from 'react'
-import { LuCode, LuRocket, LuLightbulb, LuBookOpen } from 'react-icons/lu'
 
 const topics = [
   {

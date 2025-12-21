@@ -1,7 +1,7 @@
 import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 import { LuTarget } from 'react-icons/lu'
+import React from 'react'
 
 const skills = [
   { name: 'HTML', gradient: 'from-red-500 to-red-600', icon: '🌐' },

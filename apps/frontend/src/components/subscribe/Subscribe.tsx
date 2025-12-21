@@ -1,9 +1,9 @@
 'use client'
 
 import { Typography } from '@/components/atoms/typography'
+import { LuCircle, LuLoader } from 'react-icons/lu'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { LuCircle, LuLoader } from 'react-icons/lu'
 
 export default function SubscribeForm({
   email,

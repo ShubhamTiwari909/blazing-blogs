@@ -1,7 +1,7 @@
 import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 import { LuAward, LuUsers, LuZap } from 'react-icons/lu'
+import React from 'react'
 
 const Values = () => {
   return (

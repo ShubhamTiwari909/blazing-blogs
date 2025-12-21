@@ -1,7 +1,7 @@
 import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
+import { Typography } from '@/components/atoms/typography'
 import CollaboratorsList from './CollaboratorsList'
 import type { CollaboratorsProps } from './types'
-import { Typography } from '@/components/atoms/typography'
 import { LuUsers } from 'react-icons/lu'
 import Header from './Header'
 import React from 'react'

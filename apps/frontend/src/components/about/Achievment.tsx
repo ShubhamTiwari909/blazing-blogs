@@ -2,9 +2,9 @@ import {
   CardAnimationWrapper,
   CardContainerAnimationWrapper,
 } from '@/components/ui/text-animation/AnimationWrappers'
+import { LuLightbulb, LuCode, LuUsers, LuZap } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
 import React from 'react'
-import { LuLightbulb, LuCode, LuUsers, LuZap } from 'react-icons/lu'
 
 const achievements = [
   {

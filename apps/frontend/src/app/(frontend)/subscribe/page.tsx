@@ -2,10 +2,10 @@ import AnimationBox from '@/components/ui/text-animation/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import SubscribeForm from '@/components/subscribe/Subscribe'
 import { Typography } from '@/components/atoms/typography'
+import { LuMail, LuSparkles } from 'react-icons/lu'
 import { redirect } from 'next/navigation'
 import { auth } from '@/lib/auth'
 import React from 'react'
-import { LuMail, LuSparkles } from 'react-icons/lu'
 
 const isSubscribed = async (email: string) => {
   const res = await fetch(`${process.env.SITE_URL}/api/subscribe?email=${email}`)
