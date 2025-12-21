@@ -1,6 +1,6 @@
 import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import { Coffee, Heart } from 'lucide-react'
+import { LuCoffee, LuHeart } from 'react-icons/lu'
 
 const MyStory = () => {
   return (
@@ -13,7 +13,7 @@ const MyStory = () => {
           weight="bold"
           className="mb-6 flex items-center text-center"
         >
-          <Heart className="mr-3 h-8 w-8 text-red-500" />
+          <LuHeart className="mr-3 h-8 w-8 text-red-500" />
           My Story
         </Typography>
         <div className="space-y-6 leading-relaxed text-slate-600 dark:text-slate-300">
@@ -39,7 +39,7 @@ const MyStory = () => {
         </div>
       </div>
       <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400">
-        <Coffee className="h-5 w-5" />
+        <LuCoffee className="h-5 w-5" />
         <Typography as="span" size="xxs" color="inherit" weight="medium" className="text-sm">
           Fueled by coffee and curiosity
         </Typography>

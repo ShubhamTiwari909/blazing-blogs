@@ -5,8 +5,8 @@ import AiAnalysis from '@/components/blogs/ai-analysis/AiAnalysis'
 import ViewsWrapper from '@/components/blogs/views/ViewsWrapper'
 import { Typography } from '@/components/atoms/typography'
 import Tags from '@/components/blogs/blog-renderer/Tags'
-import { CalendarDays, User } from 'lucide-react'
 import React from 'react'
+import { LuCalendarDays, LuUser } from 'react-icons/lu'
 
 const Metadata = async ({
   id,
@@ -23,7 +23,7 @@ const Metadata = async ({
         {/* Author */}
         {author && (
           <div className="flex items-center">
-            <User className="mr-2 h-5 w-5" />
+            <LuUser className="mr-2 h-5 w-5" />
             <Typography as="p" size="xxs" color="inherit" weight="medium">
               {author}
             </Typography>
@@ -32,7 +32,7 @@ const Metadata = async ({
 
         {/* Date */}
         <div className="flex items-center">
-          <CalendarDays className="mr-2 h-5 w-5" />
+          <LuCalendarDays className="mr-2 h-5 w-5" />
           <time dateTime={createdAt}>
             {new Date(createdAt).toLocaleDateString('en-US', {
               year: 'numeric',

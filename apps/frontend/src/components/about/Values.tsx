@@ -1,7 +1,7 @@
 import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import { Award, Users, Zap } from 'lucide-react'
 import React from 'react'
+import { LuAward, LuUsers, LuZap } from 'react-icons/lu'
 
 const Values = () => {
   return (
@@ -12,7 +12,7 @@ const Values = () => {
       <div className="grid gap-8 md:grid-cols-3">
         <div className="space-y-4 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg">
-            <Award className="h-8 w-8 text-white" />
+            <LuAward className="h-8 w-8 text-white" />
           </div>
           <Typography
             as="h3"
@@ -30,7 +30,7 @@ const Values = () => {
         </div>
         <div className="space-y-4 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-green-600 shadow-lg">
-            <Users className="h-8 w-8 text-white" />
+            <LuUsers className="h-8 w-8 text-white" />
           </div>
           <Typography
             as="h3"
@@ -48,7 +48,7 @@ const Values = () => {
         </div>
         <div className="space-y-4 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg">
-            <Zap className="h-8 w-8 text-white" />
+            <LuZap className="h-8 w-8 text-white" />
           </div>
           <Typography
             as="h3"

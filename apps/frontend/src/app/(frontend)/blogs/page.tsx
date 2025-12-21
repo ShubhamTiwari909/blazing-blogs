@@ -3,7 +3,7 @@ import BlogsList from '@/components/blogs/blogs-list/BlogsList'
 import { queryPages } from '@/lib/fetch-utils/query-all-pages'
 import { Typography } from '@/components/atoms/typography'
 import { unstable_cache } from 'next/cache'
-import { DockIcon } from 'lucide-react'
+import { LuDock } from "react-icons/lu";
 import type { Metadata } from 'next'
 import React from 'react'
 
@@ -56,7 +56,7 @@ const page = async () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <AnimationBox className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
-            <DockIcon className="h-4 w-4" />
+            <LuDock className="h-4 w-4" />
             {pages?.totalDocs} Blogs
           </AnimationBox>
           <AnimationBox>

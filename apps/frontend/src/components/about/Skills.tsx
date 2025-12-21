@@ -1,7 +1,7 @@
 import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import { Target } from 'lucide-react'
 import React from 'react'
+import { LuTarget } from 'react-icons/lu'
 
 const skills = [
   { name: 'HTML', gradient: 'from-red-500 to-red-600', icon: '🌐' },
@@ -34,7 +34,7 @@ const Skills = () => {
         weight="bold"
         className="mb-6 flex items-center text-center"
       >
-        <Target className="mr-3 h-8 w-8 text-blue-500" />
+        <LuTarget className="mr-3 h-8 w-8 text-blue-500" />
         Skills & Expertise
       </Typography>
       <div className="grid grid-cols-2 gap-5 md:grid-cols-2">

@@ -1,6 +1,6 @@
 import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { LuMail, LuMapPin, LuPhone } from 'react-icons/lu'
 import React from 'react'
 
 const contactInfo = {
@@ -26,7 +26,7 @@ const ContactInformation = () => {
         {/* Email */}
         <div className="group flex items-center space-x-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
-            <Mail className="h-6 w-6 text-white" />
+            <LuMail className="h-6 w-6 text-white" />
           </div>
           <div>
             <Typography as="p" size="xs" color="inherit" weight="medium" className="text-slate-500">
@@ -44,7 +44,7 @@ const ContactInformation = () => {
         {/* Phone */}
         <div className="group flex items-center space-x-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-green-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
-            <Phone className="h-6 w-6 text-white" />
+            <LuPhone className="h-6 w-6 text-white" />
           </div>
           <div>
             <Typography as="p" size="xs" color="inherit" weight="medium" className="text-slate-500">
@@ -62,7 +62,7 @@ const ContactInformation = () => {
         {/* Location */}
         <div className="group flex items-center space-x-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
-            <MapPin className="h-6 w-6 text-white" />
+            <LuMapPin className="h-6 w-6 text-white" />
           </div>
           <div>
             <Typography as="p" size="xs" color="inherit" weight="medium" className="text-slate-500">

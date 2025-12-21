@@ -1,8 +1,8 @@
 import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
-import { Typography } from '@/components/atoms/typography'
 import CollaboratorsList from './CollaboratorsList'
 import type { CollaboratorsProps } from './types'
-import { Users } from 'lucide-react'
+import { Typography } from '@/components/atoms/typography'
+import { LuUsers } from 'react-icons/lu'
 import Header from './Header'
 import React from 'react'
 
@@ -19,7 +19,7 @@ const Collaborators = ({ collaborators }: CollaboratorsProps) => {
           ) : (
             <div className="py-20 text-center">
               <div className="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700">
-                <Users className="h-12 w-12 text-slate-400 dark:text-slate-500" />
+                <LuUsers className="h-12 w-12 text-slate-400 dark:text-slate-500" />
               </div>
               <Typography
                 as="h2"

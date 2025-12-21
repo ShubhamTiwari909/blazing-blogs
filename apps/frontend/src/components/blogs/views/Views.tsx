@@ -7,7 +7,7 @@ import { Typography } from '@/components/atoms/typography'
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 import type { ViewsProps } from './types'
-import { Eye } from 'lucide-react'
+import { LuEye } from 'react-icons/lu'
 
 const Views = ({ id }: ViewsProps) => {
   const [cookies, setCookies] = useCookies()
@@ -31,7 +31,7 @@ const Views = ({ id }: ViewsProps) => {
   }, [id, cookies, setCookies])
   return (
     <div className="flex items-center gap-1">
-      <Eye className="h-4 w-4" />
+      <LuEye className="h-4 w-4" />
       <Typography as="p" size="xxs" color="inherit">
         {blogViews}
       </Typography>

@@ -1,6 +1,6 @@
 import type { MetaDataProps } from '@/components/blogs/blogs-list/types'
 import { Typography } from '@/components/atoms/typography'
-import { CalendarDays, User } from 'lucide-react'
+import { LuCalendarDays, LuUser } from 'react-icons/lu'
 import React from 'react'
 
 const MetaData = ({ author, createdAt }: MetaDataProps) => {
@@ -9,14 +9,14 @@ const MetaData = ({ author, createdAt }: MetaDataProps) => {
       <div className="flex items-center space-x-4">
         {author && (
           <div className="flex items-center">
-            <User className="mr-1 h-4 w-4" />
+            <LuUser className="mr-1 h-4 w-4" />
             <Typography as="p" size="xxs" color="inherit" weight="medium" className="truncate">
               {author}
             </Typography>
           </div>
         )}
         <div className="flex items-center">
-          <CalendarDays className="mr-1 h-4 w-4" />
+          <LuCalendarDays className="mr-1 h-4 w-4" />
           <time dateTime={createdAt}>
             {new Date(createdAt).toLocaleDateString('en-US', {
               year: 'numeric',

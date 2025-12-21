@@ -2,10 +2,10 @@ import AnimationBox from '@/components/ui/text-animation/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import SubscribeForm from '@/components/subscribe/Subscribe'
 import { Typography } from '@/components/atoms/typography'
-import { Mail, Sparkles } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import { auth } from '@/lib/auth'
 import React from 'react'
+import { LuMail, LuSparkles } from 'react-icons/lu'
 
 const isSubscribed = async (email: string) => {
   const res = await fetch(`${process.env.SITE_URL}/api/subscribe?email=${email}`)
@@ -32,12 +32,12 @@ const page = async () => {
           <AnimationBox className="relative mb-6 inline-flex items-center justify-center">
             <div className="bg-primary/20 absolute inset-0 rounded-full blur-2xl" />
             <div className="bg-card/50 border-border/50 relative rounded-2xl border p-4 backdrop-blur-sm">
-              <Mail className="text-primary h-8 w-8" />
+              <LuMail className="text-primary h-8 w-8" />
             </div>
           </AnimationBox>
 
           <AnimationBox className="mb-4 flex items-center justify-center gap-2">
-            <Sparkles className="text-primary h-5 w-5" />
+            <LuSparkles className="text-primary h-5 w-5" />
             <Typography
               as="h1"
               variant="h1"
@@ -47,7 +47,7 @@ const page = async () => {
             >
               Stay in the Loop
             </Typography>
-            <Sparkles className="text-primary h-5 w-5" />
+            <LuSparkles className="text-primary h-5 w-5" />
           </AnimationBox>
 
           <AnimationBox>

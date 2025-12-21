@@ -44,7 +44,7 @@ const Hero = () => {
               weight="medium"
               className="border-border bg-card/50 hover:bg-card/80 inline-flex items-center rounded-full border px-4 py-1.5 shadow-sm backdrop-blur-sm transition-colors"
             >
-              <div className="mr-2 h-2 w-2 animate-pulse rounded-full bg-green-500" />
+              <span className="mr-2 h-2 w-2 animate-pulse rounded-full bg-green-500" />
               Welcome to my digital space
             </Typography>
           </motion.div>

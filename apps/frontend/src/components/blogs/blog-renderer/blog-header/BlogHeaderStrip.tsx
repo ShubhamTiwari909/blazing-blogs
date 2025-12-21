@@ -1,10 +1,10 @@
 'use client'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
 import DarkModeToggle from './DarkModeToggle'
-import { ArrowLeft } from 'lucide-react'
 import CopyLink from './CopyLink'
 import Link from 'next/link'
 import React from 'react'
+import { LuArrowLeft } from 'react-icons/lu'
 
 const BlogHeaderStrip = () => {
   const darkMode = useDarkModeStore((state) => state.darkMode)
@@ -14,7 +14,7 @@ const BlogHeaderStrip = () => {
     >
       <div className="flex w-full items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/blogs" className="inline-flex items-center transition-colors duration-200">
-          <ArrowLeft className="mr-2 h-4 w-4" />
+          <LuArrowLeft className="mr-2 h-4 w-4" />
           Back to Blogs
         </Link>
         <div className="flex flex-wrap items-center gap-5">

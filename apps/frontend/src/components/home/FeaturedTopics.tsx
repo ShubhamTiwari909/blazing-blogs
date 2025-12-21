@@ -1,29 +1,30 @@
-import { BookOpen, Code, Lightbulb, Rocket } from 'lucide-react'
+
 import { motion, MotionProps, stagger } from 'motion/react'
 import { Typography } from '@/components/atoms/typography'
 import React from 'react'
+import { LuCode, LuRocket, LuLightbulb, LuBookOpen } from 'react-icons/lu'
 
 const topics = [
   {
-    icon: Code,
+    icon: LuCode,
     title: 'Web Development',
     description: 'Modern frameworks, best practices, and cutting-edge techniques',
     color: 'from-blue-500 to-cyan-500',
   },
   {
-    icon: Rocket,
+    icon: LuRocket,
     title: 'Performance',
     description: 'Optimization strategies and performance tuning insights',
     color: 'from-purple-500 to-pink-500',
   },
   {
-    icon: Lightbulb,
+    icon: LuLightbulb,
     title: 'Tech Insights',
     description: 'Thoughts on technology trends and industry perspectives',
     color: 'from-yellow-500 to-orange-500',
   },
   {
-    icon: BookOpen,
+    icon: LuBookOpen,
     title: 'Tutorials',
     description: 'Step-by-step guides and practical learning resources',
     color: 'from-green-500 to-emerald-500',

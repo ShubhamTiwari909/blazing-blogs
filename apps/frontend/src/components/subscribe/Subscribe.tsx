@@ -2,8 +2,8 @@
 
 import { Typography } from '@/components/atoms/typography'
 import { Button } from '@/components/ui/button'
-import { Loader2, XCircle } from 'lucide-react'
 import { useState } from 'react'
+import { LuCircle, LuLoader } from 'react-icons/lu'
 
 export default function SubscribeForm({
   email,
@@ -102,7 +102,7 @@ export default function SubscribeForm({
         >
           {status === 'loading' ? (
             <>
-              <Loader2 className="h-5 w-5 animate-spin" />
+              <LuLoader className="h-5 w-5 animate-spin" />
               Subscribing...
             </>
           ) : (
@@ -121,7 +121,7 @@ export default function SubscribeForm({
 
       {status === 'error' && (
         <div className="bg-destructive/10 border-destructive/20 text-destructive animate-in fade-in slide-in-from-top-2 flex items-center gap-2 rounded-xl border p-4">
-          <XCircle className="h-5 w-5 flex-shrink-0" />
+          <LuCircle className="h-5 w-5 flex-shrink-0" />
           <Typography
             as="p"
             size="xxs"

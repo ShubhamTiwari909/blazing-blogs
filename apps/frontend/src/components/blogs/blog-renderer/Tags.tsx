@@ -1,12 +1,12 @@
 import { Typography } from '@/components/atoms/typography'
 import type { TagsProps } from './types'
-import { Tag } from 'lucide-react'
 import React from 'react'
+import { LuTag } from 'react-icons/lu'
 
 const Tags = ({ tags }: TagsProps) => {
   return (
     <div className="flex items-center gap-2">
-      <Tag className="h-5 w-5" />
+      <LuTag className="h-5 w-5" />
       <div className="flex flex-wrap gap-2">
         {tags?.map((tag) => (
           <Typography

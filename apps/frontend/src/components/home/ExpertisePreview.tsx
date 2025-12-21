@@ -1,33 +1,33 @@
-import { Code2, Database, Palette, Zap } from 'lucide-react'
 import { motion, MotionProps, stagger } from 'motion/react'
 import { Typography } from '@/components/atoms/typography'
 import { cn } from '@/lib/utils'
 import React from 'react'
+import { LuDatabase, LuFileCode2, LuPalette, LuZap } from 'react-icons/lu'
 
 const expertise = [
   {
-    icon: Code2,
+    icon: LuFileCode2,
     title: 'Frontend',
     skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Tailwind CSS', 'SCSS', 'React', 'Next.js'],
     color: 'text-blue-500',
     bgColor: 'bg-blue-500/10',
   },
   {
-    icon: Database,
+    icon: LuDatabase,
     title: 'Backend',
     skills: ['Node.js', 'MongoDB', 'Express.js', 'REST APIs'],
     color: 'text-green-500',
     bgColor: 'bg-green-500/10',
   },
   {
-    icon: Palette,
+    icon: LuPalette,
     title: 'Design',
     skills: ['UI/UX', 'Figma', 'Canva'],
     color: 'text-purple-500',
     bgColor: 'bg-purple-500/10',
   },
   {
-    icon: Zap,
+    icon: LuZap,
     title: 'Tools',
     skills: [
       'Git',

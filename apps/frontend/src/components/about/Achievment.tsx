@@ -3,27 +3,27 @@ import {
   CardContainerAnimationWrapper,
 } from '@/components/ui/text-animation/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import { Code, Zap, Lightbulb, Users } from 'lucide-react'
 import React from 'react'
+import { LuLightbulb, LuCode, LuUsers, LuZap } from 'react-icons/lu'
 
 const achievements = [
   {
-    icon: <Code className="h-8 w-8 text-blue-500" />,
+    icon: <LuCode className="h-8 w-8 text-blue-500" />,
     title: 'Full-Stack Developer',
     description: 'Building modern web applications with cutting-edge technologies',
   },
   {
-    icon: <Lightbulb className="h-8 w-8 text-yellow-500" />,
+    icon: <LuLightbulb className="h-8 w-8 text-yellow-500" />,
     title: 'Problem Solver',
     description: 'Passionate about finding elegant solutions to complex challenges',
   },
   {
-    icon: <Users className="h-8 w-8 text-green-500" />,
+    icon: <LuUsers className="h-8 w-8 text-green-500" />,
     title: 'Team Collaborator',
     description: 'Love working with diverse teams to create amazing products',
   },
   {
-    icon: <Zap className="h-8 w-8 text-purple-500" />,
+    icon: <LuZap className="h-8 w-8 text-purple-500" />,
     title: 'Continuous Learner',
     description: 'Always exploring new technologies and improving my craft',
   },

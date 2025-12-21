@@ -2,12 +2,12 @@ import {
   CardAnimationWrapper,
   CardContainerAnimationWrapper,
 } from '@/components/ui/text-animation/AnimationWrappers'
-import { Briefcase, Calendar, Mail, User } from 'lucide-react'
 import { Typography } from '@/components/atoms/typography'
 import type { CollaboratorsListProps } from './types'
 import { contructImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'
+import { LuBriefcase, LuCalendar, LuMail, LuUser } from 'react-icons/lu'
 
 const getInitials = (username: string) => {
   return username
@@ -75,25 +75,25 @@ const CollaboratorsList = ({ collaborators }: CollaboratorsListProps) => {
 
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                <User className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <LuUser className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 <Typography as="p" size="xxs" color="inherit" weight="medium" className="break-all">
                   {collaborator.username}
                 </Typography>
               </div>
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <LuMail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 <Typography as="p" size="xxs" color="inherit" weight="medium" className="break-all">
                   {collaborator.email}
                 </Typography>
               </div>
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                <Briefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <LuBriefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 <Typography as="p" size="xxs" color="inherit" weight="medium" className="break-all">
                   {collaborator.profession}
                 </Typography>
               </div>
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                <Calendar className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                <LuCalendar className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 <Typography as="p" size="xxs" color="inherit" weight="medium" className="text-sm">
                   Joined{' '}
                   {new Date(collaborator.createdAt).toLocaleDateString('en-US', {

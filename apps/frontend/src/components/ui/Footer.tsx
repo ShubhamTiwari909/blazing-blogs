@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Github, Instagram, Linkedin, ExternalLink } from 'lucide-react'
+import { LuMail, LuMapPin, LuPhone, LuGithub, LuInstagram, LuLinkedin, LuExternalLink } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
 import Link from 'next/link'
 import React from 'react'
@@ -68,7 +68,7 @@ const Footer = () => {
                 className="group flex h-10 w-10 items-center justify-center rounded-lg bg-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-slate-700 hover:shadow-lg"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5 text-white group-hover:text-indigo-400" />
+                <LuGithub className="h-5 w-5 text-white group-hover:text-indigo-400" />
               </a>
               <a
                 href={socialLinks.linkedin}
@@ -77,7 +77,7 @@ const Footer = () => {
                 className="group flex h-10 w-10 items-center justify-center rounded-lg bg-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-slate-700 hover:shadow-lg"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5 text-white group-hover:text-blue-400" />
+                <LuLinkedin className="h-5 w-5 text-white group-hover:text-blue-400" />
               </a>
               <a
                 href={socialLinks.instagram}
@@ -86,7 +86,7 @@ const Footer = () => {
                 className="group flex h-10 w-10 items-center justify-center rounded-lg bg-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-slate-700 hover:shadow-lg"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5 text-white group-hover:text-pink-400" />
+                <LuInstagram className="h-5 w-5 text-white group-hover:text-pink-400" />
               </a>
               <a
                 href={socialLinks.devto}
@@ -95,7 +95,7 @@ const Footer = () => {
                 className="group flex h-10 w-10 items-center justify-center rounded-lg bg-slate-700/50 transition-all duration-300 hover:scale-110 hover:bg-slate-700 hover:shadow-lg"
                 aria-label="Dev.to"
               >
-                <ExternalLink className="h-5 w-5 text-white group-hover:text-indigo-400" />
+                <LuExternalLink className="h-5 w-5 text-white group-hover:text-indigo-400" />
               </a>
             </div>
           </div>
@@ -132,7 +132,7 @@ const Footer = () => {
                   className="group flex items-center space-x-3 text-slate-400 transition-colors duration-200 hover:text-white"
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600/20 transition-colors duration-200 group-hover:bg-blue-600/30">
-                    <Mail className="h-4 w-4 text-blue-400" />
+                    <LuMail className="h-4 w-4 text-blue-400" />
                   </div>
                   <Typography as="p" size="xxs" color="inherit" weight="medium">
                     {contactInfo.email}
@@ -145,7 +145,7 @@ const Footer = () => {
                   className="group flex items-center space-x-3 text-slate-400 transition-colors duration-200 hover:text-white"
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-600/20 transition-colors duration-200 group-hover:bg-green-600/30">
-                    <Phone className="h-4 w-4 text-green-400" />
+                    <LuPhone className="h-4 w-4 text-green-400" />
                   </div>
                   <Typography as="p" size="xxs" color="inherit" weight="medium">
                     {contactInfo.phone}
@@ -155,7 +155,7 @@ const Footer = () => {
               <li>
                 <div className="flex items-center space-x-3 text-slate-400">
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-600/20">
-                    <MapPin className="h-4 w-4 text-purple-400" />
+                    <LuMapPin className="h-4 w-4 text-purple-400" />
                   </div>
                   <Typography as="p" size="xxs" color="inherit" weight="medium">
                     {contactInfo.location}
