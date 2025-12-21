@@ -3,10 +3,10 @@ import ReactionsWrapper from '@/components/blogs/reactions/ReactionsWrapper'
 import type { MetadataProps } from '@/components/blogs/blog-renderer/types'
 import AiAnalysis from '@/components/blogs/ai-analysis/AiAnalysis'
 import ViewsWrapper from '@/components/blogs/views/ViewsWrapper'
+import { Typography } from '@/components/atoms/typography'
 import Tags from '@/components/blogs/blog-renderer/Tags'
 import { CalendarDays, User } from 'lucide-react'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const Metadata = async ({
   id,
@@ -24,7 +24,9 @@ const Metadata = async ({
         {author && (
           <div className="flex items-center">
             <User className="mr-2 h-5 w-5" />
-            <Typography as='p' size="xxs" color="inherit" weight="medium">{author}</Typography>
+            <Typography as="p" size="xxs" color="inherit" weight="medium">
+              {author}
+            </Typography>
           </div>
         )}
 

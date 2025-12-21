@@ -1,8 +1,8 @@
 import { Code2, Database, Palette, Zap } from 'lucide-react'
 import { motion, MotionProps, stagger } from 'motion/react'
-import React from 'react'
 import { Typography } from '@/components/atoms/typography'
 import { cn } from '@/lib/utils'
+import React from 'react'
 
 const expertise = [
   {
@@ -60,7 +60,16 @@ const itemVariants: MotionProps['variants'] = {
 const ExpertisePreview = () => {
   return (
     <div className="mt-20">
-      <Typography as="h2" variant="h2" size="2xl" weight="bold" color="primary" className="mb-8 text-center">What I Do</Typography>
+      <Typography
+        as="h2"
+        variant="h2"
+        size="2xl"
+        weight="bold"
+        color="primary"
+        className="mb-8 text-center"
+      >
+        What I Do
+      </Typography>
       <motion.div
         variants={containerVariants}
         viewport={{ once: true }}
@@ -131,7 +140,13 @@ const ExpertisePreview = () => {
                     className={`h-6 w-6 ${item.color} ${iconHover} transition-colors duration-300`}
                   />
                 </div>
-                <Typography as='h3' variant="h3" weight="semibold" color="secondary" className={cn(titleHover, 'mb-5')}>
+                <Typography
+                  as="h3"
+                  variant="h3"
+                  weight="semibold"
+                  color="secondary"
+                  className={cn(titleHover, 'mb-5')}
+                >
                   {item.title}
                 </Typography>
                 <div className="flex flex-wrap gap-3">
@@ -154,7 +169,13 @@ const ExpertisePreview = () => {
                         key={skillIndex}
                         className={`group/skill relative rounded-xl bg-gradient-to-br px-4 py-2.5 ${gradient} overflow-hidden border backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:shadow-lg hover:shadow-current/20`}
                       >
-                        <Typography as='span' size="xxs" color="inherit" weight="semibold" className="text-foreground/90 group-hover/skill:text-foreground relative z-10 transition-colors">
+                        <Typography
+                          as="span"
+                          size="xxs"
+                          color="inherit"
+                          weight="semibold"
+                          className="text-foreground/90 group-hover/skill:text-foreground relative z-10 transition-colors"
+                        >
                           {skill}
                         </Typography>
                         <div

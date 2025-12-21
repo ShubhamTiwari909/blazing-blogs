@@ -1,7 +1,7 @@
-import { DefaultAnimationWrapper } from '../ui/text-animation/AnimationWrappers'
+import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
+import { Typography } from '@/components/atoms/typography'
 import { Target } from 'lucide-react'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const skills = [
   { name: 'HTML', gradient: 'from-red-500 to-red-600', icon: '🌐' },
@@ -27,7 +27,13 @@ const skills = [
 const Skills = () => {
   return (
     <DefaultAnimationWrapper className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
-      <Typography as="h2" variant="h2" size="2xl" weight="bold" className="mb-6 flex items-center text-center">
+      <Typography
+        as="h2"
+        variant="h2"
+        size="2xl"
+        weight="bold"
+        className="mb-6 flex items-center text-center"
+      >
         <Target className="mr-3 h-8 w-8 text-blue-500" />
         Skills & Expertise
       </Typography>
@@ -39,8 +45,12 @@ const Skills = () => {
           >
             {/* Content */}
             <div className="relative flex items-center justify-center space-x-2">
-              <Typography as='span' size="sm" color="white" weight="medium">{skill.icon}</Typography>
-              <Typography as='span' size="xxs" color="white" weight="medium">{skill.name}</Typography>
+              <Typography as="span" size="sm" color="white" weight="medium">
+                {skill.icon}
+              </Typography>
+              <Typography as="span" size="xxs" color="white" weight="medium">
+                {skill.name}
+              </Typography>
             </div>
 
             {/* Subtle glow effect */}

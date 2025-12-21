@@ -1,4 +1,5 @@
 import type { BlogCardProps } from '@/components/blogs/blogs-list/types'
+import { Typography } from '@/components/atoms/typography'
 import Tags from '@/components/blogs/blog-renderer/Tags'
 import EstimateReading from './EstimateReading'
 import BlogImage from './BlogImage'
@@ -6,7 +7,6 @@ import ReadMore from './ReadMore'
 import MetaData from './MetaData'
 import Link from 'next/link'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const BlogCard = ({ id, content, createdAt, slug }: BlogCardProps) => {
   return (
@@ -19,13 +19,20 @@ const BlogCard = ({ id, content, createdAt, slug }: BlogCardProps) => {
       )}
 
       <div className="p-6">
-        <Typography as="h2" variant="h2" size="xl" weight="bold" color="primary" className="mb-3 line-clamp-2 transition-colors duration-200 group-hover:text-blue-600">
+        <Typography
+          as="h2"
+          variant="h2"
+          size="xl"
+          weight="bold"
+          color="primary"
+          className="mb-3 line-clamp-2 transition-colors duration-200 group-hover:text-blue-600"
+        >
           <Link href={`/${slug}`} className="hover:underline">
             {content.title}
           </Link>
         </Typography>
 
-        <Typography as='p' size="xs" color="secondary" className="mb-5 line-clamp-3">
+        <Typography as="p" size="xs" color="secondary" className="mb-5 line-clamp-3">
           {content.shortDescription}
         </Typography>
 

@@ -59,517 +59,518 @@ export type SupportedTimezones =
   | 'Pacific/Guam'
   | 'Pacific/Noumea'
   | 'Pacific/Auckland'
-  | 'Pacific/Fiji';
+  | 'Pacific/Fiji'
 
 export interface Config {
   auth: {
-    users: UserAuthOperations;
-  };
-  blocks: {};
+    users: UserAuthOperations
+  }
+  blocks: {}
   collections: {
-    users: User;
-    media: Media;
-    pages: Page;
-    collaborators: Collaborator;
-    subscribers: Subscriber;
-    'payload-locked-documents': PayloadLockedDocument;
-    'payload-preferences': PayloadPreference;
-    'payload-migrations': PayloadMigration;
-  };
-  collectionsJoins: {};
+    users: User
+    media: Media
+    pages: Page
+    collaborators: Collaborator
+    subscribers: Subscriber
+    'payload-locked-documents': PayloadLockedDocument
+    'payload-preferences': PayloadPreference
+    'payload-migrations': PayloadMigration
+  }
+  collectionsJoins: {}
   collectionsSelect: {
-    users: UsersSelect<false> | UsersSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
-    pages: PagesSelect<false> | PagesSelect<true>;
-    collaborators: CollaboratorsSelect<false> | CollaboratorsSelect<true>;
-    subscribers: SubscribersSelect<false> | SubscribersSelect<true>;
-    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
-    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
-    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
-  };
+    users: UsersSelect<false> | UsersSelect<true>
+    media: MediaSelect<false> | MediaSelect<true>
+    pages: PagesSelect<false> | PagesSelect<true>
+    collaborators: CollaboratorsSelect<false> | CollaboratorsSelect<true>
+    subscribers: SubscribersSelect<false> | SubscribersSelect<true>
+    'payload-locked-documents':
+      | PayloadLockedDocumentsSelect<false>
+      | PayloadLockedDocumentsSelect<true>
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>
+  }
   db: {
-    defaultIDType: string;
-  };
-  globals: {};
-  globalsSelect: {};
-  locale: null;
+    defaultIDType: string
+  }
+  globals: {}
+  globalsSelect: {}
+  locale: null
   user: User & {
-    collection: 'users';
-  };
+    collection: 'users'
+  }
   jobs: {
-    tasks: unknown;
-    workflows: unknown;
-  };
+    tasks: unknown
+    workflows: unknown
+  }
 }
 export interface UserAuthOperations {
   forgotPassword: {
-    email: string;
-    password: string;
-  };
+    email: string
+    password: string
+  }
   login: {
-    email: string;
-    password: string;
-  };
+    email: string
+    password: string
+  }
   registerFirstUser: {
-    email: string;
-    password: string;
-  };
+    email: string
+    password: string
+  }
   unlock: {
-    email: string;
-    password: string;
-  };
+    email: string
+    password: string
+  }
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
+  id: string
+  updatedAt: string
+  createdAt: string
+  deletedAt?: string | null
+  email: string
+  resetPasswordToken?: string | null
+  resetPasswordExpiration?: string | null
+  salt?: string | null
+  hash?: string | null
+  loginAttempts?: number | null
+  lockUntil?: string | null
   sessions?:
     | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
+        id: string
+        createdAt?: string | null
+        expiresAt: string
       }[]
-    | null;
-  password?: string | null;
+    | null
+  password?: string | null
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
-  id: string;
-  alt: string;
-  _key?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
+  id: string
+  alt: string
+  _key?: string | null
+  updatedAt: string
+  createdAt: string
+  deletedAt?: string | null
+  url?: string | null
+  thumbnailURL?: string | null
+  filename?: string | null
+  mimeType?: string | null
+  filesize?: number | null
+  width?: number | null
+  height?: number | null
+  focalX?: number | null
+  focalY?: number | null
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
  */
 export interface Page {
-  id: string;
-  pageTitle: string;
-  slug: string;
+  id: string
+  pageTitle: string
+  slug: string
   content: {
-    title: string;
-    shortDescription: string;
-    author: string;
+    title: string
+    shortDescription: string
+    author: string
     tags?:
       | {
-          tag: string;
-          id?: string | null;
+          tag: string
+          id?: string | null
         }[]
-      | null;
-    image: string | Media;
-    aiSummary?: string | null;
+      | null
+    image: string | Media
+    aiSummary?: string | null
     blocks: (
       | {
           content?: {
             root: {
-              type: string;
+              type: string
               children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          } | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'content';
+                type: string
+                version: number
+                [k: string]: unknown
+              }[]
+              direction: ('ltr' | 'rtl') | null
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | ''
+              indent: number
+              version: number
+            }
+            [k: string]: unknown
+          } | null
+          id?: string | null
+          blockName?: string | null
+          blockType: 'content'
         }
       | {
-          codeBlock?: string | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'codeBlock';
+          codeBlock?: string | null
+          id?: string | null
+          blockName?: string | null
+          blockType: 'codeBlock'
         }
       | {
-          link: string;
+          link: string
           preview?:
             | {
-                [k: string]: unknown;
+                [k: string]: unknown
               }
             | unknown[]
             | string
             | number
             | boolean
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'linkPreview';
+            | null
+          id?: string | null
+          blockName?: string | null
+          blockType: 'linkPreview'
         }
       | {
           /**
            * Add a Youtube link
            */
-          ytIframe?: string | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'ytIframe';
+          ytIframe?: string | null
+          id?: string | null
+          blockName?: string | null
+          blockType: 'ytIframe'
         }
-    )[];
-  };
-  seo: Seo;
+    )[]
+  }
+  seo: Seo
   analytics?: {
-    views?: string | null;
-    reactions?: string | null;
-    pagespeed?: number | null;
-    domSize?: number | null;
-    lcp?: string | null;
-    fcp?: string | null;
-    cls?: string | null;
-    interactive?: string | null;
-    totalBlockingTime?: string | null;
-    speedIndex?: string | null;
-    serverResponseTime?: string | null;
-  };
+    views?: string | null
+    reactions?: string | null
+    pagespeed?: number | null
+    domSize?: number | null
+    lcp?: string | null
+    fcp?: string | null
+    cls?: string | null
+    interactive?: string | null
+    totalBlockingTime?: string | null
+    speedIndex?: string | null
+    serverResponseTime?: string | null
+  }
   featureFlags?: {
-    reactions?: ('enabled' | 'disabled') | null;
-    views?: ('enabled' | 'disabled') | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
-  _status?: ('draft' | 'published') | null;
+    reactions?: ('enabled' | 'disabled') | null
+    views?: ('enabled' | 'disabled') | null
+  }
+  updatedAt: string
+  createdAt: string
+  deletedAt?: string | null
+  _status?: ('draft' | 'published') | null
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Seo".
  */
 export interface Seo {
-  title: string;
+  title: string
   /**
    * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
    */
-  image: string | Media;
-  description: string;
+  image: string | Media
+  description: string
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "collaborators".
  */
 export interface Collaborator {
-  id: string;
-  email: string;
-  username: string;
-  image?: (string | null) | Media;
-  profession: string;
-  status?: ('active' | 'inactive') | null;
-  updatedAt: string;
-  createdAt: string;
-  deletedAt?: string | null;
+  id: string
+  email: string
+  username: string
+  image?: (string | null) | Media
+  profession: string
+  status?: ('active' | 'inactive') | null
+  updatedAt: string
+  createdAt: string
+  deletedAt?: string | null
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "subscribers".
  */
 export interface Subscriber {
-  id: string;
-  email: string;
-  name: string;
-  subscribedAt?: string | null;
-  isActive?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  email: string
+  name: string
+  subscribedAt?: string | null
+  isActive?: boolean | null
+  updatedAt: string
+  createdAt: string
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: string
   document?:
     | ({
-        relationTo: 'users';
-        value: string | User;
+        relationTo: 'users'
+        value: string | User
       } | null)
     | ({
-        relationTo: 'media';
-        value: string | Media;
+        relationTo: 'media'
+        value: string | Media
       } | null)
     | ({
-        relationTo: 'pages';
-        value: string | Page;
+        relationTo: 'pages'
+        value: string | Page
       } | null)
     | ({
-        relationTo: 'collaborators';
-        value: string | Collaborator;
+        relationTo: 'collaborators'
+        value: string | Collaborator
       } | null)
     | ({
-        relationTo: 'subscribers';
-        value: string | Subscriber;
-      } | null);
-  globalSlug?: string | null;
+        relationTo: 'subscribers'
+        value: string | Subscriber
+      } | null)
+  globalSlug?: string | null
   user: {
-    relationTo: 'users';
-    value: string | User;
-  };
-  updatedAt: string;
-  createdAt: string;
+    relationTo: 'users'
+    value: string | User
+  }
+  updatedAt: string
+  createdAt: string
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: string
   user: {
-    relationTo: 'users';
-    value: string | User;
-  };
-  key?: string | null;
+    relationTo: 'users'
+    value: string | User
+  }
+  key?: string | null
   value?:
     | {
-        [k: string]: unknown;
+        [k: string]: unknown
       }
     | unknown[]
     | string
     | number
     | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
+    | null
+  updatedAt: string
+  createdAt: string
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
-  name?: string | null;
-  batch?: number | null;
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  name?: string | null
+  batch?: number | null
+  updatedAt: string
+  createdAt: string
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-  email?: T;
-  resetPasswordToken?: T;
-  resetPasswordExpiration?: T;
-  salt?: T;
-  hash?: T;
-  loginAttempts?: T;
-  lockUntil?: T;
+  updatedAt?: T
+  createdAt?: T
+  deletedAt?: T
+  email?: T
+  resetPasswordToken?: T
+  resetPasswordExpiration?: T
+  salt?: T
+  hash?: T
+  loginAttempts?: T
+  lockUntil?: T
   sessions?:
     | T
     | {
-        id?: T;
-        createdAt?: T;
-        expiresAt?: T;
-      };
+        id?: T
+        createdAt?: T
+        expiresAt?: T
+      }
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
-  _key?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
+  alt?: T
+  _key?: T
+  updatedAt?: T
+  createdAt?: T
+  deletedAt?: T
+  url?: T
+  thumbnailURL?: T
+  filename?: T
+  mimeType?: T
+  filesize?: T
+  width?: T
+  height?: T
+  focalX?: T
+  focalY?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
-  pageTitle?: T;
-  slug?: T;
+  pageTitle?: T
+  slug?: T
   content?:
     | T
     | {
-        title?: T;
-        shortDescription?: T;
-        author?: T;
+        title?: T
+        shortDescription?: T
+        author?: T
         tags?:
           | T
           | {
-              tag?: T;
-              id?: T;
-            };
-        image?: T;
-        aiSummary?: T;
+              tag?: T
+              id?: T
+            }
+        image?: T
+        aiSummary?: T
         blocks?:
           | T
           | {
               content?:
                 | T
                 | {
-                    content?: T;
-                    id?: T;
-                    blockName?: T;
-                  };
+                    content?: T
+                    id?: T
+                    blockName?: T
+                  }
               codeBlock?:
                 | T
                 | {
-                    codeBlock?: T;
-                    id?: T;
-                    blockName?: T;
-                  };
+                    codeBlock?: T
+                    id?: T
+                    blockName?: T
+                  }
               linkPreview?:
                 | T
                 | {
-                    link?: T;
-                    preview?: T;
-                    id?: T;
-                    blockName?: T;
-                  };
+                    link?: T
+                    preview?: T
+                    id?: T
+                    blockName?: T
+                  }
               ytIframe?:
                 | T
                 | {
-                    ytIframe?: T;
-                    id?: T;
-                    blockName?: T;
-                  };
-            };
-      };
-  seo?: T | SeoSelect<T>;
+                    ytIframe?: T
+                    id?: T
+                    blockName?: T
+                  }
+            }
+      }
+  seo?: T | SeoSelect<T>
   analytics?:
     | T
     | {
-        views?: T;
-        reactions?: T;
-        pagespeed?: T;
-        domSize?: T;
-        lcp?: T;
-        fcp?: T;
-        cls?: T;
-        interactive?: T;
-        totalBlockingTime?: T;
-        speedIndex?: T;
-        serverResponseTime?: T;
-      };
+        views?: T
+        reactions?: T
+        pagespeed?: T
+        domSize?: T
+        lcp?: T
+        fcp?: T
+        cls?: T
+        interactive?: T
+        totalBlockingTime?: T
+        speedIndex?: T
+        serverResponseTime?: T
+      }
   featureFlags?:
     | T
     | {
-        reactions?: T;
-        views?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
-  _status?: T;
+        reactions?: T
+        views?: T
+      }
+  updatedAt?: T
+  createdAt?: T
+  deletedAt?: T
+  _status?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Seo_select".
  */
 export interface SeoSelect<T extends boolean = true> {
-  title?: T;
-  image?: T;
-  description?: T;
+  title?: T
+  image?: T
+  description?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "collaborators_select".
  */
 export interface CollaboratorsSelect<T extends boolean = true> {
-  email?: T;
-  username?: T;
-  image?: T;
-  profession?: T;
-  status?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  deletedAt?: T;
+  email?: T
+  username?: T
+  image?: T
+  profession?: T
+  status?: T
+  updatedAt?: T
+  createdAt?: T
+  deletedAt?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "subscribers_select".
  */
 export interface SubscribersSelect<T extends boolean = true> {
-  email?: T;
-  name?: T;
-  subscribedAt?: T;
-  isActive?: T;
-  updatedAt?: T;
-  createdAt?: T;
+  email?: T
+  name?: T
+  subscribedAt?: T
+  isActive?: T
+  updatedAt?: T
+  createdAt?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
  */
 export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
-  document?: T;
-  globalSlug?: T;
-  user?: T;
-  updatedAt?: T;
-  createdAt?: T;
+  document?: T
+  globalSlug?: T
+  user?: T
+  updatedAt?: T
+  createdAt?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences_select".
  */
 export interface PayloadPreferencesSelect<T extends boolean = true> {
-  user?: T;
-  key?: T;
-  value?: T;
-  updatedAt?: T;
-  createdAt?: T;
+  user?: T
+  key?: T
+  value?: T
+  updatedAt?: T
+  createdAt?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-migrations_select".
  */
 export interface PayloadMigrationsSelect<T extends boolean = true> {
-  name?: T;
-  batch?: T;
-  updatedAt?: T;
-  createdAt?: T;
+  name?: T
+  batch?: T
+  updatedAt?: T
+  createdAt?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {
-  [k: string]: unknown;
+  [k: string]: unknown
 }
-
 
 declare module 'payload' {
   export interface GeneratedTypes extends Config {}

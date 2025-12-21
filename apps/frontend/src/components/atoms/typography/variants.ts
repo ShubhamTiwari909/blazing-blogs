@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority'
 
 export const typographyVariants = cva('', {
   variants: {
@@ -16,10 +16,11 @@ export const typographyVariants = cva('', {
       blockquote: 'border-l-4 border-primary pl-4 italic text-muted-foreground',
       code: 'relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
       pre: 'overflow-x-auto rounded-lg bg-muted p-4 font-mono text-sm',
-      label: 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+      label:
+        'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
     },
     size: {
-      xxs:'text-xs md:text-sm',
+      xxs: 'text-xs md:text-sm',
       xs: 'text-xs md:text-sm lg:text-base',
       sm: 'text-sm md:text-base lg:text-lg',
       base: 'text-base md:text-lg lg:text-xl',
@@ -53,7 +54,7 @@ export const typographyVariants = cva('', {
       card: 'text-card-foreground',
       popover: 'text-popover-foreground',
       white: 'text-white',
-      inherit:''
+      inherit: '',
     },
     align: {
       left: 'text-left',

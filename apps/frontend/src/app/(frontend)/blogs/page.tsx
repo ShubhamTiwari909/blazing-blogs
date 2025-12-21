@@ -1,11 +1,11 @@
 import AnimationBox from '@/components/ui/text-animation/AnimationBox'
 import BlogsList from '@/components/blogs/blogs-list/BlogsList'
 import { queryPages } from '@/lib/fetch-utils/query-all-pages'
+import { Typography } from '@/components/atoms/typography'
 import { unstable_cache } from 'next/cache'
 import { DockIcon } from 'lucide-react'
 import type { Metadata } from 'next'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 // Force dynamic rendering to prevent static generation
 export const dynamic = 'force-dynamic'
@@ -60,12 +60,23 @@ const page = async () => {
             {pages?.totalDocs} Blogs
           </AnimationBox>
           <AnimationBox>
-            <Typography as='h1' variant='h1' size='5xl' weight='bold' className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent text-center">
+            <Typography
+              as="h1"
+              variant="h1"
+              size="5xl"
+              weight="bold"
+              className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-center text-transparent"
+            >
               Latest Blog Posts
             </Typography>
           </AnimationBox>
           <AnimationBox>
-            <Typography as='p' size="base" color="inherit" className="mx-auto max-w-3xl text-gray-600 text-center">
+            <Typography
+              as="p"
+              size="base"
+              color="inherit"
+              className="mx-auto max-w-3xl text-center text-gray-600"
+            >
               Discover insights, tutorials, and stories from our community of passionate developers
               and creators
             </Typography>
@@ -75,8 +86,12 @@ const page = async () => {
           <BlogsList pages={pages} />
         ) : (
           <div className="py-12 text-center">
-            <Typography as='p' size="base" color="inherit" className="text-gray-500">No blogs found</Typography>
-            <Typography as='p' size="base" color="inherit" className="mt-2 text-gray-400">Check back later for new content!</Typography>
+            <Typography as="p" size="base" color="inherit" className="text-gray-500">
+              No blogs found
+            </Typography>
+            <Typography as="p" size="base" color="inherit" className="mt-2 text-gray-400">
+              Check back later for new content!
+            </Typography>
           </div>
         )}
       </div>

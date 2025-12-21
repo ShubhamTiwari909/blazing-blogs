@@ -3,11 +3,11 @@ import {
   checkIfAlreadyViewed,
   getBlogView,
 } from '@/lib/fetch-utils/fetch-blog-views'
+import { Typography } from '@/components/atoms/typography'
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 import type { ViewsProps } from './types'
 import { Eye } from 'lucide-react'
-import { Typography } from '@/components/atoms/typography'
 
 const Views = ({ id }: ViewsProps) => {
   const [cookies, setCookies] = useCookies()
@@ -32,7 +32,9 @@ const Views = ({ id }: ViewsProps) => {
   return (
     <div className="flex items-center gap-1">
       <Eye className="h-4 w-4" />
-      <Typography as='p' size="xxs" color="inherit">{blogViews}</Typography>
+      <Typography as="p" size="xxs" color="inherit">
+        {blogViews}
+      </Typography>
     </div>
   )
 }

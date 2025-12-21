@@ -1,7 +1,7 @@
-import { DefaultAnimationWrapper } from '../ui/text-animation/AnimationWrappers'
+import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
+import { Typography } from '@/components/atoms/typography'
 import { Award, Users, Zap } from 'lucide-react'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const Values = () => {
   return (
@@ -14,8 +14,17 @@ const Values = () => {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg">
             <Award className="h-8 w-8 text-white" />
           </div>
-          <Typography as='h3' variant="h3" size="base" weight="semibold" color="secondary" className="text-center">Quality First</Typography>
-          <Typography as='p' size="xs" color="secondary" className="text-center">
+          <Typography
+            as="h3"
+            variant="h3"
+            size="base"
+            weight="semibold"
+            color="secondary"
+            className="text-center"
+          >
+            Quality First
+          </Typography>
+          <Typography as="p" size="xs" color="secondary" className="text-center">
             I believe in writing clean, maintainable code that stands the test of time.
           </Typography>
         </div>
@@ -23,8 +32,17 @@ const Values = () => {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-green-600 shadow-lg">
             <Users className="h-8 w-8 text-white" />
           </div>
-          <Typography as='h3' variant="h3" size="base" weight="semibold" color="secondary" className="text-center">User-Centric</Typography>
-          <Typography as='p' size="xs" color="secondary" className="text-center">
+          <Typography
+            as="h3"
+            variant="h3"
+            size="base"
+            weight="semibold"
+            color="secondary"
+            className="text-center"
+          >
+            User-Centric
+          </Typography>
+          <Typography as="p" size="xs" color="secondary" className="text-center">
             Every decision I make is guided by how it will impact the end user experience.
           </Typography>
         </div>
@@ -32,8 +50,17 @@ const Values = () => {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg">
             <Zap className="h-8 w-8 text-white" />
           </div>
-          <Typography as='h3' variant="h3" size="base" weight="semibold" color="secondary" className="text-center">Innovation</Typography>
-          <Typography as='p' size="xs" color="secondary" className="text-center">
+          <Typography
+            as="h3"
+            variant="h3"
+            size="base"
+            weight="semibold"
+            color="secondary"
+            className="text-center"
+          >
+            Innovation
+          </Typography>
+          <Typography as="p" size="xs" color="secondary" className="text-center">
             Always exploring new technologies and approaches to solve problems better.
           </Typography>
         </div>

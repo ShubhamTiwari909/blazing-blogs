@@ -1,11 +1,11 @@
 import type { BlogHeaderProps } from '@/components/blogs/blog-renderer/types'
 import { BlogImage } from '@/components/blogs/blog-renderer/Image'
+import { Typography } from '@/components/atoms/typography'
 import ShareToLinkedIn from '@/components/share/linkedin'
 import BlogHeaderWrapper from './BlogHeaderWrapper'
 import { contructImageUrl } from '@/lib/utils'
 import Metadata from './Metadata'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const BlogHeader = ({ blog }: BlogHeaderProps) => {
   const { id, createdAt, featureFlags, content } = blog
@@ -18,10 +18,14 @@ const BlogHeader = ({ blog }: BlogHeaderProps) => {
       )}
 
       {/* Blog Title */}
-      <Typography as="h1" variant="h1" size="4xl" weight="bold" color="inherit" className="mb-5">{title}</Typography>
+      <Typography as="h1" variant="h1" size="4xl" weight="bold" color="inherit" className="mb-5">
+        {title}
+      </Typography>
 
       {/* Blog Description */}
-      <Typography as='p' size="base" color="inherit" className="mb-8">{shortDescription}</Typography>
+      <Typography as="p" size="base" color="inherit" className="mb-8">
+        {shortDescription}
+      </Typography>
 
       <Metadata
         id={id}

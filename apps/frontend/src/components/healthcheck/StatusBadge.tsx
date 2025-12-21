@@ -1,9 +1,13 @@
-import { Typography } from "@/components/atoms/typography"
+import { Typography } from '@/components/atoms/typography'
 
 export const StatusBadge = ({ status }: { status: string }) => {
   const isOk = status === 'OK'
   return (
-    <Typography as="span" weight="medium" size="xxs" color="inherit"
+    <Typography
+      as="span"
+      weight="medium"
+      size="xxs"
+      color="inherit"
       className={`inline-flex items-center rounded-full px-3 py-1 ${
         isOk
           ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400'

@@ -1,10 +1,10 @@
 import {
   CardAnimationWrapper,
   CardContainerAnimationWrapper,
-} from '../ui/text-animation/AnimationWrappers'
+} from '@/components/ui/text-animation/AnimationWrappers'
+import { Typography } from '@/components/atoms/typography'
 import { Code, Zap, Lightbulb, Users } from 'lucide-react'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const achievements = [
   {
@@ -43,10 +43,17 @@ const Achievment = () => {
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200 transition-all duration-300 group-hover:shadow-lg dark:from-slate-700 dark:to-slate-600">
                   {achievement.icon}
                 </div>
-                <Typography as="h3" variant="h3" size="base" weight="semibold" color="secondary" className="text-center">
+                <Typography
+                  as="h3"
+                  variant="h3"
+                  size="base"
+                  weight="semibold"
+                  color="secondary"
+                  className="text-center"
+                >
                   {achievement.title}
                 </Typography>
-                <Typography as='p' size="xxs" color="secondary" className="text-center">
+                <Typography as="p" size="xxs" color="secondary" className="text-center">
                   {achievement.description}
                 </Typography>
               </div>

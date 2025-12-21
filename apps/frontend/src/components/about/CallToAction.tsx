@@ -1,16 +1,28 @@
-import { DefaultAnimationWrapper } from '../ui/text-animation/AnimationWrappers'
+import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
+import { Typography } from '@/components/atoms/typography'
 import Link from 'next/link'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const CallToAction = () => {
   return (
     <DefaultAnimationWrapper className="text-center">
       <div className="rounded-2xl border border-white/20 bg-white/50 p-8 backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/50">
-        <Typography as="h3" variant="h3" size="2xl" weight="semibold" color="secondary" className="mb-4 text-center">
+        <Typography
+          as="h3"
+          variant="h3"
+          size="2xl"
+          weight="semibold"
+          color="secondary"
+          className="mb-4 text-center"
+        >
           Let&apos;s Create Something Amazing Together
         </Typography>
-        <Typography as='p' size="xs" color="secondary" className="mx-auto mb-6 max-w-2xl text-center">
+        <Typography
+          as="p"
+          size="xs"
+          color="secondary"
+          className="mx-auto mb-6 max-w-2xl text-center"
+        >
           I&apos;m always excited to work on new projects, collaborate with talented people, and
           contribute to meaningful solutions. Whether you have a project in mind or just want to
           chat about technology, I&apos;d love to hear from you!

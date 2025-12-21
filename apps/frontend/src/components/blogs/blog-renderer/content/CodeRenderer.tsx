@@ -1,9 +1,9 @@
 'use client'
 import type { CodeRendererProps } from '@/components/blogs/blog-renderer/types'
+import { Typography } from '@/components/atoms/typography'
 import 'prismjs/themes/prism-tomorrow.css'
 import { useEffect } from 'react'
 import Prism from 'prismjs'
-import { Typography } from '@/components/atoms/typography'
 
 export default function CodeRenderer({ code, language = 'javascript' }: CodeRendererProps) {
   useEffect(() => {
@@ -12,7 +12,9 @@ export default function CodeRenderer({ code, language = 'javascript' }: CodeRend
 
   return (
     <pre suppressHydrationWarning className={`language-${language}`}>
-      <Typography as='code' size="xxs" color="inherit" className={`language-${language}`}>{code}</Typography>
+      <Typography as="code" size="xxs" color="inherit" className={`language-${language}`}>
+        {code}
+      </Typography>
     </pre>
   )
 }

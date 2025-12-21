@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { cn } from '@/lib/utils'
 import { typographyVariants } from './variants'
 import { TypographyProps } from './types'
+import { cn } from '@/lib/utils'
 
 export const Typography = ({
   className,
@@ -20,7 +20,9 @@ export const Typography = ({
 
   return (
     <Component
-      className={cn(typographyVariants({ variant, size, weight, color, align, transform, className }))}
+      className={cn(
+        typographyVariants({ variant, size, weight, color, align, transform, className }),
+      )}
       {...props}
     >
       {children}

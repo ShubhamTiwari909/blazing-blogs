@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone, Github, Instagram, Linkedin, ExternalLink } from 'lucide-react'
+import { Typography } from '@/components/atoms/typography'
 import Link from 'next/link'
 import React from 'react'
-import { Typography } from '../atoms/typography'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -37,13 +37,27 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link href="/" className="group mb-4 flex items-center space-x-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
-                <Typography as='p' size="base" color="white" weight="bold">B</Typography>
+                <Typography as="p" size="base" color="white" weight="bold">
+                  B
+                </Typography>
               </div>
-              <Typography as='p' size="base" color="white" weight="bold" className="bg-gradient-to-r from-white to-slate-300 bg-clip-text">
+              <Typography
+                as="p"
+                size="base"
+                color="white"
+                weight="bold"
+                className="bg-gradient-to-r from-white to-slate-300 bg-clip-text"
+              >
                 Blazing Blog
               </Typography>
             </Link>
-            <Typography as='p' size="xxs" color="inherit" weight="medium" className="mb-6 text-slate-400">
+            <Typography
+              as="p"
+              size="xxs"
+              color="inherit"
+              weight="medium"
+              className="mb-6 text-slate-400"
+            >
               Passionate full-stack developer crafting digital experiences that make a difference.
             </Typography>
             <div className="flex space-x-4">
@@ -88,7 +102,9 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <Typography as='h3' variant="p" weight="semibold" color="white" className="mb-4">Quick Links</Typography>
+            <Typography as="h3" variant="p" weight="semibold" color="white" className="mb-4">
+              Quick Links
+            </Typography>
             <ul className="space-y-3">
               {navItems.map((item) => (
                 <li key={item.name}>
@@ -106,7 +122,9 @@ const Footer = () => {
 
           {/* Contact Information */}
           <div>
-          <Typography as='h3' variant="p" weight="semibold" color="white" className="mb-4">Get In Touch</Typography>
+            <Typography as="h3" variant="p" weight="semibold" color="white" className="mb-4">
+              Get In Touch
+            </Typography>
             <ul className="space-y-3">
               <li>
                 <a
@@ -116,7 +134,9 @@ const Footer = () => {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600/20 transition-colors duration-200 group-hover:bg-blue-600/30">
                     <Mail className="h-4 w-4 text-blue-400" />
                   </div>
-                  <Typography as='p' size="xxs" color="inherit" weight="medium">{contactInfo.email}</Typography>
+                  <Typography as="p" size="xxs" color="inherit" weight="medium">
+                    {contactInfo.email}
+                  </Typography>
                 </a>
               </li>
               <li>
@@ -127,7 +147,9 @@ const Footer = () => {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-600/20 transition-colors duration-200 group-hover:bg-green-600/30">
                     <Phone className="h-4 w-4 text-green-400" />
                   </div>
-                  <Typography as='p' size="xxs" color="inherit" weight="medium">{contactInfo.phone}</Typography>
+                  <Typography as="p" size="xxs" color="inherit" weight="medium">
+                    {contactInfo.phone}
+                  </Typography>
                 </a>
               </li>
               <li>
@@ -135,7 +157,9 @@ const Footer = () => {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-600/20">
                     <MapPin className="h-4 w-4 text-purple-400" />
                   </div>
-                  <Typography as='p' size="xxs" color="inherit" weight="medium">{contactInfo.location}</Typography>
+                  <Typography as="p" size="xxs" color="inherit" weight="medium">
+                    {contactInfo.location}
+                  </Typography>
                 </div>
               </li>
             </ul>
@@ -143,8 +167,10 @@ const Footer = () => {
 
           {/* About Section */}
           <div>
-            <Typography as='h3' variant="p" weight="semibold" color="white" className="mb-4">About</Typography>
-            <Typography as='p' size="xxs" color="inherit" className="mb-4 text-slate-400">
+            <Typography as="h3" variant="p" weight="semibold" color="white" className="mb-4">
+              About
+            </Typography>
+            <Typography as="p" size="xxs" color="inherit" className="mb-4 text-slate-400">
               I believe in the power of code to solve real-world problems and create meaningful
               connections.
             </Typography>
@@ -160,7 +186,12 @@ const Footer = () => {
         {/* Divider */}
         <div className="mt-8 border-t border-slate-700/50 pt-8">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-            <Typography as='p' size="xxs" color="inherit" className="text-center text-sm text-slate-500 md:text-left">
+            <Typography
+              as="p"
+              size="xxs"
+              color="inherit"
+              className="text-center text-sm text-slate-500 md:text-left"
+            >
               © {currentYear} Blazing Blog. All rights reserved.
             </Typography>
           </div>

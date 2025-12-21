@@ -1,7 +1,7 @@
 import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
+import { Typography } from '@/components/atoms/typography'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import React from 'react'
-import { Typography } from '@/components/atoms/typography'
 
 const contactInfo = {
   email: 'shubhmtiwri00@gmail.com',
@@ -17,7 +17,7 @@ const contactInfo = {
 
 const ContactInformation = () => {
   return (
-    <DefaultAnimationWrapper className="rounded-3xl border border-white/20 bg-white/70 p-5 md:p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
+    <DefaultAnimationWrapper className="rounded-3xl border border-white/20 bg-white/70 p-5 shadow-xl backdrop-blur-sm md:p-8 dark:border-slate-700/20 dark:bg-slate-800/70">
       <Typography as="h2" variant="h2" size="xl" weight="bold" color="secondary" className="mb-6">
         Contact Information
       </Typography>
@@ -29,7 +29,9 @@ const ContactInformation = () => {
             <Mail className="h-6 w-6 text-white" />
           </div>
           <div>
-            <Typography as='p' size="xs" color="inherit" weight="medium" className="text-slate-500">Email</Typography>
+            <Typography as="p" size="xs" color="inherit" weight="medium" className="text-slate-500">
+              Email
+            </Typography>
             <a
               href={`mailto:${contactInfo.email}`}
               className="text-lg text-slate-800 transition-colors duration-200 hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400"
@@ -45,7 +47,9 @@ const ContactInformation = () => {
             <Phone className="h-6 w-6 text-white" />
           </div>
           <div>
-          <Typography as='p' size="xs" color="inherit" weight="medium" className="text-slate-500">Phone</Typography>
+            <Typography as="p" size="xs" color="inherit" weight="medium" className="text-slate-500">
+              Phone
+            </Typography>
             <a
               href={`tel:${contactInfo.phone}`}
               className="text-lg text-slate-800 transition-colors duration-200 hover:text-green-600 dark:text-slate-200 dark:hover:text-green-400"
@@ -61,8 +65,12 @@ const ContactInformation = () => {
             <MapPin className="h-6 w-6 text-white" />
           </div>
           <div>
-            <Typography as='p' size="xs" color="inherit" weight="medium" className="text-slate-500">Location</Typography>
-            <Typography as='p' size="xs" color="inherit" weight="medium" className="text-slate-800">{contactInfo.location}</Typography>
+            <Typography as="p" size="xs" color="inherit" weight="medium" className="text-slate-500">
+              Location
+            </Typography>
+            <Typography as="p" size="xs" color="inherit" weight="medium" className="text-slate-800">
+              {contactInfo.location}
+            </Typography>
           </div>
         </div>
       </div>
