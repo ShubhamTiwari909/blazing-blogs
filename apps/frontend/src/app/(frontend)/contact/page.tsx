@@ -3,34 +3,12 @@ import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
 import SocialLinks from '@/components/contact/SocialLinks'
 import GetInTouch from '@/components/contact/GetInTouch'
 import Outro from '@/components/contact/Outro'
-import type { Metadata } from 'next'
+import { METADATA } from './metadata'
 import React from 'react'
 
 export const dynamic = 'force-static'
 
-export const metadata: Metadata = {
-  title: 'Contact | Blazing Blogs',
-  description: 'Contact us for any questions or inquiries',
-  alternates: {
-    canonical: 'https://blazing-blogs-frontend.vercel.app/contact',
-    languages: {
-      'x-default': 'https://blazing-blogs-frontend.vercel.app/contact',
-    },
-  },
-  openGraph: {
-    title: 'Contact | Blazing Blogs',
-    description: 'Contact us for any questions or inquiries',
-    url: 'https://blazing-blogs-frontend.vercel.app/contact',
-  },
-  twitter: {
-    title: 'Contact | Blazing Blogs',
-    description: 'Contact us for any questions or inquiries',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+export const metadata = METADATA
 
 const ContactPage = () => {
   return (

@@ -6,12 +6,15 @@ import { LuMail, LuSparkles } from 'react-icons/lu'
 import { redirect } from 'next/navigation'
 import { auth } from '@/lib/auth'
 import React from 'react'
+import { METADATA } from './metadata'
 
 const isSubscribed = async (email: string) => {
   const res = await fetch(`${process.env.SITE_URL}/api/subscribe?email=${email}`)
   const data = await res.json()
   return data.docs[0]
 }
+
+export const metadata = METADATA
 
 const page = async () => {
   const session = await auth()
