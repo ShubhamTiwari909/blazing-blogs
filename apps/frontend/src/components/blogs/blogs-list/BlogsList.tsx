@@ -5,6 +5,7 @@ import { useBlogs } from '@/lib/hooks/useBlogs'
 import BlogCard from './card/BlogCard'
 import React, { useMemo } from 'react'
 import HasNext from './HasNext'
+import { Typography } from '@/components/atoms/typography'
 
 const BlogsList = ({ pages }: BlogsListProps) => {
   // Initialize the initial data for the query
@@ -41,8 +42,8 @@ const BlogsList = ({ pages }: BlogsListProps) => {
     return (
       <div className="py-12 text-center">
         <div className="text-lg text-red-500">Failed to load blogs</div>
-        <p className="mt-2 text-gray-400">Please try again later</p>
-        {error && <p className="mt-1 text-sm text-gray-300">Error: {error.message}</p>}
+        <Typography as='p' size="xxs" color="inherit" className="mt-2 text-gray-400">Please try again later</Typography>
+        {error && <Typography as='p' size="xxs" color="inherit" className="mt-1 text-sm text-gray-300">Error: {error.message}</Typography>}
       </div>
     )
   }
@@ -52,7 +53,7 @@ const BlogsList = ({ pages }: BlogsListProps) => {
     return (
       <div className="py-12 text-center">
         <div className="text-lg text-gray-500">No blogs found</div>
-        <p className="mt-2 text-gray-400">Check back later for new content!</p>
+        <Typography as='p' size="xxs" color="inherit" className="mt-2 text-gray-400">Check back later for new content!</Typography>
       </div>
     )
   }

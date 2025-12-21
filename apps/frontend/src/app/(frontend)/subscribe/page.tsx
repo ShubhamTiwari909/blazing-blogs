@@ -5,6 +5,7 @@ import { Mail, Sparkles } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import { auth } from '@/lib/auth'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const isSubscribed = async (email: string) => {
   const res = await fetch(`${process.env.SITE_URL}/api/subscribe?email=${email}`)
@@ -37,20 +38,20 @@ const page = async () => {
 
           <AnimationBox className="mb-4 flex items-center justify-center gap-2">
             <Sparkles className="text-primary h-5 w-5" />
-            <h1 className="text-foreground text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+            <Typography as="h1" variant="h1" size="4xl" weight="bold" className="text-foreground text-center">
               Stay in the Loop
-            </h1>
+            </Typography>
             <Sparkles className="text-primary h-5 w-5" />
           </AnimationBox>
 
           <AnimationBox>
-            <p className="text-muted-foreground mx-auto mb-2 max-w-xl text-xl leading-relaxed font-light md:text-2xl">
+            <Typography as='p' color='muted' size="lg" weight="light" className="mx-auto mb-2 max-w-xl text-center">
               Subscribe to get the latest articles, insights, and updates delivered straight to your
               inbox.
-            </p>
-            <p className="text-muted-foreground/80 text-sm">
+            </Typography>
+            <Typography as='p' color='inherit' size="xs" weight="light" className="text-muted-foreground/80 text-center">
               Join a community of passionate developers and tech enthusiasts
-            </p>
+            </Typography>
           </AnimationBox>
         </div>
 
@@ -64,9 +65,9 @@ const page = async () => {
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-muted-foreground text-sm">
+          <Typography as='p' size="xxs" color="muted" className='text-center'>
             We respect your privacy. Unsubscribe at any time.
-          </p>
+          </Typography>
         </div>
       </div>
     </section>

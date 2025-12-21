@@ -1,4 +1,5 @@
 'use client'
+import { Typography } from '@/components/atoms/typography'
 import type { LinkPreviewCardProps } from '@/components/blogs/blog-renderer/types'
 import Image from 'next/image'
 
@@ -36,24 +37,24 @@ export default function LinkPreviewCard({ meta, link }: LinkPreviewCardProps) {
       )}
       <div className="relative flex flex-col justify-between p-6 sm:w-2/3">
         <div className="space-y-3">
-          <h2 className="text-xl leading-tight font-bold text-gray-900 transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+          <Typography as="h2" variant="h2" size="lg" weight="bold" color="primary" className="transition-colors duration-300 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
             {meta.title}
-          </h2>
+          </Typography>
           {meta.description && (
-            <p className="line-clamp-4 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+            <Typography as='p' size="xxs" color="secondary" className="line-clamp-4">
               {meta.description}
-            </p>
+            </Typography>
           )}
         </div>
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500" />
-            <p className="text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
+            <Typography as='p' size="xxs" color="secondary" weight="medium" className="text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
               {meta.site}
-            </p>
+            </Typography>
           </div>
           <div className="flex items-center text-xs font-medium text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:text-blue-400">
-            <span>Visit</span>
+            <Typography as='p' size="xxs" color="inherit" weight="medium">Visit</Typography>
             <svg
               className="ml-1 h-3 w-3 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"

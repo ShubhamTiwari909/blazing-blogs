@@ -1,3 +1,4 @@
+import { Typography } from '@/components/atoms/typography'
 import { HasNextProps } from './types'
 import React from 'react'
 
@@ -12,11 +13,11 @@ const HasNext = ({ handleLoadMore, isFetchingNextPage }: HasNextProps) => {
         {isFetchingNextPage ? (
           <>
             <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
-            <span>Loading...</span>
+            <Typography as='p' size="xxs" color="inherit" weight="medium">Loading...</Typography>
           </>
         ) : (
           <>
-            <span>Load More Articles</span>
+            <Typography as='p' size="xxs" color="inherit" weight="medium">Load More Articles</Typography>
             <svg
               className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
               fill="none"

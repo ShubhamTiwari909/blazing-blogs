@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react'
 import { generateReactionMap } from './data'
 import React, { useState } from 'react'
 import Image from 'next/image'
+import { Typography } from '@/components/atoms/typography'
 
 const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
   const { data: session } = useSession()
@@ -53,7 +54,7 @@ const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
   const reactionsMap = generateReactionMap(reactions)
 
   return (
-    <ul className="relative flex items-center gap-1">
+    <ul className="relative flex flex-wrap items-center gap-1">
       {reactionsMap?.map((reaction) => (
         <Button
           onClick={() => handleReaction(reaction.name)}
@@ -63,15 +64,15 @@ const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
           className={`flex cursor-pointer items-center gap-1 px-2 hover:border-violet-800 hover:bg-white disabled:opacity-50 ${hasReacted[reaction.name] ? 'border-violet-500' : 'border-gray-500'}`}
         >
           <Image src={reaction.icon} alt={reaction.name} width={24} height={24} />
-          <p className={hasReacted[reaction.name] ? 'text-violet-500' : 'text-gray-600'}>
+          <Typography as='p' size="xxs" color="secondary" className={hasReacted[reaction.name] ? 'text-violet-500' : 'text-gray-600'}>
             {reaction.count}
-          </p>
+          </Typography>
         </Button>
       ))}
       {error && (
-        <p className="absolute right-0 -bottom-4 z-100 text-xs text-red-500 lg:right-5 lg:-bottom-12">
+        <Typography as='p' size="xxs" color="inherit" className="absolute right-0 -bottom-4 z-100 text-xs text-red-500 lg:right-5 lg:-bottom-12">
           {error}
-        </p>
+        </Typography>
       )}
     </ul>
   )

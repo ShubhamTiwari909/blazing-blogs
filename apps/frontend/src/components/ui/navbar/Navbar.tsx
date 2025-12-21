@@ -38,7 +38,7 @@ const Navbar = ({ children }: ChildrenProps) => {
                 className="group relative font-medium text-slate-600 transition-colors duration-200 hover:text-slate-900"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+                <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></div>
               </Link>
             ))}
             {children}

@@ -35,7 +35,7 @@ export async function GET(): Promise<NextResponse> {
 
     const response: {
       database: {
-        pages: { total?: number; status: string; error?: string; slugs?: string }
+        pages: { total?: number; status: string; error?: string }
         media: { total?: number; status: string; error?: string }
         users: { total?: number; status: string; error?: string }
       }
@@ -66,7 +66,6 @@ export async function GET(): Promise<NextResponse> {
       response.database.pages = {
         total: pages.totalDocs,
         status: 'OK',
-        slugs: pages.docs.map((page) => `${page.slug}`).join(', '),
       }
     } catch (error) {
       console.error('Error checking pages:', error)

@@ -6,6 +6,7 @@ import ViewsWrapper from '@/components/blogs/views/ViewsWrapper'
 import Tags from '@/components/blogs/blog-renderer/Tags'
 import { CalendarDays, User } from 'lucide-react'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const Metadata = async ({
   id,
@@ -23,7 +24,7 @@ const Metadata = async ({
         {author && (
           <div className="flex items-center">
             <User className="mr-2 h-5 w-5" />
-            <span className="font-medium">{author}</span>
+            <Typography as='p' size="xxs" color="inherit" weight="medium">{author}</Typography>
           </div>
         )}
 

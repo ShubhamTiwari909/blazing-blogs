@@ -25,9 +25,7 @@ export type CardProps = {
 }
 export type DatabaseProps = {
   database: {
-    pages: DatabaseItem & {
-      slugs: string
-    }
+    pages: DatabaseItem
     media: DatabaseItem
     users: DatabaseItem
   }

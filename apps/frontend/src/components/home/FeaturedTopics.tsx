@@ -1,6 +1,7 @@
-import { BookOpen, Code, Lightbulb, Rocket, Sparkles } from 'lucide-react'
+import { BookOpen, Code, Lightbulb, Rocket } from 'lucide-react'
 import { motion, MotionProps, stagger } from 'motion/react'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const topics = [
   {
@@ -54,9 +55,7 @@ const FeaturedTopics = () => {
   return (
     <div className="mt-20">
       <div className="mb-8 flex items-center justify-center gap-2">
-        <Sparkles className="text-primary h-5 w-5" />
-        <h2 className="text-foreground text-2xl font-bold md:text-3xl">Explore Topics</h2>
-        <Sparkles className="text-primary h-5 w-5" />
+        <Typography as="h2" variant="h2" size="2xl" weight="bold" color="primary" className="mb-8 text-center">Explore Topics</Typography>
       </div>
       <motion.div
         variants={containerVariants}
@@ -75,10 +74,10 @@ const FeaturedTopics = () => {
                 >
                   <Icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-foreground group-hover:text-primary mb-2 text-lg font-semibold transition-colors">
+                <Typography as='h3' variant="h3" size="lg" weight="semibold" color="secondary" className="mb-2">
                   {topic.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{topic.description}</p>
+                </Typography>
+                <Typography as='p' size="xxs" color="muted">{topic.description}</Typography>
                 <div className="from-primary/0 to-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br transition-all duration-300 group-hover:to-transparent" />
               </div>
             </motion.div>

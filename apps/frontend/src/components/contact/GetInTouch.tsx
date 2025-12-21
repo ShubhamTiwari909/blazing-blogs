@@ -1,18 +1,19 @@
 import AnimationBox from '@/components/ui/text-animation/AnimationBox'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const GetInTouch = () => {
   return (
     <div className="mb-16 text-center">
       <AnimationBox>
-        <h1 className="mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+        <Typography as="h1" variant="h1" size="5xl" weight="bold" color="inherit" className="mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent text-center">
           Get In Touch
-        </h1>
+        </Typography>
       </AnimationBox>
       <AnimationBox>
-        <p className="mx-auto max-w-2xl text-xl leading-relaxed text-slate-600 dark:text-slate-300">
+        <Typography as='p' size="lg" color="secondary" className="mx-auto max-w-2xl text-center">
           Ready to collaborate, discuss ideas, or just say hello? I&apos;d love to hear from you!
-        </p>
+        </Typography>
       </AnimationBox>
     </div>
   )

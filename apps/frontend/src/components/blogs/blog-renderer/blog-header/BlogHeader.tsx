@@ -5,6 +5,7 @@ import BlogHeaderWrapper from './BlogHeaderWrapper'
 import { contructImageUrl } from '@/lib/utils'
 import Metadata from './Metadata'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const BlogHeader = ({ blog }: BlogHeaderProps) => {
   const { id, createdAt, featureFlags, content } = blog
@@ -17,10 +18,10 @@ const BlogHeader = ({ blog }: BlogHeaderProps) => {
       )}
 
       {/* Blog Title */}
-      <h1 className="mb-5 text-2xl leading-tight font-bold md:text-5xl lg:text-5xl">{title}</h1>
+      <Typography as="h1" variant="h1" size="4xl" weight="bold" color="inherit" className="mb-5">{title}</Typography>
 
       {/* Blog Description */}
-      <p className="mb-8 text-lg leading-relaxed md:text-xl">{shortDescription}</p>
+      <Typography as='p' size="base" color="inherit" className="mb-8">{shortDescription}</Typography>
 
       <Metadata
         id={id}

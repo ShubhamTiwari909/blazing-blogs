@@ -1,10 +1,13 @@
+import { Typography } from '@/components/atoms/typography'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import React from 'react'
 
+export const dynamic = 'force-static'
+
 const NotFound = () => {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 py-10">
       {/* Elegant background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzR2LTRoLTJ2NGgtNHYyaDR2NGgydi00aDR2LTJoLTR6bTAtMzBWMGgtMnY0aC00djJoNHY0aDJWNmg0VjRoLTR6TTYgMzR2LTRINHY0SDB2Mmg0djRoMnYtNGg0di0ySDZ6TTYgNFYwSDR2NEgwdjJoNHY0aDJWNmg0VjRINnoiLz48L2c+PC9nPjwvc3ZnPg==')]"></div>
@@ -21,20 +24,20 @@ const NotFound = () => {
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         {/* 404 Number */}
         <div className="mb-8">
-          <h1 className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-8xl leading-none font-bold text-transparent md:text-9xl lg:text-[12rem]">
+          <Typography as="h1" variant="h1" size="8xl" weight="bold" className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent text-center">
             404
-          </h1>
+          </Typography>
         </div>
 
         {/* Error Message */}
         <div className="mb-8">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
+          <Typography as="h2" variant="h2" size="4xl" weight="bold" className="mb-4 text-center">
             Oops! Page Not Found
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-600 md:text-xl">
+          </Typography>
+          <Typography as='p' size="base" color="secondary" className="mx-auto max-w-2xl text-center">
             The page you&apos;re looking for seems to have wandered off into the digital void.
             Don&apos;t worry, even the best explorers sometimes take a wrong turn!
-          </p>
+          </Typography>
         </div>
 
         {/* Illustration */}
@@ -64,7 +67,7 @@ const NotFound = () => {
         <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link href="/">
             <Button className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
-              <span className="relative z-10 flex items-center gap-2">
+              <Typography as='p' size="xxs" color="inherit" weight="medium" className="relative z-10 flex items-center gap-2">
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -74,7 +77,7 @@ const NotFound = () => {
                   />
                 </svg>
                 Go Home
-              </span>
+              </Typography>
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             </Button>
           </Link>
@@ -84,7 +87,7 @@ const NotFound = () => {
               variant="outline"
               className="group rounded-lg border-2 border-gray-300 px-8 py-4 font-semibold text-gray-700 transition-all duration-300 hover:scale-105 hover:border-blue-500 hover:text-blue-600"
             >
-              <span className="flex items-center gap-2">
+              <Typography as='p' size="xxs" color="inherit" weight="medium" className="flex items-center gap-2">
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
@@ -94,7 +97,7 @@ const NotFound = () => {
                   />
                 </svg>
                 Browse Blogs
-              </span>
+              </Typography>
             </Button>
           </Link>
         </div>
@@ -121,8 +124,8 @@ const NotFound = () => {
                   />
                 </svg>
               </div>
-              <h3 className="mb-2 font-semibold text-gray-900">About Me</h3>
-              <p className="text-sm text-gray-600">Learn more about my journey</p>
+              <Typography as="h3" variant="h3" size="lg" weight="semibold" color="secondary" className="mb-2 text-center">About Me</Typography>
+              <Typography as='p' size="xxs" color="secondary" className='text-center'>Learn more about my journey</Typography>
             </div>
           </Link>
 
@@ -146,8 +149,8 @@ const NotFound = () => {
                   />
                 </svg>
               </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Contact</h3>
-              <p className="text-sm text-gray-600">Get in touch with me</p>
+              <Typography as="h3" variant="h3" size="lg" weight="semibold" color="secondary" className="mb-2 text-center">Contact</Typography>
+              <Typography as='p' size="xxs" color="secondary" className='text-center'>Get in touch with me</Typography>
             </div>
           </Link>
 
@@ -171,18 +174,18 @@ const NotFound = () => {
                   />
                 </svg>
               </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Latest Posts</h3>
-              <p className="text-sm text-gray-600">Discover my recent articles</p>
+              <Typography as="h3" variant="h3" size="lg" weight="semibold" color="secondary" className="mb-2 text-center">Latest Posts</Typography>
+              <Typography as='p' size="xxs" color="secondary" className='text-center'>Discover my recent articles</Typography>
             </div>
           </Link>
         </div>
 
         {/* Fun Message */}
         <div className="mt-12 rounded-xl border border-blue-200/50 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
-          <p className="font-medium text-gray-700">
-            💡 <strong>Pro tip:</strong> Use the navigation menu to find what you&apos;re looking
+          <Typography as='p' color="inherit" weight="medium" className="text-gray-700 text-center">
+            <Typography as='strong' size="xxs" color="inherit" weight="medium">Pro tip:</Typography> Use the navigation menu to find what you&apos;re looking
             for!
-          </p>
+          </Typography>
         </div>
       </div>
 

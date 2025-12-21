@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone, Github, Instagram, Linkedin, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
+import { Typography } from '../atoms/typography'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -36,15 +37,15 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link href="/" className="group mb-4 flex items-center space-x-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
-                <span className="text-lg font-bold text-white">B</span>
+                <Typography as='p' size="base" color="white" weight="bold">B</Typography>
               </div>
-              <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-xl font-bold text-transparent">
+              <Typography as='p' size="base" color="white" weight="bold" className="bg-gradient-to-r from-white to-slate-300 bg-clip-text">
                 Blazing Blog
-              </span>
+              </Typography>
             </Link>
-            <p className="mb-6 text-sm leading-relaxed text-slate-400">
+            <Typography as='p' size="xxs" color="inherit" weight="medium" className="mb-6 text-slate-400">
               Passionate full-stack developer crafting digital experiences that make a difference.
-            </p>
+            </Typography>
             <div className="flex space-x-4">
               <a
                 href={socialLinks.github}
@@ -87,7 +88,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">Quick Links</h3>
+            <Typography as='h3' variant="p" weight="semibold" color="white" className="mb-4">Quick Links</Typography>
             <ul className="space-y-3">
               {navItems.map((item) => (
                 <li key={item.name}>
@@ -96,7 +97,7 @@ const Footer = () => {
                     className="group relative inline-block text-slate-400 transition-colors duration-200 hover:text-white"
                   >
                     {item.name}
-                    <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+                    <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></div>
                   </Link>
                 </li>
               ))}
@@ -105,7 +106,7 @@ const Footer = () => {
 
           {/* Contact Information */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">Get In Touch</h3>
+          <Typography as='h3' variant="p" weight="semibold" color="white" className="mb-4">Get In Touch</Typography>
             <ul className="space-y-3">
               <li>
                 <a
@@ -115,7 +116,7 @@ const Footer = () => {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600/20 transition-colors duration-200 group-hover:bg-blue-600/30">
                     <Mail className="h-4 w-4 text-blue-400" />
                   </div>
-                  <span className="text-sm">{contactInfo.email}</span>
+                  <Typography as='p' size="xxs" color="inherit" weight="medium">{contactInfo.email}</Typography>
                 </a>
               </li>
               <li>
@@ -126,7 +127,7 @@ const Footer = () => {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-600/20 transition-colors duration-200 group-hover:bg-green-600/30">
                     <Phone className="h-4 w-4 text-green-400" />
                   </div>
-                  <span className="text-sm">{contactInfo.phone}</span>
+                  <Typography as='p' size="xxs" color="inherit" weight="medium">{contactInfo.phone}</Typography>
                 </a>
               </li>
               <li>
@@ -134,7 +135,7 @@ const Footer = () => {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-600/20">
                     <MapPin className="h-4 w-4 text-purple-400" />
                   </div>
-                  <span className="text-sm">{contactInfo.location}</span>
+                  <Typography as='p' size="xxs" color="inherit" weight="medium">{contactInfo.location}</Typography>
                 </div>
               </li>
             </ul>
@@ -142,11 +143,11 @@ const Footer = () => {
 
           {/* About Section */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-white">About</h3>
-            <p className="mb-4 text-sm leading-relaxed text-slate-400">
+            <Typography as='h3' variant="p" weight="semibold" color="white" className="mb-4">About</Typography>
+            <Typography as='p' size="xxs" color="inherit" className="mb-4 text-slate-400">
               I believe in the power of code to solve real-world problems and create meaningful
               connections.
-            </p>
+            </Typography>
             <Link
               href="/contact"
               className="inline-block rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg"
@@ -159,9 +160,9 @@ const Footer = () => {
         {/* Divider */}
         <div className="mt-8 border-t border-slate-700/50 pt-8">
           <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-            <p className="text-center text-sm text-slate-500 md:text-left">
+            <Typography as='p' size="xxs" color="inherit" className="text-center text-sm text-slate-500 md:text-left">
               © {currentYear} Blazing Blog. All rights reserved.
-            </p>
+            </Typography>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import type { CollaboratorsListProps } from './types'
 import { contructImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const getInitials = (username: string) => {
   return username
@@ -54,13 +55,13 @@ const CollaboratorsList = ({ collaborators }: CollaboratorsListProps) => {
                   <div
                     className={`inline-flex h-24 w-24 items-center justify-center bg-gradient-to-r ${getRandomGradient(index)} mb-4 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110`}
                   >
-                    <span className="text-3xl font-bold text-white">
+                    <Typography as='span' size="sm" color="white" weight="medium">
                       {getInitials(collaborator.username)}
-                    </span>
+                    </Typography>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                  <Typography as='h3' variant="h3" size="base" weight="semibold" color="secondary" className="text-center transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
                     {collaborator.username}
-                  </h3>
+                  </Typography>
                 </>
               )}
             </div>
@@ -68,39 +69,39 @@ const CollaboratorsList = ({ collaborators }: CollaboratorsListProps) => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
                 <User className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                <span className="text-sm break-all">{collaborator.username}</span>
+                <Typography as='p' size="xxs" color="inherit" weight="medium" className="break-all">{collaborator.username}</Typography>
               </div>
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
                 <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                <span className="text-sm break-all">{collaborator.email}</span>
+                <Typography as='p' size="xxs" color="inherit" weight="medium" className="break-all">{collaborator.email}</Typography>
               </div>
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
                 <Briefcase className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                <span className="text-sm break-all">{collaborator.profession}</span>
+                <Typography as='p' size="xxs" color="inherit" weight="medium" className="break-all">{collaborator.profession}</Typography>
               </div>
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
                 <Calendar className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                <span className="text-sm">
+                <Typography as='p' size="xxs" color="inherit" weight="medium" className="text-sm">
                   Joined{' '}
                   {new Date(collaborator.createdAt).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
                   })}
-                </span>
+                </Typography>
               </div>
             </div>
 
             <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-700">
               <div className="flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                <span
+                <div
                   className={`h-2 w-2 rounded-full ${collaborator.status === 'active' ? 'bg-green-500' : 'bg-red-500'} animate-pulse`}
-                ></span>
-                <span>
+                />
+                <Typography as='p' size="xxs" color="inherit" weight="medium">
                   {collaborator.status === 'active'
                     ? 'Active Collaborator'
                     : 'Inactive Collaborator'}
-                </span>
+                </Typography>
               </div>
             </div>
           </div>

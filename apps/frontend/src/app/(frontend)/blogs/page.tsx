@@ -5,6 +5,7 @@ import { unstable_cache } from 'next/cache'
 import { DockIcon } from 'lucide-react'
 import type { Metadata } from 'next'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 // Force dynamic rendering to prevent static generation
 export const dynamic = 'force-dynamic'
@@ -59,23 +60,23 @@ const page = async () => {
             {pages?.totalDocs} Blogs
           </AnimationBox>
           <AnimationBox>
-            <h1 className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-5xl font-bold text-transparent">
+            <Typography as='h1' variant='h1' size='5xl' weight='bold' className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent text-center">
               Latest Blog Posts
-            </h1>
+            </Typography>
           </AnimationBox>
           <AnimationBox>
-            <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-600">
+            <Typography as='p' size="base" color="inherit" className="mx-auto max-w-3xl text-gray-600 text-center">
               Discover insights, tutorials, and stories from our community of passionate developers
               and creators
-            </p>
+            </Typography>
           </AnimationBox>
         </div>
         {pages && pages.docs.length > 0 ? (
           <BlogsList pages={pages} />
         ) : (
           <div className="py-12 text-center">
-            <div className="text-lg text-gray-500">No blogs found</div>
-            <p className="mt-2 text-gray-400">Check back later for new content!</p>
+            <Typography as='p' size="base" color="inherit" className="text-gray-500">No blogs found</Typography>
+            <Typography as='p' size="base" color="inherit" className="mt-2 text-gray-400">Check back later for new content!</Typography>
           </div>
         )}
       </div>

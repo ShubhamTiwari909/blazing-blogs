@@ -1,6 +1,7 @@
 import { DefaultAnimationWrapper } from '../ui/text-animation/AnimationWrappers'
 import { Target } from 'lucide-react'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const skills = [
   { name: 'HTML', gradient: 'from-red-500 to-red-600', icon: '🌐' },
@@ -26,10 +27,10 @@ const skills = [
 const Skills = () => {
   return (
     <DefaultAnimationWrapper className="rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm dark:border-slate-700/20 dark:bg-slate-800/70">
-      <h2 className="mb-6 flex items-center text-3xl font-bold text-slate-800 dark:text-slate-200">
+      <Typography as="h2" variant="h2" size="2xl" weight="bold" className="mb-6 flex items-center text-center">
         <Target className="mr-3 h-8 w-8 text-blue-500" />
         Skills & Expertise
-      </h2>
+      </Typography>
       <div className="grid grid-cols-2 gap-5 md:grid-cols-2">
         {skills.map((skill, index) => (
           <div
@@ -38,8 +39,8 @@ const Skills = () => {
           >
             {/* Content */}
             <div className="relative flex items-center justify-center space-x-2">
-              <span className="text-lg">{skill.icon}</span>
-              <span className="text-sm font-semibold tracking-wide text-white">{skill.name}</span>
+              <Typography as='span' size="sm" color="white" weight="medium">{skill.icon}</Typography>
+              <Typography as='span' size="xxs" color="white" weight="medium">{skill.name}</Typography>
             </div>
 
             {/* Subtle glow effect */}

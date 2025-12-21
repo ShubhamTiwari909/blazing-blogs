@@ -4,6 +4,7 @@ import {
 } from '../ui/text-animation/AnimationWrappers'
 import { Code, Zap, Lightbulb, Users } from 'lucide-react'
 import React from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 const achievements = [
   {
@@ -31,9 +32,9 @@ const achievements = [
 const Achievment = () => {
   return (
     <div className="mb-20">
-      <h2 className="mb-12 text-center text-3xl font-bold text-slate-800 dark:text-slate-200">
+      <Typography as="h2" variant="h2" size="4xl" weight="bold" className="mb-12 text-center">
         What I Bring to the Table
-      </h2>
+      </Typography>
       <CardContainerAnimationWrapper className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         {achievements.map((achievement, index) => (
           <CardAnimationWrapper index={index} key={index}>
@@ -42,12 +43,12 @@ const Achievment = () => {
                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200 transition-all duration-300 group-hover:shadow-lg dark:from-slate-700 dark:to-slate-600">
                   {achievement.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200">
+                <Typography as="h3" variant="h3" size="base" weight="semibold" color="secondary" className="text-center">
                   {achievement.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                </Typography>
+                <Typography as='p' size="xxs" color="secondary" className="text-center">
                   {achievement.description}
-                </p>
+                </Typography>
               </div>
             </div>
           </CardAnimationWrapper>

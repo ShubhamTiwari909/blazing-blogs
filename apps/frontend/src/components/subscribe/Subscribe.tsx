@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Loader2, XCircle } from 'lucide-react'
 import { useState } from 'react'
+import { Typography } from '@/components/atoms/typography'
 
 export default function SubscribeForm({
   email,
@@ -105,9 +106,9 @@ export default function SubscribeForm({
               Subscribing...
             </>
           ) : (
-            <p className="text-balance break-words">
+            <Typography as='p' size="xxs" color="inherit" weight="medium" className="text-balance break-words">
               {email && !isSubscribed ? `Subscribe Now with ${email}` : 'Loading...'}
-            </p>
+            </Typography>
           )}
         </Button>
       )}
@@ -115,9 +116,9 @@ export default function SubscribeForm({
       {status === 'error' && (
         <div className="bg-destructive/10 border-destructive/20 text-destructive animate-in fade-in slide-in-from-top-2 flex items-center gap-2 rounded-xl border p-4">
           <XCircle className="h-5 w-5 flex-shrink-0" />
-          <p className="text-sm font-medium">
+          <Typography as='p' size="xxs" color="inherit" weight="medium" className="text-sm font-medium">
             This email is already subscribed or there was an error. Please try again.
-          </p>
+          </Typography>
         </div>
       )}
     </form>

@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic'
 import Stats from './Stats'
 import React from 'react'
 import Cta from './Cta'
+import { Typography } from '@/components/atoms/typography'
 
 const Confetti = dynamic(() => import('./Confetti'), { ssr: false })
 
@@ -36,24 +37,24 @@ const Hero = () => {
             }}
             className="mb-8"
           >
-            <span className="border-border bg-card/50 text-muted-foreground hover:bg-card/80 inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium shadow-sm backdrop-blur-sm transition-colors">
-              <span className="mr-2 h-2 w-2 animate-pulse rounded-full bg-green-500" />
+            <Typography as='p' size="xxs" color="muted" weight="medium" className="border-border bg-card/50 hover:bg-card/80 inline-flex items-center rounded-full border px-4 py-1.5 shadow-sm backdrop-blur-sm transition-colors">
+              <div className="mr-2 h-2 w-2 animate-pulse rounded-full bg-green-500" />
               Welcome to my digital space
-            </span>
+            </Typography>
           </motion.div>
 
-          <h1 className="text-foreground mb-8 text-5xl leading-[1.1] font-bold tracking-tight md:text-7xl lg:text-8xl">
+          <Typography as="h1" variant="h1" size="6xl" weight="bold" color="inherit" className="mb-8 text-center">
             <AnimationBox className="mb-2 block">Hello, I&apos;m</AnimationBox>
             <AnimationBox className="from-primary to-secondary block bg-gradient-to-r via-purple-500 bg-clip-text pb-2 text-transparent">
               Shubham
             </AnimationBox>
-          </h1>
+          </Typography>
 
           <AnimationBox>
-            <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-xl leading-relaxed font-light md:text-2xl">
+            <Typography as='p' size="lg" color="muted" weight="light" className="mx-auto mb-12 max-w-2xl text-center">
               A passionate engineer and storyteller sharing insights on technology, creativity, and
               the journey of building meaningful digital experiences.
-            </p>
+            </Typography>
           </AnimationBox>
 
           <Cta />
@@ -65,9 +66,9 @@ const Hero = () => {
 
         <ExpertisePreview />
 
-        <h2 className="text-foreground mt-20 mb-8 text-center text-2xl font-bold md:text-3xl">
+        <Typography as="h2" variant="h2" size="2xl" weight="bold" color="primary" className="mt-20 mb-8 text-center">
           My Portfolio
-        </h2>
+        </Typography>
 
         <PortfolioIframe />
 
