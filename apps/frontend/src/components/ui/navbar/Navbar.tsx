@@ -2,7 +2,7 @@
 
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { ChildrenProps } from '@/components/ui/types'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/atoms/button/Button'
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'

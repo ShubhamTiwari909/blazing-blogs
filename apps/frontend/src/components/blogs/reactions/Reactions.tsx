@@ -1,6 +1,6 @@
 'use client'
 import { Typography } from '@/components/atoms/typography'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/atoms/button/Button'
 import { useReactions } from './useReactions'
 import type { ReactionsProps } from './types'
 import { generateReactionMap } from './data'

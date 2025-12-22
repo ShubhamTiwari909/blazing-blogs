@@ -1,6 +1,6 @@
 import { Typography } from '@/components/atoms/typography'
 import RootLayout from '@/components/layout/RootLayout'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/atoms/button/Button'
 import Link from 'next/link'
 import React from 'react'
 

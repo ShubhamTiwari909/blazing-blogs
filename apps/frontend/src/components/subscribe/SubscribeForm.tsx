@@ -2,7 +2,7 @@
 import { Typography } from '@/components/atoms/typography'
 import { LuCircle, LuLoader } from 'react-icons/lu'
 import type { SubscribeFormProps } from './types'
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/atoms/button/Button'
 import { useSubscribe } from './useSubscribe'
 
 export default function SubscribeForm({
