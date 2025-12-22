@@ -1,14 +1,13 @@
-import { queryCollaborators } from '@/lib/fetch-utils/query-all-pages'
 import Collaborators from '@/components/collaborators/Collaborators'
 import { METADATA } from './metadata'
 
+export const dynamic = 'force-dynamic'
 export const revalidate = 3600 // 1 hour
 
 export const metadata = METADATA
 
 const CollaboratorsPage = async () => {
-  const collaborators = await queryCollaborators()
-  return <Collaborators collaborators={collaborators} />
+  return <Collaborators />
 }
 
 export default CollaboratorsPage
