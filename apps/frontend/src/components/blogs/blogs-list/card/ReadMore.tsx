@@ -1,4 +1,4 @@
-import type { PageSlug } from '@/components/blogs/blogs-list/types'
+import type { PageSlug } from './types'
 import { Typography } from '@/components/atoms/typography'
 import Link from 'next/link'
 import React from 'react'

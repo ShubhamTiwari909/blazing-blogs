@@ -7,8 +7,8 @@ import {
   AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogCancel,
-} from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
+} from '@/components/ui/AlertDialog'
+import { Button } from '@/components/ui/Button'
 import type { AiSummary } from './types'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'

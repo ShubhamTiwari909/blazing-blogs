@@ -1,18 +1,16 @@
-'use client'
-import AnimationBox from '@/components/ui/text-animation/AnimationBox'
+import AnimationBox from '@/components/ui/animations/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import PortfolioIframe from '@/components/about/PortfolioIframe'
 import { Typography } from '@/components/atoms/typography'
-import ExpertisePreview from './ExpertisePreview'
+import ExpertisePreview from './expertise-preview/ExpertisePreview'
 import FeaturedTopics from './FeaturedTopics'
-import SocialLinks from './SocialLinks'
-import { motion } from 'motion/react'
+import SocialLinks from './social-links/SocialLinks'
 import dynamic from 'next/dynamic'
-import Stats from './Stats'
+import Stats from './stats/Stats'
 import React from 'react'
-import Cta from './Cta'
+import Cta from './cta/Cta'
 
-const Confetti = dynamic(() => import('./Confetti'), { ssr: false })
+const Confetti = dynamic(() => import('./Confetti'))
 
 const Hero = () => {
   return (
@@ -24,7 +22,7 @@ const Hero = () => {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Hero Section */}
         <div className="mb-16 text-center">
-          <motion.div
+          <AnimationBox
             initial={{ opacity: 0, y: '-100%' }}
             animate={{ opacity: 1, y: '0%' }}
             transition={{
@@ -47,7 +45,7 @@ const Hero = () => {
               <span className="mr-2 h-2 w-2 animate-pulse rounded-full bg-green-500" />
               Welcome to my digital space
             </Typography>
-          </motion.div>
+          </AnimationBox>
 
           <Typography
             as="h1"

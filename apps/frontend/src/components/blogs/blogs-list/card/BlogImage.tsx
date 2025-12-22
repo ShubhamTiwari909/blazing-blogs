@@ -1,4 +1,4 @@
-import type { BlogImageProps } from '@/components/blogs/blog-renderer/types'
+import type { BlogImageProps } from './types'
 import { contructImageUrl } from '@/lib/utils'
 import Image from 'next/image'
 import React from 'react'

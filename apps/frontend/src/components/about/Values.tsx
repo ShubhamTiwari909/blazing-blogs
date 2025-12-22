@@ -1,4 +1,4 @@
-import { DefaultAnimationWrapper } from '@/components/ui/text-animation/AnimationWrappers'
+import { DefaultAnimationWrapper } from '@/components/ui/animations/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
 import { LuAward, LuUsers, LuZap } from 'react-icons/lu'
 import React from 'react'

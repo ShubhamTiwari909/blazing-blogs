@@ -20,17 +20,15 @@ const Metadata = async ({
   return (
     <div className="space-y-10 border-b border-gray-200 pb-8">
       <div className="flex flex-wrap items-center gap-6">
-        {/* Author */}
-        {author && (
+        {author ? (
           <div className="flex items-center">
             <LuUser className="mr-2 h-5 w-5" />
             <Typography as="p" size="xxs" color="inherit" weight="medium">
               {author}
             </Typography>
           </div>
-        )}
+        ) : null}
 
-        {/* Date */}
         <div className="flex items-center">
           <LuCalendarDays className="mr-2 h-5 w-5" />
           <time dateTime={createdAt}>
@@ -42,17 +40,16 @@ const Metadata = async ({
           </time>
         </div>
 
-        {/* Tags */}
-        {tags && tags.length > 0 && <Tags tags={tags} />}
+        {tags && tags.length > 0 ? <Tags tags={tags} /> : null}
       </div>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          {featureFlags?.views === 'enabled' && <ViewsWrapper id={id} />}
-          {featureFlags?.reactions === 'enabled' && <ReactionsWrapper id={id} />}
+          {featureFlags?.views === 'enabled' ? <ViewsWrapper id={id} /> : null}
+          {featureFlags?.reactions === 'enabled' ? <ReactionsWrapper id={id} /> : null}
         </div>
         <div className="flex items-center gap-4">
           <EstimateReading data={blocks} />
-          {aiSummary && <AiAnalysis aiSummary={aiSummary} />}
+          {aiSummary ? <AiAnalysis aiSummary={aiSummary} /> : null}
         </div>
       </div>
     </div>

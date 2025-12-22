@@ -2,7 +2,7 @@
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
 import DarkModeToggle from './DarkModeToggle'
 import { LuArrowLeft } from 'react-icons/lu'
-import CopyLink from './CopyLink'
+import CopyLink from './copy-link/CopyLink'
 import Link from 'next/link'
 import React from 'react'
 

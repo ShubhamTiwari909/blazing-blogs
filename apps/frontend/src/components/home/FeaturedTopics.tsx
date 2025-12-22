@@ -1,7 +1,8 @@
 import { LuCode, LuRocket, LuLightbulb, LuBookOpen } from 'react-icons/lu'
-import { motion, MotionProps, stagger } from 'motion/react'
 import { Typography } from '@/components/atoms/typography'
 import React from 'react'
+import { cn } from '@/lib/utils'
+import { CardAnimationWrapper, CardContainerAnimationWrapper } from '@/components/ui/animations/AnimationWrappers'
 
 const topics = [
   {
@@ -29,28 +30,6 @@ const topics = [
     color: 'from-green-500 to-emerald-500',
   },
 ]
-const containerVariants: MotionProps['variants'] = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { delayChildren: stagger(0.25) } },
-}
-
-const itemVariants: MotionProps['variants'] = {
-  hidden: (index: number) => ({ scale: 0, x: index * -100 }),
-  visible: (index: number) => ({
-    scale: 1,
-    x: 0,
-    transition: {
-      duration: 0.25,
-      ease: 'easeInOut',
-      type: 'spring',
-      mass: 3,
-      damping: 20,
-      stiffness: 100,
-      delay: index * 0.25,
-    },
-  }),
-}
-
 const FeaturedTopics = () => {
   return (
     <div className="mt-20">
@@ -66,20 +45,16 @@ const FeaturedTopics = () => {
           Explore Topics
         </Typography>
       </div>
-      <motion.div
-        variants={containerVariants}
-        viewport={{ once: true }}
-        initial="hidden"
-        whileInView="visible"
+      <CardContainerAnimationWrapper
         className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
       >
         {topics.map((topic, index) => {
           const Icon = topic.icon
           return (
-            <motion.div custom={index} variants={itemVariants} key={index}>
+            <CardAnimationWrapper index={index} key={index}>
               <div className="group bg-card/50 border-border/50 hover:border-primary/30 hover:shadow-primary/10 relative rounded-2xl border p-6 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <div
-                  className={`inline-flex rounded-xl bg-gradient-to-br p-3 ${topic.color} mb-4 duration-300 group-hover:scale-110`}
+                  className={cn('inline-flex rounded-xl bg-gradient-to-br p-3 mb-4 duration-300 group-hover:scale-110', topic.color)}
                 >
                   <Icon className="h-6 w-6 text-white" />
                 </div>
@@ -98,10 +73,10 @@ const FeaturedTopics = () => {
                 </Typography>
                 <div className="from-primary/0 to-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br transition-all duration-300 group-hover:to-transparent" />
               </div>
-            </motion.div>
+            </CardAnimationWrapper>
           )
         })}
-      </motion.div>
+      </CardContainerAnimationWrapper>
     </div>
   )
 }

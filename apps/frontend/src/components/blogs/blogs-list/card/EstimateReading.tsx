@@ -1,4 +1,4 @@
-import type { EstimateReadingProps } from '@/components/blogs/blogs-list/types'
+import type { EstimateReadingProps } from './types'
 import { calculateReadingTime, convertToPlaintext } from '@/lib/utils'
 import { Typography } from '@/components/atoms/typography'
 import React from 'react'

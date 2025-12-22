@@ -1,92 +1,30 @@
 'use client'
-
 import { Typography } from '@/components/atoms/typography'
 import { LuCircle, LuLoader } from 'react-icons/lu'
-import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import type { SubscribeFormProps } from './types'
+import { Button } from '@/components/ui/Button'
+import { useSubscribe } from './useSubscribe'
 
 export default function SubscribeForm({
   email,
   activeSubscriber,
   existingSubscriber,
   name,
-}: {
-  email: string
-  activeSubscriber: boolean
-  existingSubscriber: string
-  name: string
-}) {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [isSubscribed, setIsSubscribed] = useState(activeSubscriber)
-  const [isFirstTimeUser, setIsFirstTimeUser] = useState(!existingSubscriber)
-
-  const subscribe = async () => {
-    if (!email || !name) return
-
-    setStatus('loading')
-
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, name }),
-      })
-      if (res.ok) {
-        setIsSubscribed(true)
-        if (isFirstTimeUser) {
-          await fetch('/api/send', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, name }),
-          })
-          setIsFirstTimeUser(false)
-        }
-      }
-
-      setStatus(res.ok ? 'success' : 'error')
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  const unsubscribe = async () => {
-    if (!email) return
-
-    setStatus('loading')
-
-    try {
-      const res = await fetch('/api/unsubscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      })
-      if (res.ok) {
-        setStatus('success')
-        setIsSubscribed(false)
-      }
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    subscribe()
-  }
+}: SubscribeFormProps) {
+  const { status, isSubscribed, subscribeToNewsletter, unsubscribeFromNewsletter, isSubscribingToNewsletter, isUnsubscribingFromNewsletter } = useSubscribe({
+    email,
+    activeSubscriber,
+    existingSubscriber,
+    name,
+  })
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="space-y-6">
       {isSubscribed ? (
         <Button
           type="submit"
-          onClick={unsubscribe}
-          disabled={status === 'loading' || !email}
+          onClick={() => unsubscribeFromNewsletter()}
+          disabled={status === 'loading' || !email || isUnsubscribingFromNewsletter}
           className="text-primary-foreground hover:shadow-primary/25 min-h-20 w-full rounded-xl bg-red-800 text-base font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-900/90 hover:shadow-lg"
           size="lg"
         >
@@ -95,8 +33,8 @@ export default function SubscribeForm({
       ) : (
         <Button
           type="submit"
-          onClick={subscribe}
-          disabled={status === 'loading' || !email}
+          onClick={() => subscribeToNewsletter()}
+          disabled={status === 'loading' || !email || isSubscribingToNewsletter}
           className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-primary/25 min-h-20 w-full rounded-xl text-base font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
           size="lg"
         >
@@ -133,6 +71,6 @@ export default function SubscribeForm({
           </Typography>
         </div>
       )}
-    </form>
+    </div>
   )
 }

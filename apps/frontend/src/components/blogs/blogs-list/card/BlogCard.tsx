@@ -1,4 +1,4 @@
-import type { BlogCardProps } from '@/components/blogs/blogs-list/types'
+import type { BlogCardProps } from './types'
 import { Typography } from '@/components/atoms/typography'
 import Tags from '@/components/blogs/blog-renderer/Tags'
 import EstimateReading from './EstimateReading'

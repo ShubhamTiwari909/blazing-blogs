@@ -1,40 +1,22 @@
-import {
-  updateBlogViews,
-  checkIfAlreadyViewed,
-  getBlogView,
-} from '@/lib/fetch-utils/fetch-blog-views'
 import { Typography } from '@/components/atoms/typography'
-import React, { useEffect, useState } from 'react'
-import { useCookies } from 'react-cookie'
+import React from 'react'
 import type { ViewsProps } from './types'
 import { LuEye } from 'react-icons/lu'
+import { useViews } from './useViews'
 
 const Views = ({ id }: ViewsProps) => {
-  const [cookies, setCookies] = useCookies()
-  const [blogViews, setBlogViews] = useState(0)
-
-  useEffect(() => {
-    if (checkIfAlreadyViewed({ id, cookies })) {
-      getBlogView({ id }).then((data) => {
-        setBlogViews(data.blogsCount)
-      })
-      return
-    }
-    updateBlogViews({ id }).then((data) => {
-      setBlogViews(data.blogsCount)
-      setCookies(`viewed-${id}`, 'true', {
-        maxAge: 86400, // 24 hours in seconds
-        path: '/', // Set path to root so it's accessible everywhere
-        sameSite: 'strict',
-      })
-    })
-  }, [id, cookies, setCookies])
+  const { blogViews, error } = useViews({ id })
   return (
     <div className="flex items-center gap-1">
       <LuEye className="h-4 w-4" />
       <Typography as="p" size="xxs" color="inherit">
         {blogViews}
       </Typography>
+      {error ? (
+        <Typography as="p" size="xxs" color="inherit">
+          {error?.message ? 'Error updating views, please try again later' : null}
+        </Typography>
+      ): null}
     </div>
   )
 }

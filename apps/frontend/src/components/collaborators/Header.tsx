@@ -1,4 +1,4 @@
-import AnimationBox from '@/components/ui/text-animation/AnimationBox'
+import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
 import { LuUsers } from 'react-icons/lu'
 import React from 'react'

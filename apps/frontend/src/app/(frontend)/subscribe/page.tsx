@@ -1,4 +1,4 @@
-import AnimationBox from '@/components/ui/text-animation/AnimationBox'
+import AnimationBox from '@/components/ui/animations/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import SubscribeForm from '@/components/subscribe/Subscribe'
 import { Typography } from '@/components/atoms/typography'

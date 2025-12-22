@@ -1,4 +1,4 @@
-import type { MetaDataProps } from '@/components/blogs/blogs-list/types'
+import type { MetaDataProps } from './types'
 import { Typography } from '@/components/atoms/typography'
 import { LuCalendarDays, LuUser } from 'react-icons/lu'
 import React from 'react'

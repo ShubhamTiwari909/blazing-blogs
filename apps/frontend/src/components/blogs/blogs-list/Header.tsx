@@ -1,5 +1,5 @@
 import { Typography } from '@/components/atoms/typography'
-import AnimationBox from '@/components/ui/text-animation/AnimationBox'
+import AnimationBox from '@/components/ui/animations/AnimationBox'
 import React from 'react'
 import { LuDock } from 'react-icons/lu'
 

@@ -12,17 +12,14 @@ const BlogHeader = ({ blog }: BlogHeaderProps) => {
   const { title, shortDescription, author, tags, aiSummary, blocks, image } = content
   return (
     <BlogHeaderWrapper>
-      {/* Blog Image */}
       {image && typeof image === 'object' && (
         <BlogImage src={contructImageUrl(image._key as string)} alt={title} />
       )}
 
-      {/* Blog Title */}
       <Typography as="h1" variant="h1" size="4xl" weight="bold" color="inherit" className="mb-5">
         {title}
       </Typography>
 
-      {/* Blog Description */}
       <Typography as="p" size="base" color="inherit" className="mb-8">
         {shortDescription}
       </Typography>

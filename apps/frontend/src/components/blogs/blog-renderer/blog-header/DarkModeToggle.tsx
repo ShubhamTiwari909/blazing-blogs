@@ -1,6 +1,6 @@
 'use client'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
-import { Switch } from '@/components/ui/switch'
+import { Switch } from '@/components/ui/Switch'
 import React from 'react'
 
 const DarkModeToggle = () => {

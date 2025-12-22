@@ -1,4 +1,3 @@
-import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import type { Page } from '@/payload-types'
 
 export type BlogHeaderProps = {
@@ -30,13 +29,6 @@ export type MetadataProps = TagsProps & {
   featureFlags: Page['featureFlags']
 }
 
-export type CodeRendererProps = {
-  code: string
-  language?: string
-}
-
-export type ContentProps = { docs: Page['content']['blocks'] }
-
 export type Meta = {
   title: string
   description: string | undefined
@@ -45,15 +37,4 @@ export type Meta = {
   url: string
 }
 
-export type LinkPreviewCardProps = {
-  meta: Meta
-  link: string
-}
 
-export type MarkdownRendererProps = {
-  data: SerializedEditorState
-}
-
-export type YoutubeIframeProps = {
-  ytIframe: string
-}
