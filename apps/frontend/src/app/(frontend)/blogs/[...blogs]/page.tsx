@@ -3,9 +3,9 @@ import BlogRenderer from '@/components/blogs/blog-renderer/BlogRenderer'
 import { getCachedBlogData } from '@/lib/fetch-utils/fetch-blogs'
 import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
+import { getMetadata } from './metadata'
 import { Props } from '@/lib/types'
 import React from 'react'
-import { getMetadata } from './metadata'
 
 // Enable dynamic rendering
 export const dynamic = 'force-dynamic'

@@ -1,8 +1,8 @@
-"use client"
-import { motion } from 'motion/react'
-import React from 'react'
-import { cn } from '@/lib/utils'
+'use client'
 import { variants } from './animation'
+import { motion } from 'motion/react'
+import { cn } from '@/lib/utils'
+import React from 'react'
 
 const stats = [
   { value: '150+', label: 'Articles Written', color: 'text-blue-500' },
@@ -23,7 +23,10 @@ const Stats = () => {
           className="group bg-card/30 border-border hover:border-primary/20 hover:bg-card/50 rounded-2xl border p-6 text-center"
         >
           <div
-            className={cn('text-4xl font-bold mb-1 transition-transform duration-300 group-hover:scale-110', stat.color)}
+            className={cn(
+              'mb-1 text-4xl font-bold transition-transform duration-300 group-hover:scale-110',
+              stat.color,
+            )}
           >
             {stat.value}
           </div>

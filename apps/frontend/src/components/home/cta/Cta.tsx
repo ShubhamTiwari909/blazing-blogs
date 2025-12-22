@@ -1,9 +1,9 @@
+import { animateCta, initialCta, transitionCta } from './animation'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
+import { LuArrowRight } from 'react-icons/lu'
 import Link from 'next/link'
 import React from 'react'
-import { LuArrowRight } from 'react-icons/lu'
-import { animateCta, initialCta, transitionCta } from './animation'
 
 const Cta = () => {
   return (
@@ -26,7 +26,7 @@ const Cta = () => {
             className="relative z-10 flex items-center gap-2"
           >
             Read My Stories
-           <LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <LuArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Typography>
         </Link>
       </AnimationBox>

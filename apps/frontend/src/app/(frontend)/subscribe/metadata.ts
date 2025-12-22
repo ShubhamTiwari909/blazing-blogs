@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata } from 'next'
 
 export const METADATA: Metadata = {
   title: 'Subscribe | Blazing Blogs',

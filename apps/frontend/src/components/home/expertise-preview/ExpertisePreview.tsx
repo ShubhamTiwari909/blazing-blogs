@@ -1,12 +1,12 @@
-"use client"
+'use client'
 import { LuDatabase, LuFileCode2, LuPalette, LuZap } from 'react-icons/lu'
-import { motion } from 'motion/react'
-import { Typography } from '@/components/atoms/typography'
-import { cn } from '@/lib/utils'
-import React from 'react'
-import { cardStyles, skillStyles } from './styles'
-import Skill from './Skill'
 import { containerVariants, itemVariants } from './animation'
+import { Typography } from '@/components/atoms/typography'
+import { cardStyles, skillStyles } from './styles'
+import { motion } from 'motion/react'
+import { cn } from '@/lib/utils'
+import Skill from './Skill'
+import React from 'react'
 
 const expertise = [
   {
@@ -79,10 +79,17 @@ const ExpertisePreview = () => {
               custom={index}
             >
               <div
-                className={cn('group bg-card/30 border-border hover:border-primary/30 relative overflow-hidden rounded-2xl border p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg', cardGradient)}
+                className={cn(
+                  'group bg-card/30 border-border hover:border-primary/30 relative overflow-hidden rounded-2xl border p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg',
+                  cardGradient,
+                )}
               >
                 <div
-                  className={cn('inline-flex rounded-xl p-3 mb-4 group-hover:scale-110 transition-all duration-300', iconBg, item.bgColor)}
+                  className={cn(
+                    'mb-4 inline-flex rounded-xl p-3 transition-all duration-300 group-hover:scale-110',
+                    iconBg,
+                    item.bgColor,
+                  )}
                 >
                   <Icon
                     className={cn('h-6 w-6 transition-colors duration-300', item.color, iconHover)}
@@ -100,9 +107,7 @@ const ExpertisePreview = () => {
                 <div className="flex flex-wrap gap-3">
                   {item.skills.map((skill, skillIndex) => {
                     const { gradient } = skillStyles({ color: item.color })
-                      return (
-                        <Skill key={skillIndex} skill={skill} gradient={gradient} />
-                      )
+                    return <Skill key={skillIndex} skill={skill} gradient={gradient} />
                   })}
                 </div>
               </div>

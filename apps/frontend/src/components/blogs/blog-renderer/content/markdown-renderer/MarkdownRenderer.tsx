@@ -1,7 +1,7 @@
-import type { MarkdownRendererProps } from '../types'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import React from 'react'
+import type { MarkdownRendererProps } from '../types'
 import { proseStyles } from './styles'
+import React from 'react'
 
 export const MarkdownRenderer = ({ data }: MarkdownRendererProps) => {
   return (

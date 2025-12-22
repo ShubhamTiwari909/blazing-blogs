@@ -20,7 +20,6 @@ export type BlogsListProps = {
   }
 }
 
-
 export type HasNextProps = {
   handleLoadMore: () => void
   isFetchingNextPage: boolean

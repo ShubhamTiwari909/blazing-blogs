@@ -11,7 +11,14 @@ export default function SubscribeForm({
   existingSubscriber,
   name,
 }: SubscribeFormProps) {
-  const { status, isSubscribed, subscribeToNewsletter, unsubscribeFromNewsletter, isSubscribingToNewsletter, isUnsubscribingFromNewsletter } = useSubscribe({
+  const {
+    status,
+    isSubscribed,
+    subscribeToNewsletter,
+    unsubscribeFromNewsletter,
+    isSubscribingToNewsletter,
+    isUnsubscribingFromNewsletter,
+  } = useSubscribe({
     email,
     activeSubscriber,
     existingSubscriber,

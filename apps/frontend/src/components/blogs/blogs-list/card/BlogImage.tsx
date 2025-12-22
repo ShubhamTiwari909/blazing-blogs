@@ -1,5 +1,5 @@
-import type { BlogImageProps } from './types'
 import { contructImageUrl } from '@/lib/utils'
+import type { BlogImageProps } from './types'
 import Image from 'next/image'
 import React from 'react'
 

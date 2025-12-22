@@ -33,7 +33,6 @@ export type FetchReactionsCountProps = {
   id: string
 }
 
-
 export type UpdateReactionProps = {
   user?: User | null | undefined
   id: string

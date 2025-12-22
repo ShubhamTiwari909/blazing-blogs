@@ -1,9 +1,9 @@
+import { getCachedPageData } from '@/lib/fetch-utils/fetch-blogs'
 import BlogsList from '@/components/blogs/blogs-list/BlogsList'
 import { Typography } from '@/components/atoms/typography'
+import Header from '@/components/blogs/blogs-list/Header'
 import { METADATA } from './metadata'
 import React from 'react'
-import { getCachedPageData } from '@/lib/fetch-utils/fetch-blogs'
-import Header from '@/components/blogs/blogs-list/Header'
 
 // Force dynamic rendering to prevent static generation
 export const dynamic = 'force-dynamic'

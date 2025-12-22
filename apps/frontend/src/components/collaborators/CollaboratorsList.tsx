@@ -5,8 +5,8 @@ import {
 
 import type { CollaboratorsListProps } from './types'
 
-import React from 'react'
 import CollaboratorCard from './collaborator-card/Card'
+import React from 'react'
 
 const CollaboratorsList = ({ collaborators }: CollaboratorsListProps) => {
   return (

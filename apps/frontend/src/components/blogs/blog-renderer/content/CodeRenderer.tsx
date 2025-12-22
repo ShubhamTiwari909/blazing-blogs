@@ -1,9 +1,9 @@
 'use client'
 import { Typography } from '@/components/atoms/typography'
+import type { CodeRendererProps } from './types'
 import 'prismjs/themes/prism-tomorrow.css'
 import { useEffect } from 'react'
 import Prism from 'prismjs'
-import type { CodeRendererProps } from './types'
 
 export default function CodeRenderer({ code, language = 'javascript' }: CodeRendererProps) {
   useEffect(() => {

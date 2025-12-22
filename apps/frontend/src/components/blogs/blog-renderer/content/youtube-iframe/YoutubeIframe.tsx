@@ -1,6 +1,6 @@
+import { getYoutubeEmbedUrl } from './fetch-iframe'
 import type { YoutubeIframeProps } from '../types'
 import React from 'react'
-import { getYoutubeEmbedUrl } from './fetch-iframe'
 
 const YoutubeIframe = ({ ytIframe }: YoutubeIframeProps) => {
   const embedUrl = getYoutubeEmbedUrl(ytIframe)

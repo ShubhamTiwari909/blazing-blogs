@@ -1,10 +1,10 @@
-"use client"
+'use client'
 import { SiBlogger, SiGithub, SiInstagram, SiLinkedin } from 'react-icons/si'
+import { containerVariants, itemVariants } from './animation'
 import { Typography } from '@/components/atoms/typography'
 import { motion } from 'motion/react'
-import React from 'react'
 import { cn } from '@/lib/utils'
-import { containerVariants, itemVariants } from './animation'
+import React from 'react'
 
 const socialLinks = [
   {
@@ -32,7 +32,6 @@ const socialLinks = [
     color: 'bg-black text-white dark:bg-white dark:text-black',
   },
 ]
-
 
 const SocialLinks = () => {
   return (
@@ -69,7 +68,10 @@ const SocialLinks = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn('group border-border flex items-center gap-2 rounded-full border px-5 py-2.5 font-medium backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-md', social.color)}
+                className={cn(
+                  'group border-border flex items-center gap-2 rounded-full border px-5 py-2.5 font-medium backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:shadow-md',
+                  social.color,
+                )}
               >
                 <Icon className="h-4 w-4" />
                 <Typography as="p" size="xxs" color="inherit" weight="medium">

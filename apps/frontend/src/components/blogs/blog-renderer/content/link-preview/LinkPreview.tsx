@@ -1,15 +1,12 @@
 'use client'
-import type { LinkPreviewCardProps } from './types'
 import DefaultLinkPreview from './DefaultLinkPreview'
+import type { LinkPreviewCardProps } from './types'
 import PreviewImage from './PreviewImage'
 import SiteContent from './SiteContent'
 import SiteName from './SiteName'
 
 export default function LinkPreviewCard({ meta, link }: LinkPreviewCardProps) {
-  if (!meta || !meta.title)
-    return (
-      <DefaultLinkPreview link={link} />
-    )
+  if (!meta || !meta.title) return <DefaultLinkPreview link={link} />
 
   return (
     <a

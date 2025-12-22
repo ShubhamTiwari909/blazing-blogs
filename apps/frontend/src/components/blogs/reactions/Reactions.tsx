@@ -1,15 +1,19 @@
 'use client'
 import { Typography } from '@/components/atoms/typography'
 import { Button } from '@/components/ui/Button'
+import { useReactions } from './useReactions'
 import type { ReactionsProps } from './types'
 import { generateReactionMap } from './data'
-import React from 'react'
 import Image from 'next/image'
-import { useReactions } from './useReactions'
+import React from 'react'
 
 const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
-  const { reactions, hasReacted, isPending, error, mutate } = useReactions({ id, userReactions, reactionCounts })
-   const reactionsMap = generateReactionMap(reactions)
+  const { reactions, hasReacted, isPending, error, mutate } = useReactions({
+    id,
+    userReactions,
+    reactionCounts,
+  })
+  const reactionsMap = generateReactionMap(reactions)
 
   return (
     <ul className="relative flex flex-wrap items-center gap-1">
@@ -37,11 +41,11 @@ const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
           as="p"
           size="xxs"
           color="inherit"
-          className="absolute right-0 -bottom-4 z-100 text-xs text-red-500 lg:right-5 lg:-bottom-7 w-full"
+          className="absolute right-0 -bottom-4 z-100 w-full text-xs text-red-500 lg:right-5 lg:-bottom-7"
         >
           {error?.message ? 'Error updating, please try again later' : null}
         </Typography>
-      ): null}
+      ) : null}
     </ul>
   )
 }

@@ -1,10 +1,10 @@
-import type { ContentProps } from './types'
 import { MarkdownRenderer } from './markdown-renderer/MarkdownRenderer'
+import { Meta } from '@/components/blogs/blog-renderer/types'
 import YoutubeIframe from './youtube-iframe/YoutubeIframe'
+import LinkPreviewCard from './link-preview/LinkPreview'
+import type { ContentProps } from './types'
 import CodeRenderer from './CodeRenderer'
 import React from 'react'
-import LinkPreviewCard from './link-preview/LinkPreview'
-import { Meta } from '@/components/blogs/blog-renderer/types'
 
 const Content = ({ docs }: ContentProps) => {
   return (

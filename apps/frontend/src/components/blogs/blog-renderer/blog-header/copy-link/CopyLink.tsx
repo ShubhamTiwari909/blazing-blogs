@@ -1,11 +1,11 @@
 'use client'
 import { LuCheck, LuCopy } from 'react-icons/lu'
 import { Button } from '@/components/ui/Button'
-import React from 'react'
 import { useCopyLink } from './useCopyLink'
+import React from 'react'
 
 const CopyLink = () => {
- const { isCopied, handleCopyLink } = useCopyLink()
+  const { isCopied, handleCopyLink } = useCopyLink()
   return (
     <Button variant="outline" className="cursor-pointer text-center" onClick={handleCopyLink}>
       {isCopied ? (

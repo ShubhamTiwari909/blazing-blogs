@@ -1,7 +1,7 @@
-import type { BlogCardProps } from './types'
 import { Typography } from '@/components/atoms/typography'
 import Tags from '@/components/blogs/blog-renderer/Tags'
 import EstimateReading from './EstimateReading'
+import type { BlogCardProps } from './types'
 import BlogImage from './BlogImage'
 import ReadMore from './ReadMore'
 import MetaData from './MetaData'

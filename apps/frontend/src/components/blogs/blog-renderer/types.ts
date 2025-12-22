@@ -36,5 +36,3 @@ export type Meta = {
   site: string
   url: string
 }
-
-

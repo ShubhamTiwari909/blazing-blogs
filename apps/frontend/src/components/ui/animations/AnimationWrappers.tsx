@@ -1,8 +1,8 @@
 'use client'
+import type { CardAnimationWrapperProps, DefaultAnimationProps } from './types'
 import { motion, MotionProps, stagger } from 'motion/react'
 import { cn } from '@/lib/utils'
 import React from 'react'
-import type { CardAnimationWrapperProps, DefaultAnimationProps } from './types'
 
 const transitionMyStory: MotionProps['transition'] = {
   type: 'spring',
@@ -27,10 +27,7 @@ const cardVariants: MotionProps['variants'] = {
   }),
 }
 
-export const DefaultAnimationWrapper = ({
-  children,
-  className,
-}: DefaultAnimationProps) => {
+export const DefaultAnimationWrapper = ({ children, className }: DefaultAnimationProps) => {
   return (
     <motion.div
       initial={initialMyStory}
@@ -44,10 +41,7 @@ export const DefaultAnimationWrapper = ({
   )
 }
 
-export const CardContainerAnimationWrapper = ({
-  children,
-  className,
-}: DefaultAnimationProps) => {
+export const CardContainerAnimationWrapper = ({ children, className }: DefaultAnimationProps) => {
   return (
     <motion.div
       variants={cardContainerVariants}
@@ -61,11 +55,7 @@ export const CardContainerAnimationWrapper = ({
   )
 }
 
-export const CardAnimationWrapper = ({
-  children,
-  className,
-  index,
-}: CardAnimationWrapperProps) => {
+export const CardAnimationWrapper = ({ children, className, index }: CardAnimationWrapperProps) => {
   return (
     <motion.div
       custom={index}

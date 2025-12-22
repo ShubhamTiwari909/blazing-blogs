@@ -1,7 +1,7 @@
-import { pageData } from "./fetch-utils"
-import { queryPages } from "./query-all-pages"
-import { unstable_cache } from "next/cache"
-import { Params } from "./types"
+import { queryPages } from './query-all-pages'
+import { unstable_cache } from 'next/cache'
+import { pageData } from './fetch-utils'
+import { Params } from './types'
 
 // Create cached versions of data fetching functions
 export const getCachedPageData = unstable_cache(

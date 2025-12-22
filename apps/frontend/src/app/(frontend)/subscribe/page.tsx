@@ -4,9 +4,9 @@ import SubscribeForm from '@/components/subscribe/Subscribe'
 import { Typography } from '@/components/atoms/typography'
 import { LuMail, LuSparkles } from 'react-icons/lu'
 import { redirect } from 'next/navigation'
+import { METADATA } from './metadata'
 import { auth } from '@/lib/auth'
 import React from 'react'
-import { METADATA } from './metadata'
 
 const isSubscribed = async (email: string) => {
   const res = await fetch(`${process.env.SITE_URL}/api/subscribe?email=${email}`)

@@ -1,9 +1,9 @@
 'use client'
 
 import { motion, MotionProps } from 'motion/react'
+import type { AnimationBoxProps } from './types'
 import { cn } from '@/lib/utils'
 import React from 'react'
-import type { AnimationBoxProps } from './types'
 
 const defaultInitial: MotionProps['initial'] = { opacity: 0, scale: 0 }
 const defaultAnimate: MotionProps['animate'] = { opacity: [0.75, 1], scale: [1.25, 1] }

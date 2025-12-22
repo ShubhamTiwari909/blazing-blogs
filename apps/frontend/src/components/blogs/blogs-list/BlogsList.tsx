@@ -1,15 +1,25 @@
 'use client'
-import type { BlogsListProps } from './types'
 import BlogsListSkeleton from './BlogsListSkeleton'
-import BlogCard from './card/BlogCard'
-import React from 'react'
-import HasNext from './HasNext'
 import { useBlogsList } from './useBlogsList'
-import Error from './Error'
+import type { BlogsListProps } from './types'
+import BlogCard from './card/BlogCard'
 import NoBlogs from './NoBlogs'
+import HasNext from './HasNext'
+import Error from './Error'
+import React from 'react'
 
 const BlogsList = ({ pages }: BlogsListProps) => {
-  const { blogs, initialData, data, handleLoadMore, isFetchingNextPage, hasNextPage, isLoading, isError, error } = useBlogsList({ pages })
+  const {
+    blogs,
+    initialData,
+    data,
+    handleLoadMore,
+    isFetchingNextPage,
+    hasNextPage,
+    isLoading,
+    isError,
+    error,
+  } = useBlogsList({ pages })
   // Handle loading state
   if (isLoading && !initialData) {
     return <BlogsListSkeleton />

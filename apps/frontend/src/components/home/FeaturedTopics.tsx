@@ -1,8 +1,11 @@
+import {
+  CardAnimationWrapper,
+  CardContainerAnimationWrapper,
+} from '@/components/ui/animations/AnimationWrappers'
 import { LuCode, LuRocket, LuLightbulb, LuBookOpen } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 import { cn } from '@/lib/utils'
-import { CardAnimationWrapper, CardContainerAnimationWrapper } from '@/components/ui/animations/AnimationWrappers'
+import React from 'react'
 
 const topics = [
   {
@@ -45,16 +48,17 @@ const FeaturedTopics = () => {
           Explore Topics
         </Typography>
       </div>
-      <CardContainerAnimationWrapper
-        className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
-      >
+      <CardContainerAnimationWrapper className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {topics.map((topic, index) => {
           const Icon = topic.icon
           return (
             <CardAnimationWrapper index={index} key={index}>
               <div className="group bg-card/50 border-border/50 hover:border-primary/30 hover:shadow-primary/10 relative rounded-2xl border p-6 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <div
-                  className={cn('inline-flex rounded-xl bg-gradient-to-br p-3 mb-4 duration-300 group-hover:scale-110', topic.color)}
+                  className={cn(
+                    'mb-4 inline-flex rounded-xl bg-gradient-to-br p-3 duration-300 group-hover:scale-110',
+                    topic.color,
+                  )}
                 >
                   <Icon className="h-6 w-6 text-white" />
                 </div>

@@ -1,6 +1,6 @@
 export type SubscribeFormProps = {
-    email: string
-    activeSubscriber: boolean
-    existingSubscriber: string
-    name: string
-  }
+  email: string
+  activeSubscriber: boolean
+  existingSubscriber: string
+  name: string
+}

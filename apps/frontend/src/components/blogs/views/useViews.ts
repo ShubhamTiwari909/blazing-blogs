@@ -1,14 +1,18 @@
-"use client"
-import { useCookies } from "react-cookie"
-import { ViewsProps } from "./types"
-import { useEffect, useState } from "react"
-import { checkIfAlreadyViewed, getBlogView, updateBlogViews } from "@/components/blogs/views/helpers"
-import { useMutation } from "@tanstack/react-query"
+'use client'
+import {
+  checkIfAlreadyViewed,
+  getBlogView,
+  updateBlogViews,
+} from '@/components/blogs/views/helpers'
+import { useMutation } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
+import { useCookies } from 'react-cookie'
+import { ViewsProps } from './types'
 
 export const useViews = ({ id }: ViewsProps) => {
-    const [cookies, setCookies] = useCookies()
+  const [cookies, setCookies] = useCookies()
   const [blogViews, setBlogViews] = useState(0)
-  const {error, mutate} = useMutation({
+  const { error, mutate } = useMutation({
     mutationFn: () => updateBlogViews({ id }),
     onSuccess: (data) => {
       setBlogViews(data.blogsCount)

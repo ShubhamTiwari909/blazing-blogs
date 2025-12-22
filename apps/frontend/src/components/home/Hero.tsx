@@ -1,14 +1,14 @@
+import ExpertisePreview from './expertise-preview/ExpertisePreview'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import PortfolioIframe from '@/components/about/PortfolioIframe'
 import { Typography } from '@/components/atoms/typography'
-import ExpertisePreview from './expertise-preview/ExpertisePreview'
-import FeaturedTopics from './FeaturedTopics'
 import SocialLinks from './social-links/SocialLinks'
+import FeaturedTopics from './FeaturedTopics'
 import dynamic from 'next/dynamic'
 import Stats from './stats/Stats'
-import React from 'react'
 import Cta from './cta/Cta'
+import React from 'react'
 
 const Confetti = dynamic(() => import('./Confetti'))
 
