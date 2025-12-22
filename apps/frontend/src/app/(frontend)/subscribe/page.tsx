@@ -1,18 +1,13 @@
+import SubscribeFormWrapper from '@/components/subscribe/SubscribeFormWrapper'
+import { SubscribeFormSkeleton } from '@/components/subscribe/SubscribeSkeleton'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
-import SubscribeForm from '@/components/subscribe/Subscribe'
 import { Typography } from '@/components/atoms/typography'
 import { LuMail, LuSparkles } from 'react-icons/lu'
 import { redirect } from 'next/navigation'
+import React, { Suspense } from 'react'
 import { METADATA } from './metadata'
 import { auth } from '@/lib/auth'
-import React from 'react'
-
-const isSubscribed = async (email: string) => {
-  const res = await fetch(`${process.env.SITE_URL}/api/subscribe?email=${email}`)
-  const data = await res.json()
-  return data.docs[0]
-}
 
 export const metadata = METADATA
 
@@ -22,8 +17,6 @@ const page = async () => {
   if (!email) {
     redirect('/')
   }
-  const subcribed = await isSubscribed(email)
-
   return (
     <section className="bg-background relative flex min-h-screen items-center justify-center overflow-hidden py-12 lg:py-20">
       <DynamicBackground />
@@ -76,14 +69,9 @@ const page = async () => {
           </AnimationBox>
         </div>
 
-        <div className="bg-card/30 border-border/50 rounded-2xl border p-8 shadow-xl backdrop-blur-md md:p-12">
-          <SubscribeForm
-            email={email}
-            existingSubscriber={subcribed?.email}
-            activeSubscriber={subcribed?.isActive || false}
-            name={session?.user?.name || ''}
-          />
-        </div>
+        <Suspense fallback={<SubscribeFormSkeleton />}>
+          <SubscribeFormWrapper email={email} session={session} />
+        </Suspense>
 
         <div className="mt-8 text-center">
           <Typography as="p" size="xxs" color="muted" className="text-center">

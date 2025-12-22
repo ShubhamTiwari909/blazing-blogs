@@ -56,7 +56,7 @@ export default function SubscribeForm({
               size="xxs"
               color="inherit"
               weight="medium"
-              className="text-balance break-words"
+              className="text-balance break-words text-center"
             >
               {email && !isSubscribed ? `Subscribe Now with ${email}` : 'Loading...'}
             </Typography>
