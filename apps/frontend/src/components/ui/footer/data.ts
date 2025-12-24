@@ -1,13 +1,3 @@
-export const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Blog', href: '/blogs' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'Collaborators', href: '/collaborators' },
-  { name: 'Subscribe', href: '/subscribe' },
-  { name: 'Health Check', href: '/healthcheck' },
-]
-
 export const contactInfo = {
   email: 'shubhmtiwri00@gmail.com',
   phone: '+91 9627253516',

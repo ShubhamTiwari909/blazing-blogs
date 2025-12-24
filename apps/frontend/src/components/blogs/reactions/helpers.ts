@@ -16,7 +16,7 @@ export const fetchReactionsCount = async ({ session, id }: FetchReactionsCountPr
 }
 
 export const updateReaction = async ({ user, id, reaction }: UpdateReactionProps) => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/reaction`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blogs/update/reactions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

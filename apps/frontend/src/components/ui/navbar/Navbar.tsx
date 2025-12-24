@@ -7,18 +7,22 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Blog', href: '/blogs' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'Collaborators', href: '/collaborators' },
-  { name: 'Subscribe', href: '/subscribe' },
-]
-
 const Navbar = ({ children }: ChildrenProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { data: session } = useSession()
+
+  const defaultNavItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Blog', href: '/blogs' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Collaborators', href: '/collaborators' },
+  ]
+  
+  const loggedInNavItems = [
+    { name: 'Subscribe', href: '/subscribe' },
+  ]
+  const navItems = [...defaultNavItems, ...(session?.user.email ? loggedInNavItems : [])]
 
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
