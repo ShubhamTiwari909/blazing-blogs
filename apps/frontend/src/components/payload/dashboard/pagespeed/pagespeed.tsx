@@ -94,6 +94,11 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
             path: 'analytics.serverResponseTime',
             value: data?.lighthouseResult?.audits?.['server-response-time']?.displayValue,
           })
+          formFields.dispatchFields({
+            type: 'UPDATE',
+            path: 'analytics.pagespeed',
+            value: data?.lighthouseResult?.categories?.performance?.score,
+          })
         }
       })
       .catch((error) => {
@@ -101,8 +106,10 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
       })
       .finally(() => {
         setLoading(false)
+        console.log(fieldValues)
       })
   }
+  
 
   return (
     <div className="pagespeed-container">
@@ -148,7 +155,7 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
           <span className="metric-label">🏆 Performance Score</span>
           <span className="metric-value">
             {typeof fieldValues?.performanceScore === 'number'
-              ? Math.round(fieldValues?.performanceScore)
+              ? fieldValues?.performanceScore * 100
               : 0}
             %
           </span>

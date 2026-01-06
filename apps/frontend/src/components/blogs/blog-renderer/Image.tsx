@@ -11,6 +11,7 @@ export const BlogImage = ({ src, alt }: BlogImageProps) => {
         fill
         className="object-cover object-top"
         priority
+        fetchPriority="high"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
