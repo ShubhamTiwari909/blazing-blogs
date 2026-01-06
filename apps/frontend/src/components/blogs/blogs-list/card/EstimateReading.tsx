@@ -8,7 +8,7 @@ const EstimateReading = ({ data }: EstimateReadingProps) => {
   const text = convertToPlaintext({ dataBlocks: blocks })
   const readingTime = calculateReadingTime(text)
   return (
-    <Typography as="p" size="xxs" color="secondary" className="text-base">
+    <Typography as="p" size="xxs" color="inherit" className="text-base">
       {readingTime}
     </Typography>
   )
