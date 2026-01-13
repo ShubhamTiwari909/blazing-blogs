@@ -1,15 +1,16 @@
 'use client'
 
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 import { ChildrenProps } from '@/components/ui/types'
 import { Button } from '@/components/atoms/button/Button'
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 
 const Navbar = ({ children }: ChildrenProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { data: session } = useSession()
+  const { sessionClient, setSessionClient } = useAuthSessionStore()
 
   const defaultNavItems = [
     { name: 'Home', href: '/' },
@@ -22,7 +23,7 @@ const Navbar = ({ children }: ChildrenProps) => {
   const loggedInNavItems = [
     { name: 'Subscribe', href: '/subscribe' },
   ]
-  const navItems = [...defaultNavItems, ...(session?.user.email ? loggedInNavItems : [])]
+  const navItems = [...defaultNavItems, ...(sessionClient?.user.email ? loggedInNavItems : [])]
 
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
@@ -91,13 +92,17 @@ const Navbar = ({ children }: ChildrenProps) => {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                {session ? (
+                {sessionClient ? (
                   <div className="space-y-2">
                     <div className="text-center font-medium text-slate-600">
-                      Welcome, {session.user?.name}
+                      Welcome, {sessionClient?.user?.name}
                     </div>
                     <Button
-                      onClick={() => signOut()}
+                      onClick={() => {
+                        signOut().then(() => {
+                          setSessionClient(null)
+                        })
+                      }}
                       className="w-full cursor-pointer rounded-lg bg-red-500 px-4 py-2 font-medium text-white shadow-md transition-all duration-300 hover:bg-red-600"
                     >
                       Logout

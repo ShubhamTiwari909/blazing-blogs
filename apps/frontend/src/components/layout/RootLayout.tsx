@@ -6,17 +6,20 @@ import TanstackWrapper from './TanstackWrapper'
 import type { ChildrenProps } from './types'
 import React from 'react'
 import './styles.css'
+import SessionWrapperClient from './SessionWrapper.client'
 
 export default function RootLayout(props: ChildrenProps) {
   const { children } = props
 
   return (
     <SessionProvider>
-      <Navbar>
-        <SigninSignout />
-      </Navbar>
-      <TanstackWrapper>{children}</TanstackWrapper>
-      <Footer />
+      <SessionWrapperClient>
+        <Navbar>
+          <SigninSignout />
+        </Navbar>
+        <TanstackWrapper>{children}</TanstackWrapper>
+        <Footer />
+      </SessionWrapperClient>
     </SessionProvider>
   )
 }
