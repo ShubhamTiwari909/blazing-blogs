@@ -59,7 +59,7 @@ app.use('/users', userRoutes);
 app.use('/blogs', blogRoutes);
 
 // Start the server
-const PORT = Number(process.env.PORT) || 5000;
+const PORT = Number(process.env.PORT) || 5481;
 
 const startServer = async () => {
   try {
