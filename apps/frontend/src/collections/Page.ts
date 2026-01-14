@@ -30,6 +30,9 @@ export const Page: CollectionConfig = {
         collection: 'pages',
         req,
       }),
+      components: {
+        listMenuItems: ['@/components/payload/dashboard/csv-export/CsvDataExport'],
+      }
   },
   fields: [
     {
