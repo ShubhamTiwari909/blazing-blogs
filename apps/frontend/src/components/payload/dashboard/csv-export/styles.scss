@@ -1,6 +1,6 @@
 .csv-export-button {
     display: inline-block;
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #1183e7 0%, #07aab3 100%);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -40,6 +40,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    &-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
     &-trigger {
         border: none;
         cursor: pointer;
