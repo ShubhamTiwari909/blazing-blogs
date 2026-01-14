@@ -13,6 +13,7 @@ function CsvDataExport() {
       </button>
       {isModalOpen ? (
         <div className="csv-modal">
+          <label htmlFor="pages-count" className="csv-modal-label">Number of pages to sync</label>
           <input
             type="number"
             placeholder="Enter the number of pages to sync (must be positive)"
@@ -30,7 +31,7 @@ function CsvDataExport() {
           >
             {isSyncing ? 'Syncing...' : 'Sync to Google Sheet'}
           </button>
-          <button onClick={() => setIsModalOpen(false)} className="csv-modal-close">
+          <button onClick={() => setIsModalOpen(false)} className="csv-modal-close" disabled={isSyncing}>
             Close
           </button>
         </div>

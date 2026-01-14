@@ -51,6 +51,11 @@
         border: 1px solid #4facfe;
         margin-bottom: 20px;
     }
+    &-label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
     &-close {
         background: white;
         border: 1px solid #4facfe;
@@ -60,5 +65,9 @@
         font-size: 14px;
         font-weight: 600;
         padding: 10px 20px;
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     }
 }
