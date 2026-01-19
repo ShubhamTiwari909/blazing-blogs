@@ -1,4 +1,4 @@
-import { queryPages } from './query-all-pages'
+import { queryGlobals, queryPages } from './query-all-pages'
 import { unstable_cache } from 'next/cache'
 import { pageData } from './fetch-utils'
 import { Params } from './types'
@@ -29,6 +29,21 @@ export const getCachedBlogData = async (params: Params) => {
     {
       revalidate: 86400, // 24 hours
       tags: [`page-data-${parsedSlug}`],
+    },
+  )
+
+  return cachedFn()
+}
+
+export const getCachedGlobalData = async () => {
+  const cachedFn = unstable_cache(
+    async () => {
+      return await queryGlobals()
+    },
+    ['global-data'],
+    {
+      revalidate: 86400, // 24 hours
+      tags: ['global-data'],
     },
   )
 

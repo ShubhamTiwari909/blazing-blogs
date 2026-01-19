@@ -90,8 +90,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'dev-to-blogs': DevToBlog;
+  };
+  globalsSelect: {
+    'dev-to-blogs': DevToBlogsSelect<false> | DevToBlogsSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -561,6 +565,36 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dev-to-blogs".
+ */
+export interface DevToBlog {
+  id: string;
+  title: string;
+  blogs:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "dev-to-blogs_select".
+ */
+export interface DevToBlogsSelect<T extends boolean = true> {
+  title?: T;
+  blogs?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

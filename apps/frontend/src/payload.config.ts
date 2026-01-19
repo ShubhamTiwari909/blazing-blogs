@@ -13,6 +13,7 @@ import { Subscribers } from './collections/Subscribers'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Page } from './collections/Page'
+import { DevToBlogs } from './globals/DevToBlogs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,6 +26,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Page, Collaborators, Subscribers],
+  globals: [DevToBlogs],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

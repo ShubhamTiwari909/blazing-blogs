@@ -8,6 +8,7 @@ const QuickLinks = async () => {
   const defaultNavItems = [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blogs' },
+    { name: 'Articles', href: '/articles' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
     { name: 'Collaborators', href: '/collaborators' },

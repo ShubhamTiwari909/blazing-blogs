@@ -72,3 +72,13 @@ export const queryCollaborators = cache(async () => {
     }
   }
 })
+
+export const queryGlobals = async () => {
+  const payload = await getPayload({ config: config })
+
+  const result = await payload.findGlobal({
+    slug: 'dev-to-blogs',
+  })
+
+  return result
+}

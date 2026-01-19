@@ -33,6 +33,7 @@ import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 }
 import { default as default_5e8629dff80dac03d9275dce6ee68383 } from '@/components/payload/dashboard/view-and-reactions/ViewsAndReactions'
 import { default as default_76aa9e21c065ea9b0a4461df1322defb } from '@/components/payload/dashboard/pagespeed/pagespeed'
 import { default as default_343f7dd89d93a9641fcb5e5552851cc0 } from '@/components/payload/dashboard/csv-export/CsvDataExport'
+import { default as default_7ef9d54d7e43adad90c2fc9dc6f21ba8 } from '@/globals/RefetchButton'
 import { UploadthingClientUploadHandler as UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10 } from '@payloadcms/storage-uploadthing/client'
 
 export const importMap = {
@@ -71,5 +72,6 @@ export const importMap = {
   "@/components/payload/dashboard/view-and-reactions/ViewsAndReactions#default": default_5e8629dff80dac03d9275dce6ee68383,
   "@/components/payload/dashboard/pagespeed/pagespeed#default": default_76aa9e21c065ea9b0a4461df1322defb,
   "@/components/payload/dashboard/csv-export/CsvDataExport#default": default_343f7dd89d93a9641fcb5e5552851cc0,
+  "@/globals/RefetchButton#default": default_7ef9d54d7e43adad90c2fc9dc6f21ba8,
   "@payloadcms/storage-uploadthing/client#UploadthingClientUploadHandler": UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10
 }
