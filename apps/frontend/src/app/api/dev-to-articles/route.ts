@@ -9,10 +9,7 @@ export async function GET(req: Request) {
     const apiKey = process.env.DEV_TO_API_KEY
 
     if (!apiKey) {
-      return NextResponse.json(
-        { error: 'DEV_TO_API_KEY is not configured' },
-        { status: 500 }
-      )
+      return NextResponse.json({ error: 'DEV_TO_API_KEY is not configured' }, { status: 500 })
     }
 
     const response = await fetch(
@@ -22,7 +19,7 @@ export async function GET(req: Request) {
         headers: {
           'api-key': apiKey,
         },
-      }
+      },
     )
 
     if (!response.ok) {
@@ -32,7 +29,7 @@ export async function GET(req: Request) {
           error: `Failed to fetch blogs: ${response.status} ${response.statusText}`,
           details: errorText,
         },
-        { status: response.status }
+        { status: response.status },
       )
     }
 
@@ -41,7 +38,7 @@ export async function GET(req: Request) {
     if (!Array.isArray(data)) {
       return NextResponse.json(
         { error: 'Expected array of blogs, but received: ' + typeof data },
-        { status: 500 }
+        { status: 500 },
       )
     }
 
@@ -50,7 +47,7 @@ export async function GET(req: Request) {
     console.error('Error fetching Dev.to articles:', err)
     return NextResponse.json(
       { error: 'Failed to fetch articles', details: (err as Error).message },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

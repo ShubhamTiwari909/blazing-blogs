@@ -1,5 +1,5 @@
-import SubscribeFormWrapper from '@/components/subscribe/SubscribeFormWrapper'
 import { SubscribeFormSkeleton } from '@/components/subscribe/SubscribeSkeleton'
+import SubscribeFormWrapper from '@/components/subscribe/SubscribeFormWrapper'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import { Typography } from '@/components/atoms/typography'

@@ -1,10 +1,10 @@
 'use client'
 
-import { signIn, signOut } from 'next-auth/react'
+import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 import { Button } from '@/components/atoms/button/Button'
+import { signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
 import React from 'react'
-import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 
 const defaultImageUrl =
   'https://570pc5yjce.ufs.sh/f/QUFIlUYDwcG55o5jv8rcMYwvi9PgT6zWx4lsCmZte08HFhU3'
@@ -23,9 +23,11 @@ const SigninSignout = () => {
   return sessionClient ? (
     <div className="flex items-center space-x-3">
       <Button
-        onClick={() => signOut().then(() => {
-          setSessionClient(null)
-        })}
+        onClick={() =>
+          signOut().then(() => {
+            setSessionClient(null)
+          })
+        }
         className="cursor-pointer rounded-lg bg-red-500 px-4 py-2 font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-red-600 hover:shadow-lg"
       >
         Logout

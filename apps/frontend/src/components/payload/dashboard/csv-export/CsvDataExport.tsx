@@ -27,7 +27,7 @@ function CsvDataExport() {
               setPagesCount(isNaN(value) || value < 0 ? 0 : value)
             }}
           />
-          <div className='csv-modal-buttons'>
+          <div className="csv-modal-buttons">
             <button
               onClick={() => submitToSheet()}
               className="csv-export-button"

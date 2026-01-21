@@ -1,8 +1,8 @@
 'use client'
 import { Typography } from '@/components/atoms/typography'
+import { Button } from '@/components/atoms/button/Button'
 import { LuCircle, LuLoader } from 'react-icons/lu'
 import type { SubscribeFormProps } from './types'
-import { Button } from '@/components/atoms/button/Button'
 import { useSubscribe } from './useSubscribe'
 
 export default function SubscribeForm({
@@ -56,7 +56,7 @@ export default function SubscribeForm({
               size="xxs"
               color="inherit"
               weight="medium"
-              className="text-balance break-words text-center"
+              className="text-center text-balance break-words"
             >
               {email && !isSubscribed ? `Subscribe Now with ${email}` : 'Loading...'}
             </Typography>

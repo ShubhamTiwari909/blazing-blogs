@@ -1,6 +1,6 @@
 'use client'
-import { LuCheck, LuCopy } from 'react-icons/lu'
 import { Button } from '@/components/atoms/button/Button'
+import { LuCheck, LuCopy } from 'react-icons/lu'
 import { useCopyLink } from './useCopyLink'
 import React from 'react'
 

@@ -108,7 +108,6 @@ const Pagespeed: TextFieldClientComponent = ({ path }: PagespeedProps) => {
         setLoading(false)
       })
   }
-  
 
   return (
     <div className="pagespeed-container">

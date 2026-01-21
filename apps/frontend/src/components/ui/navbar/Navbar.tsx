@@ -1,12 +1,12 @@
 'use client'
 
-import { signIn, signOut } from 'next-auth/react'
-import { ChildrenProps } from '@/components/ui/types'
+import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 import { Button } from '@/components/atoms/button/Button'
+import { ChildrenProps } from '@/components/ui/types'
+import { signIn, signOut } from 'next-auth/react'
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 
 const Navbar = ({ children }: ChildrenProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -20,10 +20,8 @@ const Navbar = ({ children }: ChildrenProps) => {
     { name: 'Contact', href: '/contact' },
     { name: 'Collaborators', href: '/collaborators' },
   ]
-  
-  const loggedInNavItems = [
-    { name: 'Subscribe', href: '/subscribe' },
-  ]
+
+  const loggedInNavItems = [{ name: 'Subscribe', href: '/subscribe' }]
   const navItems = [...defaultNavItems, ...(sessionClient?.user.email ? loggedInNavItems : [])]
 
   return (

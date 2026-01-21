@@ -1,39 +1,38 @@
-import type { GlobalConfig } from "payload";
+import type { GlobalConfig } from 'payload'
 
 export const DevToBlogs: GlobalConfig = {
-    slug: "dev-to-blogs",
-    fields: [
+  slug: 'dev-to-blogs',
+  fields: [
+    {
+      name: 'title',
+      type: 'text',
+      label: 'Title',
+      required: true,
+    },
+    {
+      type: 'collapsible',
+      label: 'Blogs',
+      fields: [
         {
-            name: 'title',
-            type: 'text',
-            label: 'Title',
-            required: true,
+          name: 'blogs',
+          type: 'json',
+          label: 'Blogs',
+          required: true,
+          admin: {
+            readOnly: true,
+          },
         },
-        {
-            type: "collapsible",
-            label: "Blogs",
-            fields: [
-                {
-                    name: "blogs",
-                    type: "json",
-                    label: "Blogs",
-                    required: true,
-                    admin: {
-                        readOnly: true
-                    },
-
-                },
-            ]
+      ],
+    },
+    {
+      name: 'refetch',
+      type: 'ui',
+      label: 'Refetch',
+      admin: {
+        components: {
+          Field: '@/globals/RefetchButton',
         },
-        {
-            name: "refetch",
-            type: "ui",
-            label: "Refetch",
-            admin: {
-                components: {
-                    Field: '@/globals/RefetchButton',
-                }
-            }
-        }
-    ]
+      },
+    },
+  ],
 }

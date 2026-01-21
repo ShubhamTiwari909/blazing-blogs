@@ -1,7 +1,7 @@
 'use client'
+import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 import type { Reaction, ReactionsProps } from './types'
 import { useMutation } from '@tanstack/react-query'
-import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 import { updateReaction } from './helpers'
 import { useState } from 'react'
 

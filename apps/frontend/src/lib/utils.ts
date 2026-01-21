@@ -53,13 +53,13 @@ export const convertToPlaintext = ({ dataBlocks }: ConvertLexicalToPlaintextProp
 }
 
 export const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
+  const date = new Date(dateString)
   if (isNaN(date.getTime())) {
-    return dateString;
+    return dateString
   }
-  return new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(date);
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date)
 }

@@ -1,8 +1,8 @@
 import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
-import CollaboratorsList from './CollaboratorsList'
-import Header from './Header'
-import React, { Suspense } from 'react'
 import CollaboratorSkeleton from './CollaboratorSkeleton'
+import CollaboratorsList from './CollaboratorsList'
+import React, { Suspense } from 'react'
+import Header from './Header'
 
 const Collaborators = () => {
   return (

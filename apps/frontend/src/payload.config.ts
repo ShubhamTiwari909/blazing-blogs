@@ -10,10 +10,10 @@ import path from 'path'
 
 import { Collaborators } from './collections/Collaborators'
 import { Subscribers } from './collections/Subscribers'
+import { DevToBlogs } from './globals/DevToBlogs'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Page } from './collections/Page'
-import { DevToBlogs } from './globals/DevToBlogs'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
