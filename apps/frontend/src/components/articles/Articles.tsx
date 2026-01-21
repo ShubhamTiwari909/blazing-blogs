@@ -7,14 +7,18 @@ import Image from 'next/image'
 const Articles = ({ articles }: { articles: DevToArticles[] }) => {
   const [paginatedArticles, setPaginatedArticles] = useState<DevToArticles[]>(articles)
   const [loading, setLoading] = useState(false)
+  const [lastPage, setLastPage] = useState(false)
   const [page, setPage] = useState(1)
 
   useEffect(() => {
     const handleLoadMore = () => {
       setLoading(true)
-      fetch(`/api/dev-to-articles?page=${page}&per_page=12`)
+      fetch(`/api/dev-to-articles?page=${page}&per_page=36`)
         .then((response) => response.json())
-        .then((data) => setPaginatedArticles((prev) => [...prev, ...data]))
+        .then((data) => {
+          setLastPage(data.length < 36)
+          setPaginatedArticles((prev) => [...prev, ...data])
+        })
         .catch((error) => console.error('Error fetching articles:', error))
         .finally(() => setLoading(false))
     }
@@ -104,16 +108,20 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
           )
         })}
       </div>
-      <div className="mt-10 flex justify-center">
-        <button
-          onClick={() => {
-            setPage((prev) => prev + 1)
-          }}
-          className="group relative transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-        >
-          {loading ? 'Loading...' : 'Read More Blogs'}
-        </button>
-      </div>
+      {
+        !lastPage ? (
+          <div className="mt-10 flex justify-center">
+            <button
+              onClick={() => {
+                setPage((prev) => prev + 1)
+              }}
+              className="group relative cursor-pointer transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              {loading ? 'Loading...' : 'Read More Blogs'}
+            </button>
+          </div>
+        ) : null
+      }
     </>
   )
 }
