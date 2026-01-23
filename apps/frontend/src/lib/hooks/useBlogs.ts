@@ -1,24 +1,42 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import type { BlogResponse } from './types'
+import type { Page } from '@/payload-types'
+import { sdk } from '../restapi-sdk'
 
-const fetchBlogs = async (pageParam: number = 1): Promise<BlogResponse> => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/pages?limit=50&page=${pageParam}`,
-  )
-  if (!response.ok) {
-    throw new Error('Failed to fetch blogs')
-  }
-  const data = await response.json()
+const fetchBlogs = async (pageParam: number = 1, search?: string): Promise<BlogResponse> => {
+  const blogs = await sdk.find({
+    collection: 'pages',
+    limit: 50,
+    page: pageParam,
+    ...(search && {
+      where: {
+        or: [
+          {
+            "content.title": {
+              contains: search
+            },
+          },
+          {
+            "content.shortDescription": {
+              contains: search
+            },
+          },
+        ]
+      },
+    }),
+  })
   return {
-    ...data,
-    nextPage: data.hasNextPage ? pageParam + 1 : undefined,
+    docs: blogs.docs as Page[],
+    totalDocs: blogs.totalDocs,
+    hasNextPage: blogs.hasNextPage,
+    nextPage: blogs.hasNextPage ? pageParam + 1 : undefined,
   }
 }
 
-export const useBlogs = (initialData?: BlogResponse) => {
+export const useBlogs = (initialData?: BlogResponse, search?: string) => {
   return useInfiniteQuery<BlogResponse, Error>({
-    queryKey: ['blogs'],
-    queryFn: ({ pageParam }) => fetchBlogs(pageParam as number),
+    queryKey: ['blogs', search],
+    queryFn: ({ pageParam }) => fetchBlogs(pageParam as number, search),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => lastPage.nextPage,
     initialData: initialData

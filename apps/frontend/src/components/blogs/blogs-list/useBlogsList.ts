@@ -2,19 +2,19 @@ import { BlogResponse, BlogsListProps } from './types'
 import { useBlogs } from '@/lib/hooks/useBlogs'
 import { useMemo } from 'react'
 
-export const useBlogsList = ({ pages }: BlogsListProps) => {
+export const useBlogsList = ({ pages, search }: BlogsListProps) => {
   // Initialize the initial data for the query
   const initialData = pages
     ? {
-        docs: pages.docs,
-        totalDocs: pages.totalDocs,
-        hasNextPage: pages.hasNextPage,
-        nextPage: pages.hasNextPage ? 2 : undefined,
-      }
+      docs: pages.docs,
+      totalDocs: pages.totalDocs,
+      hasNextPage: pages.hasNextPage,
+      nextPage: pages.hasNextPage ? 2 : undefined,
+    }
     : undefined
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError, error } =
-    useBlogs(initialData)
+    useBlogs(initialData, search)
 
   // Flatten all pages into a single array of blogs
   const blogs = useMemo(() => {

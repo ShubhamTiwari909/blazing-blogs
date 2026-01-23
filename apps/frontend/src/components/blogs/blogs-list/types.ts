@@ -12,12 +12,13 @@ export type BlogResponse = {
 }
 
 export type BlogsListProps = {
-  pages: {
+  pages?: {
     type: string
     docs: Page[]
     totalDocs: number
     hasNextPage: boolean
   }
+  search?: string
 }
 
 export type HasNextProps = {

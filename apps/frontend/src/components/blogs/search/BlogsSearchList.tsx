@@ -1,14 +1,14 @@
 'use client'
-import BlogsListSkeleton from './BlogsListSkeleton'
-import { useBlogsList } from './useBlogsList'
-import type { BlogsListProps } from './types'
-import BlogCard from './card/BlogCard'
-import NoBlogs from './NoBlogs'
-import HasNext from './HasNext'
-import Error from './Error'
+import BlogsListSkeleton from '@/components/blogs/blogs-list/BlogsListSkeleton'
+import { useBlogsList } from '@/components/blogs/blogs-list/useBlogsList'
+import type { BlogsListProps } from '@/components/blogs/blogs-list/types'
+import BlogCard from '@/components/blogs/blogs-list/card/BlogCard'
+import NoBlogs from '@/components/blogs/blogs-list/NoBlogs'
+import HasNext from '@/components/blogs/blogs-list/HasNext'
+import Error from '@/components/blogs/blogs-list/Error'
 import React from 'react'
 
-const BlogsList = ({ pages }: BlogsListProps) => {
+const BlogsSearchList = ({ pages, search }: BlogsListProps) => {
   const {
     blogs,
     initialData,
@@ -19,7 +19,7 @@ const BlogsList = ({ pages }: BlogsListProps) => {
     isLoading,
     isError,
     error,
-  } = useBlogsList({ pages })
+  } = useBlogsList({ pages, search })
 
   // Handle loading state
   if (isLoading && !initialData) {
@@ -57,4 +57,4 @@ const BlogsList = ({ pages }: BlogsListProps) => {
   )
 }
 
-export default BlogsList
+export default BlogsSearchList

@@ -28,6 +28,7 @@
     "@payloadcms/payload-cloud": "3.55.1",
     "@payloadcms/plugin-seo": "3.55.1",
     "@payloadcms/richtext-lexical": "3.55.1",
+    "@payloadcms/sdk": "^3.72.0",
     "@payloadcms/storage-uploadthing": "^3.55.1",
     "@payloadcms/ui": "3.55.1",
     "@radix-ui/react-accordion": "^1.2.12",
