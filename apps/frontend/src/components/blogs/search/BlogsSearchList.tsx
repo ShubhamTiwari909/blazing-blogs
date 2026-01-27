@@ -6,7 +6,6 @@ import BlogCard from '@/components/blogs/blogs-list/card/BlogCard'
 import NoBlogs from '@/components/blogs/blogs-list/NoBlogs'
 import HasNext from '@/components/blogs/blogs-list/HasNext'
 import Error from '@/components/blogs/blogs-list/Error'
-import React from 'react'
 
 const BlogsSearchList = ({ pages, search }: BlogsListProps) => {
   const {

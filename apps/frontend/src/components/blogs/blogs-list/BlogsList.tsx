@@ -6,7 +6,6 @@ import BlogCard from './card/BlogCard'
 import NoBlogs from './NoBlogs'
 import HasNext from './HasNext'
 import Error from './Error'
-import React from 'react'
 
 const BlogsList = ({ pages }: BlogsListProps) => {
   const {

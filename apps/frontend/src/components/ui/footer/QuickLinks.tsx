@@ -1,7 +1,6 @@
 import { Typography } from '@/components/atoms/typography'
 import { auth } from '@/lib/auth'
 import Link from 'next/link'
-import React from 'react'
 
 const QuickLinks = async () => {
   const session = await auth()

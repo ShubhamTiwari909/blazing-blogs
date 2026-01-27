@@ -4,7 +4,6 @@ import YoutubeIframe from './youtube-iframe/YoutubeIframe'
 import LinkPreviewCard from './link-preview/LinkPreview'
 import type { ContentProps } from './types'
 import CodeRenderer from './CodeRenderer'
-import React from 'react'
 
 const Content = ({ docs }: ContentProps) => {
   return (

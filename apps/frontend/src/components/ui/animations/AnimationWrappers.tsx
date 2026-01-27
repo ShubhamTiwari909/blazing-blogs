@@ -2,7 +2,6 @@
 import type { CardAnimationWrapperProps, DefaultAnimationProps } from './types'
 import { motion, MotionProps, stagger } from 'motion/react'
 import { cn } from '@/lib/utils'
-import React from 'react'
 
 const transitionMyStory: MotionProps['transition'] = {
   type: 'spring',

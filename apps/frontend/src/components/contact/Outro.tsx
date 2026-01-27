@@ -1,6 +1,5 @@
 import { DefaultAnimationWrapper } from '@/components/ui/animations/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 
 const Outro = () => {
   return (

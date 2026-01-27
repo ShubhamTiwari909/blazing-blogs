@@ -8,7 +8,6 @@ import FeaturedTopics from './FeaturedTopics'
 import dynamic from 'next/dynamic'
 import Stats from './stats/Stats'
 import Cta from './cta/Cta'
-import React from 'react'
 
 const Confetti = dynamic(() => import('./Confetti'))
 

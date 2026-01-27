@@ -1,5 +1,4 @@
 import { PreviewLink } from './types'
-import React from 'react'
 
 const DefaultLinkPreview = ({ link }: PreviewLink) => {
   return (

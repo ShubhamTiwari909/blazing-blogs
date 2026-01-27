@@ -1,6 +1,5 @@
 'use client'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
-import React from 'react'
 
 const BackgroundTheme = () => {
   const darkMode = useDarkModeStore((state) => state.darkMode)

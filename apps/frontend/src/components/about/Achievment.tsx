@@ -4,7 +4,6 @@ import {
 } from '@/components/ui/animations/AnimationWrappers'
 import { LuLightbulb, LuCode, LuUsers, LuZap } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 
 const achievements = [
   {

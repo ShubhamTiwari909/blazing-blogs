@@ -31,7 +31,7 @@ export const Page: CollectionConfig = {
         req,
       }),
     components: {
-      listMenuItems: ['@/components/payload/dashboard/csv-export/CsvDataExport'],
+      Description: '@/components/payload/dashboard/csv-export/CsvDataExport',
     },
   },
   fields: [

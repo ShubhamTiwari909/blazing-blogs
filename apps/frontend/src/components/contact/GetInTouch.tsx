@@ -1,6 +1,5 @@
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 
 const GetInTouch = () => {
   return (

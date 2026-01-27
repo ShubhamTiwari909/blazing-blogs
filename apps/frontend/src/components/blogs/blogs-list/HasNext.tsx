@@ -1,6 +1,5 @@
 import { Typography } from '@/components/atoms/typography'
 import { HasNextProps } from './types'
-import React from 'react'
 
 const HasNext = ({ handleLoadMore, isFetchingNextPage }: HasNextProps) => {
   return (

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { formatDate } from '@/lib/utils'
 import { DevToArticles } from './types'
 import Image from 'next/image'
@@ -108,20 +108,18 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
           )
         })}
       </div>
-      {
-        !lastPage ? (
-          <div className="mt-10 flex justify-center">
-            <button
-              onClick={() => {
-                setPage((prev) => prev + 1)
-              }}
-              className="group relative cursor-pointer transform rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-            >
-              {loading ? 'Loading...' : 'Read More Blogs'}
-            </button>
-          </div>
-        ) : null
-      }
+      {!lastPage ? (
+        <div className="mt-10 flex justify-center">
+          <button
+            onClick={() => {
+              setPage((prev) => prev + 1)
+            }}
+            className="group relative transform cursor-pointer rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            {loading ? 'Loading...' : 'Read More Blogs'}
+          </button>
+        </div>
+      ) : null}
     </>
   )
 }

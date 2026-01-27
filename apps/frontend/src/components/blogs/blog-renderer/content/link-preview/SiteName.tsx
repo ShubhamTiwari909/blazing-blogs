@@ -1,6 +1,5 @@
 import { Typography } from '@/components/atoms/typography'
 import { SiteNameProps } from './types'
-import React from 'react'
 
 const SiteName = ({ site }: SiteNameProps) => {
   return (

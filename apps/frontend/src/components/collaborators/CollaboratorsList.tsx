@@ -7,7 +7,6 @@ import { queryCollaborators } from '@/lib/fetch-utils/query-all-pages'
 import CollaboratorCard from './collaborator-card/Card'
 import { Typography } from '../atoms/typography'
 import { LuUsers } from 'react-icons/lu'
-import React from 'react'
 
 const CollaboratorsList = async () => {
   const collaborators = await queryCollaborators()

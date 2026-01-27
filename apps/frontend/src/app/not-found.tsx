@@ -2,9 +2,6 @@ import { Typography } from '@/components/atoms/typography'
 import { Button } from '@/components/atoms/button/Button'
 import RootLayout from '@/components/layout/RootLayout'
 import Link from 'next/link'
-import React from 'react'
-
-export const dynamic = 'force-static'
 
 const NotFound = () => {
   return (

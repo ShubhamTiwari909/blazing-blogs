@@ -1,7 +1,6 @@
 import { Typography } from '@/components/atoms/typography'
 import { LuCalendarDays, LuUser } from 'react-icons/lu'
 import type { MetaDataProps } from './types'
-import React from 'react'
 
 const MetaData = ({ author, createdAt }: MetaDataProps) => {
   return (

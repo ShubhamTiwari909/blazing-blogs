@@ -1,7 +1,6 @@
 import { DefaultAnimationWrapper } from '@/components/ui/animations/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
 import { LuMail, LuMapPin, LuPhone } from 'react-icons/lu'
-import React from 'react'
 
 const contactInfo = {
   email: 'shubhmtiwri00@gmail.com',

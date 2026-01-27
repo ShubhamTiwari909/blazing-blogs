@@ -1,7 +1,6 @@
 import { DefaultAnimationWrapper } from '@/components/ui/animations/AnimationWrappers'
 import { Typography } from '@/components/atoms/typography'
 import Link from 'next/link'
-import React from 'react'
 
 const CallToAction = () => {
   return (

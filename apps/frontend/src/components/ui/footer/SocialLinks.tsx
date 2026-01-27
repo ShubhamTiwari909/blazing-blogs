@@ -1,6 +1,5 @@
 import { LuGithub, LuLinkedin, LuInstagram, LuExternalLink } from 'react-icons/lu'
 import { socialLinks } from './data'
-import React from 'react'
 
 const SocialLinks = () => {
   return (

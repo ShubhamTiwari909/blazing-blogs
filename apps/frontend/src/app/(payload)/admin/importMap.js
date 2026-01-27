@@ -35,6 +35,7 @@ import { default as default_76aa9e21c065ea9b0a4461df1322defb } from '@/component
 import { default as default_343f7dd89d93a9641fcb5e5552851cc0 } from '@/components/payload/dashboard/csv-export/CsvDataExport'
 import { default as default_7ef9d54d7e43adad90c2fc9dc6f21ba8 } from '@/globals/RefetchButton'
 import { UploadthingClientUploadHandler as UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10 } from '@payloadcms/storage-uploadthing/client'
+import { CollectionCards as CollectionCards_ab83ff7e88da8d3530831f296ec4756a } from '@payloadcms/ui/rsc'
 
 export const importMap = {
   "@/components/payload/dashboard/revalidation#default": default_d86150a9e1be19c6b36cbda2cd68dd31,
@@ -73,5 +74,6 @@ export const importMap = {
   "@/components/payload/dashboard/pagespeed/pagespeed#default": default_76aa9e21c065ea9b0a4461df1322defb,
   "@/components/payload/dashboard/csv-export/CsvDataExport#default": default_343f7dd89d93a9641fcb5e5552851cc0,
   "@/globals/RefetchButton#default": default_7ef9d54d7e43adad90c2fc9dc6f21ba8,
-  "@payloadcms/storage-uploadthing/client#UploadthingClientUploadHandler": UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10
+  "@payloadcms/storage-uploadthing/client#UploadthingClientUploadHandler": UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10,
+  "@payloadcms/ui/rsc#CollectionCards": CollectionCards_ab83ff7e88da8d3530831f296ec4756a
 }

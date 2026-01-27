@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { DatabaseProps } from '@/components/healthcheck/types'
 import { Typography } from '@/components/atoms/typography'
 import { Card } from './Card'

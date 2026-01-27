@@ -6,7 +6,6 @@ import ViewsWrapper from '@/components/blogs/views/ViewsWrapper'
 import { Typography } from '@/components/atoms/typography'
 import Tags from '@/components/blogs/blog-renderer/Tags'
 import { LuCalendarDays, LuUser } from 'react-icons/lu'
-import React from 'react'
 
 const Metadata = async ({
   id,

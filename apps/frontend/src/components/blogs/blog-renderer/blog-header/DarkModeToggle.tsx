@@ -1,7 +1,6 @@
 'use client'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
 import { Switch } from '@/components/atoms/Switch'
-import React from 'react'
 
 const DarkModeToggle = () => {
   const toggleDarkMode = useDarkModeStore((state) => state.toggleDarkMode)

@@ -4,7 +4,6 @@ import { containerVariants, itemVariants } from './animation'
 import { Typography } from '@/components/atoms/typography'
 import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
-import React from 'react'
 
 const socialLinks = [
   {

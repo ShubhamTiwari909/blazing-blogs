@@ -1,6 +1,5 @@
 import { PreviewImageProps } from './types'
 import Image from 'next/image'
-import React from 'react'
 
 const PreviewImage = ({ src, alt }: PreviewImageProps) => {
   return src ? (

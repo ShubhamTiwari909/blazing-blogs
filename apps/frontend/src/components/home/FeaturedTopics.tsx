@@ -5,7 +5,6 @@ import {
 import { LuCode, LuRocket, LuLightbulb, LuBookOpen } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
 import { cn } from '@/lib/utils'
-import React from 'react'
 
 const topics = [
   {

@@ -1,10 +1,9 @@
-import { getCachedGlobalData } from '@/lib/fetch-utils/fetch-blogs'
+import { queryGlobals } from '@/lib/fetch-utils/query-all-pages'
 import { DevToArticles } from './types'
 import Articles from './Articles'
-import React from 'react'
 
 const ArticlesWrapper = async () => {
-  const devToArticles = await getCachedGlobalData()
+  const devToArticles = await queryGlobals()
   const articles = devToArticles?.blogs as DevToArticles[]
   return articles.length > 0 ? <Articles articles={articles} /> : null
 }

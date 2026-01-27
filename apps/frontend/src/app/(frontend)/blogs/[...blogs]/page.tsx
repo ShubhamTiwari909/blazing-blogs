@@ -6,10 +6,6 @@ import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
 import { getMetadata } from './metadata'
 import { Props } from '@/lib/types'
-import React from 'react'
-
-// Enable dynamic rendering
-export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: Props) {
   return await getMetadata({ params })

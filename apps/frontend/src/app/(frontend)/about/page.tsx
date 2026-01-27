@@ -7,9 +7,6 @@ import MyStory from '@/components/about/MyStory'
 import Values from '@/components/about/Values'
 import Intro from '@/components/about/Intro'
 import { METADATA } from './metadata'
-import React from 'react'
-
-export const dynamic = 'force-static'
 
 export const metadata = METADATA
 

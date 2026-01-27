@@ -1,7 +1,6 @@
 import { Typography } from '@/components/atoms/typography'
 import { StaticPage, StaticPagesProps } from './types'
 import { StatusBadge } from './StatusBadge'
-import React from 'react'
 
 const StaticPages = ({ staticPages }: StaticPagesProps) => {
   return (

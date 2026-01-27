@@ -1,5 +1,3 @@
-import React from 'react'
-
 const BlogCardSkeleton = () => {
   return (
     <article className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg">

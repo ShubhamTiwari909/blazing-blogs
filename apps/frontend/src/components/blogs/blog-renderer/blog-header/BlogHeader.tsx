@@ -5,7 +5,6 @@ import ShareToLinkedIn from '@/components/share/linkedin'
 import BlogHeaderWrapper from './BlogHeaderWrapper'
 import { contructImageUrl } from '@/lib/utils'
 import Metadata from './Metadata'
-import React from 'react'
 
 const BlogHeader = ({ blog }: BlogHeaderProps) => {
   const { id, createdAt, featureFlags, content } = blog

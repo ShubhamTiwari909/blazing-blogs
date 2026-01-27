@@ -2,13 +2,11 @@ import { Typography } from '@/components/atoms/typography'
 import SocialLinks from './SocialLinks'
 import ContactInfo from './ContactInfo'
 import QuickLinks from './QuickLinks'
+import { Suspense } from 'react'
 import Link from 'next/link'
 import About from './About'
-import React from 'react'
 
-const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
+const Footer = async () => {
   return (
     <footer className="border-t border-slate-700/50 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -42,7 +40,9 @@ const Footer = () => {
             <SocialLinks />
           </div>
 
-          <QuickLinks />
+          <Suspense fallback={<div>Loading...</div>}>
+            <QuickLinks />
+          </Suspense>
 
           <ContactInfo />
 
@@ -56,7 +56,7 @@ const Footer = () => {
             color="inherit"
             className="text-center text-sm text-slate-500 md:text-left"
           >
-            © {currentYear} Blazing Blog. All rights reserved.
+            © 2026 Blazing Blog. All rights reserved.
           </Typography>
         </div>
       </div>

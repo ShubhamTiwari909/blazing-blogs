@@ -2,7 +2,6 @@ import { Typography } from '@/components/atoms/typography'
 import { CollaboratorImageProps } from './types'
 import { contructImageUrl } from '@/lib/utils'
 import Image from 'next/image'
-import React from 'react'
 
 const getInitials = (username: string) => {
   return username

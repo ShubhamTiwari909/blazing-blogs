@@ -1,7 +1,6 @@
 import Database from './database/Database'
 import StaticPages from './StaticPages'
 import Header from './Header'
-import React from 'react'
 
 export const HealthCheck = async () => {
   const response = await fetch(`${process.env.SITE_URL}/api/healthcheck`, {

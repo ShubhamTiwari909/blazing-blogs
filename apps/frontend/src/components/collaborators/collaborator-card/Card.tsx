@@ -3,7 +3,6 @@ import { CollaboratorCardProps } from './types'
 import type { Media } from '@/payload-types'
 import CollaboratorImage from './Image'
 import Content from './Content'
-import React from 'react'
 
 const CollaboratorCard = ({ collaborator, index }: CollaboratorCardProps) => {
   return (

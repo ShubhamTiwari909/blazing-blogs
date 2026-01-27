@@ -2,7 +2,6 @@
 import { variants } from './animation'
 import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
-import React from 'react'
 
 const stats = [
   { value: '150+', label: 'Articles Written', color: 'text-blue-500' },

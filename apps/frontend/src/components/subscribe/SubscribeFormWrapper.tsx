@@ -1,6 +1,5 @@
 import SubscribeForm from './SubscribeForm'
 import { Session } from 'next-auth'
-import React from 'react'
 
 const isSubscribed = async (email: string) => {
   const res = await fetch(`${process.env.SITE_URL}/api/subscribe?email=${email}`)

@@ -1,5 +1,4 @@
 import BlogsListSkeleton from '@/components/blogs/blogs-list/BlogsListSkeleton'
-import React from 'react'
 
 const loading = () => {
   return (

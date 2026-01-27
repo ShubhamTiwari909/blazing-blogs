@@ -1,7 +1,6 @@
 'use client'
 import type { BlogHeaderWrapperProps } from '@/components/blogs/blog-renderer/types'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
-import React from 'react'
 
 const BlogHeaderWrapper = ({ children }: BlogHeaderWrapperProps) => {
   const darkMode = useDarkModeStore((state) => state.darkMode)

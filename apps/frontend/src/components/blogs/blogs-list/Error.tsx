@@ -1,6 +1,5 @@
 import { Typography } from '@/components/atoms/typography'
 import { ErrorProp } from './types'
-import React from 'react'
 
 const Error = ({ error }: ErrorProp) => {
   return (
