@@ -6,7 +6,6 @@ import { cardStyles, skillStyles } from './styles'
 import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 import Skill from './Skill'
-import React from 'react'
 
 const expertise = [
   {

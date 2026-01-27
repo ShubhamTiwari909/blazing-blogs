@@ -1,7 +1,6 @@
 import { Typography } from '@/components/atoms/typography'
 import { LuMail, LuMapPin, LuPhone } from 'react-icons/lu'
 import { contactInfo } from './data'
-import React from 'react'
 
 const ContactInfo = () => {
   return (

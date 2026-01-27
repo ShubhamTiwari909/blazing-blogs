@@ -4,7 +4,6 @@ import DarkModeToggle from './DarkModeToggle'
 import { LuArrowLeft } from 'react-icons/lu'
 import CopyLink from './copy-link/CopyLink'
 import Link from 'next/link'
-import React from 'react'
 
 const BlogHeaderStrip = () => {
   const darkMode = useDarkModeStore((state) => state.darkMode)

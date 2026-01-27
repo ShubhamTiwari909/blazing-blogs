@@ -2,7 +2,6 @@
 import { Button } from '@/components/atoms/button/Button'
 import { LuCheck, LuCopy } from 'react-icons/lu'
 import { useCopyLink } from './useCopyLink'
-import React from 'react'
 
 const CopyLink = () => {
   const { isCopied, handleCopyLink } = useCopyLink()

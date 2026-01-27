@@ -4,7 +4,6 @@ import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 import { Button } from '@/components/atoms/button/Button'
 import { signIn, signOut } from 'next-auth/react'
 import Image from 'next/image'
-import React from 'react'
 
 const defaultImageUrl =
   'https://570pc5yjce.ufs.sh/f/QUFIlUYDwcG55o5jv8rcMYwvi9PgT6zWx4lsCmZte08HFhU3'

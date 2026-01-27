@@ -4,9 +4,6 @@ import SocialLinks from '@/components/contact/SocialLinks'
 import GetInTouch from '@/components/contact/GetInTouch'
 import Outro from '@/components/contact/Outro'
 import { METADATA } from './metadata'
-import React from 'react'
-
-export const dynamic = 'force-static'
 
 export const metadata = METADATA
 

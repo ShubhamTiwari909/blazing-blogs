@@ -3,7 +3,6 @@ import BlogHeader from './blog-header/BlogHeader'
 import type { BlogRendererProps } from './types'
 import BackgroundTheme from './BackgroundTheme'
 import Content from './content/Content'
-import React from 'react'
 
 const BlogRenderer = async ({ blog }: BlogRendererProps) => {
   const { content } = blog

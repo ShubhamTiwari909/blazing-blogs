@@ -3,7 +3,6 @@ import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
 import { LuArrowRight } from 'react-icons/lu'
 import Link from 'next/link'
-import React from 'react'
 
 const Cta = () => {
   return (

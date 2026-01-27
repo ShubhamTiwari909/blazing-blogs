@@ -1,6 +1,5 @@
 'use client'
 import { useCsvDataExport } from './useCsvDataExport'
-import React from 'react'
 import './styles.scss'
 
 function CsvDataExport() {
@@ -9,7 +8,12 @@ function CsvDataExport() {
 
   return (
     <div>
-      <button onClick={() => setIsModalOpen(true)} className="csv-modal-trigger">
+      <button
+        onClick={() => {
+          setIsModalOpen(true)
+        }}
+        className="csv-modal-trigger"
+      >
         Sync to Google Sheet
       </button>
       {isModalOpen ? (

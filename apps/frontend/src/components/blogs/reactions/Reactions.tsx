@@ -5,7 +5,6 @@ import { useReactions } from './useReactions'
 import type { ReactionsProps } from './types'
 import { generateReactionMap } from './data'
 import Image from 'next/image'
-import React from 'react'
 
 const Reactions = ({ id, userReactions, reactionCounts }: ReactionsProps) => {
   const { reactions, hasReacted, isPending, error, mutate } = useReactions({

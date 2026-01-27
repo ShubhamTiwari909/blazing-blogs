@@ -6,11 +6,11 @@ export const useBlogsList = ({ pages, search }: BlogsListProps) => {
   // Initialize the initial data for the query
   const initialData = pages
     ? {
-      docs: pages.docs,
-      totalDocs: pages.totalDocs,
-      hasNextPage: pages.hasNextPage,
-      nextPage: pages.hasNextPage ? 2 : undefined,
-    }
+        docs: pages.docs,
+        totalDocs: pages.totalDocs,
+        hasNextPage: pages.hasNextPage,
+        nextPage: pages.hasNextPage ? 2 : undefined,
+      }
     : undefined
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError, error } =

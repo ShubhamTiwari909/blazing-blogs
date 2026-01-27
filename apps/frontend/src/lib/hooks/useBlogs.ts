@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import type { BlogResponse } from './types'
 import type { Page } from '@/payload-types'
+import type { BlogResponse } from './types'
 import { sdk } from '../restapi-sdk'
 
 const fetchBlogs = async (pageParam: number = 1, search?: string): Promise<BlogResponse> => {
@@ -12,16 +12,16 @@ const fetchBlogs = async (pageParam: number = 1, search?: string): Promise<BlogR
       where: {
         or: [
           {
-            "content.title": {
-              contains: search
+            'content.title': {
+              contains: search,
             },
           },
           {
-            "content.shortDescription": {
-              contains: search
+            'content.shortDescription': {
+              contains: search,
             },
           },
-        ]
+        ],
       },
     }),
   })

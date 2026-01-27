@@ -12,7 +12,6 @@ import { Button } from '@/components/atoms/button/Button'
 import type { AiSummary } from './types'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import React from 'react'
 
 const AiRenderer = ({ aiSummary }: AiSummary) => {
   return (

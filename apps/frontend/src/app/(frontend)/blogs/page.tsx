@@ -3,10 +3,6 @@ import BlogsList from '@/components/blogs/blogs-list/BlogsList'
 import { Typography } from '@/components/atoms/typography'
 import Header from '@/components/blogs/blogs-list/Header'
 import { METADATA } from './metadata'
-import React from 'react'
-
-// Force dynamic rendering to prevent static generation
-export const dynamic = 'force-dynamic'
 
 export const metadata = METADATA
 

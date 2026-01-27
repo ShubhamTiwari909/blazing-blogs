@@ -1,7 +1,7 @@
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
 import { LuDock } from 'react-icons/lu'
-import React from 'react'
+
 import SearchInput from './SearchInput'
 
 const Header = ({ totalDocs }: { totalDocs: number }) => {

@@ -1,7 +1,6 @@
 import { fetchReactionsCount } from './helpers'
 import Reactions from './Reactions'
 import { auth } from '@/lib/auth'
-import React from 'react'
 
 const ReactionsWrapper = async ({ id }: { id: string }) => {
   const session = await auth()

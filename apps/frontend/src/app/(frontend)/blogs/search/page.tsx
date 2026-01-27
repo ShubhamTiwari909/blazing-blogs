@@ -1,11 +1,10 @@
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import React from 'react'
-import { notFound } from 'next/navigation'
-import { Typography } from '@/components/atoms/typography'
-import AnimationBox from '@/components/ui/animations/AnimationBox'
 import BlogsSearchList from '@/components/blogs/search/BlogsSearchList'
+import AnimationBox from '@/components/ui/animations/AnimationBox'
+import { Typography } from '@/components/atoms/typography'
+import { notFound } from 'next/navigation'
 import { LuDock } from 'react-icons/lu'
+import config from '@payload-config'
+import { getPayload } from 'payload'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
@@ -20,16 +19,16 @@ const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => 
     where: {
       or: [
         {
-          "content.title": {
-            contains: search
+          'content.title': {
+            contains: search,
           },
         },
         {
-          "content.shortDescription": {
-            contains: search
+          'content.shortDescription': {
+            contains: search,
           },
         },
-      ]
+      ],
     },
     select: {
       analytics: false,
@@ -48,31 +47,29 @@ const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className='text-center'>
+        <div className="text-center">
           <AnimationBox className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600">
             <LuDock className="h-4 w-4" />
             {blogs.totalDocs} Blogs
           </AnimationBox>
         </div>
-        {
-          blogs.totalDocs > 0 ? (
-            <AnimationBox className='mb-10'>
-              <Typography
-                as="h1"
-                variant="h1"
-                size="5xl"
-                weight="bold"
-                className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-center text-transparent"
-              >
-                Search Results for: {search}
-              </Typography>
-            </AnimationBox>
-          ) : null
-        }
+        {blogs.totalDocs > 0 ? (
+          <AnimationBox className="mb-10">
+            <Typography
+              as="h1"
+              variant="h1"
+              size="5xl"
+              weight="bold"
+              className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-center text-transparent"
+            >
+              Search Results for: {search}
+            </Typography>
+          </AnimationBox>
+        ) : null}
         {blogs.docs && blogs.docs.length > 0 ? (
           <BlogsSearchList pages={blogsList} search={search as string} />
         ) : (
-          <div className="py-12 flex flex-col items-center">
+          <div className="flex flex-col items-center py-12">
             <Typography as="p" size="3xl" color="inherit" className="text-gray-500">
               No blogs found
             </Typography>

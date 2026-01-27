@@ -1,7 +1,6 @@
 import { LuBriefcase, LuCalendar, LuMail, LuUser } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
 import { ContentProps } from './types'
-import React from 'react'
 
 const Content = ({ username, email, profession, createdAt }: ContentProps) => {
   return (

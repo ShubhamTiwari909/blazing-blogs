@@ -1,7 +1,6 @@
 import { Typography } from '@/components/atoms/typography'
 import type { PageSlug } from './types'
 import Link from 'next/link'
-import React from 'react'
 
 const ReadMore = ({ slug }: PageSlug) => {
   return (

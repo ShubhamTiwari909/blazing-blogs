@@ -1,5 +1,4 @@
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 
 const Header = () => {
   return (

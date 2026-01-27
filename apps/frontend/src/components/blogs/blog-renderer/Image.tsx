@@ -1,6 +1,5 @@
 import type { BlogImageProps } from './types'
 import Image from 'next/image'
-import React from 'react'
 
 export const BlogImage = ({ src, alt }: BlogImageProps) => {
   return (

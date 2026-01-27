@@ -3,7 +3,6 @@ import { initialSkills, transitionMyStory, animateSkills } from './animation'
 import { Typography } from '@/components/atoms/typography'
 import { LuTarget } from 'react-icons/lu'
 import { motion } from 'motion/react'
-import React from 'react'
 
 const skills = [
   { name: 'HTML', gradient: 'from-red-500 to-red-600', icon: '🌐' },

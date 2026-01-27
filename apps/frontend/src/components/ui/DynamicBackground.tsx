@@ -1,5 +1,3 @@
-import React from 'react'
-
 const DynamicBackground = () => {
   return (
     <div className="pointer-events-none absolute inset-0">

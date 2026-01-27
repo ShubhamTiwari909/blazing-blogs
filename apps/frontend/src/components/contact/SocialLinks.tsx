@@ -1,7 +1,6 @@
 import { DefaultAnimationWrapper } from '@/components/ui/animations/AnimationWrappers'
 import { LuExternalLink, LuGithub, LuInstagram, LuLinkedin } from 'react-icons/lu'
 import { Typography } from '@/components/atoms/typography'
-import React from 'react'
 
 const contactInfo = {
   social: {

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { typographyVariants } from './variants'
 import { TypographyProps } from './types'
 import { cn } from '@/lib/utils'

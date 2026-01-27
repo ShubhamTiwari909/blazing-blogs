@@ -2,7 +2,6 @@ import { Typography } from '@/components/atoms/typography'
 import type { ViewsProps } from './types'
 import { LuEye } from 'react-icons/lu'
 import { useViews } from './useViews'
-import React from 'react'
 
 const Views = ({ id }: ViewsProps) => {
   const { blogViews, error } = useViews({ id })

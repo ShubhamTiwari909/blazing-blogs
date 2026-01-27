@@ -1,6 +1,5 @@
 import { Typography } from '@/components/atoms/typography'
 import { Link } from '@payloadcms/ui'
-import React from 'react'
 
 const About = () => {
   return (

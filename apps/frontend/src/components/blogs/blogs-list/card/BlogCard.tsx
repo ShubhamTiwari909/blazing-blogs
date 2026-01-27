@@ -6,7 +6,6 @@ import BlogImage from './BlogImage'
 import ReadMore from './ReadMore'
 import MetaData from './MetaData'
 import Link from 'next/link'
-import React from 'react'
 
 const BlogCard = ({ id, content, createdAt, slug }: BlogCardProps) => {
   return (

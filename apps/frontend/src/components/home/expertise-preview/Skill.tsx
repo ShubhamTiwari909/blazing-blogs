@@ -1,7 +1,6 @@
 import { Typography } from '@/components/atoms/typography'
 import type { Skill as SkillType } from './types'
 import { cn } from '@/lib/utils'
-import React from 'react'
 
 const Skill = ({ skill, gradient }: SkillType) => {
   return (
