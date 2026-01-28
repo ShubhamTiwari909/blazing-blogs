@@ -20,16 +20,19 @@ export async function POST(req: Request) {
       where: { email: { equals: email } },
     })
 
-    // Capture server-side unsubscription event
-    posthog.capture({
-      distinctId: email,
-      event: 'subscriber_unsubscribed',
-      properties: {
-        email,
-        source: 'api',
-        unsubscribed_at: new Date().toISOString(),
-      },
-    })
+    try {
+      posthog.capture({
+        distinctId: email,
+        event: 'subscriber_unsubscribed',
+        properties: {
+          email,
+          source: 'api',
+          unsubscribed_at: new Date().toISOString(),
+        },
+      })
+    } catch (analyticsErr) {
+      console.error('PostHog capture failed (unsubscribe):', analyticsErr)
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {

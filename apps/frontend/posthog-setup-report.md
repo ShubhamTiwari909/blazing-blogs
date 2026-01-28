@@ -24,7 +24,7 @@ The wizard has completed a deep integration of PostHog into your Blazing Blogs N
 | `subscriber_reactivated` | Existing subscriber reactivated their subscription (server-side) | `src/app/api/subscribe/route.ts` |
 | `subscriber_unsubscribed` | Subscriber unsubscribed from newsletter (server-side) | `src/app/api/unsubscribe/route.ts` |
 | `welcome_email_sent` | Welcome email was sent to new subscriber (server-side) | `src/app/api/send/route.tsx` |
-| `contact_form_submitted` | User submitted the contact form (server-side) | `src/app/api/submit-to-sheet/route.ts` |
+| `google_sheet_submitted` | User submitted the contact form (server-side) | `src/app/api/submit-to-sheet/route.ts` |
 
 ## Files Created/Modified
 

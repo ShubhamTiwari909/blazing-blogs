@@ -28,8 +28,8 @@ const SigninSignout = () => {
           posthog.capture('user_signed_out', {
             email: sessionClient.user?.email,
           })
-          posthog.reset()
           signOut().then(() => {
+            posthog.reset()
             setSessionClient(null)
           })
         }}

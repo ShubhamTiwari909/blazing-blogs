@@ -34,11 +34,13 @@ export const updateReaction = async ({ user, id, reaction }: UpdateReactionProps
   const data = await response.json()
 
   // Capture blog reaction event
-  posthog.capture('blog_reaction_added', {
-    blog_id: id,
-    reaction_type: reaction,
-    user_email: user?.email,
-  })
+  if (response.ok) {
+    posthog.capture('blog_reaction_added', {
+      blog_id: id,
+      reaction_type: reaction,
+      user_email: user?.email,
+    })
+  }
 
   return data
 }

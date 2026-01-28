@@ -18,6 +18,8 @@ const SessionWrapperClient = ({ children }: ChildrenProps) => {
         email: session.user.email,
         name: session.user.name,
       })
+    } else if (status === 'unauthenticated') {
+      posthog.reset()
     }
   }, [sessionClient, setSessionClient, session, status, setStatus])
   return <>{children}</>
