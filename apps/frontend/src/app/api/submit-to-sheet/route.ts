@@ -1,3 +1,4 @@
+import { getPostHogClient } from '@/lib/posthog-server'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
@@ -32,6 +33,18 @@ export async function POST(request: NextRequest) {
         { status: response.status },
       )
     }
+
+    // Capture server-side contact form submission event
+    const posthog = getPostHogClient()
+    const distinctId = data?.email || 'anonymous_google_sheet_form'
+    posthog.capture({
+      distinctId,
+      event: 'google_sheet_submitted',
+      properties: {
+        source: 'api',
+        submitted_at: new Date().toISOString(),
+      },
+    })
 
     return NextResponse.json({ success: true, message: responseText })
   } catch (err) {

@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation'
 import { LuSearch } from 'react-icons/lu'
 import React, { useState } from 'react'
+import posthog from 'posthog-js'
 
 const SearchInput = () => {
   const [search, setSearch] = useState('')
@@ -34,6 +35,10 @@ const SearchInput = () => {
                   setError('Search query must be less than 100 characters')
                 } else {
                   setError('')
+                  posthog.capture('blog_searched', {
+                    search_query: search.trim(),
+                    search_length: search.trim().length,
+                  })
                   router.push(`/blogs/search?search=${search.trim()}`)
                 }
               }
@@ -41,7 +46,13 @@ const SearchInput = () => {
           />
         </div>
         <button
-          onClick={() => router.push(`/blogs/search?search=${search.trim()}`)}
+          onClick={() => {
+            posthog.capture('blog_searched', {
+              search_query: search.trim(),
+              search_length: search.trim().length,
+            })
+            router.push(`/blogs/search?search=${search.trim()}`)
+          }}
           disabled={!search || !!error}
           className="cursor-pointer rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
         >

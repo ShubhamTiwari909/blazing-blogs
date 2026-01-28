@@ -1,3 +1,4 @@
+import { getPostHogClient } from '@/lib/posthog-server'
 import { NextResponse } from 'next/server'
 import config from '@payload-config'
 import { getPayload } from 'payload'
@@ -11,11 +12,23 @@ export async function POST(req: Request) {
     }
 
     const payload = await getPayload({ config })
+    const posthog = getPostHogClient()
 
     await payload.update({
       collection: 'subscribers',
       data: { isActive: false },
       where: { email: { equals: email } },
+    })
+
+    // Capture server-side unsubscription event
+    posthog.capture({
+      distinctId: email,
+      event: 'subscriber_unsubscribed',
+      properties: {
+        email,
+        source: 'api',
+        unsubscribed_at: new Date().toISOString(),
+      },
     })
 
     return NextResponse.json({ success: true })

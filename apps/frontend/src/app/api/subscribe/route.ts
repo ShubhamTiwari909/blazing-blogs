@@ -1,3 +1,4 @@
+import { getPostHogClient } from '@/lib/posthog-server'
 import { NextResponse } from 'next/server'
 import config from '@payload-config'
 import { getPayload } from 'payload'
@@ -11,6 +12,7 @@ export async function POST(req: Request) {
     }
 
     const payload = await getPayload({ config })
+    const posthog = getPostHogClient()
 
     const subscribed = await payload.find({
       collection: 'subscribers',
@@ -23,10 +25,42 @@ export async function POST(req: Request) {
         data: { isActive: true },
         where: { email: { equals: email } },
       })
+
+      // Capture server-side reactivation event
+      posthog.capture({
+        distinctId: email,
+        event: 'subscriber_reactivated',
+        properties: {
+          email,
+          name,
+          source: 'api',
+        },
+      })
     } else {
       await payload.create({
         collection: 'subscribers',
         data: { email, name },
+      })
+
+      // Capture server-side new subscriber event
+      posthog.capture({
+        distinctId: email,
+        event: 'subscriber_created',
+        properties: {
+          email,
+          name,
+          source: 'api',
+        },
+      })
+
+      // Identify user on server side
+      posthog.identify({
+        distinctId: email,
+        properties: {
+          email,
+          name,
+          subscribed_at: new Date().toISOString(),
+        },
       })
     }
 

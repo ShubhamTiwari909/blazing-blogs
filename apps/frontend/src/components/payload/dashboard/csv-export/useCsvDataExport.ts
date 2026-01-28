@@ -11,8 +11,8 @@ export const fetchPagesData = async (pagesCount: number): Promise<Page[]> => {
   const pagesDataArray = pagesData.docs.map((page: Page) => {
     const seoImage = page.seo.image as Media
     return {
-      createdAt: page.createdAt,
-      updatedAt: page.updatedAt,
+      createdAt: new Date(page.createdAt).toISOString().split('T')[0],
+      updatedAt: new Date(page.updatedAt).toISOString().split('T')[0],
       slug: `${process.env.NEXT_PUBLIC_SITE_URL}/${page.slug}`,
       heading: page.content.title,
       seoTitle: page.seo.title,
