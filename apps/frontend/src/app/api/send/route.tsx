@@ -1,4 +1,5 @@
 import { html } from '@/components/subscribe/email-templates/welcome'
+import { getPostHogClient } from '@/lib/posthog-server'
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
@@ -10,6 +11,8 @@ export async function POST(req: Request) {
   if (!email || !name) {
     return NextResponse.json({ error: 'Email and name are required' }, { status: 400 })
   }
+
+  const posthog = getPostHogClient()
 
   try {
     const { data, error } = await resend.emails.send({
@@ -23,6 +26,18 @@ export async function POST(req: Request) {
       console.error('Resend error:', error)
       return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
     }
+
+    // Capture server-side welcome email sent event
+    posthog.capture({
+      distinctId: email,
+      event: 'welcome_email_sent',
+      properties: {
+        email,
+        name,
+        source: 'api',
+        sent_at: new Date().toISOString(),
+      },
+    })
 
     return NextResponse.json({ success: true, data }, { status: 200 })
   } catch (error) {

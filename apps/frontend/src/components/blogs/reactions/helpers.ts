@@ -1,4 +1,5 @@
 import type { FetchReactionsCountProps, UpdateReactionProps } from './types'
+import posthog from 'posthog-js'
 
 export const fetchReactionsCount = async ({ session, id }: FetchReactionsCountProps) => {
   const response = await fetch(
@@ -31,5 +32,13 @@ export const updateReaction = async ({ user, id, reaction }: UpdateReactionProps
     }),
   })
   const data = await response.json()
+
+  // Capture blog reaction event
+  posthog.capture('blog_reaction_added', {
+    blog_id: id,
+    reaction_type: reaction,
+    user_email: user?.email,
+  })
+
   return data
 }

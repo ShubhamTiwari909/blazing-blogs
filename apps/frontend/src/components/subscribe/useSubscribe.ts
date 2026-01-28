@@ -1,6 +1,7 @@
 'use client'
 import { useMutation } from '@tanstack/react-query'
 import type { SubscribeFormProps } from './types'
+import posthog from 'posthog-js'
 import { useState } from 'react'
 
 export const useSubscribe = ({
@@ -46,13 +47,22 @@ export const useSubscribe = ({
     onSuccess: () => {
       setStatus('success')
       setIsSubscribed(true)
+
+      // Capture newsletter subscription event
+      posthog.capture('newsletter_subscribed', {
+        email,
+        name,
+        is_first_time_user: isFirstTimeUser,
+      })
+
       if (isFirstTimeUser) {
         sendEmail()
         setIsFirstTimeUser(false)
       }
     },
-    onError: () => {
+    onError: (error) => {
       setStatus('error')
+      posthog.captureException(error)
     },
   })
 
@@ -71,9 +81,15 @@ export const useSubscribe = ({
       onSuccess: () => {
         setStatus('success')
         setIsSubscribed(false)
+
+        // Capture newsletter unsubscription event
+        posthog.capture('newsletter_unsubscribed', {
+          email,
+        })
       },
-      onError: () => {
+      onError: (error) => {
         setStatus('error')
+        posthog.captureException(error)
       },
     })
 

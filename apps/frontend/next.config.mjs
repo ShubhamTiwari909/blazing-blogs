@@ -6,6 +6,21 @@ const nextConfig = {
     resolveExtensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.json'],
     root: '../..',
   },
+  // PostHog reverse proxy configuration
+  async rewrites() {
+    return [
+      {
+        source: '/ingest/static/:path*',
+        destination: 'https://us-assets.i.posthog.com/static/:path*',
+      },
+      {
+        source: '/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*',
+      },
+    ]
+  },
+  // This is required to support PostHog trailing slash API requests
+  skipTrailingSlashRedirect: true,
   async headers() {
     return [
       {
@@ -13,7 +28,10 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: 'https://blazing-blogs-backend.vercel.app, https://script.google.com/macros' },
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: 'https://blazing-blogs-backend.vercel.app, https://script.google.com/macros',
+          },
           { key: 'Access-Control-Allow-Methods', value: 'GET,DELETE,PATCH,POST,PUT' },
           {
             key: 'Access-Control-Allow-Headers',
