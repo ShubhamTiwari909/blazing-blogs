@@ -18,7 +18,7 @@ const Header = ({ totalDocs }: { totalDocs: number }) => {
           variant="h1"
           size="5xl"
           weight="bold"
-          className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-center text-transparent"
+          className="mb-6 bg-gradient-to-r bg-clip-text text-center text-transparent"
         >
           Latest Blog Posts
         </Typography>
@@ -28,7 +28,7 @@ const Header = ({ totalDocs }: { totalDocs: number }) => {
           as="p"
           size="base"
           color="inherit"
-          className="mx-auto max-w-3xl text-center text-gray-600"
+          className="mx-auto max-w-3xl text-center description"
         >
           Discover insights, tutorials, and stories from our community of passionate developers and
           creators

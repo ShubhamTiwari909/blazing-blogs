@@ -1,6 +1,5 @@
 'use client'
 import { useDarkModeStore } from '@/lib/store/useDarkMode'
-import DarkModeToggle from './DarkModeToggle'
 import { LuArrowLeft } from 'react-icons/lu'
 import CopyLink from './copy-link/CopyLink'
 import Link from 'next/link'
@@ -18,7 +17,6 @@ const BlogHeaderStrip = () => {
         </Link>
         <div className="flex flex-wrap items-center gap-5">
           <CopyLink />
-          <DarkModeToggle />
         </div>
       </div>
     </div>

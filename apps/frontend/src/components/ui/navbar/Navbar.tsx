@@ -7,6 +7,7 @@ import { signIn, signOut } from 'next-auth/react'
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import DarkModeToggle from '@/components/blogs/blog-renderer/blog-header/DarkModeToggle'
 
 const Navbar = ({ children }: ChildrenProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -34,7 +35,7 @@ const Navbar = ({ children }: ChildrenProps) => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center space-x-8 md:flex">
+          <div className="hidden items-center space-x-8 lg:flex">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -47,9 +48,10 @@ const Navbar = ({ children }: ChildrenProps) => {
             ))}
             {children}
           </div>
+          <DarkModeToggle className='hidden lg:block' />
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="outline"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -78,7 +80,7 @@ const Navbar = ({ children }: ChildrenProps) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden relative">
             <div className="mt-2 space-y-1 rounded-lg border border-slate-200 bg-white/95 px-2 pt-2 pb-3 shadow-lg backdrop-blur-md">
               {navItems.map((item) => (
                 <Link
@@ -90,6 +92,9 @@ const Navbar = ({ children }: ChildrenProps) => {
                   {item.name}
                 </Link>
               ))}
+              <div className='absolute top-5 right-5 block lg:hidden'>
+                <DarkModeToggle />
+              </div>
               <div className="px-3 py-2">
                 {sessionClient ? (
                   <div className="space-y-2">

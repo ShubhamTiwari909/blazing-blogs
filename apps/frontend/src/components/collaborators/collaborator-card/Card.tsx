@@ -8,7 +8,7 @@ const CollaboratorCard = ({ collaborator, index }: CollaboratorCardProps) => {
   return (
     <div
       key={collaborator.id}
-      className="group rounded-3xl border border-white/20 bg-white/70 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl dark:border-slate-700/20 dark:bg-slate-800/70"
+      className="group rounded-3xl border border-white/20 bg-white p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl dark:border-slate-700/20 dark:bg-slate-800/70"
     >
       <CollaboratorImage
         image={collaborator.image as Media}
