@@ -29,7 +29,8 @@ export function proxy(request: NextRequest) {
   }
   const requestOrigin = request.headers.get('origin')
   const corsHeaders: Record<string, string> =
-    requestOrigin && CORS_ALLOWED_ORIGINS.includes(requestOrigin as (typeof CORS_ALLOWED_ORIGINS)[number])
+    requestOrigin &&
+    CORS_ALLOWED_ORIGINS.includes(requestOrigin as (typeof CORS_ALLOWED_ORIGINS)[number])
       ? buildCorsHeaders(requestOrigin)
       : {}
 

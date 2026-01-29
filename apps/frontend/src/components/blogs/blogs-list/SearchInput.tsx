@@ -1,10 +1,10 @@
 'use client'
+import { useDarkModeStore } from '@/lib/store/useDarkMode'
 import { useRouter } from 'next/navigation'
 import { LuSearch } from 'react-icons/lu'
 import React, { useState } from 'react'
-import posthog from 'posthog-js'
-import { useDarkModeStore } from '@/lib/store/useDarkMode'
 import { cn } from '@/lib/utils'
+import posthog from 'posthog-js'
 
 const SearchInput = () => {
   const darkMode = useDarkModeStore((state) => state.darkMode)
@@ -24,12 +24,15 @@ const SearchInput = () => {
       <div className="mb-2 flex w-full flex-col items-center gap-5 lg:flex-row">
         <div className="relative flex w-full items-center overflow-hidden">
           <div className="absolute top-0 left-0 z-10 px-5 py-3">
-            <LuSearch className={cn("h-4 w-4", darkMode ? 'text-gray-100' : 'text-gray-900')} />
+            <LuSearch className={cn('h-4 w-4', darkMode ? 'text-gray-100' : 'text-gray-900')} />
           </div>
           <input
             type="text"
             placeholder="Search..."
-            className={cn("relative z-0 w-full rounded-lg rounded-br-lg border-2 border-gray-400 py-2 pr-4 pl-12 shadow-sm focus:border-blue-500 focus:ring-blue-500 md:pl-16 bg-transparent focus-visible:outline-none", darkMode ? 'text-gray-100 border-gray-700' : 'text-gray-900 border-gray-400')}
+            className={cn(
+              'relative z-0 w-full rounded-lg rounded-br-lg border-2 border-gray-400 bg-transparent py-2 pr-4 pl-12 shadow-sm focus:border-blue-500 focus:ring-blue-500 focus-visible:outline-none md:pl-16',
+              darkMode ? 'border-gray-700 text-gray-100' : 'border-gray-400 text-gray-900',
+            )}
             value={search}
             onChange={handleSearch}
             onKeyDown={(e) => {

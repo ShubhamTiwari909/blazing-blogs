@@ -1,11 +1,11 @@
 import BlogsSearchList from '@/components/blogs/search/BlogsSearchList'
+import BlogsClientWrapper from '@/components/blogs/BlogsClientWrapper'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
 import { notFound } from 'next/navigation'
 import { LuDock } from 'react-icons/lu'
 import config from '@payload-config'
 import { getPayload } from 'payload'
-import BlogsClientWrapper from '@/components/blogs/BlogsClientWrapper'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
@@ -64,7 +64,8 @@ const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => 
                 weight="bold"
                 className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-center text-transparent"
               >
-                Search Results for: {search?.slice(0, 50)}{search?.length && search?.length > 50 ? '...' : ''}
+                Search Results for: {search?.slice(0, 50)}
+                {search?.length && search?.length > 50 ? '...' : ''}
               </Typography>
             </AnimationBox>
           ) : null}

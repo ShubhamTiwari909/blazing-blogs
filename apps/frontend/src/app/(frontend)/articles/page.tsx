@@ -1,10 +1,10 @@
+import ArticlesClientWrapper from '@/components/articles/ArticlesClientWrapper'
 import ArticlesSkeleton from '@/components/articles/ArticlesSkeleton'
 import ArticlesWrapper from '@/components/articles/ArticlesWrapper'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
 import { LuDock } from 'react-icons/lu'
 import { Suspense } from 'react'
-import ArticlesClientWrapper from '@/components/articles/ArticlesClientWrapper'
 
 const DevToArticles = async () => {
   return (
@@ -31,7 +31,7 @@ const DevToArticles = async () => {
               as="p"
               size="base"
               color="inherit"
-              className="mx-auto max-w-3xl text-center description"
+              className="description mx-auto max-w-3xl text-center"
             >
               Discover insights, tutorials, and stories from our community of passionate developers
               and creators

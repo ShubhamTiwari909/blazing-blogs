@@ -1,6 +1,6 @@
 import { html } from '@/components/subscribe/email-templates/welcome'
-import { hashEmail } from '@/lib/hash-email'
 import { getPostHogClient } from '@/lib/posthog-server'
+import { hashEmail } from '@/lib/hash-email'
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 

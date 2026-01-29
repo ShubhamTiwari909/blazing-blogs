@@ -1,9 +1,9 @@
 import BackgroundDecoration from '@/components/ui/BackgroundDecoration'
+import CollaboratorClientWrapper from './CollaboratorClientWrapper'
 import CollaboratorSkeleton from './CollaboratorSkeleton'
 import CollaboratorsList from './CollaboratorsList'
 import React, { Suspense } from 'react'
 import Header from './Header'
-import CollaboratorClientWrapper from './CollaboratorClientWrapper'
 
 const Collaborators = () => {
   return (

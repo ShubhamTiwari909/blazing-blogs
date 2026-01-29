@@ -28,7 +28,7 @@ const Header = ({ totalDocs }: { totalDocs: number }) => {
           as="p"
           size="base"
           color="inherit"
-          className="mx-auto max-w-3xl text-center description"
+          className="description mx-auto max-w-3xl text-center"
         >
           Discover insights, tutorials, and stories from our community of passionate developers and
           creators
