@@ -51,6 +51,11 @@ export const Content: Tab = {
       label: 'Cover Image',
       relationTo: 'media',
       required: true,
+      filterOptions: {
+        mimeType: {
+          contains: 'image',
+        },
+      },
     },
     {
       name: 'aiSummary',
@@ -82,6 +87,23 @@ export const Content: Tab = {
                   }),
                 ],
               }),
+            },
+          ],
+        },
+        {
+          slug: 'pdfUpload',
+          fields: [
+            {
+              name: 'pdfUpload',
+              type: 'upload',
+              label: 'PDF Upload',
+              relationTo: 'media',
+              required: true,
+              filterOptions: {
+                mimeType: {
+                  contains: 'application/pdf',
+                },
+              },
             },
           ],
         },

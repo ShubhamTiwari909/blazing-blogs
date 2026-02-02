@@ -2,6 +2,7 @@ import { MarkdownRenderer } from './markdown-renderer/MarkdownRenderer'
 import { Meta } from '@/components/blogs/blog-renderer/types'
 import YoutubeIframe from './youtube-iframe/YoutubeIframe'
 import LinkPreviewCard from './link-preview/LinkPreview'
+import PDFViewer from './pdf-viewer/PDFViewer'
 import type { ContentProps } from './types'
 import CodeRenderer from './CodeRenderer'
 
@@ -23,6 +24,11 @@ const Content = ({ docs }: ContentProps) => {
               ) : null}
               {block.blockType === 'ytIframe' && block.ytIframe ? (
                 <YoutubeIframe ytIframe={block.ytIframe} />
+              ) : null}
+              {block.blockType === 'pdfUpload' &&
+              block.pdfUpload &&
+              typeof block.pdfUpload === 'object' ? (
+                <PDFViewer pdf={block.pdfUpload} />
               ) : null}
             </div>
           )

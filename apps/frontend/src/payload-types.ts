@@ -214,6 +214,12 @@ export interface Page {
           blockType: 'content';
         }
       | {
+          pdfUpload: string | Media;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'pdfUpload';
+        }
+      | {
           codeBlock?: string | null;
           id?: string | null;
           blockName?: string | null;
@@ -465,6 +471,13 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     content?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+              pdfUpload?:
+                | T
+                | {
+                    pdfUpload?: T;
                     id?: T;
                     blockName?: T;
                   };
