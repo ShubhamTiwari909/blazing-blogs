@@ -4,7 +4,7 @@ import { toast, useDocumentInfo } from '@payloadcms/ui'
 
 export default function Revalidation() {
   const documentInfo = useDocumentInfo()
-  const handleRevalidate = async (e: React.MouseEvent) => {
+  const handleRevalidate = async (e: React.MouseEvent, slug: string) => {
     e.preventDefault()
     e.stopPropagation()
 
@@ -15,7 +15,7 @@ export default function Revalidation() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ slug: documentInfo.data?.slug }),
+        body: JSON.stringify({ slug }),
       })
 
       const data = await response.json()
@@ -30,10 +30,10 @@ export default function Revalidation() {
   }
 
   return (
-    <div style={{ marginTop: '8px' }}>
+    <div style={{ marginTop: '8px', display: 'flex', gap: '8px' }}>
       <button
         type="button"
-        onClick={handleRevalidate}
+        onClick={(e) => handleRevalidate(e,documentInfo.data?.slug)}
         style={{
           padding: '8px 16px',
           backgroundColor: 'rebeccapurple',
@@ -43,7 +43,21 @@ export default function Revalidation() {
           cursor: 'pointer',
         }}
       >
-        Revalidate Cache
+        Revalidate Page
+      </button>
+      <button
+        type="button"
+        onClick={(e) => handleRevalidate(e, 'blogs')}
+        style={{
+          padding: '8px 16px',
+          backgroundColor: 'rebeccapurple',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          cursor: 'pointer',
+        }}
+      >
+        Revalidate Blogs
       </button>
     </div>
   )
