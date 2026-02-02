@@ -4,7 +4,7 @@ import YoutubeIframe from './youtube-iframe/YoutubeIframe'
 import LinkPreviewCard from './link-preview/LinkPreview'
 import PDFViewer from './pdf-viewer/PDFViewer'
 import type { ContentProps } from './types'
-import CodeRenderer from './CodeRenderer'
+import { CodeBlock } from "@/components/ui/code-block";
 
 const Content = ({ docs }: ContentProps) => {
   return (
@@ -17,7 +17,13 @@ const Content = ({ docs }: ContentProps) => {
                 <MarkdownRenderer data={block.content} />
               ) : null}
               {block.blockType === 'codeBlock' && block.codeBlock ? (
-                <CodeRenderer code={block.codeBlock} />
+                  <CodeBlock
+                    code={block.codeBlock}
+                    language="tsx"
+                    title="BlazingBlog.tsx"
+                    theme='vsDark'    
+                    variant='terminal'
+                  />
               ) : null}
               {block.blockType === 'linkPreview' && block.link ? (
                 <LinkPreviewCard meta={block.preview as Meta} link={block.link} />
