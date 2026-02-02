@@ -30,6 +30,11 @@ export const Collaborators: CollectionConfig = {
       type: 'upload',
       relationTo: 'media',
       required: false,
+      filterOptions: {
+        mimeType: {
+          contains: 'image',
+        },
+      },
     },
     {
       name: 'profession',
