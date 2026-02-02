@@ -1,4 +1,3 @@
-
 import RootLayout from '@/components/layout/RootLayout'
 import NotFound from '@/components/layout/NotFound'
 

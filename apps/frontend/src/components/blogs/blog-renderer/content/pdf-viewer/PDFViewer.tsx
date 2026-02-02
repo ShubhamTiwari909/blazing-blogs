@@ -1,6 +1,6 @@
-import React from 'react'
-import { Media } from '@/payload-types'
 import { contructImageUrl } from '@/lib/utils'
+import { Media } from '@/payload-types'
+import React from 'react'
 
 const PDFViewer = ({ pdf }: { pdf: Media }) => {
   const pdfUrl = contructImageUrl(pdf._key as string)
