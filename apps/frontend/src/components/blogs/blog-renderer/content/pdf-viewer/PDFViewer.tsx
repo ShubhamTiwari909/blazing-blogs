@@ -1,12 +1,14 @@
 import { contructImageUrl } from '@/lib/utils'
 import { Media } from '@/payload-types'
-import React from 'react'
 
 const PDFViewer = ({ pdf }: { pdf: Media }) => {
-  const pdfUrl = contructImageUrl(pdf._key as string)
+  if (!pdf?._key) {
+    return null
+  }
+  const pdfUrl = contructImageUrl(pdf._key)
   return (
     <div>
-      <iframe src={pdfUrl} width="100%" height="600px" />
+      <iframe src={pdfUrl} width="100%" height="600px" title={pdf.alt} />
     </div>
   )
 }
