@@ -28,6 +28,11 @@ export const SeoTab: Tab = {
       relationTo: 'media',
       overrides: {
         required: true,
+        filterOptions: {
+          mimeType: {
+            contains: 'image',
+          },
+        },
       },
     }),
     MetaDescriptionField({
