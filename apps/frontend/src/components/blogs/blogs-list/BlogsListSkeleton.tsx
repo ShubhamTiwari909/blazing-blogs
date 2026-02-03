@@ -1,3 +1,19 @@
+const SearchInputSkeleton = () => {
+  return (
+    <div className="mb-10">
+      <div className="mb-2 flex w-full flex-col items-center gap-5 lg:flex-row">
+        <div className="relative flex w-full items-center overflow-hidden">
+          <div className="absolute top-0 left-0 z-10 px-5 py-3">
+            <div className="h-4 w-4 animate-pulse rounded bg-gray-200"></div>
+          </div>
+          <div className="h-10 w-full animate-pulse rounded-lg rounded-br-lg border-2 border-gray-200 bg-gray-200 pl-12 md:pl-16"></div>
+        </div>
+        <div className="h-10 w-24 animate-pulse rounded-md bg-gray-200"></div>
+      </div>
+    </div>
+  )
+}
+
 const BlogCardSkeleton = () => {
   return (
     <article className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg">
@@ -49,11 +65,7 @@ const BlogsListSkeleton = () => {
     <div className="space-y-8">
       {/* Header skeleton */}
       <div className="mb-16 text-center">
-        <div className="mb-6 inline-flex animate-pulse items-center gap-2 rounded-full bg-gray-200 px-4 py-2">
-          <div className="h-4 w-4 rounded bg-gray-300"></div>
-          <div className="h-4 w-20 rounded bg-gray-300"></div>
-        </div>
-
+        <SearchInputSkeleton />
         {/* Title skeleton */}
         <div className="mb-6 space-y-3">
           <div className="mx-auto h-12 w-96 animate-pulse rounded-lg bg-gray-200"></div>
@@ -63,6 +75,13 @@ const BlogsListSkeleton = () => {
         <div className="mx-auto max-w-3xl space-y-2">
           <div className="h-5 animate-pulse rounded bg-gray-200"></div>
           <div className="mx-auto h-5 w-5/6 animate-pulse rounded bg-gray-200"></div>
+        </div>
+      </div>
+
+      <div className="text-center">
+        <div className="mb-6 inline-flex animate-pulse items-center gap-2 rounded-full bg-gray-200 px-4 py-2">
+          <div className="h-4 w-4 rounded bg-gray-300"></div>
+          <div className="h-4 w-20 rounded bg-gray-300"></div>
         </div>
       </div>
 
