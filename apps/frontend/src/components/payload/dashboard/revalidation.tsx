@@ -33,7 +33,7 @@ export default function Revalidation() {
     <div style={{ marginTop: '8px', display: 'flex', gap: '8px' }}>
       <button
         type="button"
-        onClick={(e) => handleRevalidate(e,documentInfo.data?.slug)}
+        onClick={(e) => handleRevalidate(e, documentInfo.data?.slug)}
         style={{
           padding: '8px 16px',
           backgroundColor: 'rebeccapurple',

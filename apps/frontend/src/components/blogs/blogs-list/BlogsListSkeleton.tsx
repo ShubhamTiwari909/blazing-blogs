@@ -47,7 +47,6 @@ const BlogCardSkeleton = () => {
 const BlogsListSkeleton = () => {
   return (
     <div className="space-y-8">
-
       <div className="text-center">
         <div className="mb-6 inline-flex animate-pulse items-center gap-2 rounded-full bg-gray-200 px-4 py-2">
           <div className="h-4 w-4 rounded bg-gray-300"></div>

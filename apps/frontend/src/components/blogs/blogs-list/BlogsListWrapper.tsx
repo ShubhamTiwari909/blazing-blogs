@@ -1,6 +1,6 @@
-import { getCachedPageData } from "@/lib/fetch-utils/fetch-blogs"
-import BlogsList from "./BlogsList"
-import { Typography } from "@/components/atoms/typography"
+import { getCachedPageData } from '@/lib/fetch-utils/fetch-blogs'
+import { Typography } from '@/components/atoms/typography'
+import BlogsList from './BlogsList'
 
 const BlogsWrapper = async () => {
   const pages = await getCachedPageData()

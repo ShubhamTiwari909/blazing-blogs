@@ -22,7 +22,7 @@ export default function TanstackWrapper(props: ChildrenProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <main className='relative z-10'>{children}</main>
+      <main className="relative z-10">{children}</main>
     </QueryClientProvider>
   )
 }

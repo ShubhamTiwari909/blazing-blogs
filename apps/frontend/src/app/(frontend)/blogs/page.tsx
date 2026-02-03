@@ -1,8 +1,8 @@
+import BlogsListSkeleton from '@/components/blogs/blogs-list/BlogsListSkeleton'
 import BlogsWrapper from '@/components/blogs/blogs-list/BlogsListWrapper'
 import BlogsClientWrapper from '@/components/blogs/BlogsClientWrapper'
 import Header from '@/components/blogs/blogs-list/Header'
 import { METADATA } from './metadata'
-import BlogsListSkeleton from '@/components/blogs/blogs-list/BlogsListSkeleton'
 import { Suspense } from 'react'
 
 export const metadata = METADATA
