@@ -31,7 +31,7 @@ export const useViews = ({ id }: ViewsProps) => {
       return
     }
     mutate()
-  }, [id, mutate, cookies])
+  }, [])
 
   return { blogViews, error }
 }
