@@ -6,6 +6,8 @@ export type DevToArticles = {
   url: string
   cover_image: string | null
   reading_time_minutes: number
+  page_views_count: number
+  tag_list: string[]
   user: {
     name: string
     profile_image_90: string | null

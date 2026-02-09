@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { formatDate } from '@/lib/utils'
 import { DevToArticles } from './types'
+import { LuTag } from 'react-icons/lu'
 import Image from 'next/image'
 
 const Articles = ({ articles }: { articles: DevToArticles[] }) => {
@@ -26,6 +27,7 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
       handleLoadMore()
     }
   }, [page])
+
   return (
     <>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -72,6 +74,16 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
                       </div>
                     </div>
                   </div>
+                  <div className="mb-4 flex flex-wrap items-center gap-3">
+                    {blog.tag_list.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400"
+                      >
+                        <LuTag className="size-3" /> {tag}
+                      </span>
+                    ))}
+                  </div>
 
                   <h3 className="mb-3 line-clamp-2 text-xl font-semibold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
                     {blog.title}
@@ -81,27 +93,32 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
                     {blog.description}
                   </p>
 
-                  <a
-                    href={blog.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto inline-flex transform items-center rounded-lg bg-linear-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg"
-                  >
-                    <span>Read Article</span>
-                    <svg
-                      className="ml-2 h-4 w-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                  <div className="flex items-center justify-between gap-2">
+                    <a
+                      href={blog.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-auto inline-flex w-fit transform items-center rounded-lg bg-linear-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </a>
+                      <span>Read Article</span>
+                      <svg
+                        className="ml-2 h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                    <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                      {blog.page_views_count} views
+                    </span>
+                  </div>
                 </div>
               </article>
             </div>
