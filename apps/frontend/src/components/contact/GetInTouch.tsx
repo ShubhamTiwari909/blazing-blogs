@@ -11,7 +11,7 @@ const GetInTouch = () => {
           size="5xl"
           weight="bold"
           color="inherit"
-          className="mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-center text-transparent"
+          className="mb-6 bg-linear-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-center text-transparent"
         >
           Get In Touch
         </Typography>

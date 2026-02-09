@@ -10,7 +10,7 @@ const Values = () => {
       </Typography>
       <div className="grid gap-8 md:grid-cols-3">
         <div className="space-y-4 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-r from-blue-500 to-blue-600 shadow-lg">
             <LuAward className="h-8 w-8 text-white" />
           </div>
           <Typography
@@ -28,7 +28,7 @@ const Values = () => {
           </Typography>
         </div>
         <div className="space-y-4 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-green-600 shadow-lg">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-r from-green-500 to-green-600 shadow-lg">
             <LuUsers className="h-8 w-8 text-white" />
           </div>
           <Typography
@@ -46,7 +46,7 @@ const Values = () => {
           </Typography>
         </div>
         <div className="space-y-4 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-r from-purple-500 to-purple-600 shadow-lg">
             <LuZap className="h-8 w-8 text-white" />
           </div>
           <Typography

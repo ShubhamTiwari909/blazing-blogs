@@ -24,7 +24,7 @@ export default function ShareToLinkedIn() {
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
-      className="flex items-center gap-2 rounded bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 px-4 py-2 text-white hover:bg-blue-700"
+      className="flex items-center gap-2 rounded bg-linear-to-br from-blue-600 via-blue-700 to-blue-800 px-4 py-2 text-white hover:bg-blue-700"
     >
       Share on <SiLinkedin size={20} />
     </a>

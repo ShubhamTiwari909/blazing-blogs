@@ -48,7 +48,7 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className={`group relative overflow-hidden bg-gradient-to-r ${skill.gradient} cursor-default rounded-full px-4 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+            className={`group relative overflow-hidden bg-linear-to-r ${skill.gradient} cursor-default rounded-full px-4 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl`}
           >
             {/* Content */}
             <div className="relative flex items-center justify-center space-x-2">
@@ -61,7 +61,7 @@ const Skills = () => {
             </div>
 
             {/* Subtle glow effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-white/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
           </div>
         ))}
       </div>

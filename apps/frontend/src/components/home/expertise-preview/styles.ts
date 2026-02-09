@@ -1,17 +1,17 @@
 export const cardStyles = ({ color }: { color: string }) => {
   const gradientMap: Record<string, string> = {
     'text-blue-500':
-      'group-hover:bg-gradient-to-br group-hover:from-blue-500/10 group-hover:via-blue-400/10 group-hover:to-cyan-500/10',
+      'group-hover:bg-linear-to-br group-hover:from-blue-500/10 group-hover:via-blue-400/10 group-hover:to-cyan-500/10',
     'text-green-500':
-      'group-hover:bg-gradient-to-br group-hover:from-green-500/10 group-hover:via-emerald-400/10 group-hover:to-teal-500/10',
+      'group-hover:bg-linear-to-br group-hover:from-green-500/10 group-hover:via-emerald-400/10 group-hover:to-teal-500/10',
     'text-purple-500':
-      'group-hover:bg-gradient-to-br group-hover:from-purple-500/10 group-hover:via-pink-400/10 group-hover:to-fuchsia-500/10',
+      'group-hover:bg-linear-to-br group-hover:from-purple-500/10 group-hover:via-pink-400/10 group-hover:to-fuchsia-500/10',
     'text-yellow-500':
-      'group-hover:bg-gradient-to-br group-hover:from-yellow-500/10 group-hover:via-orange-400/10 group-hover:to-amber-500/10',
+      'group-hover:bg-linear-to-br group-hover:from-yellow-500/10 group-hover:via-orange-400/10 group-hover:to-amber-500/10',
   }
   const cardGradient =
     gradientMap[color] ||
-    'group-hover:bg-gradient-to-br group-hover:from-primary/10 group-hover:to-primary/5'
+    'group-hover:bg-linear-to-br group-hover:from-primary/10 group-hover:to-primary/5'
 
   const iconHoverColor: Record<string, string> = {
     'text-blue-500': 'group-hover:text-blue-400',
@@ -31,17 +31,17 @@ export const cardStyles = ({ color }: { color: string }) => {
 
   const iconBgGradient: Record<string, string> = {
     'text-blue-500':
-      'group-hover:bg-gradient-to-br group-hover:from-blue-500/30 group-hover:via-blue-400/20 group-hover:to-cyan-500/20',
+      'group-hover:bg-linear-to-br group-hover:from-blue-500/30 group-hover:via-blue-400/20 group-hover:to-cyan-500/20',
     'text-green-500':
-      'group-hover:bg-gradient-to-br group-hover:from-green-500/30 group-hover:via-emerald-400/20 group-hover:to-teal-500/20',
+      'group-hover:bg-linear-to-br group-hover:from-green-500/30 group-hover:via-emerald-400/20 group-hover:to-teal-500/20',
     'text-purple-500':
-      'group-hover:bg-gradient-to-br group-hover:from-purple-500/30 group-hover:via-pink-400/20 group-hover:to-fuchsia-500/20',
+      'group-hover:bg-linear-to-br group-hover:from-purple-500/30 group-hover:via-pink-400/20 group-hover:to-fuchsia-500/20',
     'text-yellow-500':
-      'group-hover:bg-gradient-to-br group-hover:from-yellow-500/30 group-hover:via-orange-400/20 group-hover:to-amber-500/20',
+      'group-hover:bg-linear-to-br group-hover:from-yellow-500/30 group-hover:via-orange-400/20 group-hover:to-amber-500/20',
   }
   const iconBg =
     iconBgGradient[color] ||
-    'group-hover:bg-gradient-to-br group-hover:from-primary/30 group-hover:to-primary/20'
+    'group-hover:bg-linear-to-br group-hover:from-primary/30 group-hover:to-primary/20'
 
   return {
     cardGradient,

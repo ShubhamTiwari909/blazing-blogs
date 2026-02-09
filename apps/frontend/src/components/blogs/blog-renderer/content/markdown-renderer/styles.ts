@@ -1,6 +1,6 @@
 export const proseStyles = {
   headings:
-    'prose-headings:font-bold prose-h1:mt-0 prose-headings:text-slate-800 prose-headings:tracking-tight prose-h1:text-5xl prose-h1:mb-4 prose-h1:leading-tight prose-h1:bg-gradient-to-r prose-h1:from-slate-800 prose-h1:to-slate-600 prose-h1:bg-clip-text prose-h1:text-transparent prose-h2:mb-6 prose-h2:mt-8 prose-h2:leading-tight prose-h2:text-slate-800 prose-h3:mb-4 prose-h3:mt-6 prose-h3:leading-snug prose-h3:text-slate-700 prose-h4:mb-3 prose-h4:mt-5 prose-h4:leading-snug prose-h4:text-slate-700 prose-h2:lg:text-4xl prose-h2:text-2xl prose-h3:lg:text-3xl prose-h3:text-xl prose-h4:lg:text-2xl prose-h4:text-lg prose-h5:lg:text-xl prose-h5:text-md',
+    'prose-headings:font-bold prose-h1:mt-0 prose-headings:text-slate-800 prose-headings:tracking-tight prose-h1:text-5xl prose-h1:mb-4 prose-h1:leading-tight prose-h1:bg-linear-to-r prose-h1:from-slate-800 prose-h1:to-slate-600 prose-h1:bg-clip-text prose-h1:text-transparent prose-h2:mb-6 prose-h2:mt-8 prose-h2:leading-tight prose-h2:text-slate-800 prose-h3:mb-4 prose-h3:mt-6 prose-h3:leading-snug prose-h3:text-slate-700 prose-h4:mb-3 prose-h4:mt-5 prose-h4:leading-snug prose-h4:text-slate-700 prose-h2:lg:text-4xl prose-h2:text-2xl prose-h3:lg:text-3xl prose-h3:text-xl prose-h4:lg:text-2xl prose-h4:text-lg prose-h5:lg:text-xl prose-h5:text-md',
   paragraphs:
     'prose-p:first:mt-0 prose-p:mb-2 prose-p:text-slate-600 prose-p:lg:text-lg prose-p:text-base prose-p:my-5 prose-p:font-light prose-p:tracking-wide',
   links:

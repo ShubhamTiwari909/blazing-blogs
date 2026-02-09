@@ -9,7 +9,7 @@ const Header = () => {
   const darkMode = useDarkModeStore((state) => state.darkMode)
   return (
     <AnimationBox className="mb-16 text-center">
-      <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-r shadow-xl">
+      <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-linear-to-r shadow-xl">
         <LuUsers className={cn('h-10 w-10', darkMode ? 'text-gray-100' : 'text-gray-900')} />
       </div>
       <Typography
@@ -18,7 +18,7 @@ const Header = () => {
         size="4xl"
         weight="bold"
         color="inherit"
-        className="mb-6 bg-gradient-to-r bg-clip-text text-center text-transparent"
+        className="mb-6 bg-linear-to-r bg-clip-text text-center text-transparent"
       >
         Our Collaborators
       </Typography>

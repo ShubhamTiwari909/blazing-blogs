@@ -39,7 +39,7 @@ const Achievment = () => {
           <CardAnimationWrapper index={index} key={index}>
             <div className="group rounded-2xl border border-white/20 bg-white/70 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl dark:border-slate-700/20 dark:bg-slate-800/70">
               <div className="flex flex-col items-center space-y-4 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200 transition-all duration-300 group-hover:shadow-lg dark:from-slate-700 dark:to-slate-600">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-r from-slate-100 to-slate-200 transition-all duration-300 group-hover:shadow-lg dark:from-slate-700 dark:to-slate-600">
                   {achievement.icon}
                 </div>
                 <Typography

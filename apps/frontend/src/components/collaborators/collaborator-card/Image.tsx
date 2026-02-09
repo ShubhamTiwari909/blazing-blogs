@@ -40,7 +40,7 @@ const CollaboratorImage = ({ image, username, index }: CollaboratorImageProps) =
       ) : (
         <>
           <div
-            className={`inline-flex h-24 w-24 items-center justify-center bg-gradient-to-r ${getRandomGradient(index)} mb-4 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110`}
+            className={`inline-flex h-24 w-24 items-center justify-center bg-linear-to-r ${getRandomGradient(index)} mb-4 rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110`}
           >
             <Typography as="span" size="sm" color="white" weight="medium">
               {getInitials(username)}

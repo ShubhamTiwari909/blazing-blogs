@@ -5,7 +5,7 @@ const HasNext = ({ handleLoadMore, isFetchingNextPage }: HasNextProps) => {
   return (
     <div className="mt-12 text-center">
       <button
-        className="group relative inline-flex transform cursor-pointer items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 ease-out hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl disabled:transform-none disabled:cursor-not-allowed disabled:opacity-50"
+        className="group relative inline-flex transform cursor-pointer items-center gap-2 rounded-2xl bg-linear-to-r from-blue-600 to-blue-700 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 ease-out hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-xl disabled:transform-none disabled:cursor-not-allowed disabled:opacity-50"
         onClick={() => handleLoadMore()}
         disabled={isFetchingNextPage}
       >

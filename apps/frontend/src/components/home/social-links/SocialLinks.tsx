@@ -22,7 +22,7 @@ const socialLinks = [
     icon: SiInstagram,
     label: 'Instagram',
     href: 'https://www.instagram.com/supremacism__shubh/',
-    color: 'bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white',
+    color: 'bg-linear-to-r from-purple-600 via-pink-600 to-orange-500 text-white',
   },
   {
     icon: SiBlogger,

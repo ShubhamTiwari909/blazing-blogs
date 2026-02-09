@@ -6,7 +6,7 @@ const ArticlesSkeleton = () => {
           key={index}
           className="group flex h-full transform flex-col overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-900"
         >
-          <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
+          <div className="relative h-48 overflow-hidden bg-linear-to-br from-blue-500 to-purple-600">
             <div className="h-48 w-full animate-pulse bg-gray-200"></div>
           </div>
           <div className="flex flex-1 flex-col p-6">

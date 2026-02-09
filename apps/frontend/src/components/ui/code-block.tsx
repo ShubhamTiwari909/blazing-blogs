@@ -378,7 +378,7 @@ const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
       default: 'bg-card border border-border shadow-sm',
       terminal: 'bg-[#1a1b26] border border-border shadow-lg',
       minimal: 'bg-muted/50',
-      gradient: 'bg-gradient-to-br from-card via-card to-primary/5 border border-border shadow-md',
+      gradient: 'bg-linear-to-br from-card via-card to-primary/5 border border-border shadow-md',
       glass: 'bg-card/80 backdrop-blur-xl border border-border/50 shadow-xl',
     }
 

@@ -23,7 +23,7 @@ const SocialLinks = () => {
           href={contactInfo.social.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-center space-x-3 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 p-4 transition-all duration-300 hover:scale-105 hover:from-pink-600 hover:to-rose-600 hover:shadow-lg"
+          className="group flex items-center justify-center space-x-3 rounded-2xl bg-linear-to-r from-pink-500 to-rose-500 p-4 transition-all duration-300 hover:scale-105 hover:from-pink-600 hover:to-rose-600 hover:shadow-lg"
         >
           <LuInstagram className="h-6 w-6 text-white" />
           <Typography
@@ -42,7 +42,7 @@ const SocialLinks = () => {
           href={contactInfo.social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-center space-x-3 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 p-4 transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-blue-800 hover:shadow-lg"
+          className="group flex items-center justify-center space-x-3 rounded-2xl bg-linear-to-r from-blue-600 to-blue-700 p-4 transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-blue-800 hover:shadow-lg"
         >
           <LuLinkedin className="h-6 w-6 text-white" />
           <Typography
@@ -61,7 +61,7 @@ const SocialLinks = () => {
           href={contactInfo.social.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-center space-x-3 rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 p-4 transition-all duration-300 hover:scale-105 hover:from-gray-900 hover:to-black hover:shadow-lg"
+          className="group flex items-center justify-center space-x-3 rounded-2xl bg-linear-to-r from-gray-800 to-gray-900 p-4 transition-all duration-300 hover:scale-105 hover:from-gray-900 hover:to-black hover:shadow-lg"
         >
           <LuGithub className="h-6 w-6 text-white" />
           <Typography
@@ -80,7 +80,7 @@ const SocialLinks = () => {
           href={contactInfo.social.devto}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center justify-center space-x-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-indigo-700 p-4 transition-all duration-300 hover:scale-105 hover:from-indigo-700 hover:to-indigo-800 hover:shadow-lg"
+          className="group flex items-center justify-center space-x-3 rounded-2xl bg-linear-to-r from-indigo-600 to-indigo-700 p-4 transition-all duration-300 hover:scale-105 hover:from-indigo-700 hover:to-indigo-800 hover:shadow-lg"
         >
           <LuExternalLink className="h-6 w-6 text-white" />
           <Typography

@@ -55,7 +55,7 @@ const FeaturedTopics = () => {
               <div className="group bg-card/50 border-border/50 hover:border-primary/30 hover:shadow-primary/10 relative rounded-2xl border p-6 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
                 <div
                   className={cn(
-                    'mb-4 inline-flex rounded-xl bg-gradient-to-br p-3 duration-300 group-hover:scale-110',
+                    'mb-4 inline-flex rounded-xl bg-linear-to-br p-3 duration-300 group-hover:scale-110',
                     topic.color,
                   )}
                 >
@@ -74,7 +74,7 @@ const FeaturedTopics = () => {
                 <Typography as="p" size="xxs" color="muted">
                   {topic.description}
                 </Typography>
-                <div className="from-primary/0 to-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br transition-all duration-300 group-hover:to-transparent" />
+                <div className="from-primary/0 to-primary/0 group-hover:from-primary/5 pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-br transition-all duration-300 group-hover:to-transparent" />
               </div>
             </CardAnimationWrapper>
           )

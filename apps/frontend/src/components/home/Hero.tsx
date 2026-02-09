@@ -55,7 +55,7 @@ const Hero = () => {
             className="mb-8 text-center"
           >
             <AnimationBox className="mb-2 block">Hello, I&apos;m</AnimationBox>
-            <AnimationBox className="from-primary to-secondary block bg-gradient-to-r via-purple-500 bg-clip-text pb-2 text-transparent">
+            <AnimationBox className="from-primary to-secondary block bg-linear-to-r via-purple-500 bg-clip-text pb-2 text-transparent">
               Shubham
             </AnimationBox>
           </Typography>

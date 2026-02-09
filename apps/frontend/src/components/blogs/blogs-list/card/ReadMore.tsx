@@ -6,7 +6,7 @@ const ReadMore = ({ slug }: PageSlug) => {
   return (
     <Link
       href={`/${slug}`}
-      className="group inline-flex transform items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-lg"
+      className="group inline-flex transform items-center justify-center rounded-lg bg-linear-to-r from-blue-600 to-blue-700 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:from-blue-700 hover:to-blue-800 hover:shadow-lg"
     >
       <Typography as="p" size="xxs" color="inherit" weight="medium">
         Read Article

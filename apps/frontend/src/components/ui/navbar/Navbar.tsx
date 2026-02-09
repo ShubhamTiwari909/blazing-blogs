@@ -43,7 +43,7 @@ const Navbar = ({ children }: ChildrenProps) => {
                 className="group relative font-medium text-slate-600 transition-colors duration-200 hover:text-slate-900"
               >
                 {item.name}
-                <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></div>
+                <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-linear-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></div>
               </Link>
             ))}
             {children}
@@ -115,7 +115,7 @@ const Navbar = ({ children }: ChildrenProps) => {
                 ) : (
                   <Button
                     onClick={() => signIn('google')}
-                    className="w-full cursor-pointer rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 font-medium text-white shadow-md transition-all duration-300 hover:from-indigo-600 hover:to-purple-700"
+                    className="w-full cursor-pointer rounded-lg bg-linear-to-r from-indigo-500 to-purple-600 px-4 py-2 font-medium text-white shadow-md transition-all duration-300 hover:from-indigo-600 hover:to-purple-700"
                   >
                     Login
                   </Button>

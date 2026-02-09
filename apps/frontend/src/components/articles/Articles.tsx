@@ -33,7 +33,7 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
           return (
             <div className="blog" key={blog.id}>
               <article className="group flex h-full transform flex-col overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl dark:bg-gray-900">
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600">
+                <div className="relative h-48 overflow-hidden bg-linear-to-br from-blue-500 to-purple-600">
                   <Image
                     src={blog.cover_image || '/blog_thumbnail_image.jpg'}
                     alt={blog.title}
@@ -85,7 +85,7 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
                     href={blog.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex transform items-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg"
+                    className="mt-auto inline-flex transform items-center rounded-lg bg-linear-to-r from-blue-600 to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg"
                   >
                     <span>Read Article</span>
                     <svg
@@ -114,7 +114,7 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
             onClick={() => {
               setPage((prev) => prev + 1)
             }}
-            className="group relative transform cursor-pointer rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group relative transform cursor-pointer rounded-full bg-linear-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             {loading ? 'Loading...' : 'Read More Blogs'}
           </button>

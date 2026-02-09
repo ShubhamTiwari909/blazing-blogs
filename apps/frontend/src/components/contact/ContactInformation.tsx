@@ -24,7 +24,7 @@ const ContactInformation = () => {
       <div className="space-y-6">
         {/* Email */}
         <div className="group flex items-center space-x-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-r from-blue-500 to-blue-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
             <LuMail className="h-6 w-6 text-white" />
           </div>
           <div>
@@ -42,7 +42,7 @@ const ContactInformation = () => {
 
         {/* Phone */}
         <div className="group flex items-center space-x-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-green-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-r from-green-500 to-green-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
             <LuPhone className="h-6 w-6 text-white" />
           </div>
           <div>
@@ -60,7 +60,7 @@ const ContactInformation = () => {
 
         {/* Location */}
         <div className="group flex items-center space-x-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-r from-purple-500 to-purple-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
             <LuMapPin className="h-6 w-6 text-white" />
           </div>
           <div>

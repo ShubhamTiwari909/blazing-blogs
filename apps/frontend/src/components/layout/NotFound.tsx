@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const NotFound = () => {
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 py-10">
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-linear-to-br from-slate-50 via-white to-blue-50 py-10">
       {/* Elegant background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzR2LTRoLTJ2NGgtNHYyaDR2NGgydi00aDR2LTJoLTR6bTAtMzBWMGgtMnY0aC00djJoNHY0aDJWNmg0VjRoLTR6TTYgMzR2LTRINHY0SDB2Mmg0djRoMnYtNGg0di0ySDZ6TTYgNFYwSDR2NEgwdjJoNHY0aDJWNmg0VjRINnoiLz48L2c+PC9nPjwvc3ZnPg==')]"></div>
@@ -26,7 +26,7 @@ const NotFound = () => {
             variant="h1"
             size="8xl"
             weight="bold"
-            className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-center text-transparent"
+            className="bg-linear-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-center text-transparent"
           >
             404
           </Typography>
@@ -51,7 +51,7 @@ const NotFound = () => {
         {/* Illustration */}
         <div className="mb-12 flex justify-center">
           <div className="relative">
-            <div className="flex h-32 w-32 animate-bounce items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-purple-100">
+            <div className="flex h-32 w-32 animate-bounce items-center justify-center rounded-full bg-linear-to-br from-blue-100 to-purple-100">
               <svg
                 className="h-16 w-16 text-blue-600"
                 fill="none"
@@ -74,7 +74,7 @@ const NotFound = () => {
         {/* Action Buttons */}
         <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link href="/">
-            <Button className="group relative overflow-hidden rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
+            <Button className="group relative overflow-hidden rounded-lg bg-linear-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25">
               <Typography
                 as="p"
                 size="xxs"
@@ -92,7 +92,7 @@ const NotFound = () => {
                 </svg>
                 Go Home
               </Typography>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+              <div className="absolute inset-0 bg-linear-to-r from-blue-700 to-purple-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             </Button>
           </Link>
 
@@ -234,7 +234,7 @@ const NotFound = () => {
         </div>
 
         {/* Fun Message */}
-        <div className="mt-12 rounded-xl border border-blue-200/50 bg-gradient-to-r from-blue-50 to-purple-50 p-6">
+        <div className="mt-12 rounded-xl border border-blue-200/50 bg-linear-to-r from-blue-50 to-purple-50 p-6">
           <Typography as="p" color="inherit" weight="medium" className="text-center text-gray-700">
             <Typography as="strong" size="xxs" color="inherit" weight="medium">
               Pro tip:

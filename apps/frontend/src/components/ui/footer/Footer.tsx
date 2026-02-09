@@ -8,12 +8,12 @@ import About from './About'
 
 const Footer = async () => {
   return (
-    <footer className="border-t border-slate-700/50 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <footer className="border-t border-slate-700/50 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           <div className="lg:col-span-1">
             <Link href="/" className="group mb-4 flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-linear-to-r from-indigo-500 to-purple-600 shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
                 <Typography as="p" size="base" color="white" weight="bold">
                   B
                 </Typography>
@@ -23,7 +23,7 @@ const Footer = async () => {
                 size="base"
                 color="white"
                 weight="bold"
-                className="bg-gradient-to-r from-white to-slate-300 bg-clip-text"
+                className="bg-linear-to-r from-white to-slate-300 bg-clip-text"
               >
                 Blazing Blog
               </Typography>

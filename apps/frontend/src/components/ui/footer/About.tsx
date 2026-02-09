@@ -13,7 +13,7 @@ const About = () => {
       </Typography>
       <Link
         href="/contact"
-        className="inline-block rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg"
+        className="inline-block rounded-lg bg-linear-to-r from-blue-600 to-purple-600 px-6 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700 hover:shadow-lg"
       >
         Contact Me
       </Link>

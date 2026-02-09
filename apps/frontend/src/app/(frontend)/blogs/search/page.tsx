@@ -62,7 +62,7 @@ const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => 
                 variant="h1"
                 size="xl"
                 weight="bold"
-                className="mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-center text-transparent"
+                className="mb-6 bg-linear-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-center text-transparent"
               >
                 Search Results for: {search?.slice(0, 50)}
                 {search?.length && search?.length > 50 ? '...' : ''}

@@ -21,7 +21,7 @@ const DevToArticles = async () => {
               variant="h1"
               size="5xl"
               weight="bold"
-              className="mb-6 bg-gradient-to-r bg-clip-text text-center text-transparent"
+              className="mb-6 bg-linear-to-r bg-clip-text text-center text-transparent"
             >
               Latest Articles from Dev.to
             </Typography>
