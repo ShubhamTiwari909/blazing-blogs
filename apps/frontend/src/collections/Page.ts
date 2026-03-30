@@ -68,8 +68,6 @@ export const Page: CollectionConfig = {
   ],
   trash: true,
   versions: {
-    drafts: {
-      autosave: true,
-    },
+    drafts: true
   },
 }
