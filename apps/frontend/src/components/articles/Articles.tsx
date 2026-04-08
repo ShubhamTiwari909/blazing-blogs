@@ -4,6 +4,7 @@ import { formatDate } from '@/lib/utils'
 import { DevToArticles } from './types'
 import { LuTag } from 'react-icons/lu'
 import Image from 'next/image'
+import { getDevToArticles } from './articles-fetch'
 
 const Articles = ({ articles }: { articles: DevToArticles[] }) => {
   const [paginatedArticles, setPaginatedArticles] = useState<DevToArticles[]>(articles)
@@ -11,22 +12,26 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
   const [lastPage, setLastPage] = useState(false)
   const [page, setPage] = useState(1)
 
+  const apiKey = process.env.NEXT_PUBLIC_DEV_TO_API_KEY
+
   useEffect(() => {
+    if (!apiKey) {
+      return
+    }
+
     const handleLoadMore = () => {
       setLoading(true)
-      fetch(`/api/dev-to-articles?page=${page}&per_page=36`)
-        .then((response) => response.json())
-        .then((data) => {
-          setLastPage(data.length < 36)
-          setPaginatedArticles((prev) => [...prev, ...data])
-        })
-        .catch((error) => console.error('Error fetching articles:', error))
-        .finally(() => setLoading(false))
+      getDevToArticles({ apiKey, page, perPage: '36' }).then((result) => {
+        if (result.ok) {
+          setLastPage(result.data.length < 36)
+          setPaginatedArticles((prev) => [...prev, ...result.data])
+        }
+      }).catch((error) => console.error('Error fetching articles:', error)).finally(() => setLoading(false))
     }
     if (page > 1) {
       handleLoadMore()
     }
-  }, [page])
+  }, [page, apiKey])
 
   return (
     <>
