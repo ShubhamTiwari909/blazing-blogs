@@ -2,9 +2,9 @@ import BlogsSearchList from '@/components/blogs/search/BlogsSearchList'
 import BlogsClientWrapper from '@/components/blogs/BlogsClientWrapper'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
-import { cacheLife } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { LuDock } from 'react-icons/lu'
+import { cacheLife } from 'next/cache'
 import config from '@payload-config'
 import { getPayload } from 'payload'
 
@@ -41,7 +41,27 @@ const getSearchBlogs = async (search: string | undefined) => {
 
 const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => {
   const params = await searchParams
-  const search = Array.isArray(params.search) ? params.search[0] : params.search
+  const rawSearch = Array.isArray(params.search) ? params.search[0] : params.search
+  const search = rawSearch?.trim()
+
+  if (!search) {
+    return (
+      <BlogsClientWrapper>
+        <div className="min-h-screen py-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center py-12">
+              <Typography as="p" size="3xl" color="inherit" className="text-gray-500">
+                No blogs found
+              </Typography>
+              <Typography as="p" size="xl" color="inherit" className="mt-2 text-gray-400">
+                Try a different search term.
+              </Typography>
+            </div>
+          </div>
+        </div>
+      </BlogsClientWrapper>
+    )
+  }
   const blogs = await getSearchBlogs(search)
 
   if (!blogs.docs) {
