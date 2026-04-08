@@ -1,21 +1,20 @@
 'use client'
+import { getDevToArticles } from '@/components/articles/articles-fetch'
 import { useForm } from '@payloadcms/ui'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const fetchDevToArticles = async () => {
   try {
-    const response = await fetch('/api/dev-to-articles?page=1&per_page=12', {
-      method: 'GET',
-    })
+    const response = await getDevToArticles({ page: 1, perPage: '36' })
 
     if (!response.ok) {
-      const errorData = await response.json()
+      const errorData = await response.details
       throw new Error(
-        errorData.error || `Failed to fetch blogs: ${response.status} ${response.statusText}`,
+        errorData || `Failed to fetch blogs: ${response.status} ${response.statusText}`,
       )
     }
 
-    const data = await response.json()
+    const data = await response.data
 
     if (!Array.isArray(data)) {
       throw new Error('Expected array of blogs, but received: ' + typeof data)

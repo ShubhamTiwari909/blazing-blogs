@@ -12,16 +12,11 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
   const [lastPage, setLastPage] = useState(false)
   const [page, setPage] = useState(1)
 
-  const apiKey = process.env.NEXT_PUBLIC_DEV_TO_API_KEY
 
   useEffect(() => {
-    if (!apiKey) {
-      return
-    }
-
     const handleLoadMore = () => {
       setLoading(true)
-      getDevToArticles({ apiKey, page, perPage: '36' }).then((result) => {
+      getDevToArticles({ page, perPage: '36' }).then((result) => {
         if (result.ok) {
           setLastPage(result.data.length < 36)
           setPaginatedArticles((prev) => [...prev, ...result.data])
@@ -31,7 +26,7 @@ const Articles = ({ articles }: { articles: DevToArticles[] }) => {
     if (page > 1) {
       handleLoadMore()
     }
-  }, [page, apiKey])
+  }, [page])
 
   return (
     <>

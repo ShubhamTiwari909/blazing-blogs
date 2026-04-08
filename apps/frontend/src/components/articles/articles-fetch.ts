@@ -2,21 +2,21 @@
 import { cacheLife } from 'next/cache'
 
 export const getDevToArticles = async ({
-  apiKey,
   page,
   perPage,
 }: {
-  apiKey: string
   page: number
   perPage: string
 }) => {
   'use cache'
   cacheLife({ stale: 60 * 5, revalidate: 60 * 60, expire: 60 * 60 * 24 })
 
+  const apiKey = process.env.DEV_TO_API_KEY
+
   const response = await fetch(`https://dev.to/api/articles/me?page=${page}&per_page=${perPage}`, {
     method: 'GET',
     headers: {
-      'api-key': apiKey,
+      'api-key': apiKey || '',
     },
   })
 

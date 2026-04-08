@@ -14,8 +14,6 @@ export const getCachedBlogData = async (params: Params) => {
   'use cache'
   cacheLife({ stale: 60 * 5, revalidate: 60 * 60 * 24, expire: 60 * 60 * 24 * 7 })
 
-  console.log("Cached Blog Data", params.blogs)
-
   return await pageData(params)
 }
 
