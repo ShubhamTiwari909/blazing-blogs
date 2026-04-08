@@ -6,13 +6,17 @@ export type SlugProps = {
   slug: string
 }
 
+export type QueryPageBySlugProps = SlugProps & {
+  draft?: boolean
+}
+
 export type CheckIfAlreadyViewedProps = {
   id: string
   cookies: Record<string, string>
 }
 
 export type Params = {
-  blogs: string
+  blogs: string | string[]
 }
 
 export type QueryPagesSlugProps = {

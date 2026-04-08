@@ -5,9 +5,21 @@ import { useAuthSessionStore } from '@/lib/store/useAuthSession'
 import { Button } from '@/components/atoms/button/Button'
 import { ChildrenProps } from '@/components/ui/types'
 import { signIn, signOut } from 'next-auth/react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link, { useLinkStatus } from 'next/link'
+
+function LoadingIndicator() {
+  const { pending } = useLinkStatus()
+  if (!pending) return null
+  return (
+    <span className="ml-1 inline-flex items-center gap-0.5 absolute -top-1 left-1/2 -translate-x-1/2" aria-hidden>
+      <span className="size-1 animate-bounce rounded-full bg-slate-500 [animation-delay:-0.3s]" />
+      <span className="size-1 animate-bounce rounded-full bg-slate-500 [animation-delay:-0.15s]" />
+      <span className="size-1 animate-bounce rounded-full bg-slate-500" />
+    </span>
+  )
+}
 
 const Navbar = ({ children }: ChildrenProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,6 +38,7 @@ const Navbar = ({ children }: ChildrenProps) => {
   const navItems = [...defaultNavItems, ...(sessionClient?.user.email ? loggedInNavItems : [])]
 
   return (
+    <>
     <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-5">
         <div className="flex h-16 items-center justify-between">
@@ -42,7 +55,10 @@ const Navbar = ({ children }: ChildrenProps) => {
                 href={item.href}
                 className="group relative font-medium text-slate-600 transition-colors duration-200 hover:text-slate-900"
               >
-                {item.name}
+                <span className="inline-flex items-center relative">
+                  {item.name}
+                  <LoadingIndicator />
+                </span>
                 <div className="absolute -bottom-1 left-0 h-0.5 w-0 bg-linear-to-r from-indigo-500 to-purple-600 transition-all duration-300 group-hover:w-full"></div>
               </Link>
             ))}
@@ -126,6 +142,7 @@ const Navbar = ({ children }: ChildrenProps) => {
         )}
       </div>
     </nav>
+    </>
   )
 }
 

@@ -1,12 +1,25 @@
 import { getCachedBlogData } from '@/lib/fetch-utils/fetch-blogs'
+import { pageData } from '@/lib/fetch-utils/fetch-utils'
 import { contructImageUrl } from '@/lib/utils'
 import { notFound } from 'next/navigation'
 import { Props } from '@/lib/types'
 import { Metadata } from 'next'
+import { draftMode } from 'next/headers'
+import { connection } from 'next/server'
 
 export async function getMetadata({ params }: Props) {
   const resolvedParams = await params
-  const page = await getCachedBlogData(resolvedParams)
+  const { isEnabled: draft } = await draftMode()
+
+  let page
+
+  if (draft) {
+    await connection()
+    page = await pageData(resolvedParams, { draft: true })
+  } else {
+    page = await getCachedBlogData(resolvedParams)
+  }
+
   if (!page.docs) {
     return notFound()
   }

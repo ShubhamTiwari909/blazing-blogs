@@ -4,24 +4,17 @@ import AnimationBox from '@/components/ui/animations/AnimationBox'
 import DynamicBackground from '@/components/ui/DynamicBackground'
 import { Typography } from '@/components/atoms/typography'
 import { LuMail, LuSparkles } from 'react-icons/lu'
-import { redirect } from 'next/navigation'
 import React, { Suspense } from 'react'
 import { METADATA } from './metadata'
-import { auth } from '@/lib/auth'
 
 export const metadata = METADATA
 
 const page = async () => {
-  const session = await auth()
-  const email = session?.user?.email
-  if (!email) {
-    redirect('/')
-  }
   return (
     <section className="bg-background relative flex min-h-screen items-center justify-center overflow-hidden py-12 lg:py-20">
       <DynamicBackground />
 
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:24px_24px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-size-[24px_24px]" />
 
       <div className="relative z-10 mx-auto w-full max-w-2xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
@@ -70,7 +63,7 @@ const page = async () => {
         </div>
 
         <Suspense fallback={<SubscribeFormSkeleton />}>
-          <SubscribeFormWrapper email={email} session={session} />
+          <SubscribeFormWrapper />
         </Suspense>
 
         <div className="mt-8 text-center">

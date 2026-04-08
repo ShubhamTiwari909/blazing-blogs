@@ -6,6 +6,7 @@ import ViewsWrapper from '@/components/blogs/views/ViewsWrapper'
 import { Typography } from '@/components/atoms/typography'
 import Tags from '@/components/blogs/blog-renderer/Tags'
 import { LuCalendarDays, LuUser } from 'react-icons/lu'
+import { Suspense } from 'react'
 
 const Metadata = async ({
   id,
@@ -44,7 +45,11 @@ const Metadata = async ({
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           {featureFlags?.views === 'enabled' ? <ViewsWrapper id={id} /> : null}
-          {featureFlags?.reactions === 'enabled' ? <ReactionsWrapper id={id} /> : null}
+          {featureFlags?.reactions === 'enabled' ? (
+            <Suspense fallback={null}>
+              <ReactionsWrapper id={id} />
+            </Suspense>
+          ) : null}
         </div>
         <div className="flex items-center gap-4">
           <EstimateReading data={blocks} />

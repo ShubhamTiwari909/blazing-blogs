@@ -1,8 +1,10 @@
 import { Typography } from '@/components/atoms/typography'
 import { auth } from '@/lib/auth'
 import Link from 'next/link'
+import { connection } from 'next/server'
 
 const QuickLinks = async () => {
+  await connection()
   const session = await auth()
   const defaultNavItems = [
     { name: 'Home', href: '/' },

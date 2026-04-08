@@ -4,17 +4,19 @@ import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
 import { notFound } from 'next/navigation'
 import { LuDock } from 'react-icons/lu'
+import { cacheLife } from 'next/cache'
 import config from '@payload-config'
 import { getPayload } from 'payload'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
-const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => {
-  const params = await searchParams
-  const search = params.search
+const getSearchBlogs = async (search: string | undefined) => {
+  'use cache'
+  cacheLife({ stale: 60 * 5, revalidate: 60 * 60 * 24, expire: 60 * 60 * 24 * 7 })
 
   const payload = await getPayload({ config })
-  const blogs = await payload.find({
+
+  return await payload.find({
     collection: 'pages',
     limit: 50,
     where: {
@@ -35,6 +37,32 @@ const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => 
       analytics: false,
     },
   })
+}
+
+const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => {
+  const params = await searchParams
+  const rawSearch = Array.isArray(params.search) ? params.search[0] : params.search
+  const search = rawSearch?.trim()
+
+  if (!search) {
+    return (
+      <BlogsClientWrapper>
+        <div className="min-h-screen py-12">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center py-12">
+              <Typography as="p" size="3xl" color="inherit" className="text-gray-500">
+                No blogs found
+              </Typography>
+              <Typography as="p" size="xl" color="inherit" className="mt-2 text-gray-400">
+                Try a different search term.
+              </Typography>
+            </div>
+          </div>
+        </div>
+      </BlogsClientWrapper>
+    )
+  }
+  const blogs = await getSearchBlogs(search)
 
   if (!blogs.docs) {
     return notFound()
