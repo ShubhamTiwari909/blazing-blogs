@@ -1,17 +1,16 @@
-import type { Params, SlugProps } from './types'
+import type { Params, QueryPageBySlugProps } from './types'
 import { notFound } from 'next/navigation'
-import { draftMode } from 'next/headers'
 import config from '@payload-config'
 import { getPayload } from 'payload'
-import { cache } from 'react'
 
-export const pageData = async (paramsPromise: Params) => {
+export const pageData = async (paramsPromise: Params, options: { draft?: boolean } = {}) => {
   const { blogs = 'home' } = paramsPromise
 
   const parsedSlug = Array.isArray(blogs) ? blogs.join('/') : blogs
 
   const page = await queryPageBySlug({
     slug: parsedSlug,
+    draft: options.draft,
   })
   if (!page) {
     return notFound()
@@ -20,9 +19,8 @@ export const pageData = async (paramsPromise: Params) => {
   return page
 }
 
-export const queryPageBySlug = cache(async ({ slug }: SlugProps) => {
+export const queryPageBySlug = async ({ slug, draft = false }: QueryPageBySlugProps) => {
   const payload = await getPayload({ config: config })
-  const { isEnabled: draft } = await draftMode()
 
   const result = await payload.find({
     collection: 'pages',
@@ -52,4 +50,4 @@ export const queryPageBySlug = cache(async ({ slug }: SlugProps) => {
       docs: null,
     }
   }
-})
+}

@@ -2,6 +2,7 @@ import BlogsSearchList from '@/components/blogs/search/BlogsSearchList'
 import BlogsClientWrapper from '@/components/blogs/BlogsClientWrapper'
 import AnimationBox from '@/components/ui/animations/AnimationBox'
 import { Typography } from '@/components/atoms/typography'
+import { cacheLife } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { LuDock } from 'react-icons/lu'
 import config from '@payload-config'
@@ -9,12 +10,13 @@ import { getPayload } from 'payload'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
-const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => {
-  const params = await searchParams
-  const search = params.search
+const getSearchBlogs = async (search: string | undefined) => {
+  'use cache'
+  cacheLife({ stale: 60 * 5, revalidate: 60 * 60 * 24, expire: 60 * 60 * 24 * 7 })
 
   const payload = await getPayload({ config })
-  const blogs = await payload.find({
+
+  return await payload.find({
     collection: 'pages',
     limit: 50,
     where: {
@@ -35,6 +37,12 @@ const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => 
       analytics: false,
     },
   })
+}
+
+const SearchBlogs = async ({ searchParams }: { searchParams: SearchParams }) => {
+  const params = await searchParams
+  const search = Array.isArray(params.search) ? params.search[0] : params.search
+  const blogs = await getSearchBlogs(search)
 
   if (!blogs.docs) {
     return notFound()

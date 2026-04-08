@@ -1,4 +1,39 @@
+import { cacheLife } from 'next/cache'
 import { NextResponse } from 'next/server'
+
+const getDevToArticles = async ({
+  apiKey,
+  page,
+  perPage,
+}: {
+  apiKey: string
+  page: string
+  perPage: string
+}) => {
+  'use cache'
+  cacheLife({ stale: 60 * 5, revalidate: 60 * 60, expire: 60 * 60 * 24 })
+
+  const response = await fetch(`https://dev.to/api/articles/me?page=${page}&per_page=${perPage}`, {
+    method: 'GET',
+    headers: {
+      'api-key': apiKey,
+    },
+  })
+
+  if (!response.ok) {
+    return {
+      ok: false as const,
+      status: response.status,
+      statusText: response.statusText,
+      details: await response.text(),
+    }
+  }
+
+  return {
+    ok: true as const,
+    data: await response.json(),
+  }
+}
 
 export async function GET(req: Request) {
   try {
@@ -12,28 +47,19 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: 'DEV_TO_API_KEY is not configured' }, { status: 500 })
     }
 
-    const response = await fetch(
-      `https://dev.to/api/articles/me?page=${page}&per_page=${perPage}`,
-      {
-        method: 'GET',
-        headers: {
-          'api-key': apiKey,
-        },
-      },
-    )
+    const result = await getDevToArticles({ apiKey, page, perPage })
 
-    if (!response.ok) {
-      const errorText = await response.text()
+    if (!result.ok) {
       return NextResponse.json(
         {
-          error: `Failed to fetch blogs: ${response.status} ${response.statusText}`,
-          details: errorText,
+          error: `Failed to fetch blogs: ${result.status} ${result.statusText}`,
+          details: result.details,
         },
-        { status: response.status },
+        { status: result.status },
       )
     }
 
-    const data = await response.json()
+    const data = result.data
 
     if (!Array.isArray(data)) {
       return NextResponse.json(

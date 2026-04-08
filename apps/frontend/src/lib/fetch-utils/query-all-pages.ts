@@ -1,9 +1,12 @@
 import type { QueryPagesSlugProps } from './types'
+import { cacheLife } from 'next/cache'
 import config from '@payload-config'
 import { getPayload } from 'payload'
-import { cache } from 'react'
 
 export const queryPagesSlug = async ({ page, limit }: QueryPagesSlugProps) => {
+  'use cache'
+  cacheLife({ stale: 60 * 5, revalidate: 60 * 60 * 24, expire: 60 * 60 * 24 * 7 })
+
   const payload = await getPayload({ config: config })
 
   const result = await payload.find({
@@ -26,6 +29,9 @@ export const queryPagesSlug = async ({ page, limit }: QueryPagesSlugProps) => {
 }
 
 export const queryPages = async ({ page, limit }: QueryPagesSlugProps) => {
+  'use cache'
+  cacheLife({ stale: 60 * 5, revalidate: 60 * 60 * 24, expire: 60 * 60 * 24 * 7 })
+
   const payload = await getPayload({ config: config })
 
   const result = await payload.find({
@@ -57,7 +63,10 @@ export const queryPages = async ({ page, limit }: QueryPagesSlugProps) => {
   }
 }
 
-export const queryCollaborators = cache(async () => {
+export const queryCollaborators = async () => {
+  'use cache'
+  cacheLife({ stale: 60 * 5, revalidate: 60 * 60 * 24, expire: 60 * 60 * 24 * 7 })
+
   const payload = await getPayload({ config: config })
 
   const result = await payload.find({
@@ -71,9 +80,12 @@ export const queryCollaborators = cache(async () => {
       docs: result.docs,
     }
   }
-})
+}
 
 export const queryGlobals = async () => {
+  'use cache'
+  cacheLife({ stale: 60 * 5, revalidate: 60 * 60 * 24, expire: 60 * 60 * 24 * 7 })
+
   const payload = await getPayload({ config: config })
 
   const result = await payload.findGlobal({
