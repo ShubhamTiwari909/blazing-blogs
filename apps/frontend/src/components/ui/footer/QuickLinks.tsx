@@ -17,9 +17,6 @@ const QuickLinks = async () => {
 
   const loggedInNavItems = [
     { name: 'Subscribe', href: '/subscribe' },
-    process.env.ADMIN_EMAIL === session?.user.email
-      ? { name: 'Health Check', href: '/healthcheck' }
-      : {},
   ]
   const navItems = [...defaultNavItems, ...(session?.user.email ? loggedInNavItems : [])]
   return (
