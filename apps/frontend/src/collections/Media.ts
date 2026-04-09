@@ -45,4 +45,5 @@ export const Media: CollectionConfig = {
   ],
   upload: true,
   trash: true,
+  folders: true
 }
