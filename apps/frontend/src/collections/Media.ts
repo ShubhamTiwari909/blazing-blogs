@@ -25,7 +25,7 @@ export const Media: CollectionConfig = {
       hooks: {
         afterRead: [
           ({ data }) => {
-            if (data) {
+            if (data && data._key) {
               const baseUrl = 'https://570pc5yjce.ufs.sh/f/'
               data.cloudUrl = `${baseUrl}${data._key}`;
             }
