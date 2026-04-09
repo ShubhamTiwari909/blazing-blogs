@@ -1,4 +1,6 @@
 import { default as default_bea000b683b1542f619ebdf784e53c32 } from '@/components/payload/dashboard/ImagePreview'
+import { FolderTableCell as FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
+import { FolderField as FolderField_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { default as default_d86150a9e1be19c6b36cbda2cd68dd31 } from '@/components/payload/dashboard/revalidation'
 import { default as default_d5a885890ed1172f8ed1ecdf3f4ebb6a } from '@/components/payload/dashboard/ArrayRowLabel'
 import { default as default_a84e65d5054455783144789857df1211 } from '@/components/payload/dashboard/ai-summary/GeminiFieldSummary'
@@ -34,12 +36,15 @@ import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 }
 import { default as default_5e8629dff80dac03d9275dce6ee68383 } from '@/components/payload/dashboard/view-and-reactions/ViewsAndReactions'
 import { default as default_76aa9e21c065ea9b0a4461df1322defb } from '@/components/payload/dashboard/pagespeed/pagespeed'
 import { default as default_343f7dd89d93a9641fcb5e5552851cc0 } from '@/components/payload/dashboard/csv-export/CsvDataExport'
+import { FolderTypeField as FolderTypeField_2b8867833a34864a02ddf429b0728a40 } from '@payloadcms/next/client'
 import { default as default_7ef9d54d7e43adad90c2fc9dc6f21ba8 } from '@/globals/RefetchButton'
 import { UploadthingClientUploadHandler as UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10 } from '@payloadcms/storage-uploadthing/client'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 export const importMap = {
   "@/components/payload/dashboard/ImagePreview#default": default_bea000b683b1542f619ebdf784e53c32,
+  "@payloadcms/next/rsc#FolderTableCell": FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1,
+  "@payloadcms/next/rsc#FolderField": FolderField_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@/components/payload/dashboard/revalidation#default": default_d86150a9e1be19c6b36cbda2cd68dd31,
   "@/components/payload/dashboard/ArrayRowLabel#default": default_d5a885890ed1172f8ed1ecdf3f4ebb6a,
   "@/components/payload/dashboard/ai-summary/GeminiFieldSummary#default": default_a84e65d5054455783144789857df1211,
@@ -75,6 +80,7 @@ export const importMap = {
   "@/components/payload/dashboard/view-and-reactions/ViewsAndReactions#default": default_5e8629dff80dac03d9275dce6ee68383,
   "@/components/payload/dashboard/pagespeed/pagespeed#default": default_76aa9e21c065ea9b0a4461df1322defb,
   "@/components/payload/dashboard/csv-export/CsvDataExport#default": default_343f7dd89d93a9641fcb5e5552851cc0,
+  "@payloadcms/next/client#FolderTypeField": FolderTypeField_2b8867833a34864a02ddf429b0728a40,
   "@/globals/RefetchButton#default": default_7ef9d54d7e43adad90c2fc9dc6f21ba8,
   "@payloadcms/storage-uploadthing/client#UploadthingClientUploadHandler": UploadthingClientUploadHandler_749dcaa11bb61b873d113cb6c609bc10,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
