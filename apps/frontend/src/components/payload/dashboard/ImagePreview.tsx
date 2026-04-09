@@ -5,11 +5,11 @@ import Image from 'next/image'
 
 const ImagePreview = () => {
   const [showPreview, setShowPreview] = useState(false)
-  const cloudUrl = useFormFields(([fields]) => fields.cloudUrl).value as string || ''
+  const cloudUrl = useFormFields(([fields]) => fields.cloudUrl).value as string | null
 
-  const mimeType = useFormFields(([fields]) => fields.mimeType).value as string || ''
+  const mimeType = useFormFields(([fields]) => fields.mimeType).value as string | null
 
-  if(!mimeType.includes('image')) return null
+  if(!mimeType?.includes('image') || !cloudUrl) return null
 
   return (
     <div>

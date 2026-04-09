@@ -21,7 +21,6 @@ export const Media: CollectionConfig = {
         description:
           'This is the URL that will be used to access the image in the cloud storage',
       },
-      defaultValue: `https://570pc5yjce.ufs.sh/f/`,
       required: true,
       hooks: {
         afterRead: [
