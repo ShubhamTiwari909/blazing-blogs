@@ -160,6 +160,11 @@ export interface User {
 export interface Media {
   id: string;
   alt: string;
+  /**
+   * This is the URL that will be used to access the image in the cloud storage
+   */
+  cloudUrl: string;
+  type: string;
   _key?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -431,6 +436,8 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  cloudUrl?: T;
+  type?: T;
   _key?: T;
   updatedAt?: T;
   createdAt?: T;

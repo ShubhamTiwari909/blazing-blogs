@@ -1,3 +1,4 @@
+import { default as default_bea000b683b1542f619ebdf784e53c32 } from '@/components/payload/dashboard/ImagePreview'
 import { default as default_d86150a9e1be19c6b36cbda2cd68dd31 } from '@/components/payload/dashboard/revalidation'
 import { default as default_d5a885890ed1172f8ed1ecdf3f4ebb6a } from '@/components/payload/dashboard/ArrayRowLabel'
 import { default as default_a84e65d5054455783144789857df1211 } from '@/components/payload/dashboard/ai-summary/GeminiFieldSummary'
@@ -38,6 +39,7 @@ import { UploadthingClientUploadHandler as UploadthingClientUploadHandler_749dca
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 export const importMap = {
+  "@/components/payload/dashboard/ImagePreview#default": default_bea000b683b1542f619ebdf784e53c32,
   "@/components/payload/dashboard/revalidation#default": default_d86150a9e1be19c6b36cbda2cd68dd31,
   "@/components/payload/dashboard/ArrayRowLabel#default": default_d5a885890ed1172f8ed1ecdf3f4ebb6a,
   "@/components/payload/dashboard/ai-summary/GeminiFieldSummary#default": default_a84e65d5054455783144789857df1211,
