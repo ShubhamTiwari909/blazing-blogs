@@ -35,24 +35,6 @@ export const Media: CollectionConfig = {
       },
     },
     {
-      name:'type',
-      label: 'Media Type',
-      type:'text',
-      required: true,
-      admin: {
-        readOnly: true,
-      },
-      hooks: {
-        beforeValidate: [
-          ({ data }) => {
-            if (data) {
-              data.type = data.mimeType
-            }
-          },
-        ],
-      },
-    },
-    {
       name: 'preview', // required
       type: 'ui', // required
       admin: {
